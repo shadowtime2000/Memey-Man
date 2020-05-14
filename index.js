@@ -40,6 +40,4 @@ bot.on('message', msg=>{
 
 })
 
-bot.user.setActivity("음악 녹음중"); 
-
 bot.login(process.env.token);
