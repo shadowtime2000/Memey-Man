@@ -40,4 +40,9 @@ bot.on('message', msg=>{
 
 })
 
+bot.user.setActivity("음악 녹음중", {
+  type: "STREAMING",
+  url: "https://www.twitch.tv/moohyun"
+});
+
 bot.login(process.env.token);
