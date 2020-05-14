@@ -33,6 +33,11 @@ bot.on('message', msg=>{
     
     }
 
+    if(msg.content == "?커맨드"){
+        msg.reply('동네, 운지, 응디, 예아, 부엉이, 작통권연설')
+    
+    }
+
 })
 
 bot.login(process.env.token);
