@@ -28,6 +28,11 @@ bot.on('message', msg=>{
     
     }
 
+    if(msg.content == "?예아"){
+        msg.reply('예아')
+    
+    }
+
 })
 
 bot.login(process.env.token);
