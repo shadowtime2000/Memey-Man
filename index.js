@@ -28,6 +28,11 @@ bot.on('message', msg=>{
     
     }
 
+    if(msg.content == "?말대꾸"){
+        msg.reply('사실을 확인하는 습관이 점차점차 붙어갑니다. 함부로 쓰지 않습니다. 대신에 괘씸하거든요. 옛날에 공무원들은 안 그랬는데, 요즘 공무원들은 또박또박 말대꾸를 한단 말입니다.')
+
+    }
+
 })
 
 bot.login(process.env.token);
