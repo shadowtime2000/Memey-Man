@@ -8,9 +8,6 @@ bot.on('message', msg=>{
         msg.reply('우흥!')
     }
 
-})
-
-bot.on('message', msg=>{
     if(msg.content == "?운지"){
         msg.reply('저기 부엉이바위 쪽으로 가자')
     }
