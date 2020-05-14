@@ -3,6 +3,17 @@ const bot = new Discord.Client();
 
 const token = 'NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU';
 
+bot.on('ready', () => {
+    bot.user.setStatus('available')
+    bot.user.setPresence({
+        game: {
+            name: 'MC무현 노래작업',
+            type: "STREAMING",
+            url: "https://www.twitch.tv/mcmoohyun"
+        }
+    });
+})
+
 bot.on('message', msg=>{
     if(msg.content == "?부엉이"){
         msg.reply('우흥!')
