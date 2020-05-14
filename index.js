@@ -17,6 +17,12 @@ bot.on('message', msg=>{
         msg.reply('대한민국 군대들 지금까지 뭐했노!')
     
     }
+
+    if(msg.content == "?응디"){
+        msg.reply('미국한테 매달려 가지고 바짓가랭이 매달려 가지고 응디... 미국 응딩이 뒤에서 숨어가지고 "형님, 형님, 형님 빽만 믿겠다')
+     
+    }
+
 })
 
 bot.login(process.env.token);
