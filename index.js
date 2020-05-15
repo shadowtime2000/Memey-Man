@@ -60,7 +60,7 @@ bot.on('message', msg=>{
         const lEmbed = new Discord.MessageEmbed()
 	    .setColor('#0099ff')
             .setTitle('**가사 커맨드**')
-            .setDescription('사용방법: ?가사 (노래 제목)\n\n가능한 노래: 응디시티, Rock That Unji\n\n*주의: 노래 제목의 대소문자를 구분해서 써주세요*')
+            .setDescription('사용방법: ?가사 (노래 제목)\n\n사용 가능한 노래: 응디시티, Rock That Unji\n\n*주의: 노래 제목의 대소문자를 구분해서 써주세요*')
 	
 	msg.channel.send(lEmbed);
 	    
@@ -70,7 +70,7 @@ bot.on('message', msg=>{
         const mEmbed = new Discord.MessageEmbed()
 	    .setColor('#0099ff')
             .setTitle('**뜻 커맨드**')
-            .setDescription('사용방법: ?뜻 (단어)\n\n가능한 단어: 은디탁, 보수적, 응디시티')
+            .setDescription('사용방법: ?뜻 (단어)\n\n사용 가능한 단어: 은디탁, 보수적, 응디시티')
 	
 	msg.channel.send(mEmbed);
 	    
