@@ -41,7 +41,7 @@ bot.on('message', msg=>{
 
     if(msg.content == "?커맨드"){
         const exampleEmbed = new Discord.MessageEmbed()
-	           .setColor('#0099ff')
+	    .setColor('#0099ff')
             .setTitle('커맨드 목록')
             .setDescription('동네, 운지, 응디, 예아, 부엉이, 작통권연설')
 
