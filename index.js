@@ -47,7 +47,7 @@ bot.on('message', (message) => {
         // ban
         member.ban().then((member) => {
             // Successmessage
-            message.channel.send(":wave: " + member.displayName + " 님을 국정원 지하에 가뒀습니다.");
+            message.channel.send("" + member.displayName + " 님을 국정원 지하에 가뒀습니다.");
         }).catch(() => {
              // Failmessage
             message.channel.send("실패");
@@ -62,7 +62,7 @@ bot.on('message', (message) => {
         // ban
         member.kick().then((member) => {
             // Successmessage
-            message.channel.send(":wave: " + member.displayName + " 님을 부엉이바위 쪽으로 보냈습니다.");
+            message.channel.send("" + member.displayName + " 님을 부엉이바위 쪽으로 보냈습니다.");
         }).catch(() => {
              // Failmessage
             message.channel.send("실패");
