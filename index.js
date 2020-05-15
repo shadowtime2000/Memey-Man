@@ -40,7 +40,7 @@ bot.on('message', msg=>{
 
 })
 
-client.on("message", (message) => {
+bot.on("message", (message) => {
     if (message.content.startsWith("!ban")) {
 if(!message.member.roles.find("name", "Role that can use this bot"))
    return;
