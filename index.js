@@ -47,10 +47,25 @@ bot.on('message', (message) => {
         // ban
         member.ban().then((member) => {
             // Successmessage
-            message.channel.send(" Successfully banned user ");
+            message.channel.send(" 국정원 지하에 가둬버림 ");
         }).catch(() => {
              // Failmessage
-            message.channel.send("Access Denied");
+            message.channel.send("실패");
+        });
+    }
+});
+
+bot.on('message', (message) => {
+    if (message.content.startsWith("!ban")) {
+        // Easy way to get member object though mentions.
+        var member= message.mentions.members.first();
+        // ban
+        member.kick().then((member) => {
+            // Successmessage
+            message.channel.send(" 부엉이바위 쪽으로 보내버림 ");
+        }).catch(() => {
+             // Failmessage
+            message.channel.send("실패");
         });
     }
 });
