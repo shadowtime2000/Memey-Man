@@ -47,7 +47,7 @@ bot.on('message', msg=>{
 	    
     }
       
-    if(msg.content == "?커맨드"){
+    if(msg.content == "?가사 응디시티"){
         const indi1Embed = new Discord.MessageEmbed()
 	    .setColor('#0099ff')
             .setTitle('응디시티 가사')
