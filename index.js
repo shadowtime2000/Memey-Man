@@ -61,11 +61,22 @@ bot.on('message', msg=>{
         const exampleEmbed = new Discord.MessageEmbed()
 	    .setColor('#0099ff')
             .setTitle('커맨드 목록')
-            .setDescription('동네, 파악, 운지, 응디, 예아, 가사, 부엉이, 작통권연설, 명언, 노래추천\n\n*가사 커맨드를 쓸 때는 노래 제목의 대소문자를 구별해서 써주세요*')
+            .setDescription('동네, 파악, 운지, 응디, 예아, 가사, 부엉이, 은디탁, 작통권연설, 명언, 노래추천\n\n*가사 커맨드를 쓸 때는 노래 제목의 대소문자를 구별해서 써주세요*')
 	
 	msg.channel.send(exampleEmbed);
 	    
     }
+
+    if(msg.content == "?은디탁"){
+        const ttakEmbed = new Discord.MessageEmbed()
+	    .setColor('#0099ff')
+            .setTitle('은디탁')
+            .setDescription('**은디탁**은 MC무현과 함께 작업하며 수많은 노래를 만들어낸 천재 프로듀서이다. 발매한 곡으로는 요들송, 죽은것들을 위한 시 등이 있다. 슬프게도 지금은 활동을 하지 않는다.')
+	
+	msg.channel.send(ttakEmbed);
+	    
+    }
+
       
     if(msg.content == "?가사 응디시티"){
         const indi1Embed = new Discord.MessageEmbed()
