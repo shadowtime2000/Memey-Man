@@ -45,7 +45,7 @@ bot.on('message', msg=>{
     }
 
     if(msg.content == "?노래추천"){
-        var facts = ["봉하반점", "옥탑방", "시간을 달려서", "이 노래가 ㅇㅂ에서 나온다면 ㅁㅈㅎ", "Rock That Unji"];
+        var facts = ["봉하반점", "옥탑방", "시간을 달려서", "이 노래가 ㅇㅂ에서 나온다면 ㅁㅈㅎ", "Rock That Unji", "응디시티", "시계를 줄게", "요들송", "비행기", "무현의 꿈"];
         var fact = Math.floor(Math.random() * facts.length);
         msg.channel.send(facts[fact]);
     
