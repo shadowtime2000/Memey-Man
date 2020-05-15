@@ -77,13 +77,13 @@ bot.on('message', msg=>{
              // Failmessage
             //msg.channel.send("실패했습니다.");
         //});
-    /}
+    //}
 
     //if(msg.content.startsWith('?ban')) {
         // Easy way to get member object though mentions.
         //var member= msg.mentions.members.first();
         // ban
-        member.ban().then((member) => {
+        //member.ban().then((member) => {
             // Successmessage
             //msg.channel.send("" + member.displayName + " 님을 국정원 지하에 가뒀습니다. ");
         //}).catch(() => {
