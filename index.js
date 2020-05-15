@@ -86,6 +86,17 @@ bot.on('message', msg=>{
 	    
     }
 
+    if(msg.content == "?정보"){
+        const infoEmbed = new Discord.MessageEmbed()
+	    .setColor('#0099ff')
+            .setTitle('**봇 정보**')
+            .setDescription('이름: 노무현\n개발자: RedTea\n도움말 커맨드: ?커맨드')
+	
+	msg.channel.send(infoEmbed);
+	    
+    }
+
+
     if(msg.content == "?뜻 은디탁"){
         const ttakEmbed = new Discord.MessageEmbed()
 	    .setColor('#0099ff')
