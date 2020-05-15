@@ -37,30 +37,19 @@ bot.on('message', msg=>{
         msg.reply('동네, 운지, 응디, 예아, 부엉이, 작통권연설')
     
     }
-    
-     if (message.content.startsWith("?kick")) {
-        // Easy way to get member object though mentions.
-        var member= message.mentions.members.first();
-        // Kick
-        member.kick().then((member) => {
-            // Successmessage
-            message.channel.send(":wave: " + member.displayName + " has been successfully kicked :point_right: ");
-        }).catch(() => {
-             // Failmessage
-            message.channel.send("Access Denied");
-        });
-    }
 
 })
 
- bot.on("message", (message) => {
-    if (message.content.startsWith("?ban")) {
+client.on("message", (message) => {
+    if (message.content.startsWith("!ban")) {
+if(!message.member.roles.find("name", "Role that can use this bot"))
+   return;
         // Easy way to get member object though mentions.
         var member= message.mentions.members.first();
         // ban
         member.ban().then((member) => {
             // Successmessage
-            message.channel.send(":wave: " + member.displayName + " has been successfully banned https://gfycat.com/playfulfittingcaribou :point_right: ");
+            message.channel.send(":wave: " + member.displayName + " has been successfully banned :point_right: ");
         }).catch(() => {
              // Failmessage
             message.channel.send("Access Denied");
