@@ -37,6 +37,12 @@ bot.on('message', msg=>{
     
     }
 
+   if(msg.content == "?파악"){
+        msg.reply('파악~ 올라갔다가 파악~ 내려갔다가')
+    
+    }
+
+
     if(msg.content == "?커맨드"){
         const exampleEmbed = new Discord.MessageEmbed()
 	    .setColor('#0099ff')
