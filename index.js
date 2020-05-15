@@ -3,17 +3,16 @@ const bot = new Discord.Client();
 
 const token = 'NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU';
 
-bot.once('ready', () => {
- console.log('Ready!');
- bot.user.setStatus('available')
- bot.user.setPresence({
+bkt.on("ready", () =>{
+    console.log(`Logged in as ${client.user.tag}!`);
+    bot.user.setPresence({
+        status: "online",  
         game: {
-            name: 'MC무현 노래작업',
-            type: "STREAMING",
-            url: "https://www.twitch.tv/mcmoohyun"
+            name: "MC무현 음악작업",  //The message shown
+            type: "PLAYING" //PLAYING: WATCHING: LISTENING: STREAMING:
         }
     });
-});
+ });
 
 bot.on('message', msg=>{
     if(msg.content == "?부엉이"){
