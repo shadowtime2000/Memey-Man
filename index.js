@@ -43,8 +43,7 @@ bot.on('message', msg=>{
             .setTitle('커맨드 목록')
             .setDescription('동네, 운지, 응디, 예아, 부엉이, 작통권연설')
 	
-	const channel = bot.channels.cache.get('710003744355385354');
-	channel.send(exampleEmbed);
+	msg.channel.send(exampleEmbed);
 	    
     }
       
