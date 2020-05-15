@@ -61,7 +61,7 @@ bot.on('message', msg=>{
         const exampleEmbed = new Discord.MessageEmbed()
 	    .setColor('#0099ff')
             .setTitle('커맨드 목록')
-            .setDescription('동네, 파악, 운지, 응디, 예아, 가사, 부엉이, 은디탁, 보수적, 작통권연설, 명언, 노래추천\n\n*가사 커맨드를 쓸 때는 노래 제목의 대소문자를 구별해서 써주세요*')
+            .setDescription('동네, 파악, 운지, 응디, 예아, 가사, 부엉이, 은디탁, 보수적, 응디시티, 작통권연설, 명언, 노래추천\n\n*가사 커맨드를 쓸 때는 노래 제목의 대소문자를 구별해서 써주세요*')
 	
 	msg.channel.send(exampleEmbed);
 	    
@@ -87,6 +87,15 @@ bot.on('message', msg=>{
 	    
     }
 
+    if(msg.content == "?커맨드"){
+        const indi2Embed = new Discord.MessageEmbed()
+	    .setColor('#0099ff')
+            .setTitle('응디시티')
+            .setDescription('**응디시티**는 MC무현이 발매한 곡 중 하나이다. 이 곡은 유튜브에서 1000만 조회수를 뛰어넘는 등 가장 인기가 많고 잘 알려져 있는 MC무현 노래이다.')
+	
+	msg.channel.send(indi2Embed);
+	    
+    }
       
     if(msg.content == "?가사 응디시티"){
         const indi1Embed = new Discord.MessageEmbed()
