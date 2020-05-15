@@ -37,6 +37,14 @@ bot.on('message', msg=>{
     
     }
 
+    if(msg.content == "?명언"){
+        var facts = ["부끄러운 줄 알아야지!", "괜찮습니다. 괜찮고요.", "제가 언제 겅제 살리겠다고 말이나 헀습니까?"];
+        var fact = Math.floor(Math.random() * facts.length);
+        msg.channel.send(facts[fact]);
+    
+    }
+
+
    if(msg.content == "?파악"){
         msg.reply('파악~ 올라갔다가 파악~ 내려갔다가')
     
