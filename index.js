@@ -40,11 +40,13 @@ bot.on('message', msg=>{
     }
 
     if(msg.content == "?커맨드"){
-        message.channel.send({embed: {
-          color: 3447003,
-          description: "동네, 운지, 응디, 예아, 부엉이, 작통권연설"
-    }});
-    
+        const exampleEmbed = new Discord.MessageEmbed()
+	           .setColor('#0099ff')
+            .setTitle('커맨드 목록')
+            .setDescription('동네, 운지, 응디, 예아, 부엉이, 작통권연설')
+
+        channel.send(exampleEmbed);
+      
     if(msg.content.startsWith('?kick')) {
         // Easy way to get member object though mentions.
         var member= msg.mentions.members.first();
