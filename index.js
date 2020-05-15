@@ -45,7 +45,7 @@ bot.on('message', msg=>{
     }
 
     if(msg.content == "?노래추천"){
-        var facts = ["봉하반점", "옥탑방", "시간을 달려서", "이 노래가 ㅇㅂ에서 나온다면 ㅁㅈㅎ", "Rock That Unji", "응디시티", "시계를 줄게", "요들송", "비행기", "무현의 꿈"];
+        var facts = ["MC무현 - 봉하반점", "MC무현 - 옥탑방", "MC무현 - 시간을 달려서", "MC무현 - 이 노래가 ㅇㅂ에서 나온다면 ㅁㅈㅎ", "MC무현 - Rock That Unji", "MC무현 - 응디시티", "MC무현 - 시계를 줄게", "MC무현 - 요들송", "MC무현 - 비행기", "MC무현 - 무현의 꿈"];
         var fact = Math.floor(Math.random() * facts.length);
         msg.channel.send(facts[fact]);
     
