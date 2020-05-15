@@ -98,7 +98,7 @@ bot.on('message', msg=>{
         const infoEmbed = new Discord.MessageEmbed()
 	    .setColor('#0099ff')
             .setTitle('**봇 정보**')
-            .setDescription('봇 이름: 노무현\n개발자: RedTea\n도움말 커맨드: ?커맨드')
+            .setDescription('봇 이름: 노무현\n개발자: RedTea\n접두사: ?[커맨드]\n도움말 커맨드: ?커맨드')
 	
 	msg.channel.send(infoEmbed);
 	    
