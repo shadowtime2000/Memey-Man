@@ -70,4 +70,15 @@ bot.on('message', (message) => {
     }
 });
 
+bot.on('message', message => {
+    if(message.content == '?unban'){
+        message.guild.fetchBans().then(bans => {
+            bans.forEach(user => {
+                console.log(user.username + '#' + user.tag);
+                message.guild.unban(user);
+            });
+        });
+    }
+});
+
 bot.login(process.env.token);
