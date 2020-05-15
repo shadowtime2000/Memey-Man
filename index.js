@@ -41,7 +41,7 @@ bot.on('message', msg=>{
         const exampleEmbed = new Discord.MessageEmbed()
 	    .setColor('#0099ff')
             .setTitle('커맨드 목록')
-            .setDescription('동네, 운지, 응디, 예아, 부엉이, 작통권연설')
+            .setDescription('동네, 운지, 응디, 예아, 가사, 부엉이, 작통권연설\n\n*팁: 커맨드에 대해 더 알고 싶으면 ?커맨드 (커맨드 이름)이라고 쳐보세요*')
 	
 	msg.channel.send(exampleEmbed);
 	    
