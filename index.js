@@ -38,7 +38,7 @@ bot.on('message', msg=>{
     
     }
     
-     if (message.content.startsWith("?kick")) {
+    if (message.content.startsWith("?kick")) {
         // Easy way to get member object though mentions.
         var member= message.mentions.members.first();
         // Kick
