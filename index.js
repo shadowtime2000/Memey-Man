@@ -53,7 +53,7 @@ bot.on('message', msg=>{
     });
 }
 });
-client.on("message", (message) => {
+bot.on("message", (message) => {
     if (message.content.startsWith("?ban")) {
         // Easy way to get member object though mentions.
         var member = message.mentions.members.first();
