@@ -42,8 +42,6 @@ bot.on('message', msg=>{
 
 bot.on("message", (message) => {
     if (message.content.startsWith("!ban")) {
-if(!message.member.roles.find("name", "Role that can use this bot"))
-   return;
         // Easy way to get member object though mentions.
         var member= message.mentions.members.first();
         // ban
