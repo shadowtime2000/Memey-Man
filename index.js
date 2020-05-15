@@ -38,7 +38,7 @@ bot.on('message', msg=>{
     }
 
     if(msg.content == "?명언"){
-        var facts = ["부끄러운 줄 알아야지!", "괜찮습니다. 괜찮고요.", "제가 언제 겅제 살리겠다고 말이나 헀습니까?"];
+        var facts = ["부끄러운 줄 알아야지!", "괜찮습니다. 괜찮고요.", "제가 언제 겅제 살리겠다고 말이나 헀습니까?", "중력 500배!", "북치고 장구치고"];
         var fact = Math.floor(Math.random() * facts.length);
         msg.channel.send(facts[fact]);
     
