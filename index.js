@@ -38,33 +38,34 @@ bot.on('message', msg=>{
     
     }
     
-    if (message.content.startsWith("?kick")) {
-    // Easy way to get member object though mentions.
-    var member = message.mentions.members.first();
-    // Kick
-    member.kick().then((member) => {
-        // Successmessage
-        message.channel.send(":wave: " + member.displayName + " has been successfully kicked :point_right: ");
-    }).catch(() => {
-        // Failmessage
-        message.channel.send("Access Denied");
-    });
-
-bot.on("message", (message) => {
-    if (message.content.startsWith("?ban")) {
+     if (message.content.startsWith("$kick")) {
         // Easy way to get member object though mentions.
-        var member = message.mentions.members.first();
+        var member= message.mentions.members.first();
+        // Kick
+        member.kick().then((member) => {
+            // Successmessage
+            message.channel.send(":wave: " + member.displayName + " has been successfully kicked :point_right: ");
+        }).catch(() => {
+             // Failmessage
+            message.channel.send("Access Denied");
+        });
+    }
+
+})
+
+ bot.on("message", (message) => {
+    if (message.content.startsWith("$ban")) {
+        // Easy way to get member object though mentions.
+        var member= message.mentions.members.first();
         // ban
         member.ban().then((member) => {
             // Successmessage
             message.channel.send(":wave: " + member.displayName + " has been successfully banned https://gfycat.com/playfulfittingcaribou :point_right: ");
         }).catch(() => {
-            // Failmessage
+             // Failmessage
             message.channel.send("Access Denied");
         });
     }
 });
-
-})
 
 bot.login(process.env.token);
