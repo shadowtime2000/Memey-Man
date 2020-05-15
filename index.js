@@ -51,7 +51,7 @@ bot.on('message', (message) => {
             message.channel.send("" + member.displayName + " 님을 국정원 지하에 가뒀습니다.");
         }).catch(() => {
              // Failmessage
-            message.channel.send("실패");
+            message.channel.send("실패")};
         });
     }
 });
@@ -67,7 +67,7 @@ bot.on('message', (message) => {
             message.channel.send("" + member.displayName + " 님을 부엉이바위 쪽으로 보냈습니다.");
         }).catch(() => {
              // Failmessage
-            message.channel.send("실패");
+            message.channel.send("실패")};
         });
     }
 });
