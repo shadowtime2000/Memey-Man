@@ -49,7 +49,7 @@ bot.on('message', (message) => {
             }).catch(() => {
                 message.channel.send("실패");
             });
-        }
+        };
     }
 });
 
@@ -62,7 +62,7 @@ bot.on('message', (message) => {
             }).catch(() => {
                 message.channel.send("실패")};
             });
-        }
+        };
     }
 });
 
