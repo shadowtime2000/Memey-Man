@@ -5,6 +5,10 @@ const token = 'NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU';
 
 const queue = new Map();
 
+bot.once('ready', () => {
+ console.log('Ready!');
+});
+
 bot.once("reconnecting", () => {
   console.log("Reconnecting!");
 });
