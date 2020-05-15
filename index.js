@@ -87,7 +87,7 @@ bot.on('message', msg=>{
 	    
     }
 
-    if(msg.content == "?커맨드"){
+    if(msg.content == "?응디시티"){
         const indi2Embed = new Discord.MessageEmbed()
 	    .setColor('#0099ff')
             .setTitle('응디시티')
