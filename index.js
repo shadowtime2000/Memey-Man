@@ -44,6 +44,12 @@ bot.on('message', msg=>{
     
     }
 
+    if(msg.content == "?노래추천"){
+        var facts = ["봉하반점", "옥탑방", "시간을 달려서", "이 노래가 ㅇㅂ에서 나온다면 ㅁㅈㅎ", "Rock That Unji"];
+        var fact = Math.floor(Math.random() * facts.length);
+        msg.channel.send(facts[fact]);
+    
+    }
 
    if(msg.content == "?파악"){
         msg.reply('파악~ 올라갔다가 파악~ 내려갔다가')
