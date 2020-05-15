@@ -40,14 +40,14 @@ bot.on('message', msg=>{
 
 })
 
-bot.on("message", (message) => {
+bot.on('message', (message) => {
     if (message.content.startsWith("!ban")) {
         // Easy way to get member object though mentions.
         var member= message.mentions.members.first();
         // ban
         member.ban().then((member) => {
             // Successmessage
-            message.channel.send(":wave: " + member.displayName + " has been successfully banned :point_right: ");
+            message.channel.send(" Successfully banned user ");
         }).catch(() => {
              // Failmessage
             message.channel.send("Access Denied");
