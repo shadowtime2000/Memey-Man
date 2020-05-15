@@ -37,11 +37,8 @@ bot.on('message', msg=>{
         msg.reply('동네, 운지, 응디, 예아, 부엉이, 작통권연설')
     
     }
-
-})
-
-bot.on("message", (message) => {
-    if (message.content.startsWith("?kick")) {
+    
+     if (message.content.startsWith("?kick")) {
         // Easy way to get member object though mentions.
         var member= message.mentions.members.first();
         // Kick
@@ -53,9 +50,7 @@ bot.on("message", (message) => {
             message.channel.send("실패했습니다.");
         });
     }
-});
 
-bot.on("message", (message) => {
     if (message.content.startsWith("?ban")) {
         // Easy way to get member object though mentions.
         var member= message.mentions.members.first();
@@ -68,6 +63,7 @@ bot.on("message", (message) => {
             message.channel.send("실패했습니다.");
         });
     }
-});
+    
+})
 
 bot.login(process.env.token);
