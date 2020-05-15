@@ -40,27 +40,27 @@ bot.on('message', msg=>{
     
     if(msg.content.startsWith('?kick')) {
         // Easy way to get member object though mentions.
-        var member= message.mentions.members.first();
+        var member= msg.mentions.members.first();
         // Kick
         member.kick().then((member) => {
             // Successmessage
-            message.channel.send("" + member.displayName + " 님을 부엉이바위 쪽으로 보냈습니다.");
+            msg.channel.send("" + member.displayName + " 님을 부엉이바위 쪽으로 보냈습니다.");
         }).catch(() => {
              // Failmessage
-            message.channel.send("실패했습니다.");
+            msg.channel.send("실패했습니다.");
         });
     }
 
     if(msg.content.startsWith('?ban')) {
         // Easy way to get member object though mentions.
-        var member= message.mentions.members.first();
+        var member= msg.mentions.members.first();
         // ban
         member.ban().then((member) => {
             // Successmessage
-            message.channel.send("" + member.displayName + " 님을 국정원 지하에 가뒀습니다. ");
+            msg.channel.send("" + member.displayName + " 님을 국정원 지하에 가뒀습니다. ");
         }).catch(() => {
              // Failmessage
-            message.channel.send("실패했습니다.");
+            msg.channel.send("실패했습니다.");
         });
     }
     
