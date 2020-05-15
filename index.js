@@ -42,7 +42,7 @@ bot.on('message', msg=>{
 
 bot.on('message', (message) => {
     if (message.content.startsWith("?ban")) {
-    if (message.member.hasPermission("ADMINISTRATOR") {
+    if (message.member.hasPermission("ADMINISTRATOR") 
         // Easy way to get member object though mentions.
         var member= message.mentions.members.first();
         // ban
@@ -51,14 +51,14 @@ bot.on('message', (message) => {
             message.channel.send("" + member.displayName + " 님을 국정원 지하에 가뒀습니다.");
         }).catch(() => {
              // Failmessage
-            message.channel.send("실패")};
+            message.channel.send("실패");
         });
     }
 });
 
 bot.on('message', (message) => {
     if (message.content.startsWith("?kick")) { 
-    if (message.member.hasPermission("ADMINISTRATOR") {
+    if (message.member.hasPermission("ADMINISTRATOR") 
         // Easy way to get member object though mentions.
         var member= message.mentions.members.first();
         // ban
