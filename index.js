@@ -1,18 +1,12 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
+bot.user.setActivity('MC무현 라이브 공연', { type: 'WATCHING' });
 
 const token = 'NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU';
 
 bot.on("ready", () =>{
     console.log('Logged in!');
-    bot.user.setPresence({
-        status: "online",  
-        game: {
-            name: "MC무현 음악작업",  //The message shown
-            type: "PLAYING" //PLAYING: WATCHING: LISTENING: STREAMING:
-        }
-    });
- });
+});
 
 bot.on('message', msg=>{
     if(msg.content == "?부엉이"){
