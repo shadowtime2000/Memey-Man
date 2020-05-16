@@ -8,10 +8,6 @@ bot.on("ready", () =>{
     console.log('Logged in!');
 });
 
-bot.user.setActivity('MCMH LIVE', { type: 'WATCHING' })
-  .then(presence => console.log(`Activity set to ${presence.activities[0].name}`))
-  .catch(console.error);
-
 bot.on('message', msg=>{
     if(msg.content == "?부엉이"){
         msg.reply('우흥!')
