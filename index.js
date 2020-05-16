@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 
-bot.user.setActivity('MCMH LIVE', { type: 'WATCHING' })
+bot.user.setPresence('MCMH LIVE', { type: 'WATCHING' })
   .then(presence => console.log(`Activity set to ${presence.activities[0].name}`))
   .catch(console.error);
 
