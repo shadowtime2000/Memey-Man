@@ -47,14 +47,14 @@ bot.on('message', msg=>{
     if(msg.content == "?명언"){
         var facts = ["부끄러운 줄 알아야지!", "맞습니다. 맞고요.", "제가 언제 겅제 살리겠다고 말이나 헀습니까?", "중력 500배!", "북치고 장구치고", "우리도 고래다.", "야 기분좋다!"];
         var fact = Math.floor(Math.random() * facts.length);
-        msg.channel.send(facts[fact]);
+        msg.reply(facts[fact]);
     
     }
 
     if(msg.content == "?노래추천"){
         var facts = ["MC무현 - 봉하반점", "MC무현 - 옥탑방", "MC무현 - 시간을 달려서", "MC무현 - 이 노래가 ㅇㅂ에서 나온다면 ㅁㅈㅎ", "MC무현 - Rock That Unji", "MC무현 - 응디시티", "MC무현 - 시계를 줄게", "MC무현 - 요들송", "MC무현 - 비행기", "MC무현 - 무현의 꿈"];
         var fact = Math.floor(Math.random() * facts.length);
-        msg.channel.send(facts[fact]);
+        msg.reply(facts[fact]);
     
     }
 
