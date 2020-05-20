@@ -13,7 +13,7 @@ bot.on('message', message => {
 });
 
 function loadMeme() {
-  fetch('/r/meme.json?limit=100&?sort=top&t=all')
+  global.fetch('/r/meme.json?limit=100&?sort=top&t=all')
     .then(res => res.json())
     .then(json => json.data.children.map(v => v.data.url))
     .then(urls => postRandomMeme(urls));
