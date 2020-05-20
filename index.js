@@ -8,10 +8,32 @@ bot.on("ready", () =>{
     console.log('Logged in!');
 });
 
+bot.on('message', message => {
+  if (message.content === '!밈') loadMeme(message);
+});
+
+function loadMeme() {
+  fetch('/r/meme.json?limit=100&?sort=top&t=all')
+    .then(res => res.json())
+    .then(json => json.data.children.map(v => v.data.url))
+    .then(urls => postRandomMeme(urls));
+}
+
+function postRandomMeme(urls) {
+  const randomURL = urls[Math.floor(Math.random() * urls.length) + 1];
+  const embed = new Discord.MessageEmbed({
+    SetImage: {
+      url: randomURL
+    }
+  });
+  message.channel.send(embed);
+}
+
 bot.on('message', msg=>{
     if(msg.content == "?부엉이"){
         msg.reply('우흥!')
     }
+
 
     if(msg.content == "?운지"){
         msg.reply('저기 부엉이바위 쪽으로 가자')
