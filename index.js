@@ -8,27 +8,6 @@ bot.on("ready", () =>{
     console.log('Logged in!');
 });
 
-bot.on('message', message => {
-  if (message.content === '!밈') loadMeme(message);
-});
-
-function loadMeme() {
-  global.fetch('/r/meme.json?limit=100&?sort=top&t=all')
-    .then(res => res.json())
-    .then(json => json.data.children.map(v => v.data.url))
-    .then(urls => postRandomMeme(urls));
-}
-
-function postRandomMeme(urls) {
-  const randomURL = urls[Math.floor(Math.random() * urls.length) + 1];
-  const embed = new Discord.MessageEmbed({
-    SetImage: {
-      url: randomURL
-    }
-  });
-  message.channel.send(embed);
-}
-
 bot.on('message', msg=>{
     if(msg.content == "?부엉이"){
         msg.reply('우흥!')
