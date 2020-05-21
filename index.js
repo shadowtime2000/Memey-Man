@@ -90,16 +90,6 @@ bot.on('message', msg=>{
 	    
     }
 	
-    if(msg.content == "?바위"){
-        const aaaaaEmbed = new Discord.MessageEmbed()
-	    .setColor('#0099ff')
-            .setTitle('**바위 커맨드**')
-            .setDescription('사용방법: ?바위 (멤버 핑하기)')
-	
-	msg.channel.send(aaaaaEmbed);
-	    
-    }
-
     if(msg.content == "?커맨드"){
         const exampleEmbed = new Discord.MessageEmbed()
 	    .setColor('#0099ff')
