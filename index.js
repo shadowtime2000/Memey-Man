@@ -73,7 +73,13 @@ bot.on('message', msg=>{
 	msg.channel.send(lEmbed);
 	    
     }
-
+	
+    if(msg.content.startsWith('?바위')) {
+	var member= msg.mentions.members.first();
+	msg.channel.send(member)
+	    
+    }
+	    
     if(msg.content == "?뜻"){
         const mEmbed = new Discord.MessageEmbed()
 	    .setColor('#0099ff')
