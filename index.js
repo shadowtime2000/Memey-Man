@@ -76,7 +76,7 @@ bot.on('message', msg=>{
 	
     if(msg.content.startsWith('?바위')) {
 	var member= msg.mentions.members.first();
-	msg.channel.send(member)
+	msg.channel.send(member.displayName)
 	    
     }
 	    
