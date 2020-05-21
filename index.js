@@ -76,7 +76,7 @@ bot.on('message', msg=>{
 	
     if(msg.content.startsWith('?바위')) {
 	var member= msg.mentions.members.first();
-	msg.reply("" + member.displayName + " 님을 부엉이바위 쪽으로 보냈습니다.")
+	msg.channel.send("" + member.displayName + " 님을 부엉이바위 쪽으로 보냈습니다.")
 	    
     }
 	    
