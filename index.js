@@ -91,12 +91,12 @@ bot.on('message', msg=>{
     }
 	
     if(msg.content == "?바위"){
-        const mEmbed = new Discord.MessageEmbed()
+        const mEmbed = new Discord.aaaEmbed()
 	    .setColor('#0099ff')
             .setTitle('**뜻 커맨드**')
             .setDescription('사용방법: ?바위 (멤버 핑하기)')
 	
-	msg.channel.send(mEmbed);
+	msg.channel.send(aaaEmbed);
 	    
     }
 
