@@ -94,7 +94,7 @@ bot.on('message', msg=>{
         const exampleEmbed = new Discord.MessageEmbed()
 	    .setColor('#0099ff')
             .setTitle('**커맨드 목록**')
-            .setDescription('정보, 동네, 파악, 운지, 작통권연설, 부엉이, 기분좋다, 응디, 바위, 가사, 뜻, 명언, 노래추천\n\n*가사 커맨드를 쓸 때는 노래 제목의 대소문자를 구별해서 써주세요*')
+            .setDescription('정보, 동네, 파악, 운지, 작통권연설, 부엉이, 기분좋다, 응디, 바위, 가사, 뜻, 명언, 노래추천\n\n*바위 커맨드 사용방법: ?바위 (멤버 핑하기)*')
 	
 	msg.channel.send(exampleEmbed);
 	    
