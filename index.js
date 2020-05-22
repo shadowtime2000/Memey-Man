@@ -32,7 +32,6 @@ bot.on('message', msg=>{
       		.setAuthor(msg.author.username)
       		.setImage(msg.author.avatarURL)
         msg.channel.send(avatarAuthor);
-        }
     }
 	
     if(msg.content == "?운지"){
