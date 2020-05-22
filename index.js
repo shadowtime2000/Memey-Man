@@ -27,9 +27,9 @@ bot.on('message', msg=>{
     }
  
     if(msg.content == "?phelps") {
-        var es = ["I-", "oop", "Cries"];
-        var e = Math.floor(Math.random() * facts.length);
-        msg.channel.send(es[e]);
+        var facts = ["I-", "oop", "Cries"];
+        var fact = Math.floor(Math.random() * facts.length);
+        msg.channel.send(facts[fact]);
  
     }
 
