@@ -26,17 +26,13 @@ bot.on('message', msg=>{
             });
     }
  
-    if (msg.content.startsWith('!avatar') {
-    if (!msg.mentions.users.size) {
-    	return msg.channel.send(`Your avatar: ${msg.author.displayAvatarURL}`);
-    }
-	
-    const avatarList = msg.mentions.users.map(user => {
-	return `${user.username}\'s avatar: ${user.displayAvatarURL}`;
-    });
-
-    msg.channel.send(avatarList);
-	
+    if (msg.content == "?프사") {
+        const avatarAuthor = new Discord.MessageEmbed()
+      		.setColor(0x333333)
+      		.setAuthor(message.author.username)
+      		.setImage(message.author.avatarURL)
+        message.channel.send(avatarAuthor);
+        }
     }
 	
     if(msg.content == "?운지"){
