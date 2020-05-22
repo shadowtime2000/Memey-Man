@@ -13,7 +13,11 @@ bot.on('message', msg=>{
         msg.reply('우흥!')
     }
 
-
+    if(msg == "?핑") {
+        const msg = await message.channel.send("Pinging...");
+        msg.edit(`Pong! Latency is ${msg.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(bot.ping)}ms`);
+    }
+	
     if(msg.content == "?운지"){
         msg.reply('저기 부엉이바위 쪽으로 가자')
 
