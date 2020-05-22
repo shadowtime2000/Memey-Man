@@ -31,7 +31,7 @@ bot.on('message', msg=>{
       		.setColor(0x333333)
       		.setAuthor(message.author.username)
       		.setImage(message.author.avatarURL)
-        message.channel.send(avatarAuthor);
+        msg.channel.send(avatarAuthor);
         }
     }
 	
