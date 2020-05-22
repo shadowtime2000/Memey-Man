@@ -13,7 +13,7 @@ bot.on('message', msg=>{
         msg.reply('우흥!')
     }
 
-    if(msg === "?meme") {
+    if(msg == "?밈") {
         fetch('https://meme-api.herokuapp.com/gimme')
             .then(res => res.json())
             .then(json => {
