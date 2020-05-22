@@ -74,21 +74,7 @@ bot.on('message', msg=>{
 	    
     }
 	
-    if(msg.content.startsWith('?바위')) {
-	var member= msg.mentions.members.first();
-	msg.channel.send("" + member.displayName + " 님을 부엉이바위 쪽으로 보냈습니다.")
-	    
-    }
-	
-    if(msg.content.startsWith('?찰과상')) {
-	var member= msg.mentions.members.first();
-	var facts = ["을(를) 때리맥였습니다.", "이(가) 찰과상을 입었습니다.", "이(가) 타박상을 입었습니다.", "을(를) 부엉이바위로 보냈습니다.", "을(를) 국정원 지하에 가뒀습니다."];
-        var fact = Math.floor(Math.random() * facts.length);
-	msg.channel.send(member.displayName + facts[fact])
-	    
-    }
-	    
-    if(msg.content.startsWith('?타박상')) {
+    if(msg.content.startsWith('?괴롭히기')) {
 	var member= msg.mentions.members.first();
 	var facts = ["을(를) 때리맥였습니다.", "이(가) 찰과상을 입었습니다.", "이(가) 타박상을 입었습니다.", "을(를) 부엉이바위로 보냈습니다.", "을(를) 국정원 지하에 가뒀습니다."];
         var fact = Math.floor(Math.random() * facts.length);
@@ -110,7 +96,7 @@ bot.on('message', msg=>{
         const exampleEmbed = new Discord.MessageEmbed()
 	    .setColor('#0099ff')
             .setTitle('**커맨드 목록**')
-            .setDescription('정보, 동네, 파악, 운지, 작통권연설, 부엉이, 기분좋다, 응디, 바위, 타박상/찰과상(같은 커맨드), 가사, 뜻, 명언, 노래추천\n\n*바위 커맨드 사용방법: ?바위 (멤버 핑하기)*')
+            .setDescription('정보, 동네, 파악, 운지, 작통권연설, 부엉이, 기분좋다, 응디, 괴롭히기, 가사, 뜻, 명언, 노래추천\n\n*바위/괴롭히기 커맨드 사용방법: ?바위/괴롭히기 (멤버 핑하기)*')
 	
 	msg.channel.send(exampleEmbed);
 	    
