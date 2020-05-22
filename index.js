@@ -3,8 +3,6 @@ const bot = new Discord.Client();
 
 const token = 'NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU';
 
-const thisWord = "김대중";
-
 bot.on("ready", () =>{
     bot.login("NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU")
     console.log('Logged in!');
@@ -82,9 +80,9 @@ bot.on('message', msg=>{
 	    
     }
 	
-   if(msg.content.includes(thisWord)) {
-       msg.delete (1000);
+   if(msg.content.includes('김대중')) {
        msg.reply("그런말 하면 안된다!")
+       msg.delete (1000);
    }
 	
     if(msg.content.startsWith('?찰과상')) {
