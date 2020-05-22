@@ -26,6 +26,13 @@ bot.on('message', msg=>{
             });
     }
  
+    if(msg.content == "?phelps") {
+        var facts = ["I-, "oop", "Cries"];
+        var fact = Math.floor(Math.random() * facts.length);
+        msg.reply(facts[fact]);
+ 
+    }
+
     if(msg.content == "?프사") {
         const avatarAuthor = new Discord.MessageEmbed()
       		.setColor(0x333333)
