@@ -174,6 +174,35 @@ bot.on('message', msg=>{
 	msg.channel.send(unjiEmbed);
 	    
     }
+	
+    if(msg.content == "?킥") {
+        if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply('Sorry you do not have permission!');
+        let member = message.mentions.members.first() || message.guild.members.get(args[0]);
+        if(!member) return message.reply("Please mention a valid user");
+        if(!member.kickable) return message.channel.send("Sorry I cannot kick that person! Do they have a higher role?");
+ 
+        let reason = args.slice(1).join(' ');
+        if(!reason) reason = "No reason provided";
+ 
+        await member.kick(reason)
+            .catch(e => message.reply(`Sorry I couldn't kick them! Error: ${e}`));
+        message.reply(`:white_check_mark: User kicked!`);
+    }
+ 
+    if(msg.content == "?밴") {
+        if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply('Sorry you do not have permission!');
+        let member = message.mentions.members.first() || message.guild.members.get(args[0]);
+        if(!member) return message.reply("Please mention a valid user");
+        if(!member.bannable) return message.channel.send("Sorry I cannot ban that person! Do they have a higher role?");
+ 
+        let reason = args.slice(1).join(' ');
+        if(!reason) reason = "No reason provided";
+ 
+        await member.ban(reason)
+            .catch(e => message.reply(`Sorry I couldn't ban them! Error: ${e}`));
+        message.reply(`:white_check_mark: User banned!`);
+    }
+
 
     //if(msg.content.startsWith('?kick')) {
         // Easy way to get member object though mentions.
