@@ -109,7 +109,7 @@ bot.on('message', msg=>{
         const exampleEmbed = new Discord.MessageEmbed()
 	    .setColor('#0099ff')
             .setTitle('**커맨드 목록**')
-            .setDescription('정보, 동네, 파악, 운지, 작통권연설, 부엉이, 기분좋다, 응디, 괴롭히기, 가사, 뜻, 명언, 노래추천\n\n*괴롭히기 커맨드 사용방법: ?괴롭히기 (멤버 핑하기)*')
+            .setDescription('정보, 동네, 파악, 운지, 작통권연설, 부엉이, 기분좋다, 응디, 괴롭히기, 가사, 뜻, 명언, 노래추천, 밈\n\n*괴롭히기 커맨드 사용방법: ?괴롭히기 (멤버 핑하기)*')
 	
 	msg.channel.send(exampleEmbed);
 	    
@@ -181,7 +181,7 @@ bot.on('message', msg=>{
         member.kick().then((member) => {
             msg.channel.send("" + member.displayName + " 님을 부엉이바위 쪽으로 보냈습니다.");
         }).catch(() => {
-            msg.channel.send("실패했습니다.");
+            msg.channel.send("그 유저를 킥할 수 없습니다.");
         });
     }
 
@@ -191,7 +191,7 @@ bot.on('message', msg=>{
         member.ban().then((member) => {
             msg.channel.send("" + member.displayName + " 님을 국정원 지하에 가뒀습니다. ");
         }).catch(() => {
-            msg.channel.send("실패했습니다.");
+            msg.channel.send("그 유저를 밴할 수 없습니다.");
         });
     }
     
