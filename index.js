@@ -26,11 +26,11 @@ bot.on('message', msg=>{
             });
     }
  
-    if (msg.content == "?프사") {
+    if(msg.content == "?프사") {
         const avatarAuthor = new Discord.MessageEmbed()
       		.setColor(0x333333)
-      		.setAuthor(message.author.username)
-      		.setImage(message.author.avatarURL)
+      		.setAuthor(msg.author.username)
+      		.setImage(msg.author.avatarURL)
         msg.channel.send(avatarAuthor);
         }
     }
