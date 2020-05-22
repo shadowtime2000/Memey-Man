@@ -19,6 +19,7 @@ bot.on('message', msg=>{
             .then(res => res.json())
             .then(json => {
                 const memeembed = new Discord.MessageEmbed()
+                    .setColor('#0099ff')
                     .setTitle(json.title)
                     .setImage(json.url)
                     .setFooter(`Subreddit: ${json.subreddit}`)
@@ -37,7 +38,7 @@ bot.on('message', msg=>{
         const avatarAuthor = new Discord.MessageEmbed()
       		.setColor(0x333333)
       		.setAuthor(msg.author.username)
-      		.setImage(msg.author.avatarURL)
+      		.setImage(msg.avatarURL)
         msg.channel.send(avatarAuthor);
     }
 	
