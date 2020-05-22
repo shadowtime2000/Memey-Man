@@ -174,61 +174,26 @@ bot.on('message', msg=>{
 	msg.channel.send(unjiEmbed);
 	    
     }
-	
-    if(msg.content == "?킥") {
-        if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply('Sorry you do not have permission!');
-        let member = message.mentions.members.first() || message.guild.members.get(args[0]);
-        if(!member) return message.reply("Please mention a valid user");
-        if(!member.kickable) return message.channel.send("Sorry I cannot kick that person! Do they have a higher role?");
- 
-        let reason = args.slice(1).join(' ');
-        if(!reason) reason = "No reason provided";
- 
-        await member.kick(reason)
-            .catch(e => message.reply(`Sorry I couldn't kick them! Error: ${e}`));
-        message.reply(`:white_check_mark: User kicked!`);
-    }
- 
-    if(msg.content == "?밴") {
-        if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply('Sorry you do not have permission!');
-        let member = message.mentions.members.first() || message.guild.members.get(args[0]);
-        if(!member) return message.reply("Please mention a valid user");
-        if(!member.bannable) return message.channel.send("Sorry I cannot ban that person! Do they have a higher role?");
- 
-        let reason = args.slice(1).join(' ');
-        if(!reason) reason = "No reason provided";
- 
-        await member.ban(reason)
-            .catch(e => message.reply(`Sorry I couldn't ban them! Error: ${e}`));
-        message.reply(`:white_check_mark: User banned!`);
+
+    if(msg.content.startsWith('?킥')) {
+	if(!msg.member.hasPermission("ADMINISTRATOR")) return msg.reply('권한이 없습니다.');
+        var member= msg.mentions.members.first();
+        member.kick().then((member) => {
+            msg.channel.send("" + member.displayName + " 님을 부엉이바위 쪽으로 보냈습니다.");
+        }).catch(() => {
+            msg.channel.send("실패했습니다.");
+        });
     }
 
-
-    //if(msg.content.startsWith('?kick')) {
-        // Easy way to get member object though mentions.
-        //var member= msg.mentions.members.first();
-        // Kick
-        //member.kick().then((member) => {
-            // Successmessage
-            //msg.channel.send("" + member.displayName + " 님을 부엉이바위 쪽으로 보냈습니다.");
-        //}).catch(() => {
-             // Failmessage
-            //msg.channel.send("실패했습니다.");
-        //});
-    //}
-
-    //if(msg.content.startsWith('?ban')) {
-        // Easy way to get member object though mentions.
-        //var member= msg.mentions.members.first();
-        // ban
-        //member.ban().then((member) => {
-            // Successmessage
-            //msg.channel.send("" + member.displayName + " 님을 국정원 지하에 가뒀습니다. ");
-        //}).catch(() => {
-             // Failmessage
-            //msg.channel.send("실패했습니다.");
-        //});
-    //}
+    if(msg.content.startsWith('?밴')) {
+        if(!msg.member.hasPermission("ADMINISTRATOR")) return msg.reply('권한이 없습니다.');
+        var member= msg.mentions.members.first();
+        member.ban().then((member) => {
+            msg.channel.send("" + member.displayName + " 님을 국정원 지하에 가뒀습니다. ");
+        }).catch(() => {
+            msg.channel.send("실패했습니다.");
+        });
+    }
     
 })
 
