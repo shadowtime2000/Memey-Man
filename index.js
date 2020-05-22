@@ -82,7 +82,7 @@ bot.on('message', msg=>{
 	
     if(msg.content.startsWith('?찰과상')) {
 	var member= msg.mentions.members.first();
-	var facts = ["를 때리맥였습니다.", "가 찰과상을 입었습니다.", "가 타박상을 입었습니다.", "를 부엉이바위로 보냈습니다.", "를 국정원 지하에 가뒀습니다."];
+	var facts = ["을(를) 때리맥였습니다.", "이(가) 찰과상을 입었습니다.", "이(가) 타박상을 입었습니다.", "을(를) 부엉이바위로 보냈습니다.", "을(를) 국정원 지하에 가뒀습니다."];
         var fact = Math.floor(Math.random() * facts.length);
 	msg.channel.send(member.displayName + facts[fact])
 	    
