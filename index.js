@@ -84,7 +84,7 @@ bot.on('message', msg=>{
    if(msg.content.includes(thisWord))
        msg.delete
        msg.reply("그런말 하면 안된다!")
-   }
+   })
 	
     if(msg.content.startsWith('?찰과상')) {
 	var member= msg.mentions.members.first();
