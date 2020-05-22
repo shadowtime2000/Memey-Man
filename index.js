@@ -21,7 +21,7 @@ bot.on('message', msg=>{
                 const memeembed = new Discord.MessageEmbed()
                     .setTitle(json.title)
                     .setImage(json.url)
-                    .setFooter(`Link: ${json.postLink} | Subreddit: ${json.subreddit}`)
+                    .setFooter(`Subreddit: ${json.subreddit}`)
                 msg.channel.send(memeembed)
             });
     }
