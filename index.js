@@ -82,7 +82,7 @@ bot.on('message', msg=>{
 	
    const thisWord = "김대중";
    if(msg.content.includes(thisWord))
-       msg.delete (1);
+       msg.delete
        msg.reply("그런말 하면 안된다!")
    }
 	
