@@ -14,7 +14,7 @@ bot.on('message', msg=>{
         msg.reply('우흥!')
     }
 
-    if(msg == "?밈") {
+    if(msg.content == "?밈") {
         fetch('https://meme-api.herokuapp.com/gimme')
             .then(res => res.json())
             .then(json => {
