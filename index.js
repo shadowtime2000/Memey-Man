@@ -47,6 +47,16 @@ bot.on('message', msg=>{
 
     }
 
+    if(msg.content == "김대중"){
+        msg.reply('그런말 하면 안된다!')
+
+    }
+
+    if(msg.content == "문재인"){
+        msg.reply('그런 말 하는거 아니다!')
+
+    }
+
     if(msg.content == "?작통권연설"){
         msg.reply('대한민국 군대들 지금까지 뭐했노!')
     
