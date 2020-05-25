@@ -32,7 +32,7 @@ bot.on('message', msg=>{
         var fact = Math.floor(Math.random() * facts.length);
         const topicEmbed = new Discord.MessageEmbed()
                 .setColor('#0099ff')
-                .setTitle('**대화 주제**')
+                .setTitle('**대화 주제:**')
       		.setDescription(facts[fact])
         msg.channel.send(topicEmbed);
     }
