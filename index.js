@@ -200,7 +200,11 @@ bot.on('message', msg=>{
 	if(!msg.member.hasPermission("ADMINISTRATOR")) return msg.reply('권한이 없습니다.');
         var member= msg.mentions.members.first();
         member.kick().then((member) => {
-            msg.channel.send("" + member.displayName + " 님을 부엉이바위 쪽으로 보냈습니다.");
+            const kickembed = new.discord.MessageEmbed()
+                .setColor('#ffff00')
+                .setTitle('**성공적으로 킥했습니다.**')
+                .setDescription( member.displayName + ' 님을 부엉이바위 쪽으로 보냈습니다.');
+            msg.channel.send(kickembed)
         }).catch(() => {
             msg.channel.send("그 유저를 킥할 수 없습니다.");
         });
