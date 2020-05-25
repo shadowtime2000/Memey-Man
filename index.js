@@ -223,13 +223,7 @@ bot.on('message', msg=>{
             msg.channel.send("그 멤버를 밴할 수 없습니다.");
         });
     }
- 
-    if(msg.content.startswith ('?밴해제')) {
-        var member= msg.mentions.members.first();
-           guild.unban(member);
-  
-        });
-    }
+       
 })
 
 bot.login(process.env.token);
