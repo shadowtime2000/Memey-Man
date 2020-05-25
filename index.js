@@ -214,7 +214,7 @@ bot.on('message', msg=>{
         if(!msg.member.hasPermission("ADMINISTRATOR")) return msg.reply('권한이 없습니다.');
         var member= msg.mentions.members.first();
         member.ban().then((member) => {
-                        const banembed = new Discord.MessageEmbed()
+            const banembed = new Discord.MessageEmbed()
                 .setColor('#ffff00')
                 .setTitle('**성공적으로 밴했습니다.**')
                 .setDescription( '\n' + member.displayName + ' 님을 국정원 지하에 가뒀습니다.');
@@ -223,7 +223,13 @@ bot.on('message', msg=>{
             msg.channel.send("그 멤버를 밴할 수 없습니다.");
         });
     }
-    
+ 
+    if(msg.content.startswith ('?밴해제')) {
+        var member= msg.mentions.members.first();
+           guild.unban(member);
+  
+        });
+    }
 })
 
 bot.login(process.env.token);
