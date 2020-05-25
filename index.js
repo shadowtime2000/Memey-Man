@@ -28,14 +28,14 @@ bot.on('message', msg=>{
     }
  
     if(msg.content == "?대화주제") {
+        var member= msg.mentions.members.first();
         var facts = ["가장 좋아하는 MC무현 노래는?", "가장 마음에 드는 MC무현 프로듀서는?", "MC무현이 불렀으면 하는 노래는?", "MC무현 VS MC재앙", "가장 좋아하는 노무현의 명언은?"];
         var fact = Math.floor(Math.random() * facts.length);
-        var member= msg.mentions.members.first();
         const topicEmbed = new Discord.MessageEmbed()
                 .setColor('#0099ff')
                 .setTitle('**대화 주제:**')
       		.setDescription(facts[fact])
-                .setFooter(member.displayName + "님의 요청")
+                .setFooter(member.displayName + '님의 요청')
         msg.channel.send(topicEmbed);
     }
 	
