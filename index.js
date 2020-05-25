@@ -206,7 +206,7 @@ bot.on('message', msg=>{
                 .setDescription( '\n' + member.displayName + ' 님을 부엉이바위 쪽으로 보냈습니다.');
             msg.channel.send(kickembed)
         }).catch(() => {
-            msg.channel.send("그 유저를 킥할 수 없습니다.");
+            msg.channel.send("그 멤버를 킥할 수 없습니다.");
         });
     }
 
@@ -214,13 +214,13 @@ bot.on('message', msg=>{
         if(!msg.member.hasPermission("ADMINISTRATOR")) return msg.reply('권한이 없습니다.');
         var member= msg.mentions.members.first();
         member.ban().then((member) => {
-            msg.channel.send("" + member.displayName + " 님을 국정원 지하에 가뒀습니다. ");
-        }).catch(() => {
-            const banembed = new Discord.MessageEmbed()
+                        const banembed = new Discord.MessageEmbed()
                 .setColor('#ffff00')
                 .setTitle('**성공적으로 킥했습니다.**')
                 .setDescription( '\n' + member.displayName + ' 님을 국정원 지하에 가뒀습니다.');
             msg.channel.send(banembed)
+        }).catch(() => {
+            msg.channel.send("그 멤버를 밴할 수 없습니다.");
         });
     }
     
