@@ -10,12 +10,6 @@ bot.on("ready", () =>{
 });
 
 bot.on('message', msg=>{
-
-    bot.on('guildMemberAdd', member => {
-        member.guild.channels.get('710003744355385354').send("Welcome"); 
-    });
-
-	
     if(msg.content == "?부엉이"){
         msg.reply('우흥!')
     }
