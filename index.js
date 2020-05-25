@@ -35,7 +35,7 @@ bot.on('message', msg=>{
                 .setColor('#0099ff')
                 .setTitle('**대화 주제:**')
       		.setDescription(facts[fact])
-                .setFooter('Request by' + member.displayName)
+                .setFooter(member.displayName + "님의 요청")
         msg.channel.send(topicEmbed);
     }
 	
