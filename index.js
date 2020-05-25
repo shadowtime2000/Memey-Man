@@ -19,7 +19,7 @@ bot.on('message', msg=>{
             .then(res => res.json())
             .then(json => {
                 const memeembed = new Discord.MessageEmbed()
-                    .setColor('#00ff00')
+                    .setColor('#7cfc00')
                     .setTitle(json.title)
                     .setImage(json.url)
                     .setFooter(`Subreddit: ${json.subreddit}`)
@@ -32,7 +32,7 @@ bot.on('message', msg=>{
         var facts = ["가장 좋아하는 MC무현 노래는?", "가장 마음에 드는 MC무현 프로듀서는?", "MC무현이 불렀으면 하는 노래는?", "MC무현 VS MC재앙", "가장 좋아하는 노무현의 명언은?"];
         var fact = Math.floor(Math.random() * facts.length);
         const topicEmbed = new Discord.MessageEmbed()
-                .setColor('#00ff0')
+                .setColor('#7cfc00')
                 .setTitle('**대화 주제:**')
       		.setDescription(facts[fact])
         msg.channel.send(topicEmbed);
