@@ -216,7 +216,11 @@ bot.on('message', msg=>{
         member.ban().then((member) => {
             msg.channel.send("" + member.displayName + " 님을 국정원 지하에 가뒀습니다. ");
         }).catch(() => {
-            msg.channel.send("그 유저를 밴할 수 없습니다.");
+            const banembed = new Discord.MessageEmbed()
+                .setColor('#ffff00')
+                .setTitle('**성공적으로 킥했습니다.**')
+                .setDescription( '\n' + member.displayName + ' 님을 국정원 지하에 가뒀습니다.');
+            msg.channel.send(banembed)
         });
     }
     
