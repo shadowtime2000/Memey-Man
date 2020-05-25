@@ -203,7 +203,7 @@ bot.on('message', msg=>{
             const kickembed = new Discord.MessageEmbed()
                 .setColor('#ffff00')
                 .setTitle('**성공적으로 킥했습니다.**')
-                .setDescription( member.displayName + ' 님을 부엉이바위 쪽으로 보냈습니다.');
+                .setDescription( \nmember.displayName + ' 님을 부엉이바위 쪽으로 보냈습니다.');
             msg.channel.send(kickembed)
         }).catch(() => {
             msg.channel.send("그 유저를 킥할 수 없습니다.");
