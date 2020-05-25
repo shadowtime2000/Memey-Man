@@ -197,7 +197,7 @@ bot.on('message', msg=>{
     }
 
     if(msg.content.startsWith('?킥')) {
-	if(!msg.member.hasPermission("ADMINISTRATOR")) return msg.reply('권한이 없습니다.');
+	if(!msg.member.hasPermission("KICK_MEMBERS")) return msg.reply('권한이 없습니다.');
         var member= msg.mentions.members.first();
         member.kick().then((member) => {
             const kickembed = new Discord.MessageEmbed()
@@ -211,7 +211,7 @@ bot.on('message', msg=>{
     }
 
     if(msg.content.startsWith('?밴')) {
-        if(!msg.member.hasPermission("ADMINISTRATOR")) return msg.reply('권한이 없습니다.');
+        if(!msg.member.hasPermission("BAN_MEMBERS")) return msg.reply('권한이 없습니다.');
         var member= msg.mentions.members.first();
         member.ban().then((member) => {
             const banembed = new Discord.MessageEmbed()
