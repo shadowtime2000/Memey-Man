@@ -108,7 +108,7 @@ bot.on('message', msg=>{
 	    
     }
 	
-    if(msg.content.startsWith('?괴롭히기 @')) {
+    if(msg.content.startsWith('?괴롭히기')) {
 	var member= msg.mentions.members.first();
 	var facts = ["을(를) 때리맥였습니다.", "이(가) 찰과상을 입었습니다.", "이(가) 타박상을 입었습니다.", "을(를) 부엉이바위로 보냈습니다.", "을(를) 국정원 지하에 가뒀습니다."];
         var fact = Math.floor(Math.random() * facts.length);
@@ -130,7 +130,7 @@ bot.on('message', msg=>{
         const exampleEmbed = new Discord.MessageEmbed()
 	    .setColor('#0099ff')
             .setTitle('**커맨드 목록**')
-            .setDescription('**정보 커맨드**\n?정보, ?커맨드\n\n**텍스트 커맨드**\n?운지, ?파악, ?기분좋다, ?부엉이, ?예아, ?응디, ?동네, ?작통권연설\n\n**기타 커맨드**\n?명언, ?노래추천, ?대화주제, ?가사, ?뜻, ?괴롭히기\n\n**관리 커맨드**\n ?밴, ?킥')
+            .setDescription('**정보 커맨드**\n?정보, ?커맨드\n\n**텍스트 커맨드**\n?운지, ?파악, ?기분좋다, ?부엉이, ?예아, ?응디, ?동네, ?작통권연설\n\n**기타 커맨드**\n?명언, ?노래추천, ?대화주제, ?가사, ?뜻, ?괴롭히기\n\n**관리 커맨드**\n ?밴, ?킥\n\n*괴롭히기 커맨드 사용방법: ?괴롭히기 (멤버 핑)')
 	msg.channel.send(exampleEmbed);
 	    
     }
