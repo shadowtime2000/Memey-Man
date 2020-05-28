@@ -130,10 +130,7 @@ bot.on('message', msg=>{
         const exampleEmbed = new Discord.MessageEmbed()
 	    .setColor('#0099ff')
             .setTitle('**커맨드 목록**')
-            .setDescription('정보, 동네, 파악, 운지, 작통권연설, 부엉이, 기분좋다, 응디, 괴롭히기, 가사, 뜻, 명언, 노래추천, 밈\n\n*괴롭히기 커맨드 사용방법: ?괴롭히기 (멤버 핑하기)*')
-	    .addFields(
-		{ name: '정보 커맨드', value: '?정보, ?커맨드' },
-	    )
+            .setDescription('**정보 커맨드**\n?정보, ?커맨드\n\n**텍스트 커맨드**\n?운지, 파악, 기분좋다, 부엉이, 예아, 응디, 동네, 작통권연설\n\n**기타 커맨드**\n?가사, ?뜻, ?괴롭히기\n\n**관리 커맨드**\n ?밴, ?킥')
 	msg.channel.send(exampleEmbed);
 	    
     }
