@@ -197,13 +197,17 @@ bot.on('message', msg=>{
     }
 
     if(msg.content.startsWith('?킥')) {
-	if(!msg.member.hasPermission("KICK_MEMBERS")) return msg.reply('권한이 없습니다.');
+	const noperm = new Discord.MessageEmbed()
+		.setColor('#FF0000')
+		.setTitle('커맨드를 실행할 수 없습니다')
+		.setDescription('멤버를 킥/밴할 수 있는 권한이 없습니다.')
+	if(!msg.member.hasPermission("KICK_MEMBERS")) return msg.channel.send(noperm);
         var member= msg.mentions.members.first();
         member.kick().then((member) => {
             const kickembed = new Discord.MessageEmbed()
                 .setColor('#ffff00')
                 .setTitle('**성공적으로 킥했습니다.**')
-                .setDescription( '\n' + member.displayName + ' 님을 부엉이바위 쪽으로 보냈습니다.');
+                .setDescription( '@' + member.displayName + ' 님을 부엉이바위 쪽으로 보냈습니다.');
             msg.channel.send(kickembed)
         }).catch(() => {
             msg.channel.send("그 멤버를 킥할 수 없습니다.");
@@ -211,13 +215,17 @@ bot.on('message', msg=>{
     }
 
     if(msg.content.startsWith('?밴')) {
-        if(!msg.member.hasPermission("BAN_MEMBERS")) return msg.reply('권한이 없습니다.');
+	const noperm = new Discord.MessageEmbed()
+		.setColor('#FF0000')
+		.setTitle('커맨드를 실행할 수 없습니다')
+		.setDescription('멤버를 킥/밴할 수 있는 권한이 없습니다.')
+        if(!msg.member.hasPermission("BAN_MEMBERS")) return msg.channel.send('noperm');
         var member= msg.mentions.members.first();
         member.ban().then((member) => {
             const banembed = new Discord.MessageEmbed()
                 .setColor('#ffff00')
                 .setTitle('**성공적으로 밴했습니다.**')
-                .setDescription( '\n' + member.displayName + ' 님을 국정원 지하에 가뒀습니다.');
+                .setDescription( member.displayName + ' 님을 국정원 지하에 가뒀습니다.');
             msg.channel.send(banembed)
         }).catch(() => {
             msg.channel.send("그 멤버를 밴할 수 없습니다.");
