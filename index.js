@@ -131,7 +131,9 @@ bot.on('message', msg=>{
 	    .setColor('#0099ff')
             .setTitle('**커맨드 목록**')
             .setDescription('정보, 동네, 파악, 운지, 작통권연설, 부엉이, 기분좋다, 응디, 괴롭히기, 가사, 뜻, 명언, 노래추천, 밈\n\n*괴롭히기 커맨드 사용방법: ?괴롭히기 (멤버 핑하기)*')
-	
+	    .addFields(
+		{ name: '정보 커맨드', value: '?정보, ?커맨드' },
+	    )
 	msg.channel.send(exampleEmbed);
 	    
     }
@@ -141,7 +143,6 @@ bot.on('message', msg=>{
 	    .setColor('#0099ff')
             .setTitle('**봇 정보**')
             .setDescription('봇 이름: 노무현\n접두사: ?[커맨드]\n도움말 커맨드: ?커맨드')
-	
 	msg.channel.send(infoEmbed);
 	    
     }
@@ -207,7 +208,7 @@ bot.on('message', msg=>{
             const kickembed = new Discord.MessageEmbed()
                 .setColor('#ffff00')
                 .setTitle('**성공적으로 킥했습니다.**')
-                .setDescription( member.displayName + ' 님을 부엉이바위 쪽으로 보냈습니다.');
+                .setDescription( member.displayName + ' 님을 킥했습니다.');
             msg.channel.send(kickembed)
         }).catch(() => {
             msg.channel.send("그 멤버를 킥할 수 없습니다.");
@@ -225,7 +226,7 @@ bot.on('message', msg=>{
             const banembed = new Discord.MessageEmbed()
                 .setColor('#ffff00')
                 .setTitle('**성공적으로 밴했습니다.**')
-                .setDescription( member.displayName + ' 님을 국정원 지하에 가뒀습니다.');
+                .setDescription( member.displayName + ' 님을 밴했습니다.');
             msg.channel.send(banembed)
         }).catch(() => {
             msg.channel.send("그 멤버를 밴할 수 없습니다.");
