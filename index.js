@@ -10,10 +10,10 @@ bot.on("ready", () =>{
 });
 
 bot.on('message', msg=>{
-    if(msg.content == "?부엉이"){
-        msg.reply('우흥!')
-    }
-
+    
+    if(msg.content == "?핑")
+	 msg.channel.send(bot.ping + ' ms')
+	
     if(msg.content == "?밈") {
         fetch('https://meme-api.herokuapp.com/gimme')
             .then(res => res.json())
@@ -58,47 +58,6 @@ bot.on('message', msg=>{
 	)});	
     }
 	    
-    if(msg.content == "?운지"){
-        msg.reply('저기 부엉이바위 쪽으로 가자')
-
-    }
-
-    if(msg.content == "김대중"){
-        msg.reply('그런말 하면 안된다!')
-
-    }
-
-    if(msg.content == "문재인"){
-        msg.reply('그런 말 하는거 아니다!')
-
-    }
-
-    if(msg.content == "?작통권연설"){
-        msg.reply('대한민국 군대들 지금까지 뭐했노!')
-    
-    }
-
-    if(msg.content == "?응디"){
-        msg.reply('미국한테 매달려 가지고 바짓가랭이 매달려 가지고 응디... 미국 응딩이 뒤에서 숨어가지고 형님, 형님, 형님 빽만 믿겠다')
-     
-    }
-
-
-    if(msg.content == "?동네"){
-        msg.reply('동네 힘 센 사람이 돈 많은 사람이 “동네 길 이렇게 고칩시다, 둑 이렇게 고칩시다. 뭐 산에 나무 심읍시다.” 하면은 어지간한 사람은 따라가는 거지요. 미국이 주도하는 질서, 그것을 거역할 순 없습니다.')
-    
-    }
-
-    if(msg.content == "?기분좋다"){
-        msg.reply('야~ 기분좋다!')
-     
-    }
-
-    if(msg.content == "?예아"){
-        msg.reply('예아')
-    
-    }
-
     if(msg.content == "?명언"){
         var facts = ["부끄러운 줄 알아야지!", "맞습니다. 맞고요.", "제가 언제 겅제 살리겠다고 말이나 헀습니까?", "중력 500배!", "북치고 장구치고", "우리도 고래다.", "야 기분좋다!"];
         var fact = Math.floor(Math.random() * facts.length);
@@ -114,11 +73,6 @@ bot.on('message', msg=>{
 		.setTitle('노래추천')
 		.setDescription( facts[fact] )
         msg.channel.send(songembed);
-    
-    }
-
-   if(msg.content == "?파악"){
-        msg.reply('파악~ 올라갔다가 파악~ 내려갔다가')
     
     }
 
@@ -158,7 +112,7 @@ bot.on('message', msg=>{
         const exampleEmbed = new Discord.MessageEmbed()
 	    .setColor('#0099ff')
             .setTitle('**커맨드 목록**')
-            .setDescription('**정보 커맨드**\n?정보, ?커맨드\n\n**텍스트 커맨드**\n?운지, ?파악, ?기분좋다, ?부엉이, ?예아, ?응디, ?동네, ?작통권연설\n\n**기타 커맨드**\n?명언, ?노래추천, ?대화주제, ?가사, ?뜻, ?괴롭히기\n\n**관리 커맨드**\n ?밴, ?킥, ?삭제\n\n괴롭히기 커맨드 사용방법: ?괴롭히기 [멤버 핑하기]')
+            .setDescription('**정보 커맨드**\n?정보, ?커맨드\n\n메인 커맨드**\n?핑, ?명언, ?노래추천, ?대화주제, ?가사, ?뜻, ?괴롭히기\n\n**관리 커맨드**\n ?밴, ?킥, ?삭제\n\n괴롭히기 커맨드 사용방법: ?괴롭히기 [멤버 핑하기]')
 	msg.channel.send(exampleEmbed);
 	    
     }
