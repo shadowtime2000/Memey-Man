@@ -109,9 +109,14 @@ bot.on('message', msg=>{
     }
 	
     if(msg.content.startsWith('?괴롭히기')) {
+	var member= msg.mentions.members.first();
 	var facts = ["을(를) 때리맥였습니다.", "이(가) 찰과상을 입었습니다.", "이(가) 타박상을 입었습니다.", "을(를) 부엉이바위로 보냈습니다.", "을(를) 국정원 지하에 가뒀습니다."];
 	var fact = Math.floor(Math.random() * facts.length);
-	msg.channel.send( member.displayName + facts[fact] )
+	const hitee = new Discord.MessageEmbed()
+		.setColor('#0099ff')
+		.setTitle('괴롭히기')
+		.setDescription( member.displayName + facts[fact] )
+	msg.channel.send(hitee)
     }
 	
     if(msg.content == "?뜻"){
