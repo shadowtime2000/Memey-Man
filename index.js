@@ -98,7 +98,7 @@ bot.on('message', msg=>{
             const kickembed = new Discord.MessageEmbed()
                 .setColor('#ffff00')
                 .setTitle('**Sucessfully kicked member**')
-                .setDescription( 'Kicked ' + member.displayName + '.' + amount );
+                .setDescription( 'Kicked ' + member.displayName + '.' + '\nreason: ' + amount );
             msg.channel.send(kickembed)
         }).catch(() => {
             msg.channel.send("Can't kick that member!");
