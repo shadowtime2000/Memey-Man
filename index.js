@@ -38,7 +38,7 @@ bot.on('message', msg=>{
         msg.channel.send(topicEmbed);
     }
 	
-    if(msg.content.startswith('?삭제')) {	
+    if(msg.content.startsWith('?삭제')) {	
 	const args = msg.content.split(' ').slice(1); 
 	const amount = args.join(' '); 
 
