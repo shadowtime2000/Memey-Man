@@ -38,6 +38,20 @@ bot.on('message', msg=>{
         msg.channel.send(topicEmbed);
     }
 	
+    if(msg.content.startswith('?삭제'))	
+	const args = msg.content.split(' ').slice(1); 
+	const amount = args.join(' '); 
+
+	if (!amount) return msg.reply('You haven\'t given an amount of messages which should be deleted!'); 
+	if (isNaN(amount)) return msg.reply('The amount parameter isn`t a number!'); 
+
+	if (amount > 100) return msg.reply('You can`t delete more than 100 messages at once!'); 
+	if (amount < 1) return msg.reply('You have to delete at least 1 message!'); 
+	
+	await msg.channel.messages.fetch({ limit: amount }).then(messages => {
+	    msg.channel.bulkDelete(messages 
+	)});	
+
     if(msg.content == "?운지"){
         msg.reply('저기 부엉이바위 쪽으로 가자')
 
