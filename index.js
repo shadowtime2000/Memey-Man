@@ -63,7 +63,7 @@ bot.on('message', msg=>{
 	
     if(msg.content.startsWith('?harass')) {
 	var member= msg.mentions.members.first();
-	var facts = [" is so stupid.", "", " is ugly", " is an idiot.", " should disappear.", " looks like Kim Jong Un."];
+	var facts = [" is so stupid.", " is ugly", " is an idiot.", " should disappear.", " looks like Kim Jong Un."];
 	var fact = Math.floor(Math.random() * facts.length);
 	const hitee = new Discord.MessageEmbed()
 		.setColor('#ffa500')
@@ -77,7 +77,8 @@ bot.on('message', msg=>{
         const exampleEmbed = new Discord.MessageEmbed()
 	    .setColor('#0099ff')
             .setTitle('**COMMAND LIST**')
-            .setDescription('**Info commands**\n?botinfo, ?help\n\n**Main commands**\n?meme, ?topic, ?harass\n\n**Moderator commands**\n ?ban, ?kick, ?purge\n\nPing a member to use ?harass command!')
+            .setDescription('**Information commands**\n?botinfo, ?help\n\n**Main commands**\n?meme, ?topic, ?harass\n\n**Moderator commands**\n ?ban, ?kick, ?purge')
+            .setFooter('Ping a member together to use ?harass command! (Example: ?harass @SomeMember)')
 	msg.channel.send(exampleEmbed);
 	    
     }
