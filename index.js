@@ -42,7 +42,10 @@ bot.on('message', msg=>{
 	if(!msg.member.hasPermission("MANAGE_MESSAGES")) return msg.reply('권한이 없습니다');
 	const args = msg.content.split(' ').slice(1); 
 	const amount = args.join(' '); 
-	var messageamount = parseInt(amount++1);
+	const extranum = "1"
+	amount = parseInt(amount)
+	extranum = parseInt(extranum)
+	const messageamount = amount + extranum
 
 	if (!amount) return msg.reply('얼마나 삭제할지 써야 합니다.'); 
 	if (isNaN(amount)) return msg.reply('삭제할 메세지의 수는 숫자여야 합니다.'); 
