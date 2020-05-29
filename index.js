@@ -26,17 +26,17 @@ bot.on('message', msg=>{
  
     if(msg.content == "?topic") {
         var member= msg.mentions.members.first();
-        var facts = ["가장 좋아하는 MC무현 노래는?", "가장 마음에 드는 MC무현 프로듀서는?", "MC무현이 불렀으면 하는 노래는?", "MC무현 VS MC재앙", "가장 좋아하는 노무현의 명언은?"];
+        var facts = ["What is your favorite song?", "What did you do yesterday?", "What will you do tomorrow?", "What is your favorite movie?", "What is your favorite food?"];
         var fact = Math.floor(Math.random() * facts.length);
         const topicEmbed = new Discord.MessageEmbed()
                 .setColor('#7cfc00')
-                .setTitle('**대화 주제:**')
+                .setTitle('**TOPIC:**')
       		.setDescription(facts[fact])
         msg.channel.send(topicEmbed);
     }
 	
     if(msg.content.startsWith('?purge')) {	
-	if(!msg.member.hasPermission("MANAGE_MESSAGES")) return msg.reply('권한이 없습니다');
+	if(!msg.member.hasPermission("MANAGE_MESSAGES")) return msg.reply("You can't use that command!");
 	const args = msg.content.split(' ').slice(1); 
 	const amount = args.join(' '); 
 	const extranum = "1"
@@ -44,11 +44,11 @@ bot.on('message', msg=>{
 	const extranumaa = parseInt(extranum)
 	const messageamount = amountaa + extranumaa
 
-	if (!amount) return msg.reply('얼마나 삭제할지 써야 합니다.'); 
-	if (isNaN(amount)) return msg.reply('삭제할 메세지의 수는 숫자여야 합니다.'); 
+	if (!amount) return msg.reply('Give me the amount of messages!'); 
+	if (isNaN(amount)) return msg.reply('Give me a number!'); 
 
-	if (amount > 100) return msg.reply('한 번에 100개보다 많은 메세지를 삭제할 수 없습니다.'); 
-	if (amount < 1) return msg.reply('최소 1개의 메세지를 삭제해야 합니다.'); 
+	if (amount > 100) return msg.reply("You can't purge more than 100 messages."); 
+	if (amount < 1) return msg.reply("You can't purge less than 1 message."); 
 	
 	msg.channel.messages.fetch({ limit: messageamount }).then(messages => {
 	    msg.channel.bulkDelete(messages 
@@ -57,21 +57,21 @@ bot.on('message', msg=>{
 	
     if(msg.content.startsWith('?harass')) {
 	var member= msg.mentions.members.first();
-	var facts = ["을(를) 때리맥였습니다.", "이(가) 찰과상을 입었습니다.", "이(가) 타박상을 입었습니다.", "을(를) 부엉이바위로 보냈습니다.", "을(를) 국정원 지하에 가뒀습니다."];
+	var facts = ["is so stupid.", "", "got hit by someone.", "is an idiot.", "should disappear.", "looks like Kim Jong Un."];
 	var fact = Math.floor(Math.random() * facts.length);
 	const hitee = new Discord.MessageEmbed()
 		.setColor('#ffa500')
-		.setTitle('괴롭히기')
+		.setTitle('You harassed' + member.displayName  + '!' )
 		.setDescription( member.displayName + facts[fact] )
-		.setFooter('괴롭히기 커맨드 사용방법: ?괴롭히기 [멤버 핑하기]')
+		.setFooter('Ping a member to use ?harass command!')
 	msg.channel.send(hitee)
     }
 	
     if(msg.content == "?help"){
         const exampleEmbed = new Discord.MessageEmbed()
 	    .setColor('#0099ff')
-            .setTitle('**커맨드 목록**')
-            .setDescription('**Info commands**\n?botinfo, ?help\n\nMain commands**\n?meme, ?topic, ?harass\n\n**관리 커맨드**\n ?ban, ?kick, ?purge\n\n괴롭히기 커맨드 사용방법: ?괴롭히기 [멤버 핑하기]')
+            .setTitle('**COMMAND LIST**')
+            .setDescription('**Info commands**\n?botinfo, ?help\n\n**Main commands**\n?meme, ?topic, ?harass\n\n**관리 커맨드**\n ?ban, ?kick, ?purge\n\nPing a member to use ?harass command!')
 	msg.channel.send(exampleEmbed);
 	    
     }
@@ -79,8 +79,8 @@ bot.on('message', msg=>{
     if(msg.content == "?botinfo"){
         const infoEmbed = new Discord.MessageEmbed()
 	    .setColor('#0099ff')
-            .setTitle('**봇 정보**')
-            .setDescription('봇 이름: Memey man\nprefix: ?\nType ?help to get help!')
+            .setTitle('**BOT INFO**')
+            .setDescription('Bot name: Memey man\nPrefix: ?\n\nType ?help to get help!')
 	msg.channel.send(infoEmbed);
 	    
     }
