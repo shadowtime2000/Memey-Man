@@ -36,7 +36,13 @@ bot.on('message', msg=>{
     }
 	
     if(msg.content.startsWith('?purge')) {	
-	if(!msg.member.hasPermission("MANAGE_MESSAGES")) return msg.reply("You can't use that command!");
+
+	const nopurge = new Discord.MessageEmbed()
+		.setColor('#FF0000')
+		.setTitle('Oops!')
+		.setDescription("You can't use that command!")
+
+	if(!msg.member.hasPermission("MANAGE_MESSAGES")) return msg.channel.send(nopurge);
 	const args = msg.content.split(' ').slice(1); 
 	const amount = args.join(' '); 
 	const extranum = "1"
