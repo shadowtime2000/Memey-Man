@@ -51,6 +51,9 @@ bot.on('message', msg=>{
 	
 	msg.channel.messages.fetch({ limit: amount }).then(messages => {
 	    msg.channel.bulkDelete(messages 
+				   
+	msg.channel.messages.fetch({ limit: 1 }).then(messages => {
+	    msg.channel.bulkDelete(messages 
 	)});	
     }
 	    
