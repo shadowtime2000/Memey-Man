@@ -86,7 +86,7 @@ bot.on('message', msg=>{
     }
 
     if(msg.content.startsWith('?kick')) {
-	const args = msg.content.split(' ').slice(1); 
+	const args = msg.content.split(' ').slice(2); 
 	const amount = args.join(' '); 
 	const noperm = new Discord.MessageEmbed()
 		.setColor('#FF0000')
