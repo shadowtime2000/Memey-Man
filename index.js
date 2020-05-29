@@ -38,7 +38,7 @@ bot.on('message', msg=>{
         msg.channel.send(topicEmbed);
     }
 	
-    if(msg.content.startswith('?삭제'))	
+    if(msg.content.startswith('?삭제')) {	
 	const args = msg.content.split(' ').slice(1); 
 	const amount = args.join(' '); 
 
@@ -51,7 +51,8 @@ bot.on('message', msg=>{
 	await msg.channel.messages.fetch({ limit: amount }).then(messages => {
 	    msg.channel.bulkDelete(messages 
 	)});	
-
+    }
+	    
     if(msg.content == "?운지"){
         msg.reply('저기 부엉이바위 쪽으로 가자')
 
