@@ -96,7 +96,7 @@ bot.on('message', msg=>{
             const kickembed = new Discord.MessageEmbed()
                 .setColor('#ffff00')
                 .setTitle('**Sucessfully kicked member**')
-                .setDescription( 'Kicked' + member.displayName + '.');
+                .setDescription( 'Kicked ' + member.displayName + '.');
             msg.channel.send(kickembed)
         }).catch(() => {
             msg.channel.send("Can't kick that member!");
@@ -114,7 +114,7 @@ bot.on('message', msg=>{
             const banembed = new Discord.MessageEmbed()
                 .setColor('#ffff00')
                 .setTitle('**Successfully banned member**')
-                .setDescription( 'Banned' + member.displayName + '.');
+                .setDescription( 'Banned ' + member.displayName + '.');
             msg.channel.send(banembed)
         }).catch(() => {
             msg.channel.send("Can't ban that member!");
