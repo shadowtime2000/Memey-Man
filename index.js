@@ -57,7 +57,7 @@ bot.on('message', msg=>{
 	
     if(msg.content.startsWith('?harass')) {
 	var member= msg.mentions.members.first();
-	var facts = [" is so stupid.", "", " got hit by someone.", " is an idiot.", " should disappear.", " looks like Kim Jong Un."];
+	var facts = [" is so stupid.", "", " is ugly", " is an idiot.", " should disappear.", " looks like Kim Jong Un."];
 	var fact = Math.floor(Math.random() * facts.length);
 	const hitee = new Discord.MessageEmbed()
 		.setColor('#ffa500')
