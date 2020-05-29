@@ -77,7 +77,7 @@ bot.on('message', msg=>{
         const exampleEmbed = new Discord.MessageEmbed()
 	    .setColor('#0099ff')
             .setTitle('**COMMAND LIST**')
-            .setDescription('**Information commands**\n?botinfo, ?help\n\n**Main commands**\n?meme, ?topic, ?harass\n\n**Moderator commands**\n ?ban, ?kick, ?purge\n')
+            .setDescription('**Information commands**\n?botinfo, ?help\n\n**Main commands**\n?meme, ?topic, ?harass\n\n**Moderator commands**\n ?ban, ?kick, ?purge\u200B')
             .setFooter('\nPing a member together to use ?harass command! (Example: ?harass @SomeMember)')
 	msg.channel.send(exampleEmbed);
 	    
