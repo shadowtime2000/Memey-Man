@@ -87,7 +87,7 @@ bot.on('message', msg=>{
         const infoEmbed = new Discord.MessageEmbed()
 	    .setColor('#0099ff')
             .setTitle('**BOT INFO**')
-            .setDescription('Bot name: Memey man\nPrefix: ?')
+            .setDescription('Bot name: Memey Man\nDeveloper: RedTea\nPrefix: ?')
             .setFooter('Type ?help to get help!')
 	msg.channel.send(infoEmbed);
 	    
