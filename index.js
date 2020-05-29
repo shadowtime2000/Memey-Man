@@ -42,6 +42,7 @@ bot.on('message', msg=>{
 	if(!msg.member.hasPermission("MANAGE_MESSAGES")) return msg.reply('권한이 없습니다');
 	const args = msg.content.split(' ').slice(1); 
 	const amount = args.join(' '); 
+	var messageamount = parseInt(amount+1);
 
 	if (!amount) return msg.reply('얼마나 삭제할지 써야 합니다.'); 
 	if (isNaN(amount)) return msg.reply('삭제할 메세지의 수는 숫자여야 합니다.'); 
@@ -49,7 +50,7 @@ bot.on('message', msg=>{
 	if (amount > 100) return msg.reply('한 번에 100개보다 많은 메세지를 삭제할 수 없습니다.'); 
 	if (amount < 1) return msg.reply('최소 1개의 메세지를 삭제해야 합니다.'); 
 	
-	msg.channel.messages.fetch({ limit: amount }).then(messages => {
+	msg.channel.messages.fetch({ limit: messageamount }).then(messages => {
 	    msg.channel.bulkDelete(messages 
 	)});	
     }
