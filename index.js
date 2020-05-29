@@ -99,6 +99,7 @@ bot.on('message', msg=>{
 		.setTitle('Oops!')
 		.setDescription("You can't use that command!")
 	if(!msg.member.hasPermission("KICK_MEMBERS")) return msg.channel.send(noperm);
+        if(!kickreason) return msg.reply("Give me a reason!")
         var member= msg.mentions.members.first();
         member.kick().then((member) => {
             const kickembed = new Discord.MessageEmbed()
