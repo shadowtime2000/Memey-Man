@@ -86,6 +86,7 @@ bot.on('message', msg=>{
     }
 
     if(msg.content.startsWith('?kick')) {
+	const args = msg.content.split(' ').slice(2); 
 	const noperm = new Discord.MessageEmbed()
 		.setColor('#FF0000')
 		.setTitle('Oops!')
@@ -97,6 +98,7 @@ bot.on('message', msg=>{
                 .setColor('#ffff00')
                 .setTitle('**Sucessfully kicked member**')
                 .setDescription( 'Kicked ' + member.displayName + '.');
+		.setFooter('reason: ' + args )
             msg.channel.send(kickembed)
         }).catch(() => {
             msg.channel.send("Can't kick that member!");
