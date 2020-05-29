@@ -87,7 +87,7 @@ bot.on('message', msg=>{
 
     if(msg.content.startsWith('?kick')) {
 	const args = msg.content.split(' ').slice(2); 
-	const amount = args.join(' '); 
+	const kickreason = args.join(' '); 
 	const noperm = new Discord.MessageEmbed()
 		.setColor('#FF0000')
 		.setTitle('Oops!')
@@ -98,7 +98,7 @@ bot.on('message', msg=>{
             const kickembed = new Discord.MessageEmbed()
                 .setColor('#ffff00')
                 .setTitle('**Sucessfully kicked member**')
-                .setDescription( 'Kicked ' + member.displayName + '.' + '\nreason: ' + amount );
+                .setDescription( 'Kicked ' + member.displayName + '.' + '\nReason: ' + kickreason );
             msg.channel.send(kickembed)
         }).catch(() => {
             msg.channel.send("Can't kick that member!");
@@ -106,6 +106,8 @@ bot.on('message', msg=>{
     }
 
     if(msg.content.startsWith('?ban')) {
+	const args = msg.content.split(' ').slice(2); 
+	const banreason = args.join(' '); 
 	const noperm1 = new Discord.MessageEmbed()
 		.setColor('#FF0000')
 		.setTitle('Oops!')
@@ -116,7 +118,7 @@ bot.on('message', msg=>{
             const banembed = new Discord.MessageEmbed()
                 .setColor('#ffff00')
                 .setTitle('**Successfully banned member**')
-                .setDescription( 'Banned ' + member.displayName + '.');
+                .setDescription( 'Banned ' + member.displayName + '.' + '\nReason: ' + banreason );
             msg.channel.send(banembed)
         }).catch(() => {
             msg.channel.send("Can't ban that member!");
