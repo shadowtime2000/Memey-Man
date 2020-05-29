@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const fetch = require('node-fetch');
+const ytdl = require('ytdl-core');
 const bot = new Discord.Client();
 
 const token = 'NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU';
@@ -37,6 +38,21 @@ bot.on('message', msg=>{
       		.setDescription(facts[fact])
         msg.channel.send(topicEmbed);
     }
+	
+    if (msg.content === '!play') {
+	if (msg.channel.type !== 'text') return;
+
+	const voiceChannel = msg.member.voice.channel;
+	   
+	return msg.reply('please join a voice channel first!');
+    }
+
+    voiceChannel.join().then(connection => {
+	    const stream = ytdl('https://www.youtube.com/watch?v=vYibVU6Wbas', { filter: 'audioonly' });
+	    const dispatcher = connection.play(stream);
+
+	    dispatcher.on('end', () => voiceChannel.leave());
+    });
 	
     if(msg.content == "?운지"){
         msg.reply('저기 부엉이바위 쪽으로 가자')
