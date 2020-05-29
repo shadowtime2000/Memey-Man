@@ -30,7 +30,7 @@ bot.on('message', msg=>{
         var fact = Math.floor(Math.random() * facts.length);
         const topicEmbed = new Discord.MessageEmbed()
                 .setColor('#7cfc00')
-                .setTitle('**TOPIC:**')
+                .setTitle('**Topic:**')
       		.setDescription(facts[fact])
         msg.channel.send(topicEmbed);
     }
