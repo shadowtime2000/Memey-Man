@@ -39,6 +39,7 @@ bot.on('message', msg=>{
     }
 	
     if(msg.content.startsWith('?삭제')) {	
+	if(!msg.member.hasPermission("MANAGE_MESSAGES")) return msg.reply('권한이 없습니다');
 	const args = msg.content.split(' ').slice(1); 
 	const amount = args.join(' '); 
 
