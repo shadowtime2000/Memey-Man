@@ -120,6 +120,7 @@ bot.on('message', msg=>{
 		.setTitle('Oops!')
 		.setDescription("You can't use that command!")
         if(!msg.member.hasPermission("BAN_MEMBERS")) return msg.channel.send(noperm1);
+        if(!banreason) return msg.reply("Give me a reason!")
         var member= msg.mentions.members.first();
         member.ban().then((member) => {
             const banembed = new Discord.MessageEmbed()
