@@ -42,11 +42,11 @@ bot.on('message', msg=>{
 	const args = msg.content.split(' ').slice(1); 
 	const amount = args.join(' '); 
 
-	if (!amount) return msg.reply('You haven\'t given an amount of messages which should be deleted!'); 
-	if (isNaN(amount)) return msg.reply('The amount parameter isn`t a number!'); 
+	if (!amount) return msg.reply('얼마나 삭제할지 써야 합니다.'); 
+	if (isNaN(amount)) return msg.reply('삭제할 메세지의 수는 숫자여야 합니다.'); 
 
-	if (amount > 100) return msg.reply('You can`t delete more than 100 messages at once!'); 
-	if (amount < 1) return msg.reply('You have to delete at least 1 message!'); 
+	if (amount > 100) return msg.reply('한 번에 100개보다 많은 메세지를 삭제할 수 없습니다.'); 
+	if (amount < 1) return msg.reply('최소 1개의 메세지를 삭제해야 합니다.'); 
 	
 	msg.channel.messages.fetch({ limit: amount }).then(messages => {
 	    msg.channel.bulkDelete(messages 
