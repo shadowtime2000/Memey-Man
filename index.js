@@ -71,7 +71,7 @@ bot.on('message', msg=>{
         const exampleEmbed = new Discord.MessageEmbed()
 	    .setColor('#0099ff')
             .setTitle('**COMMAND LIST**')
-            .setDescription('**Info commands**\n?botinfo, ?help\n\n**Main commands**\n?meme, ?topic, ?harass\n\n**관리 커맨드**\n ?ban, ?kick, ?purge\n\nPing a member to use ?harass command!')
+            .setDescription('**INFO COMMANDS**\n?botinfo, ?help\n\n**MAIN COMMANDS**\n?meme, ?topic, ?harass\n\n**MODERATION COMMANDS**\n ?ban, ?kick, ?purge\n\nPing a member to use ?harass command!')
 	msg.channel.send(exampleEmbed);
 	    
     }
@@ -103,7 +103,7 @@ bot.on('message', msg=>{
         });
     }
 
-    if(msg.content.startsWith('?밴')) {
+    if(msg.content.startsWith('?ban')) {
 	const noperm1 = new Discord.MessageEmbed()
 		.setColor('#FF0000')
 		.setTitle('Oops!')
