@@ -48,7 +48,7 @@ bot.on('message', msg=>{
 	if (amount > 100) return msg.reply('You can`t delete more than 100 messages at once!'); 
 	if (amount < 1) return msg.reply('You have to delete at least 1 message!'); 
 	
-	await msg.channel.messages.fetch({ limit: amount }).then(messages => {
+	msg.channel.messages.fetch({ limit: amount }).then(messages => {
 	    msg.channel.bulkDelete(messages 
 	)});	
     }
