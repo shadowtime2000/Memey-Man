@@ -43,9 +43,9 @@ bot.on('message', msg=>{
 	const args = msg.content.split(' ').slice(1); 
 	const amount = args.join(' '); 
 	const extranum = "1"
-	amount = parseInt(amount)
-	extranum = parseInt(extranum)
-	const messageamount = amount + extranum
+	const amountaa = parseInt(amount)
+	const extranumaa = parseInt(extranum)
+	const messageamount = amountaa + extranumaa
 
 	if (!amount) return msg.reply('얼마나 삭제할지 써야 합니다.'); 
 	if (isNaN(amount)) return msg.reply('삭제할 메세지의 수는 숫자여야 합니다.'); 
