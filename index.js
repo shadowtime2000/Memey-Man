@@ -49,7 +49,7 @@ bot.on('message', msg=>{
 	if (amount > 100) return msg.reply('한 번에 100개보다 많은 메세지를 삭제할 수 없습니다.'); 
 	if (amount < 1) return msg.reply('최소 1개의 메세지를 삭제해야 합니다.'); 
 	
-	msg.channel.messages.fetch({ limit: amount }).then(messages => {
+	msg.channel.messages.fetch({ limit: amount ++ 1 }).then(messages => {
 	    msg.channel.bulkDelete(messages 
 	)});	
     }
