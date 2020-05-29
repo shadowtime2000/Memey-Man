@@ -114,7 +114,7 @@ bot.on('message', msg=>{
 	const hitee = new Discord.MessageEmbed()
 		.setColor('#0099ff')
 		.setTitle('괴롭히기')
-		.setDescription(member.displayName + facts[fact])
+		.setDescription( member.displayName + facts[fact] )
 	msg.channel.send(hitee)
     }
 	
