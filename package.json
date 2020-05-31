@@ -9,6 +9,7 @@
   "author": "moonjaeang",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^12.2.0"
+    "discord.js": "^12.2.0",
+    "ytdl-core": "^2.1.5"
   }
 }
