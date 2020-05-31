@@ -1,2 +1,2 @@
-# moohyunbot
+# Memey Man bot
 a bot
