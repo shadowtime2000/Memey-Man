@@ -43,7 +43,7 @@ bot.on('message', msg=>{
 	
     if(msg.content.startsWith('?purge')) {	
 
-        if (message.channel.type == "dm") return;
+        if (msg.channel.type == "dm") return;
 
         const nopurge = new Discord.MessageEmbed()
             .setColor('#FF0000')
@@ -107,7 +107,7 @@ bot.on('message', msg=>{
 
     if(msg.content.startsWith('?kick')) {
 
-        if (message.channel.type == "dm") return;
+        if (msg.channel.type == "dm") return;
 
         const args = msg.content.split(' ').slice(2); 
         const kickreason = args.join(' '); 
@@ -146,7 +146,7 @@ bot.on('message', msg=>{
 
     if(msg.content.startsWith('?ban')) {
 
-        if (message.channel.type == "dm") return;
+        if (msg.channel.type == "dm") return;
 
         const args = msg.content.split(' ').slice(2); 
         const banreason = args.join(' '); 
