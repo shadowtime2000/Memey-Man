@@ -59,7 +59,7 @@ bot.on('message', msg=>{
         msg.channel.messages.fetch({ limit: messageamount }).then(messages => {
             msg.channel.bulkDelete(messages 
 
-    )});	
+        )});	
     
     }
 
@@ -119,15 +119,15 @@ bot.on('message', msg=>{
             .setTitle('Oops!')
             .setDescription("Give me a reason!")
 
-        if(!msg.member.hasPermission("KICK_MEMBERS")) return msg.channel.send(noperm);
-        if(!kickmember) return msg.channel.send(nomemmber)
-        if(!kickreason) return msg.channel.send(noreason)
+            if(!msg.member.hasPermission("KICK_MEMBERS")) return msg.channel.send(noperm);
+            if(!kickmember) return msg.channel.send(nomemmber)
+            if(!kickreason) return msg.channel.send(noreason)
             mem.kick().then((member) => {
-            const kickembed = new Discord.MessageEmbed()
-                .setColor('#ff0000')
-                .setTitle('**Successfully kicked member**')
-                .setDescription( 'Kicked ' + member.displayName + '.' + '\nReason: ' + kickreason );
-            msg.channel.send(kickembed)
+                const kickembed = new Discord.MessageEmbed()
+                    .setColor('#ff0000')
+                    .setTitle('**Successfully kicked member**')
+                    .setDescription( 'Kicked ' + member.displayName + '.' + '\nReason: ' + kickreason );
+                msg.channel.send(kickembed)
             }).catch(() => {
                 msg.channel.send("Can't kick that member!");
         });
