@@ -7,12 +7,6 @@ const token = 'NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU';
 bot.on("ready", () =>{
     bot.login("NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU")
     console.log('Logged in!');
-    if (config.activity.streaming == true) {
-        bot.user.setActivity(config.activity.game, {url: 'https://twitch.tv/username'});
-      } else {
-        bot.user.setActivity(config.activity.game, {type: 'WATCHING'});//PLAYING, LISTENING, WATCHING
-        bot.user.setStatus('dnd'); // dnd, idle, online, invisible
-    }
 });
 
 bot.on('message', msg=>{
@@ -131,7 +125,7 @@ bot.on('message', msg=>{
             .setDescription("Give me a reason!")
 
             if(!msg.member.hasPermission("KICK_MEMBERS")) return msg.channel.send(noperm);
-            if(!kickmember) return msg.channel.send(nomemmber)
+            if(!mem) return msg.channel.send(nomemmber)
             if(!kickreason) return msg.channel.send(noreason)
             mem.kick().then((member) => {
                 const kickembed = new Discord.MessageEmbed()
@@ -170,7 +164,7 @@ bot.on('message', msg=>{
             .setDescription("Give me a reason!")
 
             if(!msg.member.hasPermission("BAN_MEMBERS")) return msg.channel.send(noperm1);
-            if(!banmember) return msg.channel.send(nomemberembed)
+            if(!mem1) return msg.channel.send(nomemberembed)
             if(!banreason) return msg.channel.send(noreasonembed)
             mem1.ban().then((member) => {
                 const banembed = new Discord.MessageEmbed()
