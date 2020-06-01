@@ -97,7 +97,7 @@ bot.on('message', msg=>{
 	    
     }
 
-    if(message.content.startsWith('?ping') {
+    if(message.content.startsWith('?ping')) {
         message.channel.send(client.ping + ' ms')
     }
 
