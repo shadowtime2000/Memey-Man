@@ -66,6 +66,7 @@ bot.on('message', msg=>{
     if(msg.content.startsWith('?harass')) {
         var facts = [" is so stupid.", " is ugly", " is an idiot.", " should disappear.", " looks like Kim Jong Un."];
         var fact = Math.floor(Math.random() * facts.length);
+        var member= msg.mentions.members.first();
         const hitee = new Discord.MessageEmbed()
             .setColor('#ffa500')
             .setTitle('You harassed ' + member.displayName  + '!' )
