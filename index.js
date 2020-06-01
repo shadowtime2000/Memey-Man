@@ -67,15 +67,15 @@ bot.on('message', msg=>{
         var facts = [" is so stupid.", " is ugly", " is an idiot.", " should disappear.", " looks like Kim Jong Un."];
         var fact = Math.floor(Math.random() * facts.length);
         var member= msg.mentions.members.first();
-        const hitee = new Discord.MessageEmbed()
+        const args = msg.content.split(' ').slice(1); 
+        const memberping = args.join(' '); 
+        if (!memberping) return msg.reply('Ping a member after ?harass')
+            const hitee = new Discord.MessageEmbed()
             .setColor('#ffa500')
             .setTitle('You harassed ' + member.displayName  + '!' )
             .setDescription( member.displayName + facts[fact] )
             .setFooter('Ping a member to use ?harass command!')
-        const args = msg.content.split(' ').slice(1); 
-        const memberping = args.join(' '); 
-        if (!memberping) return msg.reply('Ping a member after ?harass')
-            msg.channel.send(hitee)
+        msg.channel.send(hitee)
     }
 	
     if(msg.content == "?help"){
