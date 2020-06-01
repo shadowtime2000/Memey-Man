@@ -35,7 +35,7 @@ bot.on('message', msg=>{
         msg.channel.send(topicEmbed);
     }
 
-    if(msg.content == "?8ball") {
+    if(msg.content.startsWith('?8ball')) {
         const args = msg.content.split(' ').slice(1); 
         const question = args.join(' '); 
         var facts = ["Yes.", "No.", "I don't know", "Of course.", "Never.", "Maybe.", "You can make it happen!", "It's possible."];
