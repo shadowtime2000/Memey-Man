@@ -108,12 +108,12 @@ bot.on('message', msg=>{
             .setTitle('Oops!')
             .setDescription("You can't use that command!")
         
-        const nomemmber = new Discord.MessageEmbed
+        const nomemmber = new Discord.MessageEmbed()
             .setColor('#FF0000')
             .setTitle('Oops!')
             .setDescription("Give me a member to kick!")
 
-        const noreason = new Discord.MessageEmbed
+        const noreason = new Discord.MessageEmbed()
             .setColor('#FF0000')
             .setTitle('Oops!')
             .setDescription("Give me a reason!")
