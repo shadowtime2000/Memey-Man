@@ -7,6 +7,13 @@ const token = 'NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU';
 bot.on("ready", () =>{
     bot.login("NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU")
     console.log('Logged in!');
+    bot.user.setPresence({
+        status: "online",  //You can show online, idle....
+        game: {
+            name: "Using ?help",  //The message shown
+            type: "STREAMING" //PLAYING: WATCHING: LISTENING: STREAMING:
+        }
+    });
 });
 
 bot.on('message', msg=>{
@@ -95,10 +102,6 @@ bot.on('message', msg=>{
             .setFooter('Type ?help to get help!')
 	    msg.channel.send(infoEmbed);
 	    
-    }
-
-    if(msg.content.startsWith('?ping')) {
-        msg.channel.send(bot.ping + 'ms')
     }
 
     if(msg.content.startsWith('?kick')) {
