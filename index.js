@@ -56,6 +56,7 @@ bot.on('message', msg=>{
         const extranumaa = parseInt(extranum)
         const messageamount = amountaa + extranumaa
 
+        if (message.channel.type == "dm") return;
         if (!amount) return msg.reply('Give me how many messages should I purge!'); 
         if (isNaN(amount)) return msg.reply('Give me a number!'); 
 
@@ -125,6 +126,7 @@ bot.on('message', msg=>{
             .setTitle('Oops!')
             .setDescription("Give me a reason!")
 
+            if (message.channel.type == "dm") return;
             if(!msg.member.hasPermission("KICK_MEMBERS")) return msg.channel.send(noperm);
             if(!kickmember) return msg.channel.send(nomemmber)
             if(!kickreason) return msg.channel.send(noreason)
@@ -161,6 +163,7 @@ bot.on('message', msg=>{
             .setTitle('Oops!')
             .setDescription("Give me a reason!")
 
+            if (message.channel.type == "dm") return;
             if(!msg.member.hasPermission("BAN_MEMBERS")) return msg.channel.send(noperm1);
             if(!banmember) return msg.channel.send(nomemberembed)
             if(!banreason) return msg.channel.send(noreasonembed)
