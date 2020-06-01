@@ -68,7 +68,6 @@ bot.on('message', msg=>{
         const args = msg.content.split(' ').slice(1); 
         const memberping = args.join(' '); 
             if (!memberping) return msg.reply('Ping a member after ?harass')
-        var member= msg.mentions.members.first();
         var facts = [" is so stupid.", " is ugly", " is an idiot.", " should disappear.", " looks like Kim Jong Un."];
         var fact = Math.floor(Math.random() * facts.length);
         const hitee = new Discord.MessageEmbed()
@@ -103,18 +102,31 @@ bot.on('message', msg=>{
         const kickreason = args.join(' '); 
         const args1 = msg.content.split(' ').slice(1)
         const kickmember = args1.join(' ');
+
         const noperm = new Discord.MessageEmbed()
             .setColor('#FF0000')
             .setTitle('Oops!')
             .setDescription("You can't use that command!")
+        
+        const nomemmber = new Discord.MessageEmbed
+            .setColor('#FF0000')
+            .setTitle('Oops!')
+            .setDescription("Give me a member to kick!")
+
+        const noreason = new Discord.MessageEmbed
+            .setColor('#FF0000')
+            .setTitle('Oops!')
+            .setDescription("Give me a reason!")
+
         if(!msg.member.hasPermission("KICK_MEMBERS")) return msg.channel.send(noperm);
-            if(!kickmember) return msg.reply("Give me a member to kick!")
-            if(!kickreason) return msg.reply("Give me a reason!")
+        if(!kickmember) return msg.channel.send(nomemmber)
+        if(!kickreason) return msg.channel.send(noreason)
+
             var member= msg.mentions.members.first();
             member.kick().then((member) => {
                 const kickembed = new Discord.MessageEmbed()
                     .setColor('#ffff00')
-                    .setTitle('**Sucessfully kicked member**')
+                    .setTitle('**Successfully kicked member**')
                     .setDescription( 'Kicked ' + member.displayName + '.' + '\nReason: ' + kickreason );
                 msg.channel.send(kickembed)
             }).catch(() => {
@@ -125,12 +137,27 @@ bot.on('message', msg=>{
     if(msg.content.startsWith('?ban')) {
         const args = msg.content.split(' ').slice(2); 
         const banreason = args.join(' '); 
+        const args1 = msg.content.split(' ').slice(1);
+        const banmember = args1.join(' ')
+
         const noperm1 = new Discord.MessageEmbed()
             .setColor('#FF0000')
             .setTitle('Oops!')
             .setDescription("You can't use that command!")
+
+        const noperm1 = new Discord.MessageEmbed()
+            .setColor('#FF0000')
+            .setTitle('Oops!')
+            .setDescription("Give me a member to kick!")
+
+        const noperm1 = new Discord.MessageEmbed()
+            .setColor('#FF0000')
+            .setTitle('Oops!')
+            .setDescription("Give me a reason!")
+
             if(!msg.member.hasPermission("BAN_MEMBERS")) return msg.channel.send(noperm1);
-            if(!banreason) return msg.reply("Give me a reason!")
+            if(!banmember) return msg.channel.send(nomemmber)
+            if(!banreason) return msg.channel.send(noreason)
             var member= msg.mentions.members.first();
             member.ban().then((member) => {
                 const banembed = new Discord.MessageEmbed()
