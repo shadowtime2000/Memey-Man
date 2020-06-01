@@ -13,45 +13,6 @@ bot.on("ready", () =>{
 });
 
 bot.on('message', msg=>{
-
-    if(msg.content == "?mainnews") {
-        const getHtml = async () => {
-            try {
-              return await axios.get("https://www.yna.co.kr/sports/all");
-            } catch (error) {
-              console.error(error);
-            }
-          };
-          
-          getHtml()
-            .then(html => {
-              let ulList = [];
-              const $ = cheerio.load(html.data);
-              const $bodyList = $("div.headline-list ul").children("li.section02");
-          
-              $bodyList.each(function(i, elem) {
-                ulList[i] = {
-                    title: $(this).find('strong.news-tl a').text(),
-                    url: $(this).find('strong.news-tl a').attr('href'),
-                    image_url: $(this).find('p.poto a img').attr('src'),
-                    image_alt: $(this).find('p.poto a img').attr('alt'),
-                    summary: $(this).find('p.lead').text().slice(0, -11),
-                    date: $(this).find('span.p-time').text()
-                };
-                const newsembed = new Discord.MessageEmbed()
-                    .setColor('#7cfc00')
-                    .setTitle(title)
-                    .setDescription(summary)
-                    .setImage(image_url)
-
-                msg.channel.send(newsembed)
-              });
-          
-              const data = ulList.filter(n => n.title);
-              return data;
-            })
-            .then(res => log(res));
-    }
 	
     if(msg.content == "?meme") {
         fetch('https://meme-api.herokuapp.com/gimme')
