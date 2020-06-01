@@ -121,16 +121,16 @@ bot.on('message', msg=>{
         if(!msg.member.hasPermission("KICK_MEMBERS")) return msg.channel.send(noperm);
         if(!kickmember) return msg.channel.send(nomemmber)
         if(!kickreason) return msg.channel.send(noreason)
-
-            var member= msg.mentions.members.first();
-            member.kick().then((member) => {
-                const kickembed = new Discord.MessageEmbed()
-                    .setColor('#ff0000')
-                    .setTitle('**Successfully kicked member**')
-                    .setDescription( 'Kicked ' + member.displayName + '.' + '\nReason: ' + kickreason );
-                msg.channel.send(kickembed)
-            }).catch(() => {
-                msg.channel.send("Can't kick that member!");
+        var member= msg.mentions.members.first();
+        member.kick().then((member) => {
+        const kickembed = new Discord.MessageEmbed()
+            .setColor('#ff0000')
+            .setTitle('**Successfully kicked member**')
+            .setDescription( 'Kicked ' + member.displayName + '.' + '\nReason: ' + kickreason );
+        msg.channel.send(kickembed)
+        }).catch(() => {
+            msg.channel.send("Can't kick that member!");
+            
         });
     }
 
