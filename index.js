@@ -98,7 +98,7 @@ bot.on('message', msg=>{
     }
 
     if(msg.content.startsWith('?ping')) {
-        msg.channel.send(client.ping + 'ms')
+        msg.channel.send(bot.ping + 'ms')
     }
 
     if(msg.content.startsWith('?kick')) {
