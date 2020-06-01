@@ -53,7 +53,7 @@ bot.on('message', msg=>{
 	const extranumaa = parseInt(extranum)
 	const messageamount = amountaa + extranumaa
 
-	if (!amount) return msg.reply('Give me the amount of messages!'); 
+	if (!amount) return msg.reply('Give me how many messages should I purge!'); 
 	if (isNaN(amount)) return msg.reply('Give me a number!'); 
 
 	if (amount > 99) return msg.reply("Too many messages to purge! Give me a smaller number."); 
@@ -83,8 +83,7 @@ bot.on('message', msg=>{
         const exampleEmbed = new Discord.MessageEmbed()
 	    .setColor('#0099ff')
             .setTitle('**COMMAND LIST**')
-            .setDescription('**Information commands**\n?botinfo, ?help\n\n**Main commands**\n?meme, ?topic, ?harass\n\n**Moderator commands**\n ?ban, ?kick, ?purge\u200B')
-            .setFooter('\nPing a member together to use ?harass command! (Example: ?harass @SomeMember)')
+            .setDescription('**Information commands**\n?botinfo, ?help\n\n**Main commands**\n?meme, ?topic, ?harass\n\n**Moderator commands**\n ?ban, ?kick, ?purge')
 	msg.channel.send(exampleEmbed);
 	    
     }
