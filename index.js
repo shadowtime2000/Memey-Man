@@ -59,8 +59,10 @@ bot.on('message', msg=>{
         msg.channel.messages.fetch({ limit: messageamount }).then(messages => {
             msg.channel.bulkDelete(messages 
 
-	)});	
+    )});	
+    
     }
+
 	
     if(msg.content.startsWith('?harass')) {
         const args = msg.content.split(' ').slice(1); 
@@ -82,7 +84,7 @@ bot.on('message', msg=>{
 	    .setColor('#0099ff')
             .setTitle('**COMMAND LIST**')
             .setDescription('**Information commands**\n?botinfo, ?help\n\n**Main commands**\n?meme, ?topic, ?harass\n\n**Moderator commands**\n ?ban, ?kick, ?purge')
-	msg.channel.send(exampleEmbed);
+	    msg.channel.send(exampleEmbed);
 	    
     }
 
@@ -92,18 +94,21 @@ bot.on('message', msg=>{
             .setTitle('**BOT INFO**')
             .setDescription('Bot name: Memey Man\nDeveloper: RedTea\nPrefix: ?')
             .setFooter('Type ?help to get help!')
-	msg.channel.send(infoEmbed);
+	    msg.channel.send(infoEmbed);
 	    
     }
 
     if(msg.content.startsWith('?kick')) {
         const args = msg.content.split(' ').slice(2); 
         const kickreason = args.join(' '); 
+        const args1 = msg.content.split(' ').slice(1)
+        const kickmember = args1
         const noperm = new Discord.MessageEmbed()
             .setColor('#FF0000')
             .setTitle('Oops!')
             .setDescription("You can't use that command!")
         if(!msg.member.hasPermission("KICK_MEMBERS")) return msg.channel.send(noperm);
+            if(!kickmember) return msg.reply("Give me a member to kick!")
             if(!kickreason) return msg.reply("Give me a reason!")
             var member= msg.mentions.members.first();
             member.kick().then((member) => {
