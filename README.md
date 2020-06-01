@@ -1,2 +1,3 @@
 # Memey Man bot
-a bot
+Memey Man bot project 
+
