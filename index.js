@@ -7,13 +7,12 @@ const token = 'NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU';
 bot.on("ready", () =>{
     bot.login("NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU")
     console.log('Logged in!');
-    bot.user.setPresence({
-        status: "online",  //You can show online, idle....
-        game: {
-            name: "Using ?help",  //The message shown
-            type: "STREAMING" //PLAYING: WATCHING: LISTENING: STREAMING:
-        }
-    });
+    if (config.activity.streaming == true) {
+        bot.user.setActivity(config.activity.game, {url: 'https://twitch.tv/username'});
+      } else {
+        bot.user.setActivity(config.activity.game, {type: 'WATCHING'});//PLAYING, LISTENING, WATCHING
+        bot.user.setStatus('dnd'); // dnd, idle, online, invisible
+    }
 });
 
 bot.on('message', msg=>{
