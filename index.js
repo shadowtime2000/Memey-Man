@@ -97,6 +97,10 @@ bot.on('message', msg=>{
 	    
     }
 
+    if(message.content.startsWith(config.prefix + 'ping')) {
+        message.channel.send(client.ping + ' ms')
+    }
+
     if(msg.content.startsWith('?kick')) {
         const args = msg.content.split(' ').slice(2); 
         const kickreason = args.join(' '); 
