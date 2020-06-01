@@ -145,19 +145,19 @@ bot.on('message', msg=>{
             .setTitle('Oops!')
             .setDescription("You can't use that command!")
 
-        const noperm1 = new Discord.MessageEmbed()
+        const nomemberembed = new Discord.MessageEmbed()
             .setColor('#FF0000')
             .setTitle('Oops!')
             .setDescription("Give me a member to kick!")
 
-        const noperm1 = new Discord.MessageEmbed()
+        const noreasonembed = new Discord.MessageEmbed()
             .setColor('#FF0000')
             .setTitle('Oops!')
             .setDescription("Give me a reason!")
 
             if(!msg.member.hasPermission("BAN_MEMBERS")) return msg.channel.send(noperm1);
-            if(!banmember) return msg.channel.send(nomemmber)
-            if(!banreason) return msg.channel.send(noreason)
+            if(!banmember) return msg.channel.send(nomemberembed)
+            if(!banreason) return msg.channel.send(noreasonembed)
             var member= msg.mentions.members.first();
             member.ban().then((member) => {
                 const banembed = new Discord.MessageEmbed()
