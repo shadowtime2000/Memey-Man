@@ -105,8 +105,6 @@ bot.on('message', msg=>{
 
         const args = msg.content.split(' ').slice(2); 
         const kickreason = args.join(' '); 
-        const args1 = msg.content.split(' ').slice(1)
-        const kickmember = args1.join(' ');
         var mem= msg.mentions.members.first();
 
         const noperm = new Discord.MessageEmbed()
@@ -117,12 +115,17 @@ bot.on('message', msg=>{
         const nomemmber = new Discord.MessageEmbed()
             .setColor('#FFFF00')
             .setTitle('Oops!')
-            .setDescription("Give me a member to kick!")
+            .setDescription("Give a member to kick!")
 
         const noreason = new Discord.MessageEmbed()
             .setColor('#FFFF00')
             .setTitle('Oops!')
             .setDescription("Give me a reason!")
+
+        const cantkick = new Discord.MessageEmbed()
+            .setColor('#FFFF00')
+            .setTitle('Oops!')
+            .setDescription("Can't kick that member!")
 
             if(!msg.member.hasPermission("KICK_MEMBERS")) return msg.channel.send(noperm);
             if(!mem) return msg.channel.send(nomemmber)
@@ -134,7 +137,7 @@ bot.on('message', msg=>{
                     .setDescription( 'Kicked ' + member.displayName + '.' + '\nReason: ' + kickreason );
                 msg.channel.send(kickembed)
             }).catch(() => {
-                msg.channel.send("Can't kick that member!");
+                msg.channel.send(cantkick);
         });
     }
 
