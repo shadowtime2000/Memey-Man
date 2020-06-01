@@ -147,8 +147,6 @@ bot.on('message', msg=>{
 
         const args = msg.content.split(' ').slice(2); 
         const banreason = args.join(' '); 
-        const args1 = msg.content.split(' ').slice(1);
-        const banmember = args1.join(' ')
         var mem1= msg.mentions.members.first();
 
         const noperm1 = new Discord.MessageEmbed()
@@ -166,6 +164,11 @@ bot.on('message', msg=>{
             .setTitle('Oops!')
             .setDescription("Give me a reason!")
 
+        const cantban = new Discord.MessageEmbed()
+            .setColor('#FFFF00')
+            .setTitle('Oops!')
+            .setDescription("Can't ban that member!")
+
             if(!msg.member.hasPermission("BAN_MEMBERS")) return msg.channel.send(noperm1);
             if(!mem1) return msg.channel.send(nomemberembed)
             if(!banreason) return msg.channel.send(noreasonembed)
@@ -176,7 +179,7 @@ bot.on('message', msg=>{
                     .setDescription( 'Banned ' + member.displayName + '.' + '\nReason: ' + banreason );
                 msg.channel.send(banembed)
             }).catch(() => {
-                msg.channel.send("Can't ban that member!");
+                msg.channel.send(cantban);
         });
     }
        
