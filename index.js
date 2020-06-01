@@ -71,10 +71,10 @@ bot.on('message', msg=>{
         const memberping = args.join(' '); 
         if (!memberping) return msg.reply('Ping a member after ?harass')
             const hitee = new Discord.MessageEmbed()
-            .setColor('#ffa500')
-            .setTitle('You harassed ' + member.displayName  + '!' )
-            .setDescription( member.displayName + facts[fact] )
-            .setFooter('Ping a member to use ?harass command!')
+                .setColor('#ffa500')
+                .setTitle('You harassed ' + member.displayName  + '!' )
+                .setDescription( member.displayName + facts[fact] )
+                .setFooter('Ping a member to use ?harass command!')
         msg.channel.send(hitee)
     }
 	
