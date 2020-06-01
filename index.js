@@ -102,6 +102,7 @@ bot.on('message', msg=>{
         const kickreason = args.join(' '); 
         const args1 = msg.content.split(' ').slice(1)
         const kickmember = args1.join(' ');
+        var member= msg.mentions.members.first();
 
         const noperm = new Discord.MessageEmbed()
             .setColor('#FFFF00')
@@ -121,7 +122,6 @@ bot.on('message', msg=>{
         if(!msg.member.hasPermission("KICK_MEMBERS")) return msg.channel.send(noperm);
         if(!kickmember) return msg.channel.send(nomemmber)
         if(!kickreason) return msg.channel.send(noreason)
-        var member= msg.mentions.members.first();
         member.kick().then((member) => {
         const kickembed = new Discord.MessageEmbed()
             .setColor('#ff0000')
@@ -130,7 +130,7 @@ bot.on('message', msg=>{
         msg.channel.send(kickembed)
         }).catch(() => {
             msg.channel.send("Can't kick that member!");
-            
+
         });
     }
 
@@ -139,6 +139,7 @@ bot.on('message', msg=>{
         const banreason = args.join(' '); 
         const args1 = msg.content.split(' ').slice(1);
         const banmember = args1.join(' ')
+        var member= msg.mentions.members.first();
 
         const noperm1 = new Discord.MessageEmbed()
             .setColor('#FFFF00')
@@ -158,7 +159,6 @@ bot.on('message', msg=>{
             if(!msg.member.hasPermission("BAN_MEMBERS")) return msg.channel.send(noperm1);
             if(!banmember) return msg.channel.send(nomemberembed)
             if(!banreason) return msg.channel.send(noreasonembed)
-            var member= msg.mentions.members.first();
             member.ban().then((member) => {
                 const banembed = new Discord.MessageEmbed()
                     .setColor('#ff0000')
