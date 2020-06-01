@@ -2,7 +2,6 @@ const Discord = require('discord.js');
 const fetch = require('node-fetch');
 const axios = require("axios");
 const cheerio = require("cheerio");
-const log = console.log;
 const bot = new Discord.Client();
 
 const token = 'NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU';
@@ -19,7 +18,6 @@ bot.on('message', msg=>{
             try {
               return await axios.get("https://www.yna.co.kr/sports/all");
             } catch (error) {
-              console.error(error);
             }
           };
           
