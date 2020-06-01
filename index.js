@@ -104,17 +104,17 @@ bot.on('message', msg=>{
         const kickmember = args1.join(' ');
 
         const noperm = new Discord.MessageEmbed()
-            .setColor('#FF0000')
+            .setColor('#FFFF00')
             .setTitle('Oops!')
             .setDescription("You can't use that command!")
         
         const nomemmber = new Discord.MessageEmbed()
-            .setColor('#FF0000')
+            .setColor('#FFFF00')
             .setTitle('Oops!')
             .setDescription("Give me a member to kick!")
 
         const noreason = new Discord.MessageEmbed()
-            .setColor('#FF0000')
+            .setColor('#FFFF00')
             .setTitle('Oops!')
             .setDescription("Give me a reason!")
 
@@ -125,7 +125,7 @@ bot.on('message', msg=>{
             var member= msg.mentions.members.first();
             member.kick().then((member) => {
                 const kickembed = new Discord.MessageEmbed()
-                    .setColor('#ffff00')
+                    .setColor('#ff0000')
                     .setTitle('**Successfully kicked member**')
                     .setDescription( 'Kicked ' + member.displayName + '.' + '\nReason: ' + kickreason );
                 msg.channel.send(kickembed)
@@ -141,17 +141,17 @@ bot.on('message', msg=>{
         const banmember = args1.join(' ')
 
         const noperm1 = new Discord.MessageEmbed()
-            .setColor('#FF0000')
+            .setColor('#FFFF00')
             .setTitle('Oops!')
             .setDescription("You can't use that command!")
 
         const nomemberembed = new Discord.MessageEmbed()
-            .setColor('#FF0000')
+            .setColor('#FFFF00')
             .setTitle('Oops!')
             .setDescription("Give me a member to kick!")
 
         const noreasonembed = new Discord.MessageEmbed()
-            .setColor('#FF0000')
+            .setColor('#FFFF00')
             .setTitle('Oops!')
             .setDescription("Give me a reason!")
 
@@ -161,7 +161,7 @@ bot.on('message', msg=>{
             var member= msg.mentions.members.first();
             member.ban().then((member) => {
                 const banembed = new Discord.MessageEmbed()
-                    .setColor('#ffff00')
+                    .setColor('#ff0000')
                     .setTitle('**Successfully banned member**')
                     .setDescription( 'Banned ' + member.displayName + '.' + '\nReason: ' + banreason );
                 msg.channel.send(banembed)
