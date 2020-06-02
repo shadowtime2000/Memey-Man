@@ -37,7 +37,7 @@ bot.on('message', msg=>{
 
     if(msg.content.startsWith('?8ball')) {
         var currentdate = new Date(); 
-        var datetime = currentdate.getFullYear() + "/"
+        var datetime = "UTC " + currentdate.getFullYear() + "/"
                 + (currentdate.getMonth()+1)  + "/" 
                 + currentdate.getDate() + " "
                 + currentdate.getHours() + ":"  
