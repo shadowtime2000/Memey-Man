@@ -37,11 +37,11 @@ bot.on('message', msg=>{
 
     if(msg.content.startsWith('?8ball')) {
         var currentdate = new Date(); 
-        var datetime = "UTC " + currentdate.getFullYear() + "/"
+        var datetime = currentdate.getFullYear() + "/"
                 + (currentdate.getMonth()+1)  + "/" 
                 + currentdate.getDate() + " "
                 + currentdate.getHours() + ":"  
-                + currentdate.getMinutes() 
+                + currentdate.getMinutes() + " UTC"
         const args = msg.content.split(' ').slice(1); 
         const question = args.join(' '); 
         var facts = ["Yes.", "No.", "I don't know", "Of course.", "Never.", "Maybe.", "You can make it happen!", "It's possible."];
