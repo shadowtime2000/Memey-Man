@@ -26,7 +26,7 @@ bot.on('message', msg=>{
  
     if(msg.content == "?topic") {
         var currentdate = new Date(); 
-        var datetime = "At" + currentdate.getFullYear() + "/"
+        var datetime = "At " + currentdate.getFullYear() + "/"
                 + (currentdate.getMonth()+1)  + "/" 
                 + currentdate.getDate() + " "
                 + currentdate.getHours() + ":"  
@@ -44,7 +44,7 @@ bot.on('message', msg=>{
 
     if(msg.content.startsWith('?8ball')) {
         var currentdate = new Date(); 
-        var datetime = "At" + currentdate.getFullYear() + "/"
+        var datetime = "At " + currentdate.getFullYear() + "/"
                 + (currentdate.getMonth()+1)  + "/" 
                 + currentdate.getDate() + " "
                 + currentdate.getHours() + ":"  
@@ -93,7 +93,7 @@ bot.on('message', msg=>{
 
     if(msg.content.startsWith('?harass')) {
         var currentdate = new Date(); 
-        var datetime = "At" + currentdate.getFullYear() + "/"
+        var datetime = "At " + currentdate.getFullYear() + "/"
                 + (currentdate.getMonth()+1)  + "/" 
                 + currentdate.getDate() + " "
                 + currentdate.getHours() + ":"  
@@ -135,6 +135,13 @@ bot.on('message', msg=>{
 
         if (msg.channel.type == "dm") return;
 
+        var currentdate = new Date(); 
+        var datetime = "At " + currentdate.getFullYear() + "/"
+                + (currentdate.getMonth()+1)  + "/" 
+                + currentdate.getDate() + " "
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + " UTC"
+
         const args = msg.content.split(' ').slice(2); 
         const kickreason = args.join(' '); 
         var mem= msg.mentions.members.first();
@@ -166,7 +173,8 @@ bot.on('message', msg=>{
                 const kickembed = new Discord.MessageEmbed()
                     .setColor('#ff0000')
                     .setTitle('**Successfully kicked member**')
-                    .setDescription( 'Kicked ' + member.displayName + '.' + '\nReason: ' + kickreason );
+                    .setDescription( 'Kicked ' + member.displayName + '.' + '\nReason: ' + kickreason )
+                    .setFooter(datetime)
                 msg.channel.send(kickembed)
             }).catch(() => {
                 msg.channel.send(cantkick);
@@ -176,6 +184,13 @@ bot.on('message', msg=>{
     if(msg.content.startsWith('?ban')) {
 
         if (msg.channel.type == "dm") return;
+
+        var currentdate = new Date(); 
+        var datetime = "At " + currentdate.getFullYear() + "/"
+                + (currentdate.getMonth()+1)  + "/" 
+                + currentdate.getDate() + " "
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + " UTC"
 
         const args = msg.content.split(' ').slice(2); 
         const banreason = args.join(' '); 
@@ -208,7 +223,8 @@ bot.on('message', msg=>{
                 const banembed = new Discord.MessageEmbed()
                     .setColor('#ff0000')
                     .setTitle('**Successfully banned member**')
-                    .setDescription( 'Banned ' + member.displayName + '.' + '\nReason: ' + banreason );
+                    .setDescription( 'Banned ' + member.displayName + '.' + '\nReason: ' + banreason )
+                    .setFooter(datetime)
                 msg.channel.send(banembed)
             }).catch(() => {
                 msg.channel.send(cantban);
