@@ -24,16 +24,30 @@ bot.on('message', msg=>{
             });
     }
 
-    if(msg.content == "?coinflip")
+    if(msg.content == "?coinflip") {
         var facts = ["Head", "tail"]
         var facts = Math.floor(math.random() * facts.length);
         const coinembed = new Discord.MessageEmbed()
             .setcolor('#9c51b6')
             .setTitle('Coinflip')
-            .setDescription( 'Coinflip result: ' + facts[fact] )
+            .setDescription( 'Result: ' + facts[fact] )
             .setFooter( 'Request by: ' + msg.member.displayName )
         msg.channel.send(coinembed)
- 
+
+    }
+    
+    if(msg.content == "?diceroll") {
+    var facts = ["1", "2", "3", "4", "5", "6"]
+    var facts = Math.floor(math.random() * facts.length);
+    const diceembed = new Discord.MessageEmbed()
+        .setcolor('#9c51b6')
+        .setTitle('Dice roll')
+        .setDescription( 'Result: ' + facts[fact] )
+        .setFooter( 'Request by: ' + msg.member.displayName )
+    msg.channel.send(diceembed)
+
+    }
+
     if(msg.content == "?topic") {
         var member= msg.mentions.members.first();
         var facts = ["What is your favorite drink?", "What is your favorite song?", "What did you do yesterday?", "What will you do tomorrow?", "What is your favorite movie?", "What is your favorite food?", "What games do you play?"];
