@@ -45,7 +45,7 @@ bot.on('message', msg=>{
             .setColor('#9c51b6')
             .setTitle('**8ball**')
             .setDescription( 'Your question: ' + question + '\nMy answer: ' + facts[fact] )
-            .setFooter( "By" + msg.member.displayName )  
+            .setFooter( "Request by " + msg.member.displayName )  
         msg.channel.send(ballembed);
     }
 	
@@ -91,7 +91,7 @@ bot.on('message', msg=>{
                 .setColor('#ffa500')
                 .setTitle('You harassed ' + member.displayName  + '!' )
                 .setDescription( member.displayName + facts[fact] )
-                .setFooter( "By" + msg.member.displayName )
+                .setFooter( "Request by " + msg.member.displayName )
         msg.channel.send(hitee)
     }
 	
