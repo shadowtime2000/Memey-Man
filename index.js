@@ -192,7 +192,6 @@ bot.on('message', msg=>{
                     .setColor('#ff0000')
                     .setTitle('**Successfully banned member**')
                     .setDescription( 'Banned ' + mem1.displayName + '.' + '\nModerator: ' + msg.member.displayName + '\nReason: ' + banreason )
-                    .setFooter(datetime)
                 msg.channel.send(banembed)
             }).catch(() => {
                 msg.channel.send(cantban);
