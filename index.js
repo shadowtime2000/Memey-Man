@@ -93,11 +93,6 @@ bot.on('message', msg=>{
 
     if(msg.content.startsWith('?harass')) {
         var currentdate = new Date(); 
-        var datetime = "At " + currentdate.getFullYear() + "/"
-                + (currentdate.getMonth()+1)  + "/" 
-                + currentdate.getDate() + " "
-                + currentdate.getHours() + ":"  
-                + currentdate.getMinutes() + " UTC"
         var facts = [" is so stupid.", " is ugly", " is an idiot.", " should disappear.", " looks like Kim Jong Un."];
         var fact = Math.floor(Math.random() * facts.length);
         var member= msg.mentions.members.first();
@@ -108,7 +103,7 @@ bot.on('message', msg=>{
                 .setColor('#ffa500')
                 .setTitle('You harassed ' + member.displayName  + '!' )
                 .setDescription( member.displayName + facts[fact] )
-                .setFooter(datetime)
+                .setFooter( msg.member.displayName )
         msg.channel.send(hitee)
     }
 	
