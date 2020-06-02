@@ -23,6 +23,16 @@ bot.on('message', msg=>{
                 msg.channel.send(memeembed)
             });
     }
+
+    if(msg.content == "?coinflip")
+        var facts = ["Head", "tail"]
+        var facts = Math.floor(math.random() * facts.length);
+        const coinembed = new Discord.MessageEmbed()
+            .setcolor('#9c51b6')
+            .setTitle('Coinflip')
+            .setDescription( 'Coinflip result: ' + facts[fact] )
+            .setFooter( 'Request by: ' + msg.member.displayName )
+        msg.channel.send(coinembed)
  
     if(msg.content == "?topic") {
         var member= msg.mentions.members.first();
@@ -32,7 +42,7 @@ bot.on('message', msg=>{
             .setColor('#7cfc00')
             .setTitle('**Topic:**')
             .setDescription(facts[fact])
-            .setFooter( "By" + msg.member.displayName )
+            .setFooter( "Request by " + msg.member.displayName )
         msg.channel.send(topicEmbed);
     }
 
