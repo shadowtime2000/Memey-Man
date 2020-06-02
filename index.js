@@ -29,7 +29,7 @@ bot.on('message', msg=>{
         var fact = Math.floor(Math.random() * facts.length);
         const coinembed = new Discord.MessageEmbed()
             .setColor('#9c51b6')
-            .setTitle('Coinflip')
+            .setTitle('Coin flip')
             .setDescription( 'Result: ' + facts[fact] )
             .setFooter( 'Request by: ' + msg.member.displayName )
         msg.channel.send(coinembed)
@@ -123,7 +123,7 @@ bot.on('message', msg=>{
         const exampleEmbed = new Discord.MessageEmbed()
 	    .setColor('#0099ff')
             .setTitle('**COMMAND LIST**')
-            .setDescription('**Information commands**\n?botinfo, ?help\n\n**Main commands**\n?meme, ?topic, ?8ball, ?harass\n\n**Moderator commands**\n?ban, ?kick, ?purge')
+            .setDescription('**Information commands**\n?botinfo, ?help\n\n**Fun commands**\n?meme, ?harass, ?8ball\n\n**Misc commands**\n?topic, ?coinflip, ?diceroll\n\n**Moderator commands**\n?ban, ?kick, ?purge')
 	    msg.channel.send(exampleEmbed);
 	    
     }
