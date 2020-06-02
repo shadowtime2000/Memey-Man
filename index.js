@@ -37,9 +37,9 @@ bot.on('message', msg=>{
 
     if(msg.content.startsWith('?8ball')) {
         var currentdate = new Date(); 
-        var datetime = "Last Sync: " + currentdate.getFullYear() + "/"
+        var datetime = currentdate.getFullYear() + "/"
                 + (currentdate.getMonth()+1)  + "/" 
-                + currentdate.getDate() + " / " + " "
+                + currentdate.getDate() + " "
                 + currentdate.getHours() + ":"  
                 + currentdate.getMinutes() 
         const args = msg.content.split(' ').slice(1); 
