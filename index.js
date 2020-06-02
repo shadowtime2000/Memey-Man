@@ -36,6 +36,12 @@ bot.on('message', msg=>{
     }
 
     if(msg.content.startsWith('?8ball')) {
+        var currentdate = new Date(); 
+        var datetime = "Last Sync: " + currentdate.getFullYear() + "/"
+                + (currentdate.getMonth()+1)  + "/" 
+                + currentdate.getDate() + " / " + " "
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() 
         const args = msg.content.split(' ').slice(1); 
         const question = args.join(' '); 
         var facts = ["Yes.", "No.", "I don't know", "Of course.", "Never.", "Maybe.", "You can make it happen!", "It's possible."];
@@ -43,7 +49,8 @@ bot.on('message', msg=>{
         const ballembed = new Discord.MessageEmbed()
             .setColor('#9c51b6')
             .setTitle('**8ball**')
-      		.setDescription( 'Your question: ' + question + '\nMy answer: ' + facts[fact] )
+            .setDescription( 'Your question: ' + question + '\nMy answer: ' + facts[fact] )
+            .setFooter(datetime)  
         msg.channel.send(ballembed);
     }
 	
