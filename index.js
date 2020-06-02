@@ -31,7 +31,7 @@ bot.on('message', msg=>{
             .setColor('#9c51b6')
             .setTitle('Coin flip')
             .setDescription( 'Result: ' + facts[fact] )
-            .setFooter( 'Request by: ' + msg.member.displayName )
+            .setFooter( 'Request by ' + msg.member.displayName )
         msg.channel.send(coinembed)
 
     }
@@ -43,7 +43,7 @@ bot.on('message', msg=>{
         .setColor('#9c51b6')
         .setTitle('Dice roll')
         .setDescription( 'Result: ' + facts[fact] )
-        .setFooter( 'Request by: ' + msg.member.displayName )
+        .setFooter( 'Request by ' + msg.member.displayName )
     msg.channel.send(diceembed)
 
     }
