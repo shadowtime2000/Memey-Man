@@ -25,23 +25,30 @@ bot.on('message', msg=>{
     }
  
     if(msg.content == "?topic") {
+        var currentdate = new Date(); 
+        var datetime = "At" + currentdate.getFullYear() + "/"
+                + (currentdate.getMonth()+1)  + "/" 
+                + currentdate.getDate() + " "
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + " UTC"
         var member= msg.mentions.members.first();
         var facts = ["What is your favorite drink?", "What is your favorite song?", "What did you do yesterday?", "What will you do tomorrow?", "What is your favorite movie?", "What is your favorite food?", "What games do you play?"];
         var fact = Math.floor(Math.random() * facts.length);
         const topicEmbed = new Discord.MessageEmbed()
-                .setColor('#7cfc00')
-                .setTitle('**Topic:**')
-      		.setDescription(facts[fact])
+            .setColor('#7cfc00')
+            .setTitle('**Topic:**')
+            .setDescription(facts[fact])
+            .setFooter(datetime)
         msg.channel.send(topicEmbed);
     }
 
     if(msg.content.startsWith('?8ball')) {
         var currentdate = new Date(); 
-        var datetime = currentdate.getFullYear() + "/"
+        var datetime = "At" + currentdate.getFullYear() + "/"
                 + (currentdate.getMonth()+1)  + "/" 
-                + currentdate.getDate() + "  "
+                + currentdate.getDate() + " "
                 + currentdate.getHours() + ":"  
-                + currentdate.getMinutes() + "  UTC"
+                + currentdate.getMinutes() + " UTC"
         const args = msg.content.split(' ').slice(1); 
         const question = args.join(' '); 
         var facts = ["Yes.", "No.", "I don't know", "Of course.", "Never.", "Maybe.", "You can make it happen!", "It's possible."];
@@ -85,6 +92,12 @@ bot.on('message', msg=>{
     }
 
     if(msg.content.startsWith('?harass')) {
+        var currentdate = new Date(); 
+        var datetime = "At" + currentdate.getFullYear() + "/"
+                + (currentdate.getMonth()+1)  + "/" 
+                + currentdate.getDate() + " "
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + " UTC"
         var facts = [" is so stupid.", " is ugly", " is an idiot.", " should disappear.", " looks like Kim Jong Un."];
         var fact = Math.floor(Math.random() * facts.length);
         var member= msg.mentions.members.first();
@@ -95,7 +108,7 @@ bot.on('message', msg=>{
                 .setColor('#ffa500')
                 .setTitle('You harassed ' + member.displayName  + '!' )
                 .setDescription( member.displayName + facts[fact] )
-                .setFooter('Ping a member to use ?harass command!')
+                .setFooter(datetime)
         msg.channel.send(hitee)
     }
 	
