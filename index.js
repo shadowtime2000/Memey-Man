@@ -25,12 +25,6 @@ bot.on('message', msg=>{
     }
  
     if(msg.content == "?topic") {
-        var currentdate = new Date(); 
-        var datetime = "At " + currentdate.getFullYear() + "/"
-                + (currentdate.getMonth()+1)  + "/" 
-                + currentdate.getDate() + " "
-                + currentdate.getHours() + ":"  
-                + currentdate.getMinutes() + " UTC"
         var member= msg.mentions.members.first();
         var facts = ["What is your favorite drink?", "What is your favorite song?", "What did you do yesterday?", "What will you do tomorrow?", "What is your favorite movie?", "What is your favorite food?", "What games do you play?"];
         var fact = Math.floor(Math.random() * facts.length);
@@ -38,17 +32,11 @@ bot.on('message', msg=>{
             .setColor('#7cfc00')
             .setTitle('**Topic:**')
             .setDescription(facts[fact])
-            .setFooter(datetime)
+            .setFooter( "By" + msg.member.displayName )
         msg.channel.send(topicEmbed);
     }
 
     if(msg.content.startsWith('?8ball')) {
-        var currentdate = new Date(); 
-        var datetime = "At " + currentdate.getFullYear() + "/"
-                + (currentdate.getMonth()+1)  + "/" 
-                + currentdate.getDate() + " "
-                + currentdate.getHours() + ":"  
-                + currentdate.getMinutes() + " UTC"
         const args = msg.content.split(' ').slice(1); 
         const question = args.join(' '); 
         var facts = ["Yes.", "No.", "I don't know", "Of course.", "Never.", "Maybe.", "You can make it happen!", "It's possible."];
@@ -57,7 +45,7 @@ bot.on('message', msg=>{
             .setColor('#9c51b6')
             .setTitle('**8ball**')
             .setDescription( 'Your question: ' + question + '\nMy answer: ' + facts[fact] )
-            .setFooter(datetime)  
+            .setFooter( "By" + msg.member.displayName )  
         msg.channel.send(ballembed);
     }
 	
@@ -103,7 +91,7 @@ bot.on('message', msg=>{
                 .setColor('#ffa500')
                 .setTitle('You harassed ' + member.displayName  + '!' )
                 .setDescription( member.displayName + facts[fact] )
-                .setFooter( msg.member.displayName )
+                .setFooter( "By" + msg.member.displayName )
         msg.channel.send(hitee)
     }
 	
@@ -129,13 +117,6 @@ bot.on('message', msg=>{
     if(msg.content.startsWith('?kick')) {
 
         if (msg.channel.type == "dm") return;
-
-        var currentdate = new Date(); 
-        var datetime = "At " + currentdate.getFullYear() + "/"
-                + (currentdate.getMonth()+1)  + "/" 
-                + currentdate.getDate() + " "
-                + currentdate.getHours() + ":"  
-                + currentdate.getMinutes() + " UTC"
 
         const args = msg.content.split(' ').slice(2); 
         const kickreason = args.join(' '); 
@@ -168,8 +149,7 @@ bot.on('message', msg=>{
                 const kickembed = new Discord.MessageEmbed()
                     .setColor('#ff0000')
                     .setTitle('**Successfully kicked member**')
-                    .setDescription( 'Kicked ' + member.displayName + '.' + '\nReason: ' + kickreason )
-                    .setFooter(datetime)
+                    .setDescription( 'Kicked ' + mem.displayName + '.' + '\nModerator: ' + msg.member.displayName + '\nReason: ' + kickreason )
                 msg.channel.send(kickembed)
             }).catch(() => {
                 msg.channel.send(cantkick);
@@ -179,13 +159,6 @@ bot.on('message', msg=>{
     if(msg.content.startsWith('?ban')) {
 
         if (msg.channel.type == "dm") return;
-
-        var currentdate = new Date(); 
-        var datetime = "At " + currentdate.getFullYear() + "/"
-                + (currentdate.getMonth()+1)  + "/" 
-                + currentdate.getDate() + " "
-                + currentdate.getHours() + ":"  
-                + currentdate.getMinutes() + " UTC"
 
         const args = msg.content.split(' ').slice(2); 
         const banreason = args.join(' '); 
@@ -218,7 +191,7 @@ bot.on('message', msg=>{
                 const banembed = new Discord.MessageEmbed()
                     .setColor('#ff0000')
                     .setTitle('**Successfully banned member**')
-                    .setDescription( 'Banned ' + member.displayName + '.' + '\nReason: ' + banreason )
+                    .setDescription( 'Banned ' + mem1.displayName + '.' + '\nModerator: ' + msg.member.displayName + '\nReason: ' + banreason )
                     .setFooter(datetime)
                 msg.channel.send(banembed)
             }).catch(() => {
