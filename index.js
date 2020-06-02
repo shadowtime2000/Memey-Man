@@ -28,7 +28,7 @@ bot.on('message', msg=>{
         var facts = ["Head", "tail"]
         var facts = Math.floor(Math.random() * facts.length);
         const coinembed = new Discord.MessageEmbed()
-            .setcolor('#9c51b6')
+            .setColor('#9c51b6')
             .setTitle('Coinflip')
             .setDescription( 'Result: ' + facts[fact] )
             .setFooter( 'Request by: ' + msg.member.displayName )
@@ -40,7 +40,7 @@ bot.on('message', msg=>{
     var facts = ["1", "2", "3", "4", "5", "6"]
     var facts = Math.floor(Math.random() * facts.length);
     const diceembed = new Discord.MessageEmbed()
-        .setcolor('#9c51b6')
+        .setColor('#9c51b6')
         .setTitle('Dice roll')
         .setDescription( 'Result: ' + facts[fact] )
         .setFooter( 'Request by: ' + msg.member.displayName )
