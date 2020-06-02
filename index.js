@@ -39,9 +39,9 @@ bot.on('message', msg=>{
         var currentdate = new Date(); 
         var datetime = currentdate.getFullYear() + "/"
                 + (currentdate.getMonth()+1)  + "/" 
-                + currentdate.getDate() + " "
+                + currentdate.getDate() + "  "
                 + currentdate.getHours() + ":"  
-                + currentdate.getMinutes() + " UTC"
+                + currentdate.getMinutes() + "  UTC"
         const args = msg.content.split(' ').slice(1); 
         const question = args.join(' '); 
         var facts = ["Yes.", "No.", "I don't know", "Of course.", "Never.", "Maybe.", "You can make it happen!", "It's possible."];
