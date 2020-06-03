@@ -240,7 +240,7 @@ bot.on('message', msg=>{
 
         const query = querystring.stringify({ term: args.join(' ') });
 
-        const { list } = await fetch(`https://api.urbandictionary.com/v0/define?${query}`).then(response => response.json());
+        const { list } = fetch(`https://api.urbandictionary.com/v0/define?${query}`).then(response => response.json());
 
         if (!list.length) {
             return msg.channel.send(`No results found for **${args.join(' ')}**.`);
