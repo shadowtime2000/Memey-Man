@@ -11,9 +11,6 @@ bot.on("ready", () =>{
 
 bot.on('message', msg=>{
 
-    if(msg.content == "?ping")
-        msg.reply('Pong! Latency: ${m.createdTimestamp - message.createdTimestamp}ms. API Latency: ${Math.round(client.ping)}ms');
-    
     if(msg.content == "?meme") {
         fetch('https://meme-api.herokuapp.com/gimme')
             .then(res => res.json())
@@ -62,6 +59,24 @@ bot.on('message', msg=>{
             .setFooter( "Request by " + msg.member.displayName )
         msg.channel.send(topicEmbed);
     }
+
+	if (msg.content === '?play') {
+
+		if (msg.channel.type !== 'dm') return;
+
+		const voiceChannel = msg.member.voice.channel;
+
+		if (!voiceChannel) {
+			return msg.reply('please join a voice channel first!');
+		}
+
+		voiceChannel.join().then(connection => {
+			const stream = ytdl('https://www.youtube.com/watch?v=D57Y1PruTlw', { filter: 'audioonly' });
+			const dispatcher = connection.play(stream);
+
+			dispatcher.on('end', () => voiceChannel.leave());
+		});
+	}
 
     if(msg.content.startsWith('?8ball')) {
         const args = msg.content.split(' ').slice(1); 
