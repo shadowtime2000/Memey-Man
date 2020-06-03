@@ -10,7 +10,10 @@ bot.on("ready", () =>{
 });
 
 bot.on('message', msg=>{
-	
+
+    if(msg.content == "?ping")
+        msg.reply('Pong! Latency: ${m.createdTimestamp - message.createdTimestamp}ms. API Latency: ${Math.round(client.ping)}ms');
+    
     if(msg.content == "?meme") {
         fetch('https://meme-api.herokuapp.com/gimme')
             .then(res => res.json())
