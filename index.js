@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const fetch = require('node-fetch');
 const ytdl = require('ytdl-core');
 const ud = require('urban-dictionary')
+const querystring = require('querystring');
 const bot = new Discord.Client();
 
 const token = 'NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU';
@@ -231,33 +232,7 @@ bot.on('message', msg=>{
                 msg.channel.send(cantban);
         });
     }
-       
-    if (msg.content.startsWith('urban')) {
-
-        if (!args.length) {
-            return msg.channel.send('You need to supply a search term!');
-        }
-
-        const query = querystring.stringify({ term: args.join(' ') });
-
-        const { list } = fetch(`https://api.urbandictionary.com/v0/define?${query}`).then(response => response.json());
-
-        if (!list.length) {
-            return msg.channel.send(`No results found for **${args.join(' ')}**.`);
-        }
-
-        const [answer] = list;
-
-        const urbanembed = new Discord.MessageEmbed()
-            .setColor('#EFFF00')
-            .setTitle(answer.word)
-            .setURL(answer.permalink)
-            .addField('Definition', trim(answer.definition, 1024))
-            .addField('Example', trim(answer.example, 1024))
-            .addField('Rating', `${answer.thumbs_up} thumbs up. ${answer.thumbs_down} thumbs down.`);
-
-        msg.channel.send(urbanembed);
-    }
+    
 })
 
 bot.login(process.env.token);
