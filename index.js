@@ -8,6 +8,7 @@ const token = 'NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU';
 bot.on("ready", () =>{
     bot.login("NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU")
     console.log('Logged in!');
+    bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="?help"))
 });
 
 bot.on('message', msg=>{
