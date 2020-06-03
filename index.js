@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const fetch = require('node-fetch');
+const ytdl = require('ytdl-core');
 const bot = new Discord.Client();
 
 const token = 'NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU';
@@ -71,7 +72,7 @@ bot.on('message', msg=>{
 		}
 
 		voiceChannel.join().then(connection => {
-			const stream = ytdl('https://www.youtube.com/watch?v=D57Y1PruTlw', { filter: 'audioonly' });
+			const stream = ytdl('https://www.youtube.com/watch?v=dQw4w9WgXcQ', { filter: 'audioonly' });
 			const dispatcher = connection.play(stream);
 
 			dispatcher.on('end', () => voiceChannel.leave());
