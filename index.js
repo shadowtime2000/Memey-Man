@@ -248,7 +248,7 @@ bot.on('message', msg=>{
                             .setColor('#7cfc00')
                             .setAuthor(`Urban Dictionary | ${word}`, image)
                             .setThumbnail(image)
-                            .setDescription(stripIndents`**Defintion:** ${definition || "No definition"}
+                            .setDescription(`**Defintion:** ${definition || "No definition"}
                             **Example:** ${example || "No Example"}
                             **Upvote:** ${thumbs_up || 0}
                             **Downvote:** ${thumbs_down || 0}
