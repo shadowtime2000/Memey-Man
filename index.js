@@ -61,22 +61,10 @@ bot.on('message', msg=>{
         msg.channel.send(topicEmbed);
     }
 
-	if (msg.content === '?play') {
-
-		if (msg.channel.type !== 'text') return;
-
-		const voiceChannel = msg.member.voice.channel;
-
-		if (!voiceChannel) {
-			return msg.reply('please join a voice channel first!');
-		}
-
-		voiceChannel.join().then(connection => {
-			const stream = ytdl('https://www.youtube.com/watch?v=dQw4w9WgXcQ', { filter: 'audioonly' });
-			const dispatcher = connection.play(stream);
-
-			dispatcher.on('end', () => voiceChannel.leave());
-		});
+	if (msg.content.startsWith('?repeat')) {
+        const args = msg.content.split(' ').slice(1);
+        const repeatword = args.join(' ')
+        msg.channel.send(repeatword)
 	}
 
     if(msg.content.startsWith('?8ball')) {
