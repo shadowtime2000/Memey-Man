@@ -237,7 +237,7 @@ bot.on('message', msg=>{
         const args = msg.content.split(' ').slice(1); 
         const searchword = args.join(' '); 
         if(!searchword) return msg.channel.send("`?urban <search|random> (query)`");
-        let image = "http://cdn.marketplaceimages.windowsphone.com/v8/images/5c942bfe-6c90-45b0-8cd7-1f2129c6e319?imageType=ws_icon_medium";
+        let image = "https://i.imgur.com/RFm5zMt.png";
         let search = urban(searchword)
             try {
                 search.first(res => {
