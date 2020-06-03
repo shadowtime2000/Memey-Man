@@ -62,7 +62,7 @@ bot.on('message', msg=>{
 
 	if (msg.content === '?play') {
 
-		if (msg.channel.type !== 'dm') return;
+		if (msg.channel.type !== 'text') return;
 
 		const voiceChannel = msg.member.voice.channel;
 
