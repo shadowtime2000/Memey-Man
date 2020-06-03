@@ -119,7 +119,7 @@ bot.on('message', msg=>{
         var member= msg.mentions.members.first();
         const args = msg.content.split(' ').slice(1); 
         const memberping = args.join(' '); 
-        if (!memberping) return msg.reply('Ping a member after ?harass')
+        if (!member) return msg.reply('Ping a member after ?harass')
             const hitee = new Discord.MessageEmbed()
                 .setColor('#ffa500')
                 .setTitle('You harassed ' + member.displayName  + '!' )
@@ -205,7 +205,7 @@ bot.on('message', msg=>{
         const nomemberembed = new Discord.MessageEmbed()
             .setColor('#FFFF00')
             .setTitle('Oops!')
-            .setDescription("Give me a member to kick!")
+            .setDescription("Give me a member to ban!")
 
         const noreasonembed = new Discord.MessageEmbed()
             .setColor('#FFFF00')
