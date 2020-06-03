@@ -7,7 +7,7 @@ const token = 'NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU';
 
 
 bot.on("ready", () =>{
-    client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="ft-help | Developer: Chanakan5591#4233."))
+    bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="ft-help | Developer: Chanakan5591#4233."))
     bot.login("NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU")
     console.log('Logged in!');
 });
