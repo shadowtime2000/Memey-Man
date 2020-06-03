@@ -245,7 +245,7 @@ bot.on('message', msg=>{
                     let { word, definition, example, thumbs_up, thumbs_down, permalink, author} = res;
 
                         let embed = new Discord.MessageEmbed()
-                            .setColor('#7cfc00')
+                            .setColor('#ffa000')
                             .setAuthor(`Urban Dictionary | ${word}`)
                             .setThumbnail(image)
                             .setDescription(`**Defintion:** ${definition || "No definition"}
