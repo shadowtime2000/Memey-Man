@@ -233,11 +233,12 @@ bot.on('message', msg=>{
         });
     }
     
-    if(msg.content.startsWith('?urban'))
-    run: async (bot, msg, args) => {
-        if(!args[0] || !["search", "random"].includes(args[0])) return msg.channel.send("`?urban <search|random> (query)`");
+    if(msg.content.startsWith('?urban')) {
+        const args = msg.content.split(' ').slice(1); 
+        const searchword = args.join(' '); 
+        if(!searchword) return msg.channel.send("`?urban <search|random> (query)`");
         let image = "http://cdn.marketplaceimages.windowsphone.com/v8/images/5c942bfe-6c90-45b0-8cd7-1f2129c6e319?imageType=ws_icon_medium";
-        let search = args[1] ? urban(args.slice(1).join(" ")) : urban.random();
+        let search = urban(searchword)
             try {
                 search.first(res => {
                     if(!res) return msg.channel.send("No results found for this topic, sorry!");
