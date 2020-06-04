@@ -254,22 +254,22 @@ bot.on('message', msg=>{
             try {
                 search.first(res => {
                     if(!res) return msg.channel.send("No results found.");
-                    let { word, definition, example, thumbs_up, thumbs_down, permalink, author} = res;
+                    let { word, definition, example} = res;
                         
                         let embed = new Discord.MessageEmbed()
                             .setColor('#ffa000')
                             .setAuthor(`Urban Dictionary | ${word}`, image )
-                            //.setThumbnail(image)
                             .setDescription(`**Defintion:** ${definition || "No definition"}\n**Example:** ${example || "No Example"}`)
                             .setFooter('Reply may not send if the definition exceeds embed character limit.')
-                            if(definition.length + word.length + 22>2048) return msg.channel.send(toolong)
+                            .setTimestamp()
+                            if( definition.length + word.length + example.length + 22 > 2048 ) return msg.channel.send(toolong)
                             msg.channel.send(embed)
                     
                 })
 
             
             } catch(e) {
-                return msg.channel.send("looks like i've broken! Try again")
+                return msg.channel.send("Error. Try again")
 
             }
         }
