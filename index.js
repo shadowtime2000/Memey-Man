@@ -35,7 +35,7 @@ bot.on('message', msg=>{
             .setColor('#9c51b6')
             .setTitle('Coin flip')
             .setDescription( 'Result: ' + facts[fact] )
-            .setFooter( 'Request by ' + msg.member.displayName )
+            .setTimestamp()
         msg.channel.send(coinembed)
 
     }
@@ -47,7 +47,7 @@ bot.on('message', msg=>{
         .setColor('#9c51b6')
         .setTitle('Dice roll')
         .setDescription( 'Result: ' + facts[fact] )
-        .setFooter( 'Request by ' + msg.member.displayName )
+        .setTimestamp()
     msg.channel.send(diceembed)
 
     }
@@ -60,7 +60,7 @@ bot.on('message', msg=>{
             .setColor('#7cfc00')
             .setTitle('**Topic:**')
             .setDescription(facts[fact])
-            .setFooter( "Request by " + msg.member.displayName )
+            .setTimestamp()
         msg.channel.send(topicEmbed);
     }
 
@@ -84,7 +84,7 @@ bot.on('message', msg=>{
             .setColor('#9c51b6')
             .setTitle('**8ball**')
             .setDescription( 'Your question: ' + question + '\nMy answer: ' + facts[fact] )
-            .setFooter( "Request by " + msg.member.displayName )  
+            .setTimestamp()
         msg.channel.send(ballembed);
     }
 	
