@@ -114,16 +114,20 @@ bot.on('message', msg=>{
     
     }
 
-    if(msg.content.startsWith('?spank')) {
+    if(msg.content.startsWith('?punch')) {
         var member= msg.mentions.members.first();
         const args = msg.content.split(' ').slice(2); 
         const times = args.join(' '); 
-        if (!member) return msg.reply('Ping a member after ?harass')
+        const spanke = new Discord.MessageEmbed
+            .setColor('#ffa500')
+            .setTitle('?punch command')
+            .setDescription('Usage: ?punch [member ping]')
+        if (!member) return msg.channel.send(spanke)
             const hitee = new Discord.MessageEmbed()
                 .setColor('#ffa500')
-                .setTitle( msg.member.displayName + " got the belt!" )
-                .setDescription( msg.member.displayName + ' spanked ' + member.displayName + " " + times + ' time(s).' )
-                .setFooter( "Type ?spank [member ping] [number] to spank" )
+                .setTitle( msg.member.displayName + " punched!" )
+                .setDescription( msg.member.displayName + ' punched ' + member.displayName + "!" )
+                .setFooter( "Command usage: ?punch [member ping]" )
         msg.channel.send(hitee)
     }
 	
