@@ -71,6 +71,7 @@ bot.on('message', msg=>{
         if(repeatword.includes("?kick")) return msg.reply("Don't try it!")
         if(repeatword.includes("?ban")) return msg.reply("Don't try it!")
         if(repeatword.includes("?purge")) return msg.reply("Don't try it!")
+        if(repeatword.includes("?repeat")) return msg.reply("You can't repeat more than once.")
         msg.channel.send(repeatword)
 	}
 
