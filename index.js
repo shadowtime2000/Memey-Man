@@ -118,7 +118,7 @@ bot.on('message', msg=>{
         var member= msg.mentions.members.first();
         const spanke = new Discord.MessageEmbed()
             .setColor('#ffa500')
-            .setTitle('?punch command')
+            .setTitle('Punch command')
             .setDescription('Usage: ?punch [member ping]')
         if (!member) return msg.channel.send(spanke)
         const hitee = new Discord.MessageEmbed()
@@ -133,7 +133,7 @@ bot.on('message', msg=>{
         const exampleEmbed = new Discord.MessageEmbed()
 	    .setColor('#0099ff')
             .setTitle('**COMMAND LIST**')
-            .setDescription('**Information commands**\n?botinfo, ?help\n\n**Commands**\n?meme, ?urban, ?punch, ?8ball,\n?topic, ?repeat, ?coinflip, ?diceroll\n\n**Moderator commands**\n?ban, ?kick, ?purge')
+            .setDescription('**Information commands**\n?botinfo, ?help\n\n**Main commands**\n?meme, ?urban, ?punch, ?8ball,\n?topic, ?repeat, ?coinflip, ?diceroll\n\n**Moderator commands**\n?ban, ?kick, ?purge')
 	    msg.channel.send(exampleEmbed);
 	    
     }
@@ -247,7 +247,7 @@ bot.on('message', msg=>{
                             .setColor('#ffa000')
                             .setAuthor(`Urban Dictionary | ${word}`)
                             .setThumbnail(image)
-                            .setDescription(`**Defintion:** ${definition || "No definition"}\n\n**Example:** ${example || "No Example"}\n\n**Upvote:** ${thumbs_up || 0}\n\n**Downvote:** ${thumbs_down || 0}\n\n**Link:** [link to ${word}](${permalink || "https://www.urbandictionary.com/"})`)
+                            .setDescription(`**Defintion:** ${definition || "No definition"}\n**Example:** ${example || "No Example"}\n**Upvote:** ${thumbs_up || 0}\n**Downvote:** ${thumbs_down || 0}\n**Link:** [link to ${word}](${permalink || "https://www.urbandictionary.com/"})`)
                             msg.channel.send(embed)
                 })
             } catch(e) {
