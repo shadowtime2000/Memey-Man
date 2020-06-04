@@ -256,6 +256,7 @@ bot.on('message', msg=>{
                             .setAuthor(`Urban Dictionary | ${word}`)
                             .setThumbnail(image)
                             .setDescription(`**Defintion:** ${definition || "No definition"}\n**Example:** ${example || "No Example"}\n**Link:** ${permalink || "https://www.urbandictionary.com/"}`)
+                            .setFooter('Reply may not send if the definition exceeds embed word limit.')
                             msg.channel.send(embed)
                 })
             } catch(e) {
