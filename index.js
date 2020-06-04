@@ -93,7 +93,7 @@ bot.on('message', msg=>{
         if (msg.channel.type == "dm") return;
 
         const nopurge = new Discord.MessageEmbed()
-            .setColor('#FF0000')
+            .setColor('#FFFF00')
             .setTitle('Oops!')
             .setDescription("You can't use that command!")
 
