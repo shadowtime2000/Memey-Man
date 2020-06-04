@@ -239,7 +239,11 @@ bot.on('message', msg=>{
     if(msg.content.startsWith('?urban')) {
         const args = msg.content.split(' ').slice(1); 
         const searchword = args.join(' '); 
-        if(!searchword) return msg.channel.send("`?urban <search|random> (query)`");
+        const noword = new Discord.MessageEmbed()
+            .setcolor('#ffa000')
+            .setTitle('Urban command')
+            .setDescription('Usage: ?urban [word]')
+        if(!searchword) return msg.channel.send(noword);
         let image = "https://i.imgur.com/RFm5zMt.png";
         let search = urban(searchword)
             try {
