@@ -243,6 +243,10 @@ bot.on('message', msg=>{
             .setColor('#ffa000')
             .setTitle('Urban command')
             .setDescription('Usage: ?urban [word]')
+        const toolong = new Discord.MessageEmbed()
+            .setColor('#ffa500')
+            .serTitle('Oops!')
+            .setDescription("Definition is too long. Can't send message because of discord embed character limit.")
         if(!searchword) return msg.channel.send(noword);
         
         let image = "https://i.imgur.com/RFm5zMt.png";
@@ -258,7 +262,7 @@ bot.on('message', msg=>{
                             //.setThumbnail(image)
                             .setDescription(`**Defintion:** ${definition || "No definition"}\n**Example:** ${example || "No Example"}`)
                             .setFooter('Reply may not send if the definition exceeds embed character limit.')
-                            if(definition.length + word.length + 87>2048) return msg.channel.send('Definition is too long. The message may not have sent.')
+                            if(definition.length + word.length + 87>2048) return msg.channel.send(toolong)
                             msg.channel.send(embed)
                     
                 })
