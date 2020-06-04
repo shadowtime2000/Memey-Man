@@ -253,8 +253,8 @@ bot.on('message', msg=>{
 
                         let embed = new Discord.MessageEmbed()
                             .setColor('#ffa000')
-                            .setAuthor(`Urban Dictionary | ${word}`)
-                            .setThumbnail(image)
+                            .setAuthor(`Urban Dictionary | ${word}`, image )
+                            //.setThumbnail(image)
                             .setDescription(`**Defintion:** ${definition || "No definition"}\n**Example:** ${example || "No Example"}\n**Link:** ${permalink || "https://www.urbandictionary.com/"}`)
                             .setFooter('Reply may not send if the definition exceeds embed character limit.')
                             msg.channel.send(embed)
