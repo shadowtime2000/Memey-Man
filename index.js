@@ -259,7 +259,7 @@ bot.on('message', msg=>{
                             .setFooter('Reply may not send if the definition exceeds embed character limit.')
                             msg.channel.send(embed)
                 })
-            if( length.definition > 2048 ); return msg.reply('Embed character amount exceeds limit. Message may have not sent.')
+            if( definition.length > 2048 ); return msg.reply('Embed character amount exceeds limit. Message may have not sent.')
             
             } catch(e) {
                 return msg.channel.send("looks like i've broken! Try again")
