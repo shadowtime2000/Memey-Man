@@ -116,7 +116,7 @@ bot.on('message', msg=>{
 
     if(msg.content.startsWith('?punch')) {
         var member= msg.mentions.members.first();
-        const spanke = new Discord.MessageEmbed
+        const spanke = new Discord.MessageEmbed()
             .setColor('#ffa500')
             .setTitle('?punch command')
             .setDescription('Usage: ?punch [member ping]')
