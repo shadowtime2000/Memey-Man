@@ -249,10 +249,10 @@ bot.on('message', msg=>{
                             .setAuthor(`Urban Dictionary | ${word}`)
                             .setThumbnail(image)
                             .setDescription(`**Defintion:** ${definition || "No definition"}
-                            **Example:** ${example || "No Example"}
-                            **Upvote:** ${thumbs_up || 0}
-                            **Downvote:** ${thumbs_down || 0}
-                            **Link:** [link to ${word}](${permalink || "https://www.urbandictionary.com/"})`)
+                            \n**Example:** ${example || "No Example"}
+                            \n**Upvote:** ${thumbs_up || 0}
+                            \n**Downvote:** ${thumbs_down || 0}
+                            \n**Link:** [link to ${word}](${permalink || "https://www.urbandictionary.com/"})`)
                             msg.channel.send(embed)
                 })
             } catch(e) {
