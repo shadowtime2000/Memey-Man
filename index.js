@@ -258,6 +258,7 @@ bot.on('message', msg=>{
                             //.setThumbnail(image)
                             .setDescription(`**Defintion:** ${definition || "No definition"}\n**Example:** ${example || "No Example"}`)
                             .setFooter('Reply may not send if the definition exceeds embed character limit.')
+                            if(definition.length>2048) return msg.channel.send('Definition is too long. The message may not have sent.')
                             msg.channel.send(embed)
                     
                 })
