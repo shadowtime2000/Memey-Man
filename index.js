@@ -250,7 +250,7 @@ bot.on('message', msg=>{
                             .setColor('#ffa000')
                             .setAuthor(`Urban Dictionary | ${word}`)
                             .setThumbnail(image)
-                            .setDescription(`**Defintion:** ${definition || "No definition"}\n**Example:** ${example || "No Example"}\n\n**Link:** [link to ${word}](${permalink || "https://www.urbandictionary.com/"})`)
+                            .setDescription(`**Defintion:** ${definition || "No definition"}\n**Example:** ${example || "No Example"}\n**Link:** (${permalink || "https://www.urbandictionary.com/"})`)
                             msg.channel.send(embed)
                 })
             } catch(e) {
