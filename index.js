@@ -256,7 +256,7 @@ bot.on('message', msg=>{
                             .setColor('#ffa000')
                             .setAuthor(`Urban Dictionary | ${word}`, image )
                             //.setThumbnail(image)
-                            .setDescription(`**Defintion:** ${definition || "No definition"}\n**Example:** ${example || "No Example"}\n**Link:** ${permalink || "https://www.urbandictionary.com/"}`)
+                            .setDescription(`**Defintion:** ${definition || "No definition"}\n**Example:** ${example || "No Example"}`)
                             .setFooter('Reply may not send if the definition exceeds embed character limit.')
                             msg.channel.send(embed)
                     
