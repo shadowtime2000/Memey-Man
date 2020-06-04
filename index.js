@@ -121,8 +121,8 @@ bot.on('message', msg=>{
         if (!member) return msg.reply('Ping a member after ?harass')
             const hitee = new Discord.MessageEmbed()
                 .setColor('#ffa500')
-                .setTitle( msg.member.displayName + " got spanked" )
-                .setDescription( msg.member.displayName + ' spanked ' + member.displayName  + times + 'time(s)' )
+                .setTitle( msg.member.displayName + " got the belt!" )
+                .setDescription( msg.member.displayName + ' spanked ' + member.displayName + " " + times + ' time(s).' )
                 .setFooter( "Type ?spank [member ping] [number] to spank" )
         msg.channel.send(hitee)
     }
@@ -131,7 +131,7 @@ bot.on('message', msg=>{
         const exampleEmbed = new Discord.MessageEmbed()
 	    .setColor('#0099ff')
             .setTitle('**COMMAND LIST**')
-            .setDescription('**Information commands**\n?botinfo, ?help\n\n**Fun commands**\n?meme, ?urban, ?harass, ?8ball\n\n**Misc commands**\n?topic, ?repeat, ?coinflip, ?diceroll\n\n**Moderator commands**\n?ban, ?kick, ?purge')
+            .setDescription('**Information commands**\n?botinfo, ?help\n\n**Fun commands**\n?meme, ?urban, ?spank, ?8ball\n\n**Misc commands**\n?topic, ?repeat, ?coinflip, ?diceroll\n\n**Moderator commands**\n?ban, ?kick, ?purge')
 	    msg.channel.send(exampleEmbed);
 	    
     }
