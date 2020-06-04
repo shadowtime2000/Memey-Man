@@ -245,7 +245,7 @@ bot.on('message', msg=>{
             .setDescription('Usage: ?urban [word]')
         const toolong = new Discord.MessageEmbed()
             .setColor('#ffa500')
-            .serTitle('Oops!')
+            .setTitle('Oops!')
             .setDescription("Definition is too long. Can't send message because of discord embed character limit.")
         if(!searchword) return msg.channel.send(noword);
         
