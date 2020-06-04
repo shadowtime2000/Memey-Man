@@ -68,7 +68,7 @@ bot.on('message', msg=>{
         const args = msg.content.split(' ').slice(1);
         const repeatword = args.join(' ')
         if(!repeatword) return msg.reply('Nothing to repeat!');
-        if(string.includes("kick")) return msg.reply("Don't try it!")
+        if(repeatword.includes("kick")) return msg.reply("Don't try it!")
         msg.channel.send(repeatword)
 	}
 
