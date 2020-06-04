@@ -240,7 +240,7 @@ bot.on('message', msg=>{
         const args = msg.content.split(' ').slice(1); 
         const searchword = args.join(' '); 
         const noword = new Discord.MessageEmbed()
-            .setcolor('#ffa000')
+            .setColor('#ffa000')
             .setTitle('Urban command')
             .setDescription('Usage: ?urban [word]')
         if(!searchword) return msg.channel.send(noword);
