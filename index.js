@@ -244,13 +244,14 @@ bot.on('message', msg=>{
             .setTitle('Urban command')
             .setDescription('Usage: ?urban [word]')
         if(!searchword) return msg.channel.send(noword);
+        
         let image = "https://i.imgur.com/RFm5zMt.png";
         let search = urban(searchword)
             try {
                 search.first(res => {
                     if(!res) return msg.channel.send("No results found.");
                     let { word, definition, example, thumbs_up, thumbs_down, permalink, author} = res;
-
+                        
                         let embed = new Discord.MessageEmbed()
                             .setColor('#ffa000')
                             .setAuthor(`Urban Dictionary | ${word}`, image )
@@ -258,8 +259,9 @@ bot.on('message', msg=>{
                             .setDescription(`**Defintion:** ${definition || "No definition"}\n**Example:** ${example || "No Example"}\n**Link:** ${permalink || "https://www.urbandictionary.com/"}`)
                             .setFooter('Reply may not send if the definition exceeds embed character limit.')
                             msg.channel.send(embed)
+                    
                 })
-            if( definition.length > 2048 ); return msg.reply('Embed character amount exceeds limit. Message may have not sent.')
+
             
             } catch(e) {
                 return msg.channel.send("looks like i've broken! Try again")
