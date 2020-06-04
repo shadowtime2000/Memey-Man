@@ -260,8 +260,8 @@ bot.on('message', msg=>{
                             msg.channel.send(embed)
                 })
             } catch(e) {
-                console.log(e)
                 return msg.channel.send("looks like i've broken! Try again")
+
             }
         }
 })
