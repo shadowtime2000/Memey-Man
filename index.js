@@ -243,7 +243,7 @@ bot.on('message', msg=>{
         let search = urban(searchword)
             try {
                 search.first(res => {
-                    if(!res) return msg.channel.send("No results found for this topic, sorry!");
+                    if(!res) return msg.channel.send("No results found.");
                     let { word, definition, example, thumbs_up, thumbs_down, permalink, author} = res;
 
                         let embed = new Discord.MessageEmbed()
