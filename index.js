@@ -78,7 +78,7 @@ bot.on('message', msg=>{
     if(msg.content.startsWith('?8ball')) {
         const args = msg.content.split(' ').slice(1); 
         const question = args.join(' '); 
-        var facts = ["Yes.", "No.", "I don't know", "Of course.", "Never.", "Maybe.", "You can make it happen!", "It's possible."];
+        var facts = ["Yes.", "No.", "I don't know", "Of course.", "Never.", "Maybe.", "I don't know.", "Excuse me?"];
         var fact = Math.floor(Math.random() * facts.length);
         const ballembed = new Discord.MessageEmbed()
             .setColor('#9c51b6')
