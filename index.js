@@ -124,7 +124,7 @@ bot.on('message', msg=>{
         const hitee = new Discord.MessageEmbed()
             .setColor('#ffa500')
             .setTitle( msg.member.displayName + " punched!" )
-            .setDescription( msg.member.displayName + ' punched ' + member.displayName + "!" )
+            .setDescription( msg.member.displayName + ' punched ' + member.displayName )
             .setFooter( "Command usage: ?punch [member ping]" )
         msg.channel.send(hitee)
     }
