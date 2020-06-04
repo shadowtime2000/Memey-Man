@@ -114,19 +114,16 @@ bot.on('message', msg=>{
     
     }
 
-    if(msg.content.startsWith('?harass')) {
-        var currentdate = new Date(); 
-        var facts = [" is so stupid.", " is ugly", " is an idiot.", " should disappear.", " looks like Kim Jong Un."];
-        var fact = Math.floor(Math.random() * facts.length);
+    if(msg.content.startsWith('?spank')) {
         var member= msg.mentions.members.first();
-        const args = msg.content.split(' ').slice(1); 
-        const memberping = args.join(' '); 
+        const args = msg.content.split(' ').slice(2); 
+        const times = args.join(' '); 
         if (!member) return msg.reply('Ping a member after ?harass')
             const hitee = new Discord.MessageEmbed()
                 .setColor('#ffa500')
-                .setTitle('You harassed ' + member.displayName  + '!' )
-                .setDescription( member.displayName + facts[fact] )
-                .setFooter( "Request by " + msg.member.displayName )
+                .setTitle( msg.member.displayName + " got spanked" )
+                .setDescription( msg.member.displayName + ' spanked ' + member.displayName  + times + 'time(s)' )
+                .setFooter( "Type ?spank [member ping] [number] to spank" )
         msg.channel.send(hitee)
     }
 	
