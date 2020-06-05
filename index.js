@@ -1,5 +1,4 @@
-var apiaiApp = require('apiai')(process.env.API_AI);
-
+const apiaiApp = require('apiai')(process.env.API_AI);
 const Discord = require('discord.js');
 const fetch = require('node-fetch');
 const urban = require('urban')
