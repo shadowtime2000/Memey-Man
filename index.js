@@ -8,13 +8,13 @@ const token = 'NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU';
 bot.on("ready", () =>{
     bot.login("NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU")
     console.log('Logged in!');
-    bot.user.setActivity("Creator is inactive, no update for a week", {
+    bot.user.setActivity("Type m!help | Creator is inactive", {
         type: "STREAMING",
         url: "https://www.twitch.tv/rickroll"
     });
 });
 
-var prefix = "?"
+var prefix = "m!"
 
 bot.on("message", async msg => {
 
