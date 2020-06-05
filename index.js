@@ -10,9 +10,12 @@ bot.on("ready", () =>{
     console.log('Logged in!');
 });
 
-var prefix = "?";
 
 bot.on('message', msg=>{
+  
+    var prefix = {}
+    prefix[msg.guild.id] = 0
+    prefix[msg.guild.id]++
 
     if(msg.content.startsWith(prefix + 'prefix')) {
 
