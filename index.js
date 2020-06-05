@@ -10,7 +10,7 @@ bot.on("ready", () =>{
     console.log('Logged in!');
     bot.user.setActivity("how to move between dimensions", {
         type: "STREAMING",
-        url: "https://www.twitch.tv/aha"
+        url: "https://www.twitch.tv/memeymanbot"
     });
 });
 
