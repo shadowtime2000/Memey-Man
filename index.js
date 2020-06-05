@@ -14,7 +14,7 @@ bot.on("ready", () =>{
     });
 });
 
-var prefix = "m!"
+var prefix = ";"
 
 bot.on("message", async msg => {
 
