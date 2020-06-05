@@ -28,7 +28,7 @@ bot.on('message', msg=>{
 
         if(!msg.member.hasPermission("MANAGE_SERVER")) return msg.channel.send(noperm);       
         const args = msg.content.split(' ').slice(1);
-        const newprefix = args.join(' ')
+        const newprefix = args.join(' ') 
         server = bot.guilds.get(msg.guild.id).id;
         prefix = newprefix
         const prefixembed = new Discord.MessageEmbed()
