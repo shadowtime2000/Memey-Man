@@ -262,7 +262,7 @@ bot.on('message', msg=>{
                             .setColor('#ffa000')
                             .setAuthor(`Urban Dictionary | ${word}`, image )
                             .setDescription(`**Defintion:** ${definition || "No definition"}\n**Example:** ${example || "No Example"}`)
-                            .setFooter('Reply may not send if the definition exceeds embed character limit.')
+                            .setTimestamp()
                             if( definition.length + word.length + example.length + 22 > 2048 ) return msg.channel.send(toolong)
                             msg.channel.send(embed)
                     
