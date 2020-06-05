@@ -8,7 +8,7 @@ const token = 'NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU';
 bot.on("ready", () =>{
     bot.login("NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU")
     console.log('Logged in!');
-    bot.user.setActivity("&help | Creator is inactive", {
+    bot.user.setActivity("&help  |  Creator is inactive", {
         type: "STREAMING",
         url: "https://www.twitch.tv/rickroll"
     });
@@ -91,7 +91,7 @@ bot.on("message", async msg => {
     if(msg.content.startsWith(prefix + '8ball')) {
         const args = msg.content.split(' ').slice(1); 
         const question = args.join(' '); 
-        var facts = ["Yes.", "No.", "I don't know", "Of course.", "Never.", "Maybe.", "I don't know.", "Excuse me?"];
+        var facts = ["Yes.", "No.", "I don't know", "Of course.", "Never.", "Maybe.", "Hmm...", "Excuse me?"];
         var fact = Math.floor(Math.random() * facts.length);
         const ballembed = new Discord.MessageEmbed()
             .setColor('#9c51b6')
