@@ -24,7 +24,7 @@ bot.on('message', msg=>{
             
             // Parse the text to the API.ai
             var request = apiaiApp.textRequest(text, {
-                sessionId: '<any-unique-name>'
+                sessionId: '0000'
             });
 
             // Listen to a response from API.ai
