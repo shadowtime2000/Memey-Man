@@ -13,10 +13,6 @@ bot.on("ready", () =>{
 var prefix = "?"
 
 bot.on('message', msg=>{
-
-    if(msg.content == prefix + "member") {
-        msg.channel.send(`This server has ${guild.memberCount} members.`);
-    }
     
     if(msg.content == prefix + "meme") {
         fetch('https://meme-api.herokuapp.com/gimme')
@@ -38,7 +34,6 @@ bot.on('message', msg=>{
             .setColor('#9c51b6')
             .setTitle('Coin flip')
             .setDescription( 'Result: ' + facts[fact] )
-            .setTimestamp()
         msg.channel.send(coinembed)
 
     }
@@ -50,7 +45,6 @@ bot.on('message', msg=>{
         .setColor('#9c51b6')
         .setTitle('Dice roll')
         .setDescription( 'Result: ' + facts[fact] )
-        .setTimestamp()
     msg.channel.send(diceembed)
 
     }
