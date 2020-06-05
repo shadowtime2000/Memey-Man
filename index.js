@@ -18,7 +18,7 @@ bot.on('message', msg=>{
         const args = msg.content.split(' ').slice(1);
         const newprefix = args.join(' ')
         var prefix = newprefix
-        const prefixembed = new Discord.MessageEmbed
+        const prefixembed = new Discord.MessageEmbed()
             .setColor('#7cfc00')
             .setTitle('Successfully set prefix')
             .setDescription('Successfully modified prefix to ' + newprefix + '.')
