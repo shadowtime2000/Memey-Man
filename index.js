@@ -10,14 +10,14 @@ bot.on("ready", () =>{
     console.log('Logged in!');
 });
 
-const prefix = "?";
+var prefix = "?";
 
 bot.on('message', msg=>{
 
     if(msg.content.startsWith(prefix + 'prefix')) {
         const args = msg.content.split(' ').slice(1);
         const newprefix = args.join(' ')
-        const prefix = newprefix
+        var prefix = newprefix
         const prefixembed = new Discord.MessageEmbed()
             .setColor('#7cfc00')
             .setTitle('Successfully set prefix')
