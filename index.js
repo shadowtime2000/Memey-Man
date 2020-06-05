@@ -13,6 +13,10 @@ bot.on("ready", () =>{
 var prefix = "?"
 
 bot.on('message', msg=>{
+
+    if(msg.content == prefix + "member") {
+        msg.channel.send(`This server has ${guild.memberCount} members.`);
+    }
     
     if(msg.content == prefix + "meme") {
         fetch('https://meme-api.herokuapp.com/gimme')
