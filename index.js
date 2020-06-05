@@ -15,7 +15,7 @@ var prefix = "?"
 bot.on("message", async msg => {
 
     if(msg.content == prefix + "ping") {
-        const m = await msg.channel.send("Wait a sec...");
+        const m = await msg.channel.send(".");
         m.edit(`Ping: ${m.createdTimestamp - msg.createdTimestamp}ms`);
     }
     
