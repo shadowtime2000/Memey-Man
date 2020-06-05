@@ -10,14 +10,11 @@ bot.on("ready", () =>{
     console.log('Logged in!');
 });
 
-var aaaprefix = {};
 var prefix = "?";
 
 bot.on('message', msg=>{
 
-    var thisserver = bot.guilds.get(msg.guild.id).id;
-
-    if(server != thisserver) {prefix = "?"}
+    let msg = message.content.toUpperCase();
 
     if(msg.content.startsWith(prefix + 'prefix')) {
 
@@ -29,14 +26,11 @@ bot.on('message', msg=>{
         if(!msg.member.hasPermission("MANAGE_SERVER")) return msg.channel.send(noperm);       
         const args = msg.content.split(' ').slice(1);
         const newprefix = args.join(' ') 
-        server = bot.guilds.get(msg.guild.id).id;
-        prefix = newprefix
         const prefixembed = new Discord.MessageEmbed()
             .setColor('#7cfc00')
             .setTitle('Successfully set prefix')
             .setDescription('Successfully modified prefix to ' + newprefix)
         msg.channel.send(prefixembed)
-        guildOnly: true
     }
     
     if(msg.content == prefix + "meme") {
