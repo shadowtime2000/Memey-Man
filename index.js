@@ -16,12 +16,12 @@ bot.on('message', msg=>{
 
     if(msg.content.startsWith(prefix + 'prefix')) {
 
-        const nopurge = new Discord.MessageEmbed()
+        const noperm = new Discord.MessageEmbed()
             .setColor('#FFFF00')
             .setTitle('Oops!')
             .setDescription("You can't use that command!")
 
-        if(!msg.member.hasPermission("MANAGE_SERVER")) return msg.channel.send(nopurge);       
+        if(!msg.member.hasPermission("MANAGE_SERVER")) return msg.channel.send(noperm);       
         const args = msg.content.split(' ').slice(1);
         const newprefix = args.join(' ')
         prefix = newprefix
