@@ -15,8 +15,8 @@ var prefix = "?"
 bot.on("message", async msg => {
 
     if(msg.content == prefix + "ping") {
-        const m = await msg.channel.send(".");
-        m.edit(`Ping: ${m.createdTimestamp - msg.createdTimestamp}ms`);
+        const m = await msg.channel.send("Pong:");
+        m.edit(`Pong: ${m.createdTimestamp - msg.createdTimestamp}ms`);
     }
     
     if(msg.content == prefix + "meme") {
