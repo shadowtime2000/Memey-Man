@@ -13,6 +13,11 @@ bot.on("ready", () =>{
 var prefix = "?"
 
 bot.on('message', msg=>{
+
+    if(msg.content == prefix + "pogey") {
+        const pogey = client.emojis.find(emoji => emoji.name === "pogey");
+        message.reply(`${pogey}`);
+     }
     
     if(msg.content == prefix + "meme") {
         fetch('https://meme-api.herokuapp.com/gimme')
