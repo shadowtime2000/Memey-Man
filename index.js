@@ -10,8 +10,8 @@ bot.on("ready", () =>{
     console.log('Logged in!');
 });
 
-var prefix = {};
-var defaultPrefix = "?";
+var aaaprefix = {};
+var prefix = "?";
 
 bot.on('message', msg=>{
 
@@ -27,7 +27,7 @@ bot.on('message', msg=>{
         const newprefix = args.join(' ')
         var server = message.guild.id;
         server.tap(function(guild){
-            prefix[guild.id] = newprefix
+            aaaprefix[guild.id] = newprefix
         })
         const prefixembed = new Discord.MessageEmbed()
             .setColor('#7cfc00')
