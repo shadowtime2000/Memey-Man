@@ -14,7 +14,7 @@ bot.on("ready", () =>{
 bot.on('message', msg=>{
   
     var prefix = "?"
-    prefix[msg.guild.id] = "?"
+    prefix[msg.guild.id] = newprefix
     prefix[msg.guild.id]++
 
     if(msg.content.startsWith(prefix + 'prefix')) {
