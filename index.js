@@ -14,16 +14,17 @@ var prefix = "?";
 
 bot.on('message', msg=>{
 
-    if(msg.content.startsWith(prefix + 'prefix')) 
+    if(msg.content.startsWith(prefix + 'prefix')) {
         const args = msg.content.split(' ').slice(1);
         const newprefix = args.join(' ')
-        var prefix = newprefix
         const prefixembed = new Discord.MessageEmbed()
             .setColor('#7cfc00')
             .setTitle('Successfully set prefix')
-            .setDescription('Successfully modified prefix to ' + newprefix + '.')
+            .setDescription('Successfully modified prefix to ' + newprefix)
         msg.channel.send(prefixembed)
-    
+    }
+
+    var prefix = newprefix
     
     if(msg.content == prefix + "meme") {
         fetch('https://meme-api.herokuapp.com/gimme')
