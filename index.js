@@ -144,7 +144,7 @@ bot.on("message", async msg => {
         const exampleEmbed = new Discord.MessageEmbed()
 	    .setColor('#0099ff')
             .setTitle('**COMMAND LIST**')
-            .setDescription('**Information commands**\n?botinfo : Gives bot info.\n?help : This command.\n\n**Main commands**\n?ping : Gives ping.\n?meme : Gives a random meme\n?urban : Gives an urban dictionary definition\n?punch : Punches a user!\n?8ball : Answers a question.\n?topic : Gives a chat topic.\n?repeat : Repeats.\n?coinflip : Flips a coin.\n?diceroll : Rolls a dice.\n\n**Moderator commands**\n?ban : Bans a user.\n?kick : Kicks a user.\n?purge : Deletes messages.')
+            .setDescription('**Information commands**\n?botinfo : Gives bot info.\n?help : This command.\n\n**Main commands**\n?ping : Gives current ping.\n?meme : Gives a random meme.\n?urban : Gives an urban dictionary definition.\n?punch : Punches a user!\n?8ball : Answers your question.\n?topic : Gives a chat topic.\n?repeat : Repeats anything.(except some commands).\n?coinflip : Flips a coin.\n?diceroll : Rolls a dice.\n\n**Moderator commands**\n?ban : Bans a user.\n?kick : Kicks a user.\n?purge : Deletes messages.')
 	    msg.channel.send(exampleEmbed); 
 	    
     }
