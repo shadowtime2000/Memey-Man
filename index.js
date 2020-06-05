@@ -13,25 +13,6 @@ bot.on("ready", () =>{
 var prefix = "?"
 
 bot.on('message', msg=>{
-
-    let msg = msg.content.toUpperCase();
-
-    if(msg.content.startsWith(prefix + 'prefix')) {
-
-        const noperm = new Discord.MessageEmbed()
-            .setColor('#FFFF00')
-            .setTitle('Oops!')
-            .setDescription("You can't use that command!")
-
-        if(!msg.member.hasPermission("MANAGE_SERVER")) return msg.channel.send(noperm);       
-        const args = msg.content.split(' ').slice(1);
-        const newprefix = args.join(' ') 
-        const prefixembed = new Discord.MessageEmbed()
-            .setColor('#7cfc00')
-            .setTitle('Successfully set prefix')
-            .setDescription('Successfully modified prefix to ' + newprefix)
-        msg.channel.send(prefixembed)
-    }
     
     if(msg.content == prefix + "meme") {
         fetch('https://meme-api.herokuapp.com/gimme')
