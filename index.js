@@ -25,7 +25,7 @@ bot.on('message', msg=>{
         if(!msg.member.hasPermission("MANAGE_SERVER")) return msg.channel.send(noperm);       
         const args = msg.content.split(' ').slice(1);
         const newprefix = args.join(' ')
-        var server = message.guild.id;
+        var server = msg.guild.id;
         server.tap(function(guild){
             aaaprefix[guild.id] = newprefix
         })
