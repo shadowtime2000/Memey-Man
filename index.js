@@ -10,7 +10,7 @@ bot.on("ready", () =>{
     console.log('Logged in!');
     bot.user.setActivity("&help  |  Creator is inactive", {
         type: "STREAMING",
-        url: "https://www.twitch.tv/rickroll"
+        url: "https://www.twitch.tv/nevergonnagiveyouup"
     });
 });
 
