@@ -8,7 +8,10 @@ const token = 'NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU';
 bot.on("ready", () =>{
     bot.login("NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU")
     console.log('Logged in!');
-    setTimeout( () => client.user.setPresence({ status: 'online', game: { name: `with ${client.users.array().length}` } }), 60000);
+    client.user.setActivity("?help", {
+        type: "STREAMING",
+        url: "https://www.twitch.tv/aha"
+    });
 });
 
 var prefix = "?"
