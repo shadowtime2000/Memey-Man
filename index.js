@@ -23,6 +23,7 @@ bot.on('message', msg=>{
                     .setTitle(json.title)
                     .setImage(json.url)
                     .setFooter(`Subreddit: ${json.subreddit}`)
+                    .setTimestamp()
                 msg.channel.send(memeembed)
             });
     }
@@ -34,6 +35,7 @@ bot.on('message', msg=>{
             .setColor('#9c51b6')
             .setTitle('Coin flip')
             .setDescription( 'Result: ' + facts[fact] )
+            .setTimestamp()
         msg.channel.send(coinembed)
 
     }
@@ -45,6 +47,7 @@ bot.on('message', msg=>{
         .setColor('#9c51b6')
         .setTitle('Dice roll')
         .setDescription( 'Result: ' + facts[fact] )
+        .setTimestamp()
     msg.channel.send(diceembed)
 
     }
@@ -185,6 +188,7 @@ bot.on('message', msg=>{
                     .setColor('#ff0000')
                     .setTitle('**Successfully kicked member**')
                     .setDescription( 'Kicked ' + mem.displayName + '.' + '\nModerator: ' + msg.member.displayName + '\nReason: ' + kickreason )
+                    .setTimestamp()
                 msg.channel.send(kickembed)
             }).catch(() => {
                 msg.channel.send(cantkick);
@@ -227,7 +231,8 @@ bot.on('message', msg=>{
                     .setColor('#ff0000')
                     .setTitle('**Successfully banned member**')
                     .setDescription( 'Banned ' + mem1.displayName + '.' + '\nModerator: ' + msg.member.displayName + '\nReason: ' + banreason )
-                msg.channel.send(banembed)
+                    .setTimestamp()
+                    msg.channel.send(banembed)
             }).catch(() => {
                 msg.channel.send(cantban);
         });
