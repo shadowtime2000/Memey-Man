@@ -150,7 +150,7 @@ bot.on("message", async msg => {
         if(!repeatword) return msg.reply('Nothing to put in an embed!');
         const embedembed = new Discord.MessageEmbed()
             .setColor('#003152')
-            .setTitle('Message from' + msg.member.displayName)
+            .setTitle('Message from ' + msg.member.displayName)
             .setDescription(repeatword)
             .setTimestamp()
         msg.channel.send(embedembed)
