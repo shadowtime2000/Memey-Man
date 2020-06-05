@@ -120,6 +120,8 @@ bot.on("message", async msg => {
             msg.channel.bulkDelete(messages 
 
         )});	
+
+        msg.channel.send("Done!")
     
     }
 
