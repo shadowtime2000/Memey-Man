@@ -28,7 +28,7 @@ bot.on('message', msg=>{
         var server = msg.guild.id;
         server.tap(function(guild){
             aaaprefix[guild.id] = newprefix
-        })
+        });
         const prefixembed = new Discord.MessageEmbed()
             .setColor('#7cfc00')
             .setTitle('Successfully set prefix')
