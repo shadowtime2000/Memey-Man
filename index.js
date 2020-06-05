@@ -14,14 +14,9 @@ var prefix = "?"
 
 bot.on("message", async msg => {
 
-    if(msg.content == prefix + "pogey") {
-        const pogey = bot.emojis.find(emoji => emoji.name === "pogey");
-        msg.reply(`${pogey}`);
-    }
-
     if(msg.content == prefix + "ping") {
         const m = await msg.channel.send("Wait a sec...");
-        m.edit(`Pong! Latency is ${m.createdTimestamp - msg.createdTimestamp}ms. API Latency is ${Math.round(bot.ping)}ms`);
+        m.edit(`Ping: ${m.createdTimestamp - msg.createdTimestamp}ms`);
     }
     
     if(msg.content == prefix + "meme") {
