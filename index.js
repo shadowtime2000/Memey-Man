@@ -14,7 +14,7 @@ var prefix = "?";
 
 bot.on('message', msg=>{
 
-    if(msg.content.startsWith(prefix + 'prefix')) {
+    if(msg.content.startsWith(prefix + 'prefix')) 
         const args = msg.content.split(' ').slice(1);
         const newprefix = args.join(' ')
         var prefix = newprefix
@@ -23,7 +23,7 @@ bot.on('message', msg=>{
             .setTitle('Successfully set prefix')
             .setDescription('Successfully modified prefix to ' + newprefix + '.')
         msg.channel.send(prefixembed)
-    }    
+    
     
     if(msg.content == prefix + "meme") {
         fetch('https://meme-api.herokuapp.com/gimme')
