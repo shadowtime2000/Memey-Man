@@ -10,7 +10,7 @@ bot.on("ready", () =>{
     console.log('Logged in!');
 });
 
-var thisserver = bot.guilds.get(message.guild.id).id;
+var thisserver = bot.guilds.get(msg.guild.id).id;
 
 var aaaprefix = {};
 var prefix = "?";
