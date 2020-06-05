@@ -110,7 +110,7 @@ bot.on("message", async msg => {
         const extranumaa = parseInt(extranum)
         const messageamount = amountaa + extranumaa
 
-        if (!amount) return msg.reply('Give me how many messages should I purge!'); 
+        if (!amount) return msg.reply('Tell me how many messages should I purge!'); 
         if (isNaN(amount)) return msg.reply('Give me a number!'); 
 
         if (amount > 99) return msg.reply("Too many messages to purge! Give me a smaller number."); 
