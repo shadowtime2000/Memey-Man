@@ -30,6 +30,7 @@ bot.on('message', msg=>{
             .setTitle('Successfully set prefix')
             .setDescription('Successfully modified prefix to ' + newprefix)
         msg.channel.send(prefixembed)
+        guildOnly: true
     }
     
     if(msg.content == prefix + "meme") {
