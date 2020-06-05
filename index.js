@@ -19,7 +19,7 @@ bot.on('message', msg=>{
         msg.reply(`${pogey}`);
     }
 
-    if(command === "ping") {
+    if(msg.content == prefix + "ping") {
         msg.channel.send(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
     }
     
