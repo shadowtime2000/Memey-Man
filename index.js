@@ -10,11 +10,11 @@ bot.on("ready", () =>{
     console.log('Logged in!');
 });
 
-var prefix = "?";
+var prefix = "?"
 
 bot.on('message', msg=>{
 
-    let msg = message.content.toUpperCase();
+    let msg = msg.content.toUpperCase();
 
     if(msg.content.startsWith(prefix + 'prefix')) {
 
