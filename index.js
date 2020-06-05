@@ -29,7 +29,7 @@ bot.on('message', msg=>{
             });
     }
 
-    if(msg.content == "?coinflip") {
+    if(msg.content == prefix + "coinflip") {
         var facts = ["Head", "tail"]
         var fact = Math.floor(Math.random() * facts.length);
         const coinembed = new Discord.MessageEmbed()
@@ -41,7 +41,7 @@ bot.on('message', msg=>{
 
     }
     
-    if(msg.content == "?diceroll") {
+    if(msg.content == prefix + "diceroll") {
     var facts = ["1", "2", "3", "4", "5", "6"]
     var fact = Math.floor(Math.random() * facts.length);
     const diceembed = new Discord.MessageEmbed()
@@ -53,7 +53,7 @@ bot.on('message', msg=>{
 
     }
 
-    if(msg.content == "?topic") {
+    if(msg.content == prefix + "topic") {
         var member= msg.mentions.members.first();
         var facts = ["What is your favorite drink?", "What is your favorite song?", "What did you do yesterday?", "What will you do tomorrow?", "What is your favorite movie?", "What is your favorite food?", "What games do you play?"];
         var fact = Math.floor(Math.random() * facts.length);
@@ -65,7 +65,7 @@ bot.on('message', msg=>{
         msg.channel.send(topicEmbed);
     }
 
-	if (msg.content.startsWith('?repeat')) {
+	if (msg.content.startsWith(prefix + 'repeat')) {
         const args = msg.content.split(' ').slice(1);
         const repeatword = args.join(' ')
         if(!repeatword) return msg.reply('Nothing to repeat!');
@@ -76,7 +76,7 @@ bot.on('message', msg=>{
         msg.channel.send(repeatword)
 	}
 
-    if(msg.content.startsWith('?8ball')) {
+    if(msg.content.startsWith(prefix + '8ball')) {
         const args = msg.content.split(' ').slice(1); 
         const question = args.join(' '); 
         var facts = ["Yes.", "No.", "I don't know", "Of course.", "Never.", "Maybe.", "I don't know.", "Excuse me?"];
@@ -89,7 +89,7 @@ bot.on('message', msg=>{
         msg.channel.send(ballembed);
     }
 	
-    if(msg.content.startsWith('?purge')) {	
+    if(msg.content.startsWith(prefix + 'purge')) {	
 
         if (msg.channel.type == "dm") return;
 
@@ -119,7 +119,7 @@ bot.on('message', msg=>{
     
     }
 
-    if(msg.content.startsWith('?punch')) {
+    if(msg.content.startsWith(prefix + 'punch')) {
         var member= msg.mentions.members.first();
         const spanke = new Discord.MessageEmbed()
             .setColor('#ffa500')
@@ -134,7 +134,7 @@ bot.on('message', msg=>{
         msg.channel.send(hitee)
     }
 	
-    if(msg.content == "?help"){
+    if(msg.content == prefix + "help"){
         const exampleEmbed = new Discord.MessageEmbed()
 	    .setColor('#0099ff')
             .setTitle('**COMMAND LIST**')
@@ -143,7 +143,7 @@ bot.on('message', msg=>{
 	    
     }
 
-    if(msg.content == "?botinfo"){
+    if(msg.content == prefix + "botinfo"){
         const infoEmbed = new Discord.MessageEmbed()
 	    .setColor('#0099ff')
             .setTitle('**BOT INFO**')
@@ -153,7 +153,7 @@ bot.on('message', msg=>{
 	    
     }
 
-    if(msg.content.startsWith('?kick')) {
+    if(msg.content.startsWith(prefix + 'kick')) {
 
         if (msg.channel.type == "dm") return;
 
@@ -195,7 +195,7 @@ bot.on('message', msg=>{
         });
     }
 
-    if(msg.content.startsWith('?ban')) {
+    if(msg.content.startsWith(prefix + 'ban')) {
 
         if (msg.channel.type == "dm") return;
 
@@ -237,7 +237,7 @@ bot.on('message', msg=>{
         });
     }
     
-    if(msg.content.startsWith('?urban')) {
+    if(msg.content.startsWith(prefix + 'urban')) {
         const args = msg.content.split(' ').slice(1); 
         const searchword = args.join(' '); 
         const noword = new Discord.MessageEmbed()
