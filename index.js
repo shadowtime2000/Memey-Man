@@ -8,6 +8,7 @@ const token = 'NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU';
 bot.on("ready", () =>{
     bot.login("NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU")
     console.log('Logged in!');
+    console.log("The bot is online in " + bot.guilds.cache.size + " servers.");
     bot.user.setActivity("&help  |  Creator is inactive", {
         type: "STREAMING",
         url: "https://www.twitch.tv/nevergonnagiveyouup"
