@@ -142,7 +142,7 @@ bot.on("message", async msg => {
         const exampleEmbed = new Discord.MessageEmbed()
 	    .setColor('#0099ff')
             .setTitle('**COMMAND LIST**')
-            .setDescription('**Information commands**\n?botinfo, ?help\n\n**Main commands**\n?meme, ?urban, ?punch, ?8ball,\n?topic, ?repeat, ?coinflip, ?diceroll\n\n**Moderator commands**\n?ban, ?kick, ?purge')
+            .setDescription('**Information commands**\n?botinfo, ?help\n\n**Main commands**\n?ping, ?meme, ?urban, ?punch,\n?8ball, ?topic, ?repeat, ?coinflip,\n?diceroll\n\n**Moderator commands**\n?ban, ?kick, ?purge')
 	    msg.channel.send(exampleEmbed);
 	    
     }
