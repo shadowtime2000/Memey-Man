@@ -1,12 +1,11 @@
+var apiaiApp = require('apiai')(process.env.API_AI);
+
 const Discord = require('discord.js');
 const fetch = require('node-fetch');
-const ytdl = require('ytdl-core');
 const urban = require('urban')
-const querystring = require('querystring');
 const bot = new Discord.Client();
 
 const token = 'NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU';
-
 
 bot.on("ready", () =>{
     bot.login("NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU")
@@ -14,6 +13,37 @@ bot.on("ready", () =>{
 });
 
 bot.on('message', msg=>{
+
+    if (msg.channel.name == 'ai') {
+
+        if (msg.author.bot) return;
+        
+        // Check if the message starts with the !
+        if (msg.content.indexOf('!') === 0) {
+            // Get a substring to exclude the ! from the message
+            var text = msg.content.substring(1);
+            
+            // Parse the text to the API.ai
+            var request = apiaiApp.textRequest(text, {
+                sessionId: '<any-unique-name>'
+            });
+
+            // Listen to a response from API.ai
+            request.on('response', (response) => {
+                // Reply the user with the given response
+                msg.reply(response.result.fulfillment.speech);
+            });
+        
+            // Listen for any errors in the response
+            request.on('error', (error) => {
+                // Tell the user that an error happened
+                msg.reply("Oops! There is an error in our end")
+            });
+
+            // End the request to avoid wasting memory
+            request.end();
+        }
+    }
 
     if(msg.content == "?meme") {
         fetch('https://meme-api.herokuapp.com/gimme')
