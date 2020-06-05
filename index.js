@@ -15,9 +15,13 @@ var prefix = "?"
 bot.on('message', msg=>{
 
     if(msg.content == prefix + "pogey") {
-        const pogey = client.emojis.find(emoji => emoji.name === "pogey");
-        message.reply(`${pogey}`);
-     }
+        const pogey = bot.emojis.find(emoji => emoji.name === "pogey");
+        msg.reply(`${pogey}`);
+    }
+
+    if(command === "ping") {
+        msg.channel.send(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
+    }
     
     if(msg.content == prefix + "meme") {
         fetch('https://meme-api.herokuapp.com/gimme')
