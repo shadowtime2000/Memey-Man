@@ -143,6 +143,18 @@ bot.on("message", async msg => {
             .setFooter( "Command usage: ?punch [member ping]" )
         msg.channel.send(hitee)
     }
+
+    if (msg.content.startsWith(prefix + 'embed')) {
+        const args = msg.content.split(' ').slice(1);
+        const repeatword = args.join(' ')
+        if(!repeatword) return msg.reply('Nothing to put in an embed!');
+        const embedembed = new Discord.MessageEmbed()
+            .setColor('#003152')
+            .setTitle('Message from' + msg.member.displayName)
+            .setDescription(repeatword)
+            .setTimestamp()
+        msg.channel.send(embedembed)
+	}
 	
     if(msg.content == prefix + "help"){
         const exampleEmbed = new Discord.MessageEmbed()
