@@ -12,7 +12,7 @@ bot.on("ready", () =>{
 
 var prefix = "?"
 
-bot.on('message', msg=>{
+bot.on("message", async msg => {
 
     if(msg.content == prefix + "pogey") {
         const pogey = bot.emojis.find(emoji => emoji.name === "pogey");
@@ -20,7 +20,8 @@ bot.on('message', msg=>{
     }
 
     if(msg.content == prefix + "ping") {
-        msg.channel.send(`Pong! Latency is ${msg.createdTimestamp - msg.createdTimestamp}ms. API Latency is ${Math.round(bot.ping)}ms`);
+        const m = await message.channel.send("Ping?");
+        msg.channel.send(`Pong! Latency is ${m.createdTimestamp - msg.createdTimestamp}ms. API Latency is ${Math.round(bot.ping)}ms`);
     }
     
     if(msg.content == prefix + "meme") {
