@@ -14,8 +14,17 @@ const prefix = "?";
 
 bot.on('message', msg=>{
 
-
-
+    if(msg.content.startsWith(prefix + 'prefix')) {
+        const args = msg.content.split(' ').slice(1);
+        const newprefix = args.join(' ')
+        var prefix = newprefix
+        const prefixembed = new Discord.MessageEmbed
+            .setColor('#7cfc00')
+            .setTitle('Successfully set prefix')
+            .setDescription('Successfully modified prefix to ' + newprefix + '.')
+        msg.channel.send(prefixembed)
+    }    
+    
     if(msg.content == prefix + "meme") {
         fetch('https://meme-api.herokuapp.com/gimme')
             .then(res => res.json())
@@ -262,7 +271,6 @@ bot.on('message', msg=>{
                             .setAuthor(`Urban Dictionary | ${word}`, image )
                             .setDescription(`**Defintion:** ${definition || "No definition"}\n**Example:** ${example || "No Example"}`)
                             .setFooter('Reply may not send if the definition exceeds embed character limit.')
-                            .setTimestamp()
                             if( definition.length + word.length + example.length + 22 > 2048 ) return msg.channel.send(toolong)
                             msg.channel.send(embed)
                     
