@@ -10,10 +10,14 @@ bot.on("ready", () =>{
     console.log('Logged in!');
 });
 
+var thisserver = bot.guilds.get(message.guild.id).id;
+
 var aaaprefix = {};
 var prefix = "?";
 
 bot.on('message', msg=>{
+
+    if(server != thisserver) {prefix = "?"}
 
     if(msg.content.startsWith(prefix + 'prefix')) {
 
@@ -25,10 +29,8 @@ bot.on('message', msg=>{
         if(!msg.member.hasPermission("MANAGE_SERVER")) return msg.channel.send(noperm);       
         const args = msg.content.split(' ').slice(1);
         const newprefix = args.join(' ')
-        var server = msg.guild.id;
-        server.tap(function(guild){
-            aaaprefix[guild.id] = newprefix
-        });
+        server = bot.guilds.get(msg.guild.id).id;
+        prefix = newprefix
         const prefixembed = new Discord.MessageEmbed()
             .setColor('#7cfc00')
             .setTitle('Successfully set prefix')
