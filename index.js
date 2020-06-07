@@ -10,8 +10,8 @@ bot.on("ready", () =>{
     console.log('Logged in!');
     console.log("The bot is online in " + bot.guilds.cache.size + " servers.");
     bot.user.setActivity("&help  |  Creator is inactive", {
-        type: "STREAMING",
-        url: "https://www.twitch.tv/nevergonnagiveyouup"
+        type: "PLAYING",
+        //url: "https://www.twitch.tv/nevergonnagiveyouup"
     });
 });
 
