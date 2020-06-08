@@ -130,7 +130,7 @@ bot.on("message", async msg => {
 
         )});	
 
-        msg.channel.send("Done!")
+        //msg.channel.send("Done!")
     
     }
 
