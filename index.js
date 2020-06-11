@@ -145,7 +145,7 @@ bot.on("message", async msg => {
         if (!member) return msg.channel.send(spanke)
         const hitee = new Discord.MessageEmbed()
             .setColor('#ffa500')
-            .setTitle( msg.member.displayName, image)
+            .setTitle( msg.member.displayName + " :right_facing_fist: " + member.displayName )
             .setDescription( msg.author.toString() + ' punched ' + member.toString() )
         msg.channel.send(hitee)
     }
