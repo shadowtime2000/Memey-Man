@@ -136,7 +136,8 @@ bot.on("message", async msg => {
 
     if(msg.content.startsWith(prefix + 'punch')) {
         var member= msg.mentions.members.first();
-        const image = msg.member.avatarURL
+        var user = msg.author
+        const image = user.avatarURL
         const spanke = new Discord.MessageEmbed()
             .setColor('#ffa500')
             .setTitle('Punch command')
