@@ -144,7 +144,7 @@ bot.on("message", async msg => {
         const hitee = new Discord.MessageEmbed()
             .setColor('#ffa500')
             .setTitle( msg.member.displayName + ` punched!` )
-            .setDescription( msg.member.displayName + ' punched ' + msg.author.toString() )
+            .setDescription( msg.author.toString() + ' punched ' + member.toString() )
         msg.channel.send(hitee)
     }
 
