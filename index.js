@@ -143,7 +143,7 @@ bot.on("message", async msg => {
         if (!member) return msg.channel.send(spanke)
         const hitee = new Discord.MessageEmbed()
             .setColor('#ffa500')
-            .setTitle( msg.member.displayName + " punched!" )
+            .setTitle( msg.member.displayName + ` punched ` + msg.author.toString() )
             .setDescription( msg.member.displayName + ' punched ' + member.displayName )
             .setFooter( "Command usage: ?punch [member ping]" )
         msg.channel.send(hitee)
