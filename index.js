@@ -130,7 +130,7 @@ bot.on("message", async msg => {
 
         )});	
 
-        msg.channel.send("Done!")
+        //msg.channel.send("Done!")
     
     }
 
@@ -139,13 +139,12 @@ bot.on("message", async msg => {
         const spanke = new Discord.MessageEmbed()
             .setColor('#ffa500')
             .setTitle('Punch command')
-            .setDescription('Usage: ?punch [member ping]')
+            .setDescription('Usage: &punch [member ping]')
         if (!member) return msg.channel.send(spanke)
         const hitee = new Discord.MessageEmbed()
             .setColor('#ffa500')
             .setTitle( msg.member.displayName + ` punched ` + msg.author.toString() )
             .setDescription( msg.member.displayName + ' punched ' + member.displayName )
-            .setFooter( "Command usage: ?punch [member ping]" )
         msg.channel.send(hitee)
     }
 
@@ -272,7 +271,7 @@ bot.on("message", async msg => {
         const noword = new Discord.MessageEmbed()
             .setColor('#ffa000')
             .setTitle('Urban command')
-            .setDescription('Usage: ?urban [word]')
+            .setDescription('Usage: &urban [word]')
         const toolong = new Discord.MessageEmbed()
             .setColor('#ffa500')
             .setTitle('Oops!')
