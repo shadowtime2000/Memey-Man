@@ -210,6 +210,12 @@ bot.on("message", async msg => {
             .setTitle('Oops!')
             .setDescription("Can't kick that member!")
 
+        const dmkickembed = new Discord.MessageEmbed()
+            .setColor('#ff0000')
+            .setTitle(`**You have been kicked from ${guild.name}**`)
+            .setDescription( '**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + kickreason )
+            .setTimestamp()
+
             if(!msg.member.hasPermission("KICK_MEMBERS")) return msg.channel.send(noperm);
             if(!mem) return msg.channel.send(nomemmber)
             if(!kickreason) return msg.channel.send(noreason)
@@ -219,13 +225,8 @@ bot.on("message", async msg => {
                     .setTitle('**Successfully kicked member**')
                     .setDescription( `**Kicked ${mem.displayName}.**` + '\n**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + kickreason )
                     .setTimestamp()
-                const dmkickembed = new Discord.MessageEmbed()
-                    .setColor('#ff0000')
-                    .setTitle(`**You have been kicked from ${guild.name}**`)
-                    .setDescription( '**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + kickreason )
-                    .setTimestamp()
+                mem.send(dmkickembed)
                 msg.channel.send(kickembed)
-                msg.mentions.member.first.send(dmkickembed)
             }).catch(() => {
                 msg.channel.send(cantkick);
         });
