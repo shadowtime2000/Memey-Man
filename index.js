@@ -210,6 +210,12 @@ bot.on("message", async msg => {
             .setTitle('Oops!')
             .setDescription("Can't kick that member!")
 
+        const kickembed = new Discord.MessageEmbed()
+            .setColor('#ff0000')
+            .setTitle('**Successfully kicked member**')
+            .setDescription( `**Kicked ${mem.displayName}.**` + '\n**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + kickreason )
+            .setTimestamp()
+
         const dmkickembed = new Discord.MessageEmbed()
             .setColor('#ff0000')
             .setTitle(`**You have been kicked from ${msg.guild.name}**`)
@@ -222,12 +228,7 @@ bot.on("message", async msg => {
             mem.send(dmkickembed)
             .then(() => {
                 mem.kick().then((member) => {
-                    const kickembed = new Discord.MessageEmbed()
-                        .setColor('#ff0000')
-                        .setTitle('**Successfully kicked member**')
-                        .setDescription( `**Kicked ${mem.displayName}.**` + '\n**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + kickreason )
-                        .setTimestamp()
-                    msg.channel.send(kickembed)
+                msg.channel.send(kickembed)
                 })
             }).catch(() => {
                 msg.channel.send(cantkick);
@@ -262,6 +263,12 @@ bot.on("message", async msg => {
             .setTitle('Oops!')
             .setDescription("Can't ban that member!")
 
+        const banembed = new Discord.MessageEmbed()
+            .setColor('#ff0000')
+            .setTitle('**Successfully banned member**')
+            .setDescription( `**Banned ${mem.displayName}.**` + '\n**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + banreason )
+            .setTimestamp()
+
         const dmbanembed = new Discord.MessageEmbed()
             .setColor('#ff0000')
             .setTitle(`**You have been banned from ${msg.guild.name}**`)
@@ -274,12 +281,7 @@ bot.on("message", async msg => {
             mem1.send(dmbanembed)
             .then(() => {
                 mem1.ban().then((member) => {
-                    const banembed = new Discord.MessageEmbed()
-                        .setColor('#ff0000')
-                        .setTitle('**Successfully banned member**')
-                        .setDescription( `**Banned ${mem.displayName}.**` + '\n**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + banreason )
-                        .setTimestamp()
-                        msg.channel.send(banembed)
+                msg.channel.send(banembed)
                 })
             }).catch(() => {
                 msg.channel.send(cantban);
