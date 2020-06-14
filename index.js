@@ -210,21 +210,22 @@ bot.on("message", async msg => {
             .setTitle('Oops!')
             .setDescription("Can't kick that member!")
 
-        const kickembed = new Discord.MessageEmbed()
-            .setColor('#ff0000')
-            .setTitle('**Successfully kicked member**')
-            .setDescription( `**Kicked ${mem.displayName}.**` + '\n**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + kickreason )
-            .setTimestamp()
-
-        const dmkickembed = new Discord.MessageEmbed()
-            .setColor('#ff0000')
-            .setTitle(`**You have been kicked from ${msg.guild.name}**`)
-            .setDescription( '**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + kickreason )
-            .setTimestamp()
-
             if(!msg.member.hasPermission("KICK_MEMBERS")) return msg.channel.send(noperm);
             if(!mem) return msg.channel.send(nomemmber)
             if(!kickreason) return msg.channel.send(noreason)
+            
+            const kickembed = new Discord.MessageEmbed()
+                .setColor('#ff0000')
+                .setTitle('**Successfully kicked member**')
+                .setDescription( `**Kicked ${mem.displayName}.**` + '\n**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + kickreason )
+                .setTimestamp()
+
+            const dmkickembed = new Discord.MessageEmbed()
+                .setColor('#ff0000')
+                .setTitle(`**You have been kicked from ${msg.guild.name}**`)
+                .setDescription( '**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + kickreason )
+                .setTimestamp()
+
             mem.send(dmkickembed)
             .then(() => {
                 mem.kick().then((member) => {
@@ -263,21 +264,22 @@ bot.on("message", async msg => {
             .setTitle('Oops!')
             .setDescription("Can't ban that member!")
 
-        const banembed = new Discord.MessageEmbed()
-            .setColor('#ff0000')
-            .setTitle('**Successfully banned member**')
-            .setDescription( `**Banned ${mem1.displayName}.**` + '\n**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + banreason )
-            .setTimestamp()
-
-        const dmbanembed = new Discord.MessageEmbed()
-            .setColor('#ff0000')
-            .setTitle(`**You have been banned from ${msg.guild.name}**`)
-            .setDescription( '**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + banreason )
-            .setTimestamp()
-
             if(!msg.member.hasPermission("BAN_MEMBERS")) return msg.channel.send(noperm1);
             if(!mem1) return msg.channel.send(nomemberembed)
             if(!banreason) return msg.channel.send(noreasonembed)
+
+            const banembed = new Discord.MessageEmbed()
+                .setColor('#ff0000')
+                .setTitle('**Successfully banned member**')
+                .setDescription( `**Banned ${mem1.displayName}.**` + '\n**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + banreason )
+                .setTimestamp()
+
+            const dmbanembed = new Discord.MessageEmbed()
+                .setColor('#ff0000')
+                .setTitle(`**You have been banned from ${msg.guild.name}**`)
+                .setDescription( '**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + banreason )
+                .setTimestamp()
+
             mem1.send(dmbanembed)
             .then(() => {
                 mem1.ban().then((member) => {
