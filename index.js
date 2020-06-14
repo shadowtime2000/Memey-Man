@@ -212,7 +212,7 @@ bot.on("message", async msg => {
 
         const dmkickembed = new Discord.MessageEmbed()
             .setColor('#ff0000')
-            .setTitle(`**You have been kicked from ${Discord.Guild.name}**`)
+            .setTitle(`**You have been kicked from ${msg.guild.name}**`)
             .setDescription( '**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + kickreason )
             .setTimestamp()
 
