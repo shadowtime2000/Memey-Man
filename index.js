@@ -219,13 +219,13 @@ bot.on("message", async msg => {
             if(!msg.member.hasPermission("KICK_MEMBERS")) return msg.channel.send(noperm);
             if(!mem) return msg.channel.send(nomemmber)
             if(!kickreason) return msg.channel.send(noreason)
+            mem.send(dmkickembed)
             mem.kick().then((member) => {
                 const kickembed = new Discord.MessageEmbed()
                     .setColor('#ff0000')
                     .setTitle('**Successfully kicked member**')
                     .setDescription( `**Kicked ${mem.displayName}.**` + '\n**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + kickreason )
                     .setTimestamp()
-                mem.send(dmkickembed)
                 msg.channel.send(kickembed)
             }).catch(() => {
                 msg.channel.send(cantkick);
