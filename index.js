@@ -217,7 +217,7 @@ bot.on("message", async msg => {
                 const kickembed = new Discord.MessageEmbed()
                     .setColor('#ff0000')
                     .setTitle('**Successfully kicked member**')
-                    .setDescription( 'Kicked ' + mem.displayName + '.' + '\n**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + kickreason )
+                    .setDescription( '**Kicked** ' + mem.displayName + '.' + '\n**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + kickreason )
                     .setTimestamp()
                 msg.channel.send(kickembed)
             }).catch(() => {
