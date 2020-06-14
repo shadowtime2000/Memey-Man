@@ -85,7 +85,8 @@ bot.on("message", async msg => {
         if(repeatword.includes(prefix + "repeat")) return msg.reply("You can't repeat more than once.")
         if(repeatword.includes(prefix + "kick")) return msg.reply("Don't try it!")
         if(repeatword.includes(prefix + "ban")) return msg.reply("Don't try it!")
-        if(repeatword.includes(prefix + "purge")) return msg.reply("Don't try it!")      
+        if(repeatword.includes(prefix + "purge")) return msg.reply("Don't try it!")   
+        if(repeatword.includes("everyone")) return msg.reply("Don't try it!")    
         msg.channel.send(repeatword)
 	}
 
