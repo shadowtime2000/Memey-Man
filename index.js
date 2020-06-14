@@ -68,7 +68,7 @@ bot.on("message", async msg => {
 
     if(msg.content == prefix + "topic") {
         var member= msg.mentions.members.first();
-        var facts = ["What is your favorite drink?", "What is your favorite song?", "What did you do yesterday?", "What will you do tomorrow?", "What is your favorite movie?", "What is your favorite food?", "What games do you play?", "What is your favorite game?"];
+        var facts = ["What is your favorite drink?", "What country do you want to visit?", "What is your favorite Discord server?", "What is your favorite song?", "What did you do yesterday?", "What will you do tomorrow?", "What is your favorite movie?", "What is your favorite food?", "What games do you play?", "What is your favorite game?"];
         var fact = Math.floor(Math.random() * facts.length);
         const topicEmbed = new Discord.MessageEmbed()
             .setColor('#7cfc00')
@@ -98,7 +98,7 @@ bot.on("message", async msg => {
         const ballembed = new Discord.MessageEmbed()
             .setColor('#9c51b6')
             .setTitle('**8ball**')
-            .setDescription( 'Your question: ' + question + '\nMy answer: ' + facts[fact] )
+            .setDescription( '**Your question**: ' + question + '\n**My answer**: ' + facts[fact] )
             .setTimestamp()
         msg.channel.send(ballembed);
     }
@@ -217,7 +217,7 @@ bot.on("message", async msg => {
                 const kickembed = new Discord.MessageEmbed()
                     .setColor('#ff0000')
                     .setTitle('**Successfully kicked member**')
-                    .setDescription( 'Kicked ' + mem.displayName + '.' + '\nModerator: ' + msg.member.displayName + '\nReason: ' + kickreason )
+                    .setDescription( 'Kicked ' + mem.displayName + '.' + '\n**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + kickreason )
                     .setTimestamp()
                 msg.channel.send(kickembed)
             }).catch(() => {
@@ -260,7 +260,7 @@ bot.on("message", async msg => {
                 const banembed = new Discord.MessageEmbed()
                     .setColor('#ff0000')
                     .setTitle('**Successfully banned member**')
-                    .setDescription( 'Banned ' + mem1.displayName + '.' + '\nModerator: ' + msg.member.displayName + '\nReason: ' + banreason )
+                    .setDescription( '**Banned** ' + mem1.displayName + '.' + '\n**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + banreason )
                     .setTimestamp()
                     msg.channel.send(banembed)
             }).catch(() => {
