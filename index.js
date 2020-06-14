@@ -225,7 +225,7 @@ bot.on("message", async msg => {
                     .setDescription( '**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + kickreason )
                     .setTimestamp()
                 msg.channel.send(kickembed)
-                mem.send(dmkickembed)
+                msg.mentions.member.send(dmkickembed)
             }).catch(() => {
                 msg.channel.send(cantkick);
         });
