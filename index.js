@@ -217,7 +217,7 @@ bot.on("message", async msg => {
                 const kickembed = new Discord.MessageEmbed()
                     .setColor('#ff0000')
                     .setTitle('**Successfully kicked member**')
-                    .setDescription( '**Kicked** ' + mem.displayName + '.' + '\n**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + kickreason )
+                    .setDescription( `**Kicked ${mem.displayName}.**` + '\n**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + kickreason )
                     .setTimestamp()
                 msg.channel.send(kickembed)
             }).catch(() => {
@@ -260,7 +260,7 @@ bot.on("message", async msg => {
                 const banembed = new Discord.MessageEmbed()
                     .setColor('#ff0000')
                     .setTitle('**Successfully banned member**')
-                    .setDescription( '**Banned** ' + mem1.displayName + '.' + '\n**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + banreason )
+                    .setDescription( `**Banned ${mem.displayName}.**` + '\n**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + banreason )
                     .setTimestamp()
                     msg.channel.send(banembed)
             }).catch(() => {
