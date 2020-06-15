@@ -5,7 +5,7 @@ const bot = new Discord.Client();
 
 const token = 'NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU';
 
-const statusvalue = 1
+var statusvalue = 1
 statusvaluee = parseInt(statusvalue)
 
 bot.on("ready", () =>{
@@ -13,9 +13,7 @@ bot.on("ready", () =>{
     console.log('Logged in!');
     console.log("The bot is online in " + bot.guilds.cache.size + " servers.");
 
-    playAlert = setInterval(function() {
-        statusvaluee = statusvaluee + 1;
-    }, 3000);
+    setInterval(function() { statusvaluee = statusvaluee + 1; }, 3000);
 
     if(statusvaluee % 2 == 1) {
         bot.user.setActivity("&help", {
