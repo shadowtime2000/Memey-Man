@@ -13,19 +13,17 @@ bot.on("ready", () =>{
     console.log('Logged in!');
     console.log("The bot is online in " + bot.guilds.cache.size + " servers.");
 
-    setInterval(function() { statusvaluee = statusvaluee + 1; }, 3000);
-
-    if(statusvaluee % 2 == 1) {
-        bot.user.setActivity("&help", {
-            type: "WATCHING",
-            //url: "https://www.twitch.tv/nevergonnagiveyouup"
-        });
-    } else {
-        bot.user.setActivity("your browser history", {
-            type: "WATCHING",
-            //url: "https://www.twitch.tv/nevergonnagiveyouup"
-        });
-    }
+    const activities_list = [
+        "&help", 
+        "your browser history"
+        ]; 
+    
+    client.on('ready', () => {
+        setInterval(() => {
+            const index = Math.floor(Math.random() * (activities_list.length - 1) + 1); 
+            bot.user.setActivity(activities_list[index]); 
+        }, 3000); 
+    });
 });
 
 var prefix = "&"
@@ -45,7 +43,7 @@ bot.on("message", async msg => {
                     .setColor('#7cfc00')
                     .setTitle(json.title)
                     .setImage(json.url)
-                    .setFooter(`Subreddit: ${json.subreddit}`)
+                    .setFooter(`Subreddit: r/${json.subreddit}`)
                     //.setTimestamp()
                 msg.channel.send(memeembed)
             });
