@@ -185,7 +185,7 @@ bot.on("message", async msg => {
         const helpEmbed = new Discord.MessageEmbed()
 	    .setColor('#0099ff')
             .setTitle('**COMMAND LIST**')
-            .setDescription('**Information commands**\n&botinfo : Gives bot info.\n&help : This command.\n&invite: Gives an invite to join Memey Man server.\n\n**Main commands**\n&ping : Gives current ping.\n&meme : Gives a random meme.\n&urban : Gives urban dictionary definition.\n&punch : Punches a user!\n&8ball : Answers your question.\n&topic : Gives a chat topic.\n&coinflip : Flips a coin.\n&diceroll : Rolls a dice.\n\n**Text commands**\n&repeat : Repeats your message.\n&embed : Puts your message in an embed.\n&xue : Xue hua piao piao...\n\n**Moderator commands**\n&ban : Bans a user.\n&kick : Kicks a user.\n&purge : Deletes messages.')
+            .setDescription('**Information commands**\n&botinfo : Gives bot info.\n&help : This command.\n&invite: Gives an invite to Memey Man server.\n\n**Main commands**\n&ping : Gives current ping.\n&meme : Gives a random meme.\n&urban : Gives urban dictionary definition.\n&punch : Punches a user!\n&8ball : Answers your question.\n&topic : Gives a chat topic.\n&coinflip : Flips a coin.\n&diceroll : Rolls a dice.\n\n**Text commands**\n&repeat : Repeats your message.\n&embed : Puts your message in an embed.\n&xue : Xue hua piao piao...\n\n**Moderator commands**\n&ban : Bans a user.\n&kick : Kicks a user.\n&purge : Deletes messages.')
 	    msg.channel.send(helpEmbed); 
 	    
     }
