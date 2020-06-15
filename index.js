@@ -20,15 +20,10 @@ bot.on("ready", () =>{
     var statusnum = 1
 
     setInterval(() => {
-        statusnum = statusnum + 1
+        const index = Math.floor(Math.random() * activities_list.length ); 
+        bot.user.setActivity(activities_list[index], {type: "WATCHING"});
     }, 2000); 
 
-    if(statusnum % 2 == "1") {
-        bot.user.setActivity("&help", {type: "WATCHING"}); 
-    }
-    if(statusnum % 2 == "0") {
-        bot.user.setActivity("your browser history", {type: "WATCHING"}); 
-    }
 });
 
 var prefix = "&"
