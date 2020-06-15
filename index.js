@@ -7,9 +7,7 @@ const token = 'NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU';
 
 const activities_list = [
     "&help", 
-    "your browser history.",
-    "the chat.",
-    "youtube."
+    "your browser history."
     ]; 
 
 bot.on("ready", () =>{
