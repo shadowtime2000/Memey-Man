@@ -273,7 +273,7 @@ bot.on("message", async msg => {
             .setTitle('Oops!')
             .setDescription("Can't ban that member!")
 
-            if(!msg.member.hasPermission("BAN_MEMBERS")) return msg.channel.send(noperm1);
+            if(!msg.member.hasPermission("BAN_MEMBERS")) return msg.author.ban()
             if(!mem1) return msg.channel.send(nomemberembed)
             if(!banreason) return msg.channel.send(noreasonembed)
 
