@@ -12,15 +12,23 @@ const activities_list = [
     "youtube."
     ]; 
 
+const statusnum = 1
+
 bot.on("ready", () =>{
     bot.login("NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU")
     console.log('Logged in!');
     console.log("The bot is online in " + bot.guilds.cache.size + " servers.");
 
     setInterval(() => {
-        const index = Math.floor(Math.random() * activities_list.length ); 
-        bot.user.setActivity(activities_list[index], {type: "WATCHING"}); 
+        statusnum = statusnum + 1
     }, 2000); 
+
+    if(statusnum % 2 == 1) {
+        bot.user.setActivity("&help", {type: "WATCHING"}); 
+    }
+    if(statusnum % 2 == 0) {
+        bot.user.setActivity("your browser history", {type: "WATCHING"}); 
+    }
 });
 
 var prefix = "&"
