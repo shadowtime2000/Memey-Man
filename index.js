@@ -7,7 +7,9 @@ const token = 'NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU';
 
 const activities_list = [
     "&help", 
-    "your browser history"
+    "your browser history",
+    "the chat",
+    "youtube"
     ]; 
 
 bot.on("ready", () =>{
@@ -16,7 +18,7 @@ bot.on("ready", () =>{
     console.log("The bot is online in " + bot.guilds.cache.size + " servers.");
 
     setInterval(() => {
-        const index = Math.floor(Math.random() * activities_list.length - 1 ); 
+        const index = Math.floor(Math.random() * activities_list.length ); 
         bot.user.setActivity(activities_list[index], {type: "WATCHING"}); 
     }, 7000); 
 });
