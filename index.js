@@ -194,8 +194,8 @@ bot.on("message", async msg => {
         const infoEmbed = new Discord.MessageEmbed()
 	    .setColor('#0099ff')
             .setTitle('**BOT INFO**')
-            .setDescription('Bot name: Memey Man\nDeveloper: RedTea\nPrefix: ?')
-            .setFooter('Type ?help to get help!')
+            .setDescription('Bot name: Memey Man\nDeveloper: RedTea\nPrefix: &')
+            .setFooter('Type &help to get help!')
 	    msg.channel.send(infoEmbed);
 	    
     }
