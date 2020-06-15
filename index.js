@@ -20,7 +20,7 @@ bot.on("ready", () =>{
     setInterval(() => {
         const index = Math.floor(Math.random() * activities_list.length ); 
         bot.user.setActivity(activities_list[index], {type: "WATCHING"});
-    }, 7000); 
+    }, 10000); 
 
 });
 
