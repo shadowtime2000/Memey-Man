@@ -9,7 +9,7 @@ const statusvalue = 1
 statusvaluee = parseInt(statusvalue)
 
 playAlert = setInterval(function() {
-    statusvalue = statusvaluee + 1;
+    statusvaluee = statusvaluee + 1;
  }, 3000);
 
 bot.on("ready", () =>{
