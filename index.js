@@ -12,7 +12,7 @@ const activities_list = [
     "youtube."
     ]; 
 
-const statusnum = 1
+var statusnum = 1
 
 bot.on("ready", () =>{
     bot.login("NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU")
