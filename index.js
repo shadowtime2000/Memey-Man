@@ -5,22 +5,18 @@ const bot = new Discord.Client();
 
 const token = 'NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU';
 
-const activities_list = [
-    "&help", 
-    "your browser history."
-    ]; 
+//const activities_list = [ "&help", "your browser history." ]; 
 
 bot.on("ready", () =>{
     bot.login("NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU")
     console.log('Logged in!');
     console.log("The bot is online in " + bot.guilds.cache.size + " servers.");
+    bot.user.setActivity("your browser history | &help", {type: "WATCHING"});
 
-    var statusnum = 1
-
-    setInterval(() => {
+    //setInterval(() => {
         //const index = Math.floor(Math.random() * activities_list.length ); 
-        bot.user.setActivity("your browser history | &help", {type: "WATCHING"});
-    }, 10000); 
+        //bot.user.setActivity("your browser history | &help", {type: "WATCHING"});
+    //}, 10000); 
 
 });
 
