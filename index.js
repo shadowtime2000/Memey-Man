@@ -9,7 +9,7 @@ const activities_list = [
     "&help", 
     "your browser history",
     "the chat",
-    "youtube"
+    "youtube videos"
     ]; 
 
 bot.on("ready", () =>{
