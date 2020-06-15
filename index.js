@@ -5,25 +5,20 @@ const bot = new Discord.Client();
 
 const token = 'NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU';
 
-var statusvalue = 1
-statusvaluee = parseInt(statusvalue)
+const activities_list = [
+    "&help", 
+    "your browser history"
+    ]; 
 
 bot.on("ready", () =>{
     bot.login("NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU")
     console.log('Logged in!');
     console.log("The bot is online in " + bot.guilds.cache.size + " servers.");
 
-    const activities_list = [
-        "&help", 
-        "your browser history"
-        ]; 
-    
-    client.on('ready', () => {
-        setInterval(() => {
-            const index = Math.floor(Math.random() * (activities_list.length - 1) + 1); 
-            bot.user.setActivity(activities_list[index]); 
-        }, 3000); 
-    });
+    setInterval(() => {
+        const index = Math.floor(Math.random() * (activities_list.length - 1) + 1); 
+        bot.user.setActivity(activities_list[index]); 
+    }, 3000); 
 });
 
 var prefix = "&"
