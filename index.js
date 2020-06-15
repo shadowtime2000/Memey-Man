@@ -8,16 +8,16 @@ const token = 'NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU';
 const statusvalue = 1
 statusvaluee = parseInt(statusvalue)
 
-playAlert = setInterval(function() {
-    statusvaluee = statusvaluee + 1;
- }, 3000);
-
 bot.on("ready", () =>{
     bot.login("NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU")
     console.log('Logged in!');
     console.log("The bot is online in " + bot.guilds.cache.size + " servers.");
 
-    if(statusvaluee%2 == 1) {
+    playAlert = setInterval(function() {
+        statusvaluee = statusvaluee + 1;
+    }, 3000);
+
+    if(statusvaluee % 2 == 1) {
         bot.user.setActivity("&help", {
             type: "WATCHING",
             //url: "https://www.twitch.tv/nevergonnagiveyouup"
