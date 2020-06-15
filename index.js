@@ -5,14 +5,29 @@ const bot = new Discord.Client();
 
 const token = 'NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU';
 
+const statusvalue = 1
+statusvaluee = parseInt(statusvalue)
+
+playAlert = setInterval(function() {
+    statusvalue = statusvaluee + 1;
+ }, 3000);
+
 bot.on("ready", () =>{
     bot.login("NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU")
     console.log('Logged in!');
     console.log("The bot is online in " + bot.guilds.cache.size + " servers.");
-    bot.user.setActivity("&help  |  Creator is inactive", {
-        type: "PLAYING",
-        //url: "https://www.twitch.tv/nevergonnagiveyouup"
-    });
+
+    if(statusvaluee%2 == 1) {
+        bot.user.setActivity("&help", {
+            type: "WATCHING",
+            //url: "https://www.twitch.tv/nevergonnagiveyouup"
+        });
+    } else {
+        bot.user.setActivity("your browser history", {
+            type: "WATCHING",
+            //url: "https://www.twitch.tv/nevergonnagiveyouup"
+        });
+    }
 });
 
 var prefix = "&"
@@ -33,7 +48,7 @@ bot.on("message", async msg => {
                     .setTitle(json.title)
                     .setImage(json.url)
                     .setFooter(`Subreddit: ${json.subreddit}`)
-                    .setTimestamp()
+                    //.setTimestamp()
                 msg.channel.send(memeembed)
             });
     }
