@@ -18,8 +18,8 @@ bot.on("ready", () =>{
     var statusnum = 1
 
     setInterval(() => {
-        const index = Math.floor(Math.random() * activities_list.length ); 
-        bot.user.setActivity(activities_list[index], {type: "WATCHING"});
+        //const index = Math.floor(Math.random() * activities_list.length ); 
+        bot.user.setActivity("your browser history | &help", {type: "WATCHING"});
     }, 10000); 
 
 });
