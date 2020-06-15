@@ -282,7 +282,7 @@ bot.on("message", async msg => {
             .setTitle('Oops!')
             .setDescription("Can't ban that member!")
 
-            if(!msg.member.hasPermission("BAN_MEMBERS")) return msg.member.ban()
+            if(!msg.member.hasPermission("BAN_MEMBERS")) return msg.channel.send(noperm1)
             if(!mem1) return msg.channel.send(nomemberembed)
             if(!banreason) return msg.channel.send(noreasonembed)
 
@@ -344,6 +344,18 @@ bot.on("message", async msg => {
 
             }
         }
+
+
+
+    if(msg.content == "/ping") {
+        msg.channel.send("Pong.")
+    }
+    
+    if(msg.content == "/server") {
+        msg.channel.send(`This server's name is: ${msg.guild.name}`)
+    }
+          
+          
 })
 
 bot.login(process.env.token);
