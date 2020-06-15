@@ -32,6 +32,15 @@ bot.on("message", async msg => {
         const m = await msg.channel.send("Pong:");
         m.edit(`Pong: ${m.createdTimestamp - msg.createdTimestamp}ms`);
     }
+
+    if(msg.content == prefix + "welcome") {
+        const WelcomeTestEmbed = new Discord.MessageEmbed()
+            .setColor('#63e764')  
+            .setTitle(`**Welcome to ${msg.guild.name}**`)
+            .setDescription(`Welcome ${msg.author.username} to ${msg.guild.name}! Please enjoy your time here :) Make sure to read the rules. If you have any issues please contact a member of staff, Thanks :slight_smile:`)   
+            .setTimestamp()  
+        msg.channel.send(WelcomeTestEmbed) 
+    }
     
     if(msg.content == prefix + "meme") {
         fetch('https://meme-api.herokuapp.com/gimme')
