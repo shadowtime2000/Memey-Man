@@ -147,7 +147,7 @@ bot.on("message", async msg => {
     if(msg.content.startsWith(prefix + 'punch')) {
         var member= msg.mentions.members.first();
         var user = msg.author
-        const image = user.avatarURL
+        const image = user.displayAvatarURL()
         const spanke = new Discord.MessageEmbed()
             .setColor('#ffa500')
             .setTitle('Punch command')
@@ -155,7 +155,7 @@ bot.on("message", async msg => {
         if (!member) return msg.channel.send(spanke)
         const hitee = new Discord.MessageEmbed()
             .setColor('#ffa500')
-            .setTitle( msg.member.displayName + " :right_facing_fist: " + member.displayName )
+            .setTitle( msg.member.displayName + " :right_facing_fist: " + member.displayName, image )
             .setDescription( msg.author.toString() + ' punched ' + member.toString() )
         msg.channel.send(hitee)
     }
