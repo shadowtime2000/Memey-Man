@@ -44,10 +44,15 @@ bot.on("message", async msg => {
     }
 
     if(msg.content.startsWith(prefix + "vote")) {
+        const noembed = new Discord.MessageEmbed
+            .setcolor('#FFC0CB')
+            .setTitle("Vote command")
+            .setDescription("Usage: &vote [channel mention] [vote title]")
         const args = msg.content.split(' ').slice(2); 
         const votetitle = args.join(' '); 
         let mention = msg.mentions.channels.first();
-        if (!mention) return msg.channel.send("Mention a channel!")
+        if(!mention) return msg.channel.send(noembed)
+        if(!votetitle) return msg.channel.send(noembed)
         const voteEmbed = new Discord.MessageEmbed()
             .setColor(`#FFC0CB`)
             .setTitle( "**Vote**: " + votetitle )
@@ -189,7 +194,7 @@ bot.on("message", async msg => {
         const spanke = new Discord.MessageEmbed()
             .setColor('#ffa500')
             .setTitle('Punch command')
-            .setDescription('Usage: &punch [member ping]')
+            .setDescription('Usage: &punch [member mention]')
         if (!member) return msg.channel.send(spanke)
         const hitee = new Discord.MessageEmbed()
             .setColor('#ffa500')
