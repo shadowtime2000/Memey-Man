@@ -52,7 +52,7 @@ bot.on("message", async msg => {
             .setColor(`#FFC0CB`)
             .setTitle( "**Vote**: " + votetitle )
             .setDescription("React to vote!");
-        bot.channels.get(mention.id).send(voteEmbed)
+        bot.channels.cache.get(mention.id).send(voteEmbed)
     }
 
     if(msg.content == prefix + "welcome") {
@@ -376,4 +376,4 @@ bot.on("message", async msg => {
 
 })
 
-bot.login(process.env.token);
+///bot.login(process.env.token);
