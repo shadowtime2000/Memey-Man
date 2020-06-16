@@ -48,7 +48,7 @@ bot.on("message", async msg => {
         const votetitle = args.join(' '); 
         if(!votetitle) return
         else msg.channel.send("Where should I post the vote?")
-        const channelid = msg.mentions.channels.first().id
+        const channelid = msg.mentions.channels.first()
         const voteEmbed = new Discord.MessageEmbed()
             .setColor(`#FFC0CB`)
             .setTitle( "**Vote**: " + votetitle )
