@@ -25,6 +25,16 @@ bot.on("message", async msg => {
         msg.channel.send(`https://discord.gg/p9Tfd45`)
     }
 
+    if (msg.content.startsWith(prefix + 'avatar')) {
+        const user = msg.mentions.users.first() || msg.author;
+        const avatarEmbed = new Discord.MessageEmbed()
+            .setColor("#FFC0CB")
+            .setAuthor(user.displayName)
+            .setImage(user.avatarURL);
+        msg.channel.send(avatarEmbed);
+
+    }
+
     if(msg.content == prefix + "welcome") {
         const WelcomeTestEmbed = new Discord.MessageEmbed()
             .setColor('#63e764')  
