@@ -79,7 +79,8 @@ bot.on("message", async msg => {
     if(msg.content.startsWith(prefix + "hm")) {
         const args = msg.content.split(' ').slice(1);
         var hmword = args.join(' ') 
-        var hmmword = hmword.replace("h", "hm")
+        if(!hmword) return msg.channel.send("Nothing to hm!")
+        var hmmword = hmword.replace(/h|m/gi, "hm")
         msg.channel.send(hmmword)
     }
 
