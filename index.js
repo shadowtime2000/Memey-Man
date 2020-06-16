@@ -76,6 +76,14 @@ bot.on("message", async msg => {
 
     }
 
+    if(msg.content == prefix + "hm") {
+        const args = msg.content.split(' ').slice(1);
+        var hmword = args.join(' ') 
+        var hmmword = hmword.replace("h", "hm")
+        var hmmmword = hmmword.replace("m", "hm")
+        msg.channel.send(hmmmword)
+    }
+
     if(msg.content == prefix + "topic") {
         var member= msg.mentions.members.first();
         var facts = ["What is your favorite drink?", "What country do you want to visit?", "What is your favorite Discord server?", "What is your favorite song?", "What did you do yesterday?", "What will you do tomorrow?", "What is your favorite movie?", "What is your favorite food?", "What games do you play?", "What is your favorite game?"];
