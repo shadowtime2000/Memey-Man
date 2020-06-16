@@ -30,7 +30,7 @@ bot.on("message", async msg => {
         const avatarEmbed = new Discord.MessageEmbed()
             .setColor("#FFC0CB")
             .setTitle(user.displayName)
-            .setImage(msg.user.avatarURL);
+            .setImage(msg.user.avatarURL());
         msg.channel.send(avatarEmbed);
 
     }
