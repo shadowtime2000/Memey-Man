@@ -35,30 +35,25 @@ bot.on("message", async msg => {
             msg.channel.send(avatarEmbed);
         } else {
             const useravatarEmbed = new Discord.MessageEmbed()
-            .setColor(`#FFC0CB`)
-            .setTitle( User.displayName + `'s avatar`)
-            .setImage(bot.users.cache.get(User.id).displayAvatarURL());
+                .setColor(`#FFC0CB`)
+                .setTitle( User.displayName + `'s avatar`)
+                .setImage(bot.users.cache.get(User.id).displayAvatarURL());
         msg.channel.send(useravatarEmbed);
         }
 
     }
 
     if(msg.content.startsWith(prefix + "vote")) {
-        msg.channel.send("Give me the vote title!")
-        var votetitle = msg.content
-        .then(() => {
-        if(votetitle) {
-        msg.channel.send("What channel do you want to post the vote?")
-        var votechannel = msg.mentions.channels.first().id
-        }})
-        .then(() => {
-            if(votechannel) {
-        const voteembed = new Discord.MessageEmbed()
-            .setColor("#aaf0d1")
-            .setTitle(`**Vote**: ${votetitle}`)
-            .setDescription("React to vote!")
-        bot.channels.get(votechannel).send(voteembed)
-        }})
+        const args = msg.content.split(' ').slice(1); 
+        const votetitle = args.join(' '); 
+        if(!votetitle) return
+        else msg.channel.send("Where should I post the vote?")
+        const channelid = message.mentions.channels.first().id
+        const voteEmbed = new Discord.MessageEmbed()
+            .setColor(`#FFC0CB`)
+            .setTitle( "**Vote**: " + votetitle )
+            .setDescription("React to vote!");
+        bot.channels.get(channelid).send(voteEmbed)
     }
 
     if(msg.content == prefix + "welcome") {
