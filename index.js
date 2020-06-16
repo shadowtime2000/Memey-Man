@@ -370,6 +370,14 @@ bot.on("message", async msg => {
         var str = msg.content.split(prefix + 'slowmode ');
         var num = parseInt(str[1], 10);
         if(num > 21600) return msg.channel.send(nonum)
+        if(!num) {
+            const slowmodeoff = new Discord.MessageEmbed()
+                .setColor('#EE0000')
+                .setTitle("Successfully turned off slowmode")
+                .setDescription(`Turned off slowmode.`)
+                .setTimestamp()
+            msg.channel.send(slowmodeoff)
+        }
         msg.channel.setRateLimitPerUser(num).then(() => {
             const slowmode = new Discord.MessageEmbed()
                 .setColor('#EE0000')
