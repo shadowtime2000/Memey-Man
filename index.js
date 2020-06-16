@@ -80,8 +80,7 @@ bot.on("message", async msg => {
         const args = msg.content.split(' ').slice(1);
         var hmword = args.join(' ') 
         var hmmword = hmword.replace("h", "hm")
-        var hmmmword = hmmword.replace("m", "hm")
-        msg.channel.send(hmmmword)
+        msg.channel.send(hmmword)
     }
 
     if(msg.content == prefix + "topic") {
