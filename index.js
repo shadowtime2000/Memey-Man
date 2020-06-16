@@ -378,14 +378,17 @@ bot.on("message", async msg => {
                 .setTimestamp()
             msg.channel.send(slowmodeoff)
         }
-        msg.channel.setRateLimitPerUser(num).then(() => {
+        else {
+            msg.channel.setRateLimitPerUser(num).then(() => {
             const slowmode = new Discord.MessageEmbed()
                 .setColor('#EE0000')
                 .setTitle("Successfully set slowmode")
                 .setDescription(`Slowmode set to ${num}s.`)
                 .setTimestamp()
             msg.channel.send(slowmode)
-        });
+            
+            });
+        }
     }
 
     
