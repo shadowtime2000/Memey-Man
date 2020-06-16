@@ -63,8 +63,11 @@ bot.on("message", async msg => {
             .setTitle( "**Vote**: " + votetitle )
             .setDescription("React to vote!");
         bot.channels.cache.get(mention.id).send(voteEmbed)
-        .then(() => msg.react('✅'))
-        .then(() => msg.react('❌'))
+        .then(function (message) {
+            msg.react("👍")
+            msg.react("👎")
+          }).catch(function() {
+           });
     }
 
     if(msg.content == prefix + "welcome") {
