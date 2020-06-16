@@ -48,7 +48,7 @@ bot.on("message", async msg => {
             .setColor('#FFC0CB')
             .setTitle("Oops!")
             .setDescription("You can't use that command!")
-        if(!msg.member.hasPermission("MANAGE_SERVER")) return msg.channel.send(noperm);
+        if(!msg.member.hasPermission("MANAGE_MESSAGES")) return msg.channel.send(noperm);
         const noembed = new Discord.MessageEmbed()
             .setColor('#FFC0CB')
             .setTitle("Vote command")
