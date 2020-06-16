@@ -44,7 +44,7 @@ bot.on("message", async msg => {
     }
 
     if(msg.content.startsWith(prefix + "vote")) {
-        const noembed = new Discord.MessageEmbed
+        const noembed = new Discord.MessageEmbed()
             .setColor('#FFC0CB')
             .setTitle("Vote command")
             .setDescription("Usage: &vote [channel mention] [vote title]")
