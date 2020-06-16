@@ -46,7 +46,7 @@ bot.on("message", async msg => {
     if(msg.content.startsWith(prefix + "vote")) {
         const args = msg.content.split(' ').slice(2); 
         const votetitle = args.join(' '); 
-        let mention = msg.mentions.users.first();
+        let mention = msg.mentions.channels.first();
         if (!mention) return msg.channel.send("Mention a channel!")
         const voteEmbed = new Discord.MessageEmbed()
             .setColor(`#FFC0CB`)
