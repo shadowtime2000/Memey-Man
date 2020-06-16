@@ -25,7 +25,7 @@ bot.on("message", async msg => {
         msg.channel.send(`https://discord.gg/p9Tfd45`)
     }
 
-    if (msg.content.startsWith(prefix + 'avatar')) {
+    if(msg.content.startsWith(prefix + 'avatar')) {
         var User = msg.mentions.members.first()
         if(!User) {
             const avatarEmbed = new Discord.MessageEmbed()
@@ -41,6 +41,22 @@ bot.on("message", async msg => {
         msg.channel.send(useravatarEmbed);
         }
 
+    }
+
+    if(msg.content.startsWith(prefix + "vote")) {
+        msg.channel.send("Give me the vote title!")
+        var votetitle = msg.content
+        if(votetitle) {
+        msg.channel.send("What channel do you want to post the vote?")
+        var votechannel = msg.mentions.channels.first().id
+        }
+        if(votechannel) {
+        const voteembed = new Discord.MessageEmbed()
+            .setColor("#aaf0d1")
+            .setTitle(`**Vote**: ${votetitle}`)
+            .setDescription("React to vote!")
+        bot.channels.get(votechannel).send(voteembed)
+        }
     }
 
     if(msg.content == prefix + "welcome") {
