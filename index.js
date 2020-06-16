@@ -44,9 +44,8 @@ bot.on("message", async msg => {
     }
 
     if(msg.content.startsWith(prefix + "vote")) {
-        const args = msg.content.split(' ').slice(1); 
+        const args = msg.content.split(' ').slice(2); 
         const votetitle = args.join(' '); 
-        if(votetitle) msg.channel.send("Where should I post the vote?")
         let mention = msg.mentions.users.first();
         if (!mention) return msg.channel.send("Mention a channel!")
         const voteEmbed = new Discord.MessageEmbed()
