@@ -47,7 +47,7 @@ bot.on("message", async msg => {
         const args = msg.content.split(' ').slice(1); 
         const votetitle = args.join(' '); 
         if(votetitle) msg.channel.send("Where should I post the vote?")
-        let mention = message.mentions.users.first();
+        let mention = msg.mentions.users.first();
         if (!mention) return msg.channel.send("Mention a channel!")
         const voteEmbed = new Discord.MessageEmbed()
             .setColor(`#FFC0CB`)
