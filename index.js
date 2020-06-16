@@ -27,7 +27,7 @@ bot.on("message", async msg => {
 
     if (msg.content.startsWith(prefix + 'avatar')) {
         var User = msg.mentions.members.first()
-        if(!member) {
+        if(!User) {
             const avatarEmbed = new Discord.MessageEmbed()
                 .setColor(`#FFC0CB`)
                 .setTitle(`Your avatar!`)
