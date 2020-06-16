@@ -99,6 +99,7 @@ bot.on("message", async msg => {
         var hmword = args.join(' ') 
         if(!hmword) return msg.channel.send("Nothing to hm!")
         var hmmword = hmword.replace(/h|m/gi, "hm")
+        var hmmmword = hmmword.replace(/a/gi, "ahm")
         msg.channel.send(hmmword)
     }
 
