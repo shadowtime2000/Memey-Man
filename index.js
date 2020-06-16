@@ -26,7 +26,7 @@ bot.on("message", async msg => {
     }
 
     if (msg.content.startsWith(prefix + 'avatar')) {
-        var member = msg.mentions.members.first()
+        var User = msg.mentions.members.first()
         if(!member) {
             const avatarEmbed = new Discord.MessageEmbed()
                 .setColor(`#FFC0CB`)
@@ -36,7 +36,7 @@ bot.on("message", async msg => {
         } else {
             const useravatarEmbed = new Discord.MessageEmbed()
             .setColor(`#FFC0CB`)
-            .setTitle( msg.member.displayName + `'s avatar!`)
+            .setTitle( User.displayName + `'s avatar!`)
             .setImage(bot.users.cache.get(User.id).displayAvatarURL());
         msg.channel.send(useravatarEmbed);
         }
