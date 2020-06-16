@@ -26,11 +26,11 @@ bot.on("message", async msg => {
     }
 
     if (msg.content.startsWith(prefix + 'avatar')) {
-        const user = msg.mentions.users.first() || msg.author;
+        const user = msg.author;
         const avatarEmbed = new Discord.MessageEmbed()
             .setColor("#FFC0CB")
             .setAuthor(user.displayName)
-            .setImage(user.defaultAvatarURL);
+            .setImage(user.displayAvatarURL);
         msg.channel.send(avatarEmbed);
 
     }
