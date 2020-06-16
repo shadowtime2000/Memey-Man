@@ -26,11 +26,20 @@ bot.on("message", async msg => {
     }
 
     if (msg.content.startsWith(prefix + 'avatar')) {
-        const avatarEmbed = new Discord.MessageEmbed()
+        var member = msg.mentions.members.first()
+        if(!member) {
+            const avatarEmbed = new Discord.MessageEmbed()
+                .setColor(`#FFC0CB`)
+                .setTitle(`Your avatar!`)
+                .setImage(msg.author.displayAvatarURL());
+            msg.channel.send(avatarEmbed);
+        } else {
+            const useravatarEmbed = new Discord.MessageEmbed()
             .setColor(`#FFC0CB`)
-            .setTitle(`Your avatar!`)
-            .setImage(msg.author.displayAvatarURL());
-        msg.channel.send(avatarEmbed);
+            .setTitle( msg.member.displayName + `'s avatar!`)
+            .setImage(msg.member.displayAvatarURL());
+        msg.channel.send(useravatarEmbed);
+        }
 
     }
 
