@@ -76,7 +76,7 @@ bot.on("message", async msg => {
 
     }
 
-    if(msg.content == prefix + "hm") {
+    if(msg.content.startsWith(prefix + "hm")) {
         const args = msg.content.split(' ').slice(1);
         var hmword = args.join(' ') 
         var hmmword = hmword.replace("h", "hm")
