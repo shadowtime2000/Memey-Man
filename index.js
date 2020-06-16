@@ -30,13 +30,13 @@ bot.on("message", async msg => {
         if(!User) {
             const avatarEmbed = new Discord.MessageEmbed()
                 .setColor(`#FFC0CB`)
-                .setTitle(`Your avatar!`)
+                .setTitle(`Your avatar`)
                 .setImage(msg.author.displayAvatarURL());
             msg.channel.send(avatarEmbed);
         } else {
             const useravatarEmbed = new Discord.MessageEmbed()
             .setColor(`#FFC0CB`)
-            .setTitle( User.displayName + `'s avatar!`)
+            .setTitle( User.displayName + `'s avatar`)
             .setImage(bot.users.cache.get(User.id).displayAvatarURL());
         msg.channel.send(useravatarEmbed);
         }
@@ -200,7 +200,7 @@ bot.on("message", async msg => {
         const helpEmbed = new Discord.MessageEmbed()
 	    .setColor('#0099ff')
             .setTitle('**COMMAND LIST**')
-            .setDescription('**Information commands**\n&botinfo : Gives bot info.\n&help : This command.\n&invite: Gives an invite to Memey Man server.\n\n**Main commands**\n&ping : Gives current ping.\n&meme : Gives a random meme.\n&urban : Gives urban dictionary definition.\n&punch : Punches a user!\n&8ball : Answers your question.\n&topic : Gives a chat topic.\n&coinflip : Flips a coin.\n&diceroll : Rolls a dice.\n\n**Text commands**\n&repeat : Repeats your message.\n&embed : Puts your message in an embed.\n&hm: HMs your message.\n&xue : Xue hua piao piao bei feng...\n\n**Moderator commands**\n&ban : Bans a user.\n&kick : Kicks a user.\n&purge : Deletes messages.')
+            .setDescription(`**Information commands**\n&botinfo : Gives bot info.\n&help : This command.\n&invite: Gives an invite to Memey Man server.\n\n**Main commands**\n&ping : Gives current ping.\n&meme : Gives a random meme.\n&urban : Gives urban dictionary definition.\n&punch : Punches a user!\n&avatar: Gives your/someone's avatar.\n&8ball : Answers your question.\n&topic : Gives a chat topic.\n\n**Text commands**\n&repeat : Repeats your message.\n&embed : Puts your message in an embed.\n&hm: HMs your message.\n&xue : Xue hua piao piao bei feng...\n\n**UTILITY**\n&coinflip : Flips a coin.\n&diceroll : Rolls a dice.\n\n**Moderator commands**\n&ban : Bans a user.\n&kick : Kicks a user.\n&purge : Deletes messages.`)
 	    msg.channel.send(helpEmbed); 
 	    
     }
