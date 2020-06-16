@@ -3,26 +3,18 @@ const fetch = require('node-fetch');
 const urban = require('urban')
 const bot = new Discord.Client();
 
-const token = 'NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU';
-
-//const activities_list = [ "&help", "your browser history." ]; 
-
 bot.on("ready", () =>{
     bot.login("NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU")
     console.log('Logged in!');
     console.log("The bot is online in " + bot.guilds.cache.size + " servers.");
     bot.user.setActivity("you | &help", {type: "WATCHING"});
-
-    //setInterval(() => {
-        //const index = Math.floor(Math.random() * activities_list.length ); 
-        //bot.user.setActivity("your browser history | &help", {type: "WATCHING"});
-    //}, 10000); 
-
 });
 
 var prefix = "&"
 
 bot.on("message", async msg => {
+
+    if (msg.author.bot) return;
 
     if(msg.content == prefix + "ping") {
         const m = await msg.channel.send("Pong:");
@@ -100,7 +92,6 @@ bot.on("message", async msg => {
         const args = msg.content.split(' ').slice(1);
         const repeatword = args.join(' ')
         if(!repeatword) return msg.reply('Nothing to repeat!');
-        if(repeatword.includes(prefix + "repeat")) return msg.reply("You can't repeat more than once.")
         if(repeatword.includes(prefix + "kick")) return msg.reply("Don't try it!")
         if(repeatword.includes(prefix + "ban")) return msg.reply("Don't try it!")
         if(repeatword.includes(prefix + "purge")) return msg.reply("Don't try it!")   
@@ -226,7 +217,7 @@ bot.on("message", async msg => {
         const cantkick = new Discord.MessageEmbed()
             .setColor('#FFFF00')
             .setTitle('Oops!')
-            .setDescription("Can't kick that member!")
+            .setDescription("An errror occurred.")
 
             if(!msg.member.hasPermission("KICK_MEMBERS")) return msg.channel.send(noperm);
             if(!mem) return msg.channel.send(nomemmber)
@@ -280,7 +271,7 @@ bot.on("message", async msg => {
         const cantban = new Discord.MessageEmbed()
             .setColor('#FFFF00')
             .setTitle('Oops!')
-            .setDescription("Can't ban that member!")
+            .setDescription("An error occurred.")
 
             if(!msg.member.hasPermission("BAN_MEMBERS")) return msg.channel.send(noperm1)
             if(!mem1) return msg.channel.send(nomemberembed)
@@ -340,22 +331,11 @@ bot.on("message", async msg => {
 
             
             } catch(e) {
-                return msg.channel.send("Error. Try again")
+                return msg.channel.send("Error")
 
             }
         }
 
-
-
-    if(msg.content == "/ping") {
-        msg.channel.send("Pong.")
-    }
-    
-    if(msg.content == "/server") {
-        msg.channel.send(`This server's name is: ${msg.guild.name}`)
-    }
-          
-          
 })
 
 bot.login(process.env.token);
