@@ -28,8 +28,8 @@ bot.on("message", async msg => {
     if (msg.content.startsWith(prefix + 'avatar')) {
         const avatarEmbed = new Discord.MessageEmbed()
             .setColor(`#FFC0CB`)
-            .setTitle(`${msg.author.displayName}'s Avatar!`)
-            .setDescription(msg.author.displayAvatarURL());
+            .setTitle(`Your avatar!`)
+            .setImage(msg.author.displayAvatarURL());
         msg.channel.send(avatarEmbed);
 
     }
