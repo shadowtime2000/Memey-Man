@@ -65,6 +65,7 @@ bot.on("message", async msg => {
         bot.channels.cache.get(mention.id).send(voteEmbed).then(sentEmbed => {
             sentEmbed.react("👍")
             .then(() => sentEmbed.react("👎"))
+            msg.react('✅')
            });
     }
 
