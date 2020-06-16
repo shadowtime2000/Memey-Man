@@ -351,7 +351,7 @@ bot.on("message", async msg => {
         });
     }
 
-    if (message.content.startsWith(prefix + 'slowmode')) {
+    if (msg.content.startsWith(prefix + 'slowmode')) {
         var str = msg.content.split(prefix + 'slowmode ');
         var num = parseInt(str[1], 10);
         msg.channel.setRateLimitPerUser(num).then(() => {
