@@ -350,6 +350,15 @@ bot.on("message", async msg => {
                 msg.channel.send(cantban);
         });
     }
+
+    if (message.content.startsWith(prefix + 'slowmode')) {
+        var str = message.content.split(prefix + 'slowmode ');
+        var num = parseInt(str[1], 10);
+        msg.channel.setRateLimitPerUser(num).then(() => {
+            msg.channel.send(`Slowmode set to ${num}s.`);
+        });
+    }
+
     
     if(msg.content.startsWith(prefix + 'urban')) {
         const args = msg.content.split(' ').slice(1); 
