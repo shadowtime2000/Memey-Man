@@ -46,13 +46,14 @@ bot.on("message", async msg => {
     if(msg.content.startsWith(prefix + "vote")) {
         const args = msg.content.split(' ').slice(1); 
         const votetitle = args.join(' '); 
-        if(votetitle == true) return msg.channel.send("Where should I post the vote?")
-        const channelid = msg.mentions.channels.first().id
+        if(votetitle) msg.channel.send("Where should I post the vote?")
+        let mention = message.mentions.users.first();
+        if (!mention) return msg.channel.send("Mention a channel!")
         const voteEmbed = new Discord.MessageEmbed()
             .setColor(`#FFC0CB`)
             .setTitle( "**Vote**: " + votetitle )
             .setDescription("React to vote!");
-        bot.channels.get(channelid).send(voteEmbed)
+        bot.channels.get(mention.id).send(voteEmbed)
     }
 
     if(msg.content == prefix + "welcome") {
