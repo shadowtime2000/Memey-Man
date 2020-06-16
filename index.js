@@ -352,10 +352,25 @@ bot.on("message", async msg => {
     }
 
     if (msg.content.startsWith(prefix + 'slowmode')) {
+
+        if (msg.channel.type == "dm") return;
+
+        const noperm1 = new Discord.MessageEmbed()
+            .setColor('#FFFF00')
+            .setTitle('Oops!')
+            .setDescription("You can't use that command!")
+
+        if(!msg.member.hasPermission("MANAGE_CHANNELS")) return msg.channel.send(noperm1)
+
         var str = msg.content.split(prefix + 'slowmode ');
         var num = parseInt(str[1], 10);
         msg.channel.setRateLimitPerUser(num).then(() => {
-            msg.channel.send(`Slowmode set to ${num}s.`);
+            const slowmode = new Discord.MessageEmbed()
+                .setColor('#EE0000')
+                .setTitle("Successfully set slowmode")
+                .setDescription(`Slowmode set to ${num}s.`)
+                .setTimestamp()
+            msg.channel.send(slowmode)
         });
     }
 
