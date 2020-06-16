@@ -62,11 +62,9 @@ bot.on("message", async msg => {
             .setColor(`#FFC0CB`)
             .setTitle( "**Vote**: " + votetitle )
             .setDescription("React to vote!");
-        bot.channels.cache.get(mention.id).send(voteEmbed)
-        .then(function (message) {
-            msg.react("👍")
-            msg.react("👎")
-          }).catch(function() {
+        bot.channels.cache.get(mention.id).send(voteEmbed).then(sentEmbed => {
+            sentEmbed.react("👍")
+            .then(() => sentEmbed.react("👎"))
            });
     }
 
