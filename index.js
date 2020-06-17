@@ -139,8 +139,9 @@ bot.on("message", async msg => {
         var hmmword = hmword.replace(/h|m/gi, "hm")
         var hmmmword = hmmword.replace(/a/gi, "ahm")
         var hmmmmword = hmmmword.replace(/e/gi, "ehm")
-        var hmwordfinal = hmmmmword.replace(/@!|@&/gi, "**Non-ping:** ")
-        msg.channel.send(hmwordfinal)
+        var hmwordfinal = hmmmmword.replace(/@!/gi, "**Non-ping:** ")
+        var hmwordfinalfinal = hmwordfinal.replace(/@&/gi, "**Non-ping:** ")
+        msg.channel.send(hmwordfinalfinal)
     }
 
     if(msg.content == prefix + "topic") {
@@ -165,8 +166,9 @@ bot.on("message", async msg => {
         if(repeatword.includes(prefix + "purge")) return msg.reply("Don't try it!")   
         if(repeatword.includes("@everyone")) return msg.reply("Don't try it!")
         if(repeatword.includes("@here")) return msg.reply("Don't try it!")
-        var repeatwordfinal = repeatword.replace(/@!|@&/gi, "**Non-ping:** ")
-        msg.channel.send(repeatwordfinal)
+        var repeatwordfinal = repeatword.replace(/@&/gi, "**Non-ping:** ")
+        var repeatwordfinalfinal = repeatwordfinal.replace(/@!/gi, "**Non-ping:** ")
+        msg.channel.send(repeatwordfinalfinal)
 	}
 
     if(msg.content.startsWith(prefix + '8ball')) {
