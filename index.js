@@ -29,13 +29,13 @@ bot.on("message", async msg => {
         var User = msg.mentions.members.first()
         if(!User) {
             const avatarEmbed = new Discord.MessageEmbed()
-                .setColor(`#FFC0CB`)
+                .setColor(`#006a4e`)
                 .setTitle(`Your avatar`)
                 .setImage(msg.author.displayAvatarURL());
             msg.channel.send(avatarEmbed);
         } else {
             const useravatarEmbed = new Discord.MessageEmbed()
-                .setColor(`#FFC0CB`)
+                .setColor(`#006a4e`)
                 .setTitle( User.displayName + `'s avatar`)
                 .setImage(bot.users.cache.get(User.id).displayAvatarURL());
         msg.channel.send(useravatarEmbed);
