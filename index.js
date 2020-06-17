@@ -157,9 +157,9 @@ bot.on("message", async msg => {
     }
 
 	if (msg.content.startsWith(prefix + 'repeat')) {
-        const user = msg.mentions.members.first()
+        var user = msg.mentions.members.first()
         const args = msg.content.split(' ').slice(1);
-        const repeatword = args.join(' ')
+        var repeatword = args.join(' ')
         if(!repeatword) return msg.reply('Nothing to repeat!');
         if(repeatword.includes(prefix + "kick")) return msg.reply("Don't try it!")
         if(repeatword.includes(prefix + "ban")) return msg.reply("Don't try it!")
@@ -167,10 +167,10 @@ bot.on("message", async msg => {
         if(repeatword.includes("@everyone")) return msg.reply("Don't try it!")
         if(repeatword.includes("@here")) return msg.reply("Don't try it!")
         if(user) {
-            const repeatwordfinal = repeatword.replace(/@!/g, "**Non-ping:** ")
-            var repeatwordfinalfinal = repeatwordfinal.replace(/@&/g, "**Non-ping:** ")
+            var repeatwordfinal = repeatword.replace(/@!/g, "**Non-ping:** ")
+            var repeatwordasdf = repeatwordfinal.replace(/@&/g, "**Non-ping:** ")
         }
-        msg.channel.send(repeatwordfinalfinal)
+        msg.channel.send(repeatwordasdf)
 	}
 
     if(msg.content.startsWith(prefix + '8ball')) {
