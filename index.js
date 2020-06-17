@@ -153,13 +153,14 @@ bot.on("message", async msg => {
     }
 
 	if (msg.content.startsWith(prefix + 'repeat')) {
+        var user = msg.mentions.members.first()
         const args = msg.content.split(' ').slice(1);
         const repeatword = args.join(' ')
         if(!repeatword) return msg.reply('Nothing to repeat!');
         if(repeatword.includes(prefix + "kick")) return msg.reply("Don't try it!")
         if(repeatword.includes(prefix + "ban")) return msg.reply("Don't try it!")
         if(repeatword.includes(prefix + "purge")) return msg.reply("Don't try it!")   
-        if(repeatword.includes("@")) return;   
+        if(user) return; msg.reply("Don't ping users!")
         msg.channel.send(repeatword)
 	}
 
