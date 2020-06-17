@@ -136,11 +136,11 @@ bot.on("message", async msg => {
         const args = msg.content.split(' ').slice(1);
         var hmword = args.join(' ') 
         if(!hmword) return msg.channel.send("Nothing to hm!")
-        var hmmword = hmword.replace(/h|m/gi, "hm")
-        var hmmmword = hmmword.replace(/a/gi, "ahm")
-        var hmmmmword = hmmmword.replace(/e/gi, "ehm")
-        var hmwordfinal = hmmmmword.replace(/@!/gi, "**Non-ping:** ")
-        var hmwordfinalfinal = hmwordfinal.replace(/@&/gi, "**Non-ping:** ")
+        var hmmword = hmword.replace(/h|m/g, "hm")
+        var hmmmword = hmmword.replace(/a/g, "ahm")
+        var hmmmmword = hmmmword.replace(/e/g, "ehm")
+        var hmwordfinal = hmmmmword.replace(/@!/g, "**Non-ping:** ")
+        var hmwordfinalfinal = hmwordfinal.replace(/@&/g, "**Non-ping:** ")
         msg.channel.send(hmwordfinalfinal)
     }
 
@@ -167,8 +167,8 @@ bot.on("message", async msg => {
         if(repeatword.includes("@everyone")) return msg.reply("Don't try it!")
         if(repeatword.includes("@here")) return msg.reply("Don't try it!")
         if(user) {
-            var repeatwordfinal = repeatword.replace(/@!/gi, "**Non-ping:** ")
-            var repeatwordfinalfinal = repeatwordfinal.replace(/@&/gi, "**Non-ping:** ")
+            var repeatwordfinal = repeatword.replace(/@!/g, "**Non-ping:** ")
+            var repeatwordfinalfinal = repeatwordfinal.replace(/@&/g, "**Non-ping:** ")
         }
         msg.channel.send(repeatwordfinalfinal)
 	}
