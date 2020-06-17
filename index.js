@@ -167,8 +167,8 @@ bot.on("message", async msg => {
         if(repeatword.includes("@everyone")) return msg.reply("Don't try it!")
         if(repeatword.includes("@here")) return msg.reply("Don't try it!")
         if(user) {
-            var repeatwordfinal = repeatword.replace(/@!/gi, "**Non-ping:** ")
-            var repeatwordfinalfinal = repeatwordfinal.replace(/@&/gi, "**Non-ping:** ")
+            const repeatwordfinal = repeatword.replace(/@!/gi, "**Non-ping:** ")
+            const repeatwordfinalfinal = repeatwordfinal.replace(/@&/gi, "**Non-ping:** ")
         }
         msg.channel.send(repeatwordfinalfinal)
 	}
