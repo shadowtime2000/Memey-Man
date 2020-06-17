@@ -36,10 +36,10 @@ bot.on("message", async msg => {
                 .setImage(msg.author.displayAvatarURL());
             msg.channel.send(avatarEmbed);
         }
-        if(memberid) {
+        if(user) {
             const useravatarEmbed = new Discord.MessageEmbed()
                 .setColor(`#006a4e`)
-                .setTitle( user.toString() + `'s avatar`)
+                .setTitle( user.displayName + `'s avatar`)
                 .setImage(bot.users.cache.get(user.id).displayAvatarURL());
             msg.channel.send(useravatarEmbed);
         }
