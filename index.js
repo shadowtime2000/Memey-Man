@@ -160,7 +160,7 @@ bot.on("message", async msg => {
         if(repeatword.includes(prefix + "kick")) return msg.reply("Don't try it!")
         if(repeatword.includes(prefix + "ban")) return msg.reply("Don't try it!")
         if(repeatword.includes(prefix + "purge")) return msg.reply("Don't try it!")   
-        if(user) return; msg.reply("Don't ping users!")
+        if(user) return msg.reply("Don't ping users!")
         msg.channel.send(repeatword)
 	}
 
