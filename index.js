@@ -36,7 +36,7 @@ bot.on("message", async msg => {
                 .setImage(msg.author.displayAvatarURL());
             msg.channel.send(avatarEmbed);
         }
-        if(user && !memberid) {
+        if(user) {
             const useravatarEmbed = new Discord.MessageEmbed()
                 .setColor(`#006a4e`)
                 .setTitle( user.displayName + `'s avatar`)
