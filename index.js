@@ -134,10 +134,9 @@ bot.on("message", async msg => {
         const args = msg.content.split(' ').slice(1);
         var hmword = args.join(' ') 
         if(!hmword) return msg.channel.send("Nothing to hm!")
-        if(hmword.includes("@everyone")) return msg.channel.send("Don't try it!")
         var hmmword = hmword.replace(/h|m/gi, "hm")
         var hmmmword = hmmword.replace(/a/gi, "ahm")
-        var hmwordfinal = hmmmword.replace(/@!|@&/gi, "Non-ping: ")
+        var hmwordfinal = hmmmword.replace(/@!|@&/gi, "**Non-ping:** ")
         msg.channel.send(hmwordfinal)
     }
 
