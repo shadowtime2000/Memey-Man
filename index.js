@@ -29,21 +29,21 @@ bot.on("message", async msg => {
         var user = msg.mentions.members.first()
         const args = msg.content.split(' ').slice(1); 
         const memberid = args.join(' '); 
-        if(!memberid) {
+        if(!memberid && !user) {
             const avatarEmbed = new Discord.MessageEmbed()
                 .setColor(`#006a4e`)
                 .setTitle(`Your avatar`)
                 .setImage(msg.author.displayAvatarURL());
             msg.channel.send(avatarEmbed);
         }
-        if(user) {
+        if(user && !memberid) {
             const useravatarEmbed = new Discord.MessageEmbed()
                 .setColor(`#006a4e`)
                 .setTitle( user.displayName + `'s avatar`)
                 .setImage(bot.users.cache.get(user.id).displayAvatarURL());
             msg.channel.send(useravatarEmbed);
         }
-        if(guild.member(USER_ID)) {
+        if(memberid && !user && msg.guild.member(USER_ID)) {
             const iduser = bot.users.fetch(memberid);
             const idavatarEmbed = new Discord.MessageEmbed()
                 .setColor(`#006a4e`)
