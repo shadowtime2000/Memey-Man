@@ -45,7 +45,7 @@ bot.on("message", async msg => {
             msg.channel.send(useravatarEmbed);
         }
         if(memberid && !user && msg.guild.member(memberid)) {
-            const member = client.users.fetch(memberid);
+            const member = bot.users.fetch(memberid);
             const idavatarEmbed = new Discord.MessageEmbed()
                 .setColor(`#006a4e`)
                 .setTitle( member.displayName + `'s avatar`)
