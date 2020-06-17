@@ -166,9 +166,9 @@ bot.on("message", async msg => {
         if(repeatword.includes(prefix + "purge")) return msg.reply("Don't try it!")   
         if(repeatword.includes("@everyone")) return msg.reply("Don't try it!")
         if(repeatword.includes("@here")) return msg.reply("Don't try it!")
-        repeatword = repeatword.replace(/@!/g, "**Non-ping:** ")
-        repeatword = repeatword.replace(/@&/g, "**Non-ping:** ")
-        msg.channel.send(repeatword)
+        if(user) { repeatworda = repeatword.replace(/@!/g, "**Non-ping:** ") }
+        repeatwordb = repeatworda.replace(/@&/g, "**Non-ping:** ")
+        msg.channel.send(repeatwordb)
 	}
 
     if(msg.content.startsWith(prefix + '8ball')) {
