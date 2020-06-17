@@ -221,7 +221,7 @@ bot.on("message", async msg => {
         if (!member) return msg.channel.send(huge)
         const hugee = new Discord.MessageEmbed()
             .setColor('#ffa500')
-            .setTitle( msg.member.displayName + " :hugged: " + member.displayName )
+            .setTitle( msg.member.displayName + " :hugging: " + member.displayName )
             .setDescription( msg.author.toString() + ' hugged ' + member.toString() + "!" )
         msg.channel.send(hugee)
     }
