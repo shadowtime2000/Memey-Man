@@ -161,7 +161,8 @@ bot.on("message", async msg => {
         if(repeatword.includes(prefix + "ban")) return msg.reply("Don't try it!")
         if(repeatword.includes(prefix + "purge")) return msg.reply("Don't try it!")   
         if(user) return msg.reply("Don't ping users!")
-        msg.channel.send(repeatword)
+        var repeatwordfinal = msg.content.replace(/@/gi, "Non-ping: ")
+        msg.channel.send(repeatwordfinal)
 	}
 
     if(msg.content.startsWith(prefix + '8ball')) {
