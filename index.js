@@ -33,14 +33,14 @@ bot.on("message", async msg => {
         if(!memberid && !user) {
             const avatarEmbed = new Discord.MessageEmbed()
                 .setColor(`#006a4e`)
-                .setTitle(`Your avatar`)
+                .setTitle(`Avatar`)
                 .setImage(msg.author.displayAvatarURL());
             msg.channel.send(avatarEmbed);
         }
         if(user) {
             const useravatarEmbed = new Discord.MessageEmbed()
                 .setColor(`#006a4e`)
-                .setTitle( user.displayName + `'s avatar`)
+                .setTitle( `Avatar`)
                 .setImage(bot.users.cache.get(user.id).displayAvatarURL());
             msg.channel.send(useravatarEmbed);
         }
@@ -48,7 +48,7 @@ bot.on("message", async msg => {
             const member = bot.users.fetch(memberid);
             const idavatarEmbed = new Discord.MessageEmbed()
                 .setColor(`#006a4e`)
-                .setTitle( member.displayName + `'s avatar`)
+                .setTitle(`Avatar`)
                 .setImage(bot.users.cache.get(memberid).displayAvatarURL());
             msg.channel.send(idavatarEmbed);
         } 
