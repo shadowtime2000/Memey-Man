@@ -132,19 +132,6 @@ bot.on("message", async msg => {
 
     }
 
-    if(msg.content.startsWith(prefix + "hm")) {
-        var member= msg.mentions.members.first();
-        const args = msg.content.split(' ').slice(1);
-        var hmword = args.join(' ') 
-        if(!hmword) return msg.channel.send("Nothing to hm!")
-        var hmmword = hmword.replace(/h|m/g, "hm")
-        var hmmmword = hmmword.replace(/a/g, "ahm")
-        var hmmmmword = hmmmword.replace(/e/g, "ehm")
-        if(member) return msg.channel.send("I can't mention user!") 
-        var hmwordfinalfinal = hmmmmword.replace(/@&|@!/g, "**Non-ping:** ")
-        msg.channel.send(hmwordfinalfinal)
-    }
-
     if(msg.content == prefix + "topic") {
         var member= msg.mentions.members.first();
         var facts = ["What is your favorite drink?", "What country do you want to visit?", "What is your favorite Discord server?", "What is your favorite song?", "What did you do yesterday?", "What will you do tomorrow?", "What is your favorite movie?", "What is your favorite food?", "What games do you play?", "What is your favorite game?"];
