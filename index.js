@@ -140,7 +140,7 @@ bot.on("message", async msg => {
         var hmmword = hmword.replace(/h|m/g, "hm")
         var hmmmword = hmmword.replace(/a/g, "ahm")
         var hmmmmword = hmmmword.replace(/e/g, "ehm")
-        if(member) { msg.channel.send("I can't mention user!") }
+        if(member) return msg.channel.send("I can't mention user!") 
         var hmwordfinalfinal = hmmmmword.replace(/@&|@!/g, "**Non-ping:** ")
         msg.channel.send(hmwordfinalfinal)
     }
