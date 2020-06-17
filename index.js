@@ -137,7 +137,7 @@ bot.on("message", async msg => {
         var hmword = args.join(' ') 
         if(!hmword) return msg.channel.send("Nothing to hm!")
         var hmmword = hmword.replace(/h|m/gi, "hm")
-        var hmmmword = hmmword.replace(/a/gi, "ahm")
+        var hmmmword = hmmword.replace(/"a"/gi, "ahm")
         var hmmmmword = hmmmword.replace(/e/gi, "ehm")
         var hmwordfinal = hmmmmword.replace(/@!/gi, "**Non-ping:** ")
         var hmwordfinalfinal = hmwordfinal.replace(/@&/gi, "**Non-ping:** ")
