@@ -137,7 +137,7 @@ bot.on("message", async msg => {
         if(hmword.includes("@everyone")) return msg.channel.send("Don't try it!")
         var hmmword = hmword.replace(/h|m/gi, "hm")
         var hmmmword = hmmword.replace(/a/gi, "ahm")
-        var hmwordfinal = hmmmword.replace(/@/gi, "Non-ping: ")
+        var hmwordfinal = hmmmword.replace(/@!|@&/gi, "Non-ping: ")
         msg.channel.send(hmwordfinal)
     }
 
@@ -161,7 +161,9 @@ bot.on("message", async msg => {
         if(repeatword.includes(prefix + "kick")) return msg.reply("Don't try it!")
         if(repeatword.includes(prefix + "ban")) return msg.reply("Don't try it!")
         if(repeatword.includes(prefix + "purge")) return msg.reply("Don't try it!")   
-        var repeatwordfinal = repeatword.replace(/@!|@&/gi, "Non-ping: ")
+        if(repeatword.includes("@everyone")) return msg.reply("Don't try it!")
+        if(repeatword.includes("@here")) return msg.reply("Don't try it!")
+        var repeatwordfinal = repeatword.replace(/@!|@&/gi, "**Non-ping:** ")
         msg.channel.send(repeatwordfinal)
 	}
 
