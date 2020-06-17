@@ -73,7 +73,9 @@ bot.on("message", async msg => {
         const voteEmbed = new Discord.MessageEmbed()
             .setColor(`#FFC0CB`)
             .setTitle( "**Vote**: " + votetitle )
-            .setDescription("React to vote!");
+            .setDescription("React to vote!")
+            .setFooter("Vote created by " + msg.member.displayName)
+            .setTimestamp()
         bot.channels.cache.get(mention.id).send(voteEmbed).then(sentEmbed => {
             sentEmbed.react("👍")
             .then(() => sentEmbed.react("👎"))
