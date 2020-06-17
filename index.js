@@ -45,10 +45,10 @@ bot.on("message", async msg => {
             msg.channel.send(useravatarEmbed);
         }
         if(memberid && !user && msg.guild.member(memberid)) {
-            const member = bot.members.fetch(memberid);
+            const membera = bot.members.fetch(memberid);
             const idavatarEmbed = new Discord.MessageEmbed()
                 .setColor(`#006a4e`)
-                .setTitle( msg.member.displayName + `'s avatar`)
+                .setTitle( membera.displayName + `'s avatar`)
                 .setImage(bot.users.cache.get(memberid).displayAvatarURL());
             msg.channel.send(idavatarEmbed);
         } 
