@@ -29,7 +29,7 @@ bot.on("message", async msg => {
         var user = msg.mentions.members.first()
         const args = msg.content.split(' ').slice(1); 
         const memberid = args.join(' '); 
-        if(!user) {
+        if(!memberid) {
             const avatarEmbed = new Discord.MessageEmbed()
                 .setColor(`#006a4e`)
                 .setTitle(`Your avatar`)
@@ -38,7 +38,7 @@ bot.on("message", async msg => {
         } else if(user) {
             const useravatarEmbed = new Discord.MessageEmbed()
                 .setColor(`#006a4e`)
-                .setTitle( User.displayName + `'s avatar`)
+                .setTitle( user.displayName + `'s avatar`)
                 .setImage(bot.users.cache.get(user.id).displayAvatarURL());
             msg.channel.send(useravatarEmbed);
         } else {
