@@ -48,7 +48,7 @@ bot.on("message", async msg => {
             const member = bot.users.fetch(memberid);
             const idavatarEmbed = new Discord.MessageEmbed()
                 .setColor(`#006a4e`)
-                .setTitle( member.displayName + `'s avatar`)
+                .setTitle( msg.member.displayName + `'s avatar`)
                 .setImage(bot.users.cache.get(memberid).displayAvatarURL());
             msg.channel.send(idavatarEmbed);
         } 
