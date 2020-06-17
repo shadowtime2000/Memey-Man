@@ -35,20 +35,22 @@ bot.on("message", async msg => {
                 .setTitle(`Your avatar`)
                 .setImage(msg.author.displayAvatarURL());
             msg.channel.send(avatarEmbed);
-        } else if(user) {
+        }
+        if(memberid) {
             const useravatarEmbed = new Discord.MessageEmbed()
                 .setColor(`#006a4e`)
-                .setTitle( user.displayName + `'s avatar`)
+                .setTitle( user.toString() + `'s avatar`)
                 .setImage(bot.users.cache.get(user.id).displayAvatarURL());
             msg.channel.send(useravatarEmbed);
-        } else {
+        }
+        if(guild.member(USER_ID)) {
             const iduser = bot.users.fetch(memberid);
             const idavatarEmbed = new Discord.MessageEmbed()
                 .setColor(`#006a4e`)
-                .setTitle( iduser.displayName + `'s avatar`)
+                .setTitle( `<!@` + memberid + `>'s avatar`)
                 .setImage(bot.users.cache.get(memberid).displayAvatarURL());
             msg.channel.send(idavatarEmbed);
-        }
+        } 
 
     }
 
