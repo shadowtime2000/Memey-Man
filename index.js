@@ -120,7 +120,7 @@ bot.on("message", async msg => {
     }
 
     if(msg.content == prefix + "dog") {
-        'x-api-key'='1e94cdb1-6462-4cfa-a1b4-4b92ad28d78a' 
+        ['x-api-key'] = '1e94cdb1-6462-4cfa-a1b4-4b92ad28d78a' 
         fetch('https://api.thedogapi.com/v1/images/search')
             .then(res => res.json())
             .then(json => {
