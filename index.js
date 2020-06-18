@@ -51,7 +51,7 @@ bot.on("message", async msg => {
                 .setImage(bot.users.cache.get(memberid).displayAvatarURL());
             msg.channel.send(idavatarEmbed);
         } 
-        if(memberid && !msg.guild.member(memberid) ) return msg.channel.send(":x: No results found.")
+        if(memberid && !user && !msg.guild.member(memberid) ) return msg.channel.send(":x: No results found.")
 
     }
 
