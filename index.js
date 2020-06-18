@@ -40,7 +40,7 @@ bot.on("message", async msg => {
         if(user) {
             const useravatarEmbed = new Discord.MessageEmbed()
                 .setColor(`#006a4e`)
-                .setTitle( user.displayName + `Avatar`)
+                .setTitle( user.tag + `Avatar`)
                 .setImage(bot.users.cache.get(user.id).displayAvatarURL());
             msg.channel.send(useravatarEmbed);
         }
@@ -48,7 +48,7 @@ bot.on("message", async msg => {
             const member = bot.users.fetch(memberid);
             const idavatarEmbed = new Discord.MessageEmbed() 
                 .setColor(`#006a4e`)
-                .setTitle(`${bot.users.cache.get(memberid).displayName}'s avatar`)
+                .setTitle(`${bot.users.cache.get(memberid).tag}'s avatar`)
                 .setImage(bot.users.cache.get(memberid).displayAvatarURL());
             msg.channel.send(idavatarEmbed);
         } 
