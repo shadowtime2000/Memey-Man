@@ -126,7 +126,7 @@ bot.on("message", async msg => {
                 const dogembed = new Discord.MessageEmbed()
                     .setColor('#8B4513')
                     .setTitle(":dog: Dog image!")
-                    .setImage(json.url)
+                    .setImage(json.image.url)
                     //.setTimestamp()
                 msg.channel.send(dogembed)
             });
