@@ -119,16 +119,16 @@ bot.on("message", async msg => {
             });
     }
 
-    if(msg.content == prefix + "elephant") {
-        fetch('https://elephant-api.herokuapp.com/elephants/random')
+    if(msg.content == prefix + "fox") {
+        fetch('https://randomfox.ca/floof/?ref=public-apis')
             .then(res => res.json())
             .then(json => {
-                const eleembed = new Discord.MessageEmbed()
+                const foxembed = new Discord.MessageEmbed()
                     .setColor('#8B4513')
-                    .setTitle(":elephant: Elephant image!")
+                    .setTitle(":fox: Fox image!")
                     .setImage(json.image)
                     //.setTimestamp()
-                msg.channel.send(eleembed)
+                msg.channel.send(foxembed)
             });
     }
 
