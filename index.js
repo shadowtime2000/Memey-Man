@@ -40,15 +40,16 @@ bot.on("message", async msg => {
         if(user) {
             const useravatarEmbed = new Discord.MessageEmbed()
                 .setColor(`#006a4e`)
-                .setTitle( user.tag + `Avatar`)
+                .setTitle( bot.users.cache.get(user.id).tag + `Avatar`)
                 .setImage(bot.users.cache.get(user.id).displayAvatarURL());
             msg.channel.send(useravatarEmbed);
         }
         if(memberid && !user && msg.guild.member(memberid)) {
-            const member = bot.users.fetch(memberid);
+            var membername = bot.users.cache.get(memberid).tag
+            membername = membername.substring(0, s.indexOf('#'));
             const idavatarEmbed = new Discord.MessageEmbed() 
                 .setColor(`#006a4e`)
-                .setTitle(`${bot.users.cache.get(memberid).tag}'s avatar`)
+                .setTitle(membername + `'s avatar`)
                 .setImage(bot.users.cache.get(memberid).displayAvatarURL());
             msg.channel.send(idavatarEmbed);
         } 
