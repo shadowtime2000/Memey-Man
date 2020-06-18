@@ -46,7 +46,7 @@ bot.on("message", async msg => {
         }
         if(memberid && !user && msg.guild.member(memberid)) {
             var membername = bot.users.cache.get(memberid).tag
-            membername = membername.substring(0, s.indexOf('#'));
+            membername = membername.substring(0, membername.indexOf('#'));
             const idavatarEmbed = new Discord.MessageEmbed() 
                 .setColor(`#006a4e`)
                 .setTitle(membername + `'s avatar`)
