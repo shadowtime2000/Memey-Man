@@ -136,7 +136,7 @@ bot.on("message", async msg => {
         fetch('https://elephant-api.herokuapp.com/elephants/random')
             .then(res => res.json())
             .then(json => {
-                const eleohantembed = new Discord.MessageEmbed()
+                const elephantembed = new Discord.MessageEmbed()
                     .setColor('#8B4513')
                     .setTitle(":elephant: Elephant image!")
                     .setImage(json.image)
