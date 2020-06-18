@@ -51,7 +51,7 @@ bot.on("message", async msg => {
                 .setImage(bot.users.cache.get(memberid).displayAvatarURL());
             msg.channel.send(idavatarEmbed);
         } 
-        if(memberid && !msg.guild.member(memberid) ) return msg.channel.send(":x: No results found.")
+        if(memberid && !msg.guild.member(memberid) ) return msg.channel.send(":x:  No results found.")
 
     }
 
@@ -431,7 +431,7 @@ bot.on("message", async msg => {
         let search = urban(searchword)
             try {
                 search.first(res => {
-                    if(!res) return msg.channel.send(":x: No results found.");
+                    if(!res) return msg.channel.send(":x:  No results found.");
                     let { word, definition, example} = res;
                         
                         let embed = new Discord.MessageEmbed()
