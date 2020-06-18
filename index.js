@@ -24,6 +24,7 @@ bot.on("message", async msg => {
     if(msg.content == prefix + "invite") {
         msg.author.send(`https://discord.gg/p9Tfd45`)
         msg.react('📬')
+        msg.reply("DM sent!")
     }
 
     if(msg.content.startsWith(prefix + 'avatar')) {
@@ -129,6 +130,19 @@ bot.on("message", async msg => {
                     .setImage(json.image)
                     //.setTimestamp()
                 msg.channel.send(foxembed)
+            });
+    }
+
+    if(msg.content == prefix + "dog") {
+        fetch('https://dog.ceo/api/breeds/image/random')
+            .then(res => res.json())
+            .then(json => {
+                const dogembed = new Discord.MessageEmbed()
+                    .setColor('#8B4513')
+                    .setTitle(":dog: Dog image!")
+                    .setImage(json.message)
+                    //.setTimestamp()
+                msg.channel.send(dogembed)
             });
     }
 
@@ -290,7 +304,9 @@ bot.on("message", async msg => {
 	    .setColor('#0099ff')
             .setTitle('**COMMAND LIST**')
             .setDescription(`**Information commands**\n&botinfo : Gives bot info.\n&help : This command.\n&invite: Gives an invite to Memey Man server.\n\n**Main commands**\n&ping : Gives current ping.\n&meme : Gives a random meme.\n&urban : Gives urban dictionary definition.\n&punch : Punches a user!\n&hug: Hugs a user!\n&avatar: Gives your/someone's avatar.\n&8ball : Answers your question.\n&topic : Gives a chat topic.\n\n**Text commands**\n&repeat : Repeats your message.\n&embed : Puts your message in an embed.\n&xue : Xue hua piao piao bei feng...\n\n**Image commands**\n&cat: Gives a cat image.\n&dog: Gives a dog image.\n&fox: Gives a fox image.\n\n**Utility commands**\n&vote: Creates a vote.\n&coinflip : Flips a coin.\n&diceroll : Rolls a dice.\n\n**Moderator commands**\n&ban : Bans a user.\n&kick : Kicks a user.\n&purge : Deletes messages.\n&slowmode: Sets slowmode.`)
-	    msg.channel.send(helpEmbed); 
+        msg.react('📬')
+        msg.reply("DM sent!")
+        msg.author.send(helpEmbed); 
 	    
     }
 
