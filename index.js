@@ -33,22 +33,22 @@ bot.on("message", async msg => {
         if(!memberid && !user) {
             const avatarEmbed = new Discord.MessageEmbed()
                 .setColor(`#006a4e`)
-                //.setTitle(`Avatar`)
+                .setTitle(`Your avatar`)
                 .setImage(msg.author.displayAvatarURL());
             msg.channel.send(avatarEmbed);
         }
         if(user) {
             const useravatarEmbed = new Discord.MessageEmbed()
                 .setColor(`#006a4e`)
-                //.setTitle( `Avatar`)
+                .setTitle( user.displayName + `Avatar`)
                 .setImage(bot.users.cache.get(user.id).displayAvatarURL());
             msg.channel.send(useravatarEmbed);
         }
         if(memberid && !user && msg.guild.member(memberid)) {
             const member = bot.users.fetch(memberid);
-            const idavatarEmbed = new Discord.MessageEmbed()
+            const idavatarEmbed = new Discord.MessageEmbed() 
                 .setColor(`#006a4e`)
-                //.setTitle(`Avatar`)
+                .setTitle(`${bot.users.cache.get(memberid).tag}'s avatar`)
                 .setImage(bot.users.cache.get(memberid).displayAvatarURL());
             msg.channel.send(idavatarEmbed);
         } 
