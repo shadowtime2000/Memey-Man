@@ -38,21 +38,16 @@ bot.on("message", async msg => {
             msg.channel.send(avatarEmbed);
         }
         if(user) {
-            var memberusername = bot.users.cache.get(user.id).tag
-            memberusername = memberusername.substring(0, memberusername.indexOf('#'));
             const useravatarEmbed = new Discord.MessageEmbed()            
                 .setColor(`#006a4e`)
                 .setAuthor(bot.users.cache.get(user.id).tag, bot.users.cache.get(user.id).displayAvatarURL())
-                .setTitle( memberusername + "'s avatar")
                 .setImage(bot.users.cache.get(user.id).displayAvatarURL());
             msg.channel.send(useravatarEmbed);
         }
         if(memberid && !user && msg.guild.member(memberid)) {
-            var membername = bot.users.cache.get(memberid).tag
-            membername = membername.substring(0, membername.indexOf('#'));
             const idavatarEmbed = new Discord.MessageEmbed() 
                 .setColor(`#006a4e`)
-                .setTitle(membername + `'s avatar`)
+                .setAuthor(bot.users.cache.get(memberid).tag, bot.users.cache.get(memberid).displayAvatarURL())
                 .setImage(bot.users.cache.get(memberid).displayAvatarURL());
             msg.channel.send(idavatarEmbed);
         } 
