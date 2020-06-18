@@ -139,7 +139,7 @@ bot.on("message", async msg => {
                 const elephantembed = new Discord.MessageEmbed()
                     .setColor('#8B4513')
                     .setTitle(":elephant: Elephant image!")
-                    .setImage(json.image)
+                    .setImage([json.image])
                     //.setTimestamp()
                 msg.channel.send(elephantembed)
             });
