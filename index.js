@@ -40,7 +40,7 @@ bot.on("message", async msg => {
         if(user) {
             const useravatarEmbed = new Discord.MessageEmbed()
                 .setColor(`#006a4e`)
-                .setTitle( bot.users.cache.get(user.id).tag + `Avatar`)
+                .setTitle( bot.users.cache.get(user.id).tag + `'s avatar`)
                 .setImage(bot.users.cache.get(user.id).displayAvatarURL());
             msg.channel.send(useravatarEmbed);
         }
