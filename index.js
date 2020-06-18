@@ -23,8 +23,7 @@ bot.on("message", async msg => {
 
     if(msg.content == prefix + "invite") {
         msg.author.send(`https://discord.gg/p9Tfd45`)
-        msg.react('🇩')
-        await msg.react ('🇲')
+        msg.react('📬')
     }
 
     if(msg.content.startsWith(prefix + 'avatar')) {
