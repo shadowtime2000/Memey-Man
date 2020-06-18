@@ -145,19 +145,6 @@ bot.on("message", async msg => {
             });
     }
 
-    if(msg.content == prefix + "dog") {
-        fetch('https://dog.ceo/api/breeds/image/random')
-            .then(res => res.json())
-            .then(json => {
-                const dogembed = new Discord.MessageEmbed()
-                    .setColor('#8B4513')
-                    .setTitle(":dog: Dog image!")
-                    .setImage(json.message)
-                    //.setTimestamp()
-                msg.channel.send(dogembed)
-            });
-    }
-
     if(msg.content == prefix + "xue") {
         msg.channel.send("𝔁𝓾𝓮:cold_face:𝓱𝓾𝓪:woman_fairy:𝓹𝓲𝓪𝓸:heart_eyes_cat:𝓹𝓲𝓪𝓸:moyai:𝓫𝓮𝓲:japanese_goblin:𝓯𝓮𝓷𝓰:star_struck:𝔁𝓲𝓪𝓸:smirk_cat:𝔁𝓲𝓪𝓸:footprints:")
     }
