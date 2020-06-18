@@ -38,9 +38,11 @@ bot.on("message", async msg => {
             msg.channel.send(avatarEmbed);
         }
         if(user) {
-            const useravatarEmbed = new Discord.MessageEmbed()
+            var memberusername = bot.users.cache.get(user.id).tag
+            memberusername = memberusername.substring(0, memberusername.indexOf('#'));
+            const useravatarEmbed = new Discord.MessageEmbed()            
                 .setColor(`#006a4e`)
-                .setTitle( bot.users.cache.get(user.id).tag + `'s avatar`)
+                .setTitle( memberusername + "'s avatar")
                 .setImage(bot.users.cache.get(user.id).displayAvatarURL());
             msg.channel.send(useravatarEmbed);
         }
