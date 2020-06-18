@@ -119,6 +119,19 @@ bot.on("message", async msg => {
             });
     }
 
+    if(msg.content == prefix + "dog") {
+        fetch('https://api.thedogapi.com/v1/images/search')
+            .then(res => res.json())
+            .then(json => {
+                const dogembed = new Discord.MessageEmbed()
+                    .setColor('#8B4513')
+                    .setTitle(":dog: Dog image!")
+                    .setImage(json.url)
+                    //.setTimestamp()
+                msg.channel.send(dogembed)
+            });
+    }
+
     if(msg.content == prefix + "xue") {
         msg.channel.send("𝔁𝓾𝓮:cold_face:𝓱𝓾𝓪:woman_fairy:𝓹𝓲𝓪𝓸:heart_eyes_cat:𝓹𝓲𝓪𝓸:moyai:𝓫𝓮𝓲:japanese_goblin:𝓯𝓮𝓷𝓰:star_struck:𝔁𝓲𝓪𝓸:smirk_cat:𝔁𝓲𝓪𝓸:footprints:")
     }
@@ -263,7 +276,7 @@ bot.on("message", async msg => {
         const helpEmbed = new Discord.MessageEmbed()
 	    .setColor('#0099ff')
             .setTitle('**COMMAND LIST**')
-            .setDescription(`**Information commands**\n&botinfo : Gives bot info.\n&help : This command.\n&invite: Gives an invite to Memey Man server.\n\n**Main commands**\n&ping : Gives current ping.\n&meme : Gives a random meme.\n&cat: Gives a cat image.\n&urban : Gives urban dictionary definition.\n&punch : Punches a user!\n&hug: Hugs a user!\n&avatar: Gives your/someone's avatar.\n&8ball : Answers your question.\n&topic : Gives a chat topic.\n\n**Text commands**\n&repeat : Repeats your message.\n&embed : Puts your message in an embed.\n&xue : Xue hua piao piao bei feng...\n\n**Utility commands**\n&vote: Creates a vote.\n&coinflip : Flips a coin.\n&diceroll : Rolls a dice.\n\n**Moderator commands**\n&ban : Bans a user.\n&kick : Kicks a user.\n&purge : Deletes messages.\n&slowmode: Sets slowmode.`)
+            .setDescription(`**Information commands**\n&botinfo : Gives bot info.\n&help : This command.\n&invite: Gives an invite to Memey Man server.\n\n**Main commands**\n&ping : Gives current ping.\n&meme : Gives a random meme.\n&urban : Gives urban dictionary definition.\n&punch : Punches a user!\n&hug: Hugs a user!\n&avatar: Gives your/someone's avatar.\n&8ball : Answers your question.\n&topic : Gives a chat topic.\n\n**Text commands**\n&repeat : Repeats your message.\n&embed : Puts your message in an embed.\n&xue : Xue hua piao piao bei feng...\n\n**Animal commands**\n&cat: Gives a cat image.\n&dog: Gives a dog image.\n\n**Utility commands**\n&vote: Creates a vote.\n&coinflip : Flips a coin.\n&diceroll : Rolls a dice.\n\n**Moderator commands**\n&ban : Bans a user.\n&kick : Kicks a user.\n&purge : Deletes messages.\n&slowmode: Sets slowmode.`)
 	    msg.channel.send(helpEmbed); 
 	    
     }
