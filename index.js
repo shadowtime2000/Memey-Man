@@ -119,6 +119,19 @@ bot.on("message", async msg => {
             });
     }
 
+    if(msg.content == prefix + "elephant") {
+        fetch('https://elephant-api.herokuapp.com/elephants/random')
+            .then(res => res.json())
+            .then(json => {
+                const eleembed = new Discord.MessageEmbed()
+                    .setColor('#8B4513')
+                    .setTitle(":elephant: Elephant image!")
+                    .setImage(json.image)
+                    //.setTimestamp()
+                msg.channel.send(eleembed)
+            });
+    }
+
     if(msg.content == prefix + "dog") {
         fetch('https://dog.ceo/api/breeds/image/random')
             .then(res => res.json())
