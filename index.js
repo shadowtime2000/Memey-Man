@@ -54,34 +54,34 @@ bot.on("message", async msg => {
     }
 
 
-    // if(msg.content.startsWith(prefix + 'avatar')) {
-    //     var user = msg.mentions.members.first()
-    //     const arguments = msg.content.split(' ').slice(1); 
-    //     const memberid = arguments.join(' '); 
-    //     if(!memberid && !user) {
-    //         const avatarEmbed = new Discord.MessageEmbed()
-    //             .setColor(`#006a4e`)
-    //             .setAuthor(bot.users.cache.get(msg.author.id).tag, bot.users.cache.get(msg.author.id).displayAvatarURL())
-    //             .setImage(msg.author.displayAvatarURL());
-    //         msg.channel.send(avatarEmbed);
-    //     }
-    //     if(user) {
-    //         const useravatarEmbed = new Discord.MessageEmbed()            
-    //             .setColor(`#006a4e`)
-    //             .setAuthor(bot.users.cache.get(user.id).tag, bot.users.cache.get(user.id).displayAvatarURL())
-    //             .setImage(bot.users.cache.get(user.id).displayAvatarURL());
-    //         msg.channel.send(useravatarEmbed);
-    //     }
-    //     if(memberid && !user && msg.guild.member(memberid)) {
-    //         const idavatarEmbed = new Discord.MessageEmbed() 
-    //             .setColor(`#006a4e`)
-    //             .setAuthor(bot.users.cache.get(memberid).tag, bot.users.cache.get(memberid).displayAvatarURL())
-    //             .setImage(bot.users.cache.get(memberid).displayAvatarURL());
-    //         msg.channel.send(idavatarEmbed);
-    //     } 
-    //     if(memberid && !user && !msg.guild.member(memberid) ) return msg.channel.send(":x: No results found.")
+    if(msg.content.startsWith(prefix + 'avatar')) {
+        var user = msg.mentions.members.first()
+        const arguments = msg.content.split(' ').slice(1); 
+        const memberid = arguments.join(' '); 
+        if(!memberid && !user) {
+            const avatarEmbed = new Discord.MessageEmbed()
+                .setColor(`#006a4e`)
+                .setAuthor(bot.users.cache.get(msg.author.id).tag, bot.users.cache.get(msg.author.id).displayAvatarURL())
+                .setImage(msg.author.displayAvatarURL());
+            msg.channel.send(avatarEmbed);
+        }
+        if(user) {
+            const useravatarEmbed = new Discord.MessageEmbed()            
+                .setColor(`#006a4e`)
+                .setAuthor(bot.users.cache.get(user.id).tag, bot.users.cache.get(user.id).displayAvatarURL())
+                .setImage(bot.users.cache.get(user.id).displayAvatarURL());
+            msg.channel.send(useravatarEmbed);
+        }
+        if(memberid && !user && msg.guild.member(memberid)) {
+            const idavatarEmbed = new Discord.MessageEmbed() 
+                .setColor(`#006a4e`)
+                .setAuthor(bot.users.cache.get(memberid).tag, bot.users.cache.get(memberid).displayAvatarURL())
+                .setImage(bot.users.cache.get(memberid).displayAvatarURL());
+            msg.channel.send(idavatarEmbed);
+        } 
+        if(memberid && !user && !msg.guild.member(memberid) ) return msg.channel.send(":x: No results found.")
 
-    // }
+    }
 
     if(msg.content.startsWith(prefix + "vote")) {
 
@@ -117,15 +117,6 @@ bot.on("message", async msg => {
         });
     }
 
-    if(msg.content == prefix + "welcome") {
-        const WelcomeTestEmbed = new Discord.MessageEmbed()
-            .setColor('#63e764')  
-            .setTitle(`**Welcome to ${msg.guild.name}**`)
-            .setDescription(`Welcome ${msg.author.username} to ${msg.guild.name}! Please enjoy your time here :) Make sure to read the rules. If you have any issues please contact a member of staff, Thanks :slight_smile:`)   
-            .setTimestamp()  
-        msg.channel.send(WelcomeTestEmbed) 
-    }
-
     if(msg.content == prefix + "xue") {
         msg.channel.send("𝔁𝓾𝓮:cold_face:𝓱𝓾𝓪:woman_fairy:𝓹𝓲𝓪𝓸:heart_eyes_cat:𝓹𝓲𝓪𝓸:moyai:𝓫𝓮𝓲:japanese_goblin:𝓯𝓮𝓷𝓰:star_struck:𝔁𝓲𝓪𝓸:smirk_cat:𝔁𝓲𝓪𝓸:footprints:")
     }
@@ -139,7 +130,6 @@ bot.on("message", async msg => {
             .setDescription( 'Result: ' + facts[fact] )
             .setTimestamp()
         msg.channel.send(coinembed)
-
     }
     
     if(msg.content == prefix + "diceroll") {
