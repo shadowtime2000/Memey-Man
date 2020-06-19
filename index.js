@@ -1,7 +1,17 @@
 const Discord = require('discord.js');
 const fetch = require('node-fetch');
 const urban = require('urban')
+const fs = require('fs');
+
 const bot = new Discord.Client();
+bot.commands = new Discord.Collection();
+
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+
+for (const file of commandFiles) {
+	const command = require(`./commands/${file}`);
+	bot.commands.set(command.name, command);
+}
 
 bot.on("ready", () =>{
     bot.login("NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU")
@@ -15,6 +25,10 @@ var prefix = "&"
 bot.on("message", async msg => {
 
     if (msg.author.bot) return;
+
+    if(msg.content == prefix + "test") {
+        bot.commands.get('ping').execute(msg,args)
+    }
 
     if(msg.content == prefix + "ping") {
         const m = await msg.channel.send("Pong:");
