@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 module.exports = {
-	name: 'coinflip',
-	description: 'coinflip command',
+	name: 'diceroll',
+	description: 'diceroll command',
 	execute(msg, args) {
         var facts = ["1", "2", "3", "4", "5", "6"]
         var fact = Math.floor(Math.random() * facts.length);
