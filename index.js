@@ -44,7 +44,7 @@ bot.on("message", async msg => {
     if(command == "invite") {
         bot.commands.get('invite').execute(msg, args);
     }
-    if(command.startsWith(prefix + 'avatar')) {
+    if(command.startsWith('avatar')) {
         bot.commands.get('avatar').execute(msg, args);
     }
 
