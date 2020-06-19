@@ -5,9 +5,9 @@ module.exports = {
 
   run: async (bot, message, args) => {
     let Embed = new MessageEmbed();
-    if (!message.mentions.users.first()) {
+    if (!msg.mentions.users.first()) {
       Embed.setTitle(`Your avatar!`);
-      Embed.setThumbnail(message.author.displayAvatarURL());
+      Embed.setThumbnail(msg.author.displayAvatarURL());
       Embed.setColor(`RANDOM`);
       return msg.channel.send(Embed);
     } else {
