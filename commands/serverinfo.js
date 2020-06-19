@@ -4,6 +4,7 @@ module.exports = {
 	description: 'serverinfo command',
 	execute(msg, args) {
         const serverembed = new Discord.MessageEmbed()
+            .setColor("#999900")
             .setTitle("Server info")
             .setDescription(`Server name: ${msg.guild.name}\nTotal members: ${msg.guild.memberCount}`)
             .setTimestamp()
