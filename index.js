@@ -29,6 +29,7 @@ bot.on("message", async msg => {
 	const args = msg.content.slice(prefix.length).split(/ +/);
 	const command = args.shift().toLowerCase();
 
+    //Command handler start
     if(command == "dog") {
         bot.commands.get('dog').execute(msg, args);
     }
@@ -71,6 +72,7 @@ bot.on("message", async msg => {
     if(command.startsWith("slowmode")) {
         bot.commands.get('slowmode').execute(msg, args);
     }
+    //Command handler end
 
     if(msg.content == prefix + "ping") {
         const m = await msg.channel.send("Pong:");
@@ -158,35 +160,35 @@ bot.on("message", async msg => {
         });
     }
 
-    if(msg.content.startsWith(prefix + 'purge')) {	
+    // if(msg.content.startsWith(prefix + 'purge')) {	
 
-        if (msg.channel.type == "dm") return;
+    //     if (msg.channel.type == "dm") return;
 
-        const nopurge = new Discord.MessageEmbed()
-            .setColor('#FFFF00')
-            .setTitle('Oops!')
-            .setDescription("You can't use that command!")
+    //     const nopurge = new Discord.MessageEmbed()
+    //         .setColor('#FFFF00')
+    //         .setTitle('Oops!')
+    //         .setDescription("You can't use that command!")
 
-        if(!msg.member.hasPermission("MANAGE_MESSAGES")) return msg.channel.send(nopurge);
-        const args = msg.content.split(' ').slice(1); 
-        const amount = args.join(' '); 
-        const extranum = "1"
-        const amountaa = parseInt(amount)
-        const extranumaa = parseInt(extranum)
-        const messageamount = amountaa + extranumaa
+    //     if(!msg.member.hasPermission("MANAGE_MESSAGES")) return msg.channel.send(nopurge);
+    //     const args = msg.content.split(' ').slice(1); 
+    //     const amount = args.join(' '); 
+    //     const extranum = "1"
+    //     const amountaa = parseInt(amount)
+    //     const extranumaa = parseInt(extranum)
+    //     const messageamount = amountaa + extranumaa
 
-        if (!amount) return msg.reply('Tell me how many messages should I purge!'); 
-        if (isNaN(amount)) return msg.reply('Give me a number!'); 
+    //     if (!amount) return msg.reply('Tell me how many messages should I purge!'); 
+    //     if (isNaN(amount)) return msg.reply('Give me a number!'); 
 
-        if (amount > 99) return msg.reply("Too many messages to purge! Give me a smaller number."); 
-        if (amount < 1) return msg.reply("You can't purge less than 1 message! Give me a bigger number."); 
+    //     if (amount > 99) return msg.reply("Too many messages to purge! Give me a smaller number."); 
+    //     if (amount < 1) return msg.reply("You can't purge less than 1 message! Give me a bigger number."); 
         
-        msg.channel.messages.fetch({ limit: messageamount }).then(messages => {
-            msg.channel.bulkDelete(messages 
+    //     msg.channel.messages.fetch({ limit: messageamount }).then(messages => {
+    //         msg.channel.bulkDelete(messages 
 
-        )});	
+    //     )});	
     
-    }
+    // }
 
     if(msg.content.startsWith(prefix + 'punch')) {
         var member= msg.mentions.members.first();
@@ -323,47 +325,6 @@ bot.on("message", async msg => {
                 msg.channel.send(cantban);
         });
     }
-
-    // if (msg.content.startsWith(prefix + 'slowmode')) {
-
-    //     if (msg.channel.type == "dm") return;
-
-    //     const noperm1 = new Discord.MessageEmbed()
-    //         .setColor('#FFFF00')
-    //         .setTitle('Oops!')
-    //         .setDescription("You can't use that command!")
-
-    //     const nonum = new Discord.MessageEmbed()
-    //         .setColor('#FFFF00')
-    //         .setTitle('Oops!')
-    //         .setDescription("Number should be less than or equal to 21600.")
-
-    //     if(!msg.member.hasPermission("MANAGE_CHANNELS")) return msg.channel.send(noperm1)
-
-    //     var str = msg.content.split(prefix + 'slowmode ');
-    //     var num = parseInt(str[1], 10);
-    //     if(num > 21600) return msg.channel.send(nonum)
-    //     if(!num) {
-    //         msg.channel.setRateLimitPerUser(num)
-    //         const slowmodeoff = new Discord.MessageEmbed()
-    //             .setColor('#EE0000')
-    //             .setTitle("Successfully turned off slowmode")
-    //             .setDescription(`Turned off slowmode.`)
-    //             .setTimestamp()
-    //         msg.channel.send(slowmodeoff)
-    //     }
-    //     else {
-    //         msg.channel.setRateLimitPerUser(num).then(() => {
-    //         const slowmode = new Discord.MessageEmbed()
-    //             .setColor('#EE0000')
-    //             .setTitle("Successfully set slowmode")
-    //             .setDescription(`Slowmode set to ${num}s.`)
-    //             .setTimestamp()
-    //         msg.channel.send(slowmode)
-            
-    //         });
-    //     }
-    // }
     
     if(msg.content.startsWith(prefix + 'urban')) {
         const args = msg.content.split(' ').slice(1); 
