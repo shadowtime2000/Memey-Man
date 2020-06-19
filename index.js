@@ -78,11 +78,10 @@ bot.on("message", async msg => {
     if(command.startsWith("urban")) {
         bot.commands.get('urban').execute(msg, args);
     }
-    //Command handler end
-
-    if(command.startsWith("test")) {
-        bot.commands.get('test').execute(msg, args);
+    if(command.startsWith("punch")) {
+        bot.commands.get('punch').execute(msg, args);
     }
+    //Command handler end
 
     if(msg.content == prefix + "ping") {
         const m = await msg.channel.send("Pong:");
@@ -170,19 +169,19 @@ bot.on("message", async msg => {
         });
     }
 
-    if(msg.content.startsWith(prefix + 'punch')) {
-        var member= msg.mentions.members.first();
-        const spanke = new Discord.MessageEmbed()
-            .setColor('#ffa500')
-            .setTitle('Punch command')
-            .setDescription('Usage: &punch [member mention]')
-        if (!member) return msg.channel.send(spanke)
-        const hitee = new Discord.MessageEmbed()
-            .setColor('#ffa500')
-            .setTitle( msg.member.displayName + " :right_facing_fist: " + member.displayName)
-            .setDescription( msg.author.toString() + ' punched ' + member.toString() + "!" )
-        msg.channel.send(hitee)
-    }
+    // if(msg.content.startsWith(prefix + 'punch')) {
+    //     var member= msg.mentions.members.first();
+    //     const spanke = new Discord.MessageEmbed()
+    //         .setColor('#ffa500')
+    //         .setTitle('Punch command')
+    //         .setDescription('Usage: &punch [member mention]')
+    //     if (!member) return msg.channel.send(spanke)
+    //     const hitee = new Discord.MessageEmbed()
+    //         .setColor('#ffa500')
+    //         .setTitle( msg.member.displayName + " :right_facing_fist: " + member.displayName)
+    //         .setDescription( msg.author.toString() + ' punched ' + member.toString() + "!" )
+    //     msg.channel.send(hitee)
+    // }
 
     if(msg.content.startsWith(prefix + 'hug')) {
         var member= msg.mentions.members.first();
