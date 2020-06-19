@@ -18,7 +18,7 @@ module.exports = {
 
         if(!msg.member.hasPermission("MANAGE_CHANNELS")) return msg.channel.send(noperm1)
 
-        var str = msg.content.split(prefix + 'slowmode ');
+        var str = msg.content.split('&slowmode ');
         var num = parseInt(str[1], 10);
         if(num > 21600) return msg.channel.send(nonum)
         if(!num) {
