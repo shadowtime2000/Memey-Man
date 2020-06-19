@@ -6,8 +6,8 @@ module.exports = {
 
         if (msg.channel.type == "dm") return;
 
-        const args = msg.content.split(' ').slice(2); 
-        const kickreason = args.join(' '); 
+        const args1 = msg.content.split(' ').slice(2); 
+        const kickreason = args1.join(' '); 
         let mem= msg.mentions.members.first();
 
         const noperm = new Discord.MessageEmbed()
