@@ -14,7 +14,7 @@ module.exports = {
                     mention = mention.slice(1);
                 }
         
-                return client.users.cache.get(mention);
+                return bot.users.cache.get(mention);
             }
         }
 
