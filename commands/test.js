@@ -3,7 +3,7 @@ module.exports = {
 	name: 'test',
 	description: 'test',
 	execute(msg, args) {
-        let user = msg.guild.members.cache.get(args[0]);
+        let user = msg.mentions.members.first()
         msg.channel.send(user.displayName)
 	},
 };
