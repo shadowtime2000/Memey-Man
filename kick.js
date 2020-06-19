@@ -8,7 +8,7 @@ module.exports = {
 
         const args1 = msg.content.split(' ').slice(2); 
         const kickreason = args1.join(' '); 
-        let mem= msg.mentions.members.first();
+        let user = msg.mentions.members.first();
 
         const noperm = new Discord.MessageEmbed()
             .setColor('#FFFF00')
@@ -48,7 +48,7 @@ module.exports = {
 
             mem.send(dmkickembed)
             .then(() => {
-                mem.kick().then((member) => {
+                user.kick().then(() => {
                 msg.channel.send(kickembed)
                 })
             }).catch(() => {
