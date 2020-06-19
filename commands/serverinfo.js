@@ -6,7 +6,7 @@ module.exports = {
         const serverembed = new Discord.MessageEmbed()
             .setColor("#999900")
             .setTitle("Server info")
-            .setDescription(`Server name: ${msg.guild.name}\nTotal members: ${msg.guild.memberCount}\nEmoji count: ${msgObject.guild.emojis.size}\nRole count: ${msgObject.guild.roles.size}`)
+            .setDescription(`Server name: ${msg.guild.name}\nTotal members: ${msg.guild.memberCount}\nServer owner: ${msg.guild.owner}`)
             .setTimestamp()
         msg.channel.send(serverembed)
 	},
