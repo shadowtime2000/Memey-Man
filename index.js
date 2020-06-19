@@ -24,16 +24,20 @@ var prefix = "&"
 
 bot.on("message", async msg => {
 
-    const args = msg.content.slice(bot.config.prefix.length).trim().split(/ +/g);
-    const command = args.shift().toLowerCase();
+    if(!msg.content.startsWith(prefix) || msg.author.bot) return;
 
-    const cmd = client.commands.get(command);
+	const args = msg.content.slice(prefix.length).split(/ +/);
+	const command = args.shift().toLowerCase();
 
-    if (!cmd) return;
-  
-    cmd.run(client, message, args);
+    if(msg.content.startsWith(prefix)) {
 
-    if (msg.author.bot) return;
+        const cmd = bot.commands.get(command);
+
+        if (!cmd) return;
+    
+        cmd.run(bot, msg, args);
+
+    }
 
     if(msg.content == prefix + "test") {
         bot.commands.get('ping').execute(msg,args)
