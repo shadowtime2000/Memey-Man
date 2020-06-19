@@ -31,12 +31,8 @@ bot.on("message", async msg => {
 
     if (!bot.commands.has(command)) return;
 
-    try {
-        bot.commands.get(command).execute(msg, args);
-    } catch (error) {
-        console.error(error);
-        msg.reply('there was an error trying to execute that command!');
-    }
+    bot.commands.get(command).execute(msg, args);
+    
 
     //if(msg.content == prefix + "ping") {
         //const m = await msg.channel.send("Pong:");
