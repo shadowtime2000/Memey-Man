@@ -62,6 +62,9 @@ bot.on("message", async msg => {
     if(command == "help") {
         bot.commands.get('help').execute(msg, args);
     }
+    if(command.startsWith("8ball")) {
+        bot.commands.get('8ball').execute(msg, args);
+    }
 
 
     if(msg.content == prefix + "ping") {

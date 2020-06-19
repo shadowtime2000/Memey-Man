@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 module.exports = {
-	name: 'coinflip',
-	description: 'coinflip command',
+	name: '8ball',
+	description: '8ball command',
 	execute(msg, args) {
         const args1 = msg.content.split(' ').slice(1); 
         const question = args1.join(' '); 
