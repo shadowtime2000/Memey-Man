@@ -3,7 +3,7 @@ module.exports = {
 	description: 'ping command',
 	execute(msg, args) {
         async function declaredAsAsync() {
-            const m = await msg.channel.send("Pong:");
+            const m = msg.channel.send("Pong:");
             m.edit(`Pong: ${m.createdTimestamp - msg.createdTimestamp}ms`);
         }
 	},
