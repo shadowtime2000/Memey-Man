@@ -12,7 +12,6 @@ module.exports = {
                     .setTitle(json.title)
                     .setImage(json.url)
                     .setFooter(`Subreddit: r/${json.subreddit}`)
-                    //.setTimestamp()
                 msg.channel.send(memeembed)
             });
 	},
