@@ -72,6 +72,9 @@ bot.on("message", async msg => {
     if(command.startsWith("slowmode")) {
         bot.commands.get('slowmode').execute(msg, args);
     }
+    if(command.startsWith("purge")) {
+        bot.commands.get('purge').execute(msg, args);
+    }
     //Command handler end
 
     if(msg.content == prefix + "ping") {
