@@ -34,10 +34,10 @@ bot.on("message", async msg => {
     bot.commands.get(command).execute(msg, args);
     
 
-    //if(msg.content == prefix + "ping") {
-        //const m = await msg.channel.send("Pong:");
-        //m.edit(`Pong: ${m.createdTimestamp - msg.createdTimestamp}ms`);
-    //}
+    if(msg.content == prefix + "ping") {
+        const m = await msg.channel.send("Pong:");
+        m.edit(`Pong: ${m.createdTimestamp - msg.createdTimestamp}ms`);
+    }
 
     if(msg.content == prefix + "invite") {
         msg.author.send(`https://discord.gg/p9Tfd45`)
@@ -115,69 +115,45 @@ bot.on("message", async msg => {
             .setTimestamp()  
         msg.channel.send(WelcomeTestEmbed) 
     }
-    
-        // if(msg.content == prefix + "meme") {
-        //     fetch('https://meme-api.herokuapp.com/gimme')
-        //         .then(res => res.json())
-        //         .then(json => {
-        //             const memeembed = new Discord.MessageEmbed()
-        //                 .setColor('#7cfc00')
-        //                 .setTitle(json.title)
-        //                 .setImage(json.url)
-        //                 .setFooter(`Subreddit: r/${json.subreddit}`)
-        //                 //.setTimestamp()
-        //             msg.channel.send(memeembed)
-        //         });
-        // }
 
-    if(msg.content == prefix + "cat") {
-        fetch('https://aws.random.cat/meow')
-            .then(res => res.json())
-            .then(json => {
-                const catembed = new Discord.MessageEmbed()
-                    .setColor('#8B4513')
-                    .setTitle(":cat: Cat image!")
-                    .setImage(json.file)
-                    //.setTimestamp()
-                msg.channel.send(catembed)
-            });
-    }
+    // if(msg.content == prefix + "cat") {
+    //     fetch('https://aws.random.cat/meow')
+    //         .then(res => res.json())
+    //         .then(json => {
+    //             const catembed = new Discord.MessageEmbed()
+    //                 .setColor('#8B4513')
+    //                 .setTitle(":cat: Cat image!")
+    //                 .setImage(json.file)
+    //                 //.setTimestamp()
+    //             msg.channel.send(catembed)
+    //         });
+    // }
 
-    if(msg.content == prefix + "randomimage") {
-            const randomembed = new Discord.MessageEmbed()
-                .setColor('#8B4513')
-                .setTitle("Random image!")
-                .setImage('https://source.unsplash.com/random')
-                //.setTimestamp()
-            msg.channel.send(randomembed)
-    }
+    // if(msg.content == prefix + "fox") {
+    //     fetch('https://randomfox.ca/floof/?ref=public-apis')
+    //         .then(res => res.json())
+    //         .then(json => {
+    //             const foxembed = new Discord.MessageEmbed()
+    //                 .setColor('#8B4513')
+    //                 .setTitle(":fox: Fox image!")
+    //                 .setImage(json.image)
+    //                 //.setTimestamp()
+    //             msg.channel.send(foxembed)
+    //         });
+    // }
 
-
-    if(msg.content == prefix + "fox") {
-        fetch('https://randomfox.ca/floof/?ref=public-apis')
-            .then(res => res.json())
-            .then(json => {
-                const foxembed = new Discord.MessageEmbed()
-                    .setColor('#8B4513')
-                    .setTitle(":fox: Fox image!")
-                    .setImage(json.image)
-                    //.setTimestamp()
-                msg.channel.send(foxembed)
-            });
-    }
-
-    if(msg.content == prefix + "dog") {
-        fetch('https://dog.ceo/api/breeds/image/random')
-            .then(res => res.json())
-            .then(json => {
-                const dogembed = new Discord.MessageEmbed()
-                    .setColor('#8B4513')
-                    .setTitle(":dog: Dog image!")
-                    .setImage(json.message)
-                    //.setTimestamp()
-                msg.channel.send(dogembed)
-            });
-    }
+    // if(msg.content == prefix + "dog") {
+    //     fetch('https://dog.ceo/api/breeds/image/random')
+    //         .then(res => res.json())
+    //         .then(json => {
+    //             const dogembed = new Discord.MessageEmbed()
+    //                 .setColor('#8B4513')
+    //                 .setTitle(":dog: Dog image!")
+    //                 .setImage(json.message)
+    //                 //.setTimestamp()
+    //             msg.channel.send(dogembed)
+    //         });
+    // }
 
     if(msg.content == prefix + "xue") {
         msg.channel.send("𝔁𝓾𝓮:cold_face:𝓱𝓾𝓪:woman_fairy:𝓹𝓲𝓪𝓸:heart_eyes_cat:𝓹𝓲𝓪𝓸:moyai:𝓫𝓮𝓲:japanese_goblin:𝓯𝓮𝓷𝓰:star_struck:𝔁𝓲𝓪𝓸:smirk_cat:𝔁𝓲𝓪𝓸:footprints:")
