@@ -81,6 +81,9 @@ bot.on("message", async msg => {
     if(command.startsWith("punch")) {
         bot.commands.get('punch').execute(msg, args);
     }
+    if(command.startsWith("hug")) {
+        bot.commands.get('hug').execute(msg, args);
+    }
     //Command handler end
 
     if(msg.content == prefix + "ping") {
@@ -168,20 +171,20 @@ bot.on("message", async msg => {
             msg.react('✅')
         });
     }
-    
-    if(msg.content.startsWith(prefix + 'hug')) {
-        var member= msg.mentions.members.first();
-        const huge = new Discord.MessageEmbed()
-            .setColor('#ffa500')
-            .setTitle('Hug command')
-            .setDescription('Usage: &hug [member mention]')
-        if (!member) return msg.channel.send(huge)
-        const hugee = new Discord.MessageEmbed()
-            .setColor('#ffa500')
-            .setTitle( msg.member.displayName + " :hugging: " + member.displayName )
-            .setDescription( msg.author.toString() + ' hugged ' + member.toString() + "!" )
-        msg.channel.send(hugee)
-    }
+
+    // if(msg.content.startsWith(prefix + 'hug')) {
+    //     var member= msg.mentions.members.first();
+    //     const huge = new Discord.MessageEmbed()
+    //         .setColor('#ffa500')
+    //         .setTitle('Hug command')
+    //         .setDescription('Usage: &hug [member mention]')
+    //     if (!member) return msg.channel.send(huge)
+    //     const hugee = new Discord.MessageEmbed()
+    //         .setColor('#ffa500')
+    //         .setTitle( msg.member.displayName + " :hugging: " + member.displayName )
+    //         .setDescription( msg.author.toString() + ' hugged ' + member.toString() + "!" )
+    //     msg.channel.send(hugee)
+    // }
 
     if(msg.content.startsWith(prefix + 'kick')) {
 
