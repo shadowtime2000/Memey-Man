@@ -29,8 +29,13 @@ bot.on("message", async msg => {
 
     if(!msg.content.startsWith(prefix) || msg.author.bot) return;
 
-    if (command == "test") {
-        bot.commands.get('ping').execute(msg, args);
+    if (!client.commands.has(command)) return;
+
+    try {
+        bot.commands.get(command).execute(msg, args);
+    } catch (error) {
+        console.error(error);
+        msg.reply('there was an error trying to execute that command!');
     }
 
     if(msg.content == prefix + "ping") {
