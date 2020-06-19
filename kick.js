@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 module.exports = {
-	name: 'punch',
-	description: 'punch command',
+	name: 'kick',
+	description: 'kick command',
 	execute(msg, args) {
 
         if (msg.channel.type == "dm") return;
