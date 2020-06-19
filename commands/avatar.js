@@ -10,7 +10,7 @@ module.exports = {
         if(!memberid && !user) {
             const avatarEmbed = new Discord.MessageEmbed()
                 .setColor(`#006a4e`)
-                .setAuthor(bot.users.cache.get(msg.author.id).tag, bot.users.cache.get(msg.author.id).displayAvatarURL())
+                .setAuthor(bot.users.cache.get(msg.author.id).tag, msg.author.displayAvatarURL())
                 .setImage(msg.author.displayAvatarURL());
             msg.channel.send(avatarEmbed);
         }
