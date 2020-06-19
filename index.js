@@ -45,6 +45,9 @@ bot.on("message", async msg => {
     if(command == "invite") {
         bot.commands.get('invite').execute(msg, args);
     }
+    if(command == "ping") {
+        bot.commands.get('ping').execute(msg, args);
+    }
     if(command == "xue") {
         bot.commands.get('xue').execute(msg, args);
     }
