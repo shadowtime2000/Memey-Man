@@ -29,7 +29,7 @@ bot.on("message", async msg => {
 
     if(!msg.content.startsWith(prefix) || msg.author.bot) return;
 
-    if (!client.commands.has(command)) return;
+    if (!bot.commands.has(command)) return;
 
     try {
         bot.commands.get(command).execute(msg, args);
@@ -38,10 +38,10 @@ bot.on("message", async msg => {
         msg.reply('there was an error trying to execute that command!');
     }
 
-    if(msg.content == prefix + "ping") {
-        const m = await msg.channel.send("Pong:");
-        m.edit(`Pong: ${m.createdTimestamp - msg.createdTimestamp}ms`);
-    }
+    //if(msg.content == prefix + "ping") {
+        //const m = await msg.channel.send("Pong:");
+        //m.edit(`Pong: ${m.createdTimestamp - msg.createdTimestamp}ms`);
+    //}
 
     if(msg.content == prefix + "invite") {
         msg.author.send(`https://discord.gg/p9Tfd45`)
