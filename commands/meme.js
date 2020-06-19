@@ -1,6 +1,6 @@
 module.exports = {
-	name: 'test',
-	description: 'Ping!',
+	name: 'meme',
+	description: 'meme command',
 	execute(msg, args) {
         fetch('https://meme-api.herokuapp.com/gimme')
             .then(res => res.json())
