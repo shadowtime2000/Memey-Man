@@ -75,6 +75,9 @@ bot.on("message", async msg => {
     if(command.startsWith("purge")) {
         bot.commands.get('purge').execute(msg, args);
     }
+    if(command.startsWith("urban")) {
+        bot.commands.get('urban').execute(msg, args);
+    }
     //Command handler end
 
     if(msg.content == prefix + "ping") {
