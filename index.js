@@ -24,9 +24,9 @@ var prefix = "&"
 
 bot.on("message", async msg => {
 
-    if (!message.content.startsWith(prefix) || message.author.bot) return;
+    if (!msg.content.startsWith(prefix) || msg.author.bot) return;
 
-	const args = message.content.slice(prefix.length).split(/ +/);
+	const args = msg.content.slice(prefix.length).split(/ +/);
 	const command = args.shift().toLowerCase();
 
     if(command == "dog") {
