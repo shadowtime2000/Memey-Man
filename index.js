@@ -24,6 +24,15 @@ var prefix = "&"
 
 bot.on("message", async msg => {
 
+    const args = msg.content.slice(bot.config.prefix.length).trim().split(/ +/g);
+    const command = args.shift().toLowerCase();
+
+    const cmd = client.commands.get(command);
+
+    if (!cmd) return;
+  
+    cmd.run(client, message, args);
+
     if (msg.author.bot) return;
 
     if(msg.content == prefix + "test") {
