@@ -56,31 +56,37 @@ bot.on("message", async msg => {
     }
 
     if(msg.content.startsWith(prefix + "vote")) {
+
         const noperm = new Discord.MessageEmbed()
             .setColor('#FFC0CB')
             .setTitle("Oops!")
             .setDescription("You can't use that command!")
+
         if(!msg.member.hasPermission("MANAGE_MESSAGES")) return msg.channel.send(noperm)
+
         const noembed = new Discord.MessageEmbed()
             .setColor('#FFC0CB')
             .setTitle("Vote command")
             .setDescription("Usage: &vote [channel mention] [vote title]")
+
         const args = msg.content.split(' ').slice(2); 
         const votetitle = args.join(' '); 
         let mention = msg.mentions.channels.first();
         if(!mention) return msg.channel.send(noembed)
         if(!votetitle) return msg.channel.send(noembed)
+
         const voteEmbed = new Discord.MessageEmbed()
             .setColor(`#FFC0CB`)
             .setTitle( "**Vote**: " + votetitle )
             .setDescription("React to vote!")
             .setFooter("Vote created by " + msg.member.displayName)
             .setTimestamp()
+
         bot.channels.cache.get(mention.id).send(voteEmbed).then(sentEmbed => {
             sentEmbed.react("👍")
             .then(() => sentEmbed.react("👎"))
             msg.react('✅')
-           });
+        });
     }
 
     if(msg.content == prefix + "welcome") {
@@ -118,6 +124,16 @@ bot.on("message", async msg => {
                 msg.channel.send(catembed)
             });
     }
+
+    if(msg.content == prefix + "randomimage") {
+            const randomembed = new Discord.MessageEmbed()
+                .setColor('#8B4513')
+                .setTitle("Random image!")
+                .setImage('https://source.unsplash.com/random')
+                //.setTimestamp()
+            msg.channel.send(randomembed)
+    }
+
 
     if(msg.content == prefix + "fox") {
         fetch('https://randomfox.ca/floof/?ref=public-apis')
