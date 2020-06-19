@@ -3,7 +3,7 @@ module.exports = {
 	name: 'slowmode',
 	description: 'slowmode command',
 	execute(msg, args) {
-        
+
         if (msg.channel.type == "dm") return;
 
         const noperm1 = new Discord.MessageEmbed()
@@ -31,15 +31,14 @@ module.exports = {
             msg.channel.send(slowmodeoff)
         }
         else {
-            msg.channel.setRateLimitPerUser(num).then(() => {
-            const slowmode = new Discord.MessageEmbed()
+            msg.channel.setRateLimitPerUser(num)
+            const slowmodey = new Discord.MessageEmbed()
                 .setColor('#EE0000')
                 .setTitle("Successfully set slowmode")
                 .setDescription(`Slowmode set to ${num}s.`)
                 .setTimestamp()
-            msg.channel.send(slowmode)
+            msg.channel.send(slowmodey)
             
-            });
         }
 	},
 };
