@@ -41,16 +41,15 @@ bot.on("message", async msg => {
     if(command == "meme") {
         bot.commands.get('meme').execute(msg, args);
     }
+    if(command == "invite") {
+        bot.commands.get('invite').execute(msg, args);
+    }
 
     if(msg.content == prefix + "ping") {
         const m = await msg.channel.send("Pong:");
         m.edit(`Pong: ${m.createdTimestamp - msg.createdTimestamp}ms`);
     }
 
-    if(msg.content == prefix + "invite") {
-        msg.author.send(`https://discord.gg/p9Tfd45`)
-        msg.reply("DM sent!")
-    }
 
     if(msg.content.startsWith(prefix + 'avatar')) {
         var user = msg.mentions.members.first()
