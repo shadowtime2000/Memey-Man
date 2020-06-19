@@ -26,21 +26,8 @@ bot.on("message", async msg => {
 
     if(!msg.content.startsWith(prefix) || msg.author.bot) return;
 
-	const args = msg.content.slice(prefix.length).split(/ +/);
-	const command = args.shift().toLowerCase();
-
-    if(msg.content.startsWith(prefix)) {
-
-        const cmd = bot.commands.get(command);
-
-        if (!cmd) return;
-    
-        cmd.run(bot, msg, args);
-
-    }
-
-    if(msg.content == prefix + "test") {
-        bot.commands.get('ping').execute(msg,args)
+    if (msg.content == prefix + "test") {
+        bot.commands.get('ping').execute(msg, args);
     }
 
     if(msg.content == prefix + "ping") {
