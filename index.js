@@ -45,9 +45,6 @@ bot.on("message", async msg => {
     if(command == "invite") {
         bot.commands.get('invite').execute(msg, args);
     }
-    if(command == "ping") {
-        bot.commands.get('ping').execute(msg, args);
-    }
     if(command == "xue") {
         bot.commands.get('xue').execute(msg, args);
     }
@@ -83,14 +80,14 @@ bot.on("message", async msg => {
     }
     //Command handler end
 
-    if(command.startsWith("mentiontest")) {
-        bot.commands.get('mentiontest').execute(msg, args);
+    if(command.startsWith("test")) {
+        bot.commands.get('test').execute(msg, args);
     }
 
-    // if(msg.content == prefix + "ping") {
-    //     const m = await msg.channel.send("Pong:");
-    //     m.edit(`Pong: ${m.createdTimestamp - msg.createdTimestamp}ms`);
-    // }
+    if(msg.content == prefix + "ping") {
+        const m = await msg.channel.send("Pong:");
+        m.edit(`Pong: ${m.createdTimestamp - msg.createdTimestamp}ms`);
+    }
 
     if(msg.content.startsWith(prefix + "repeat")) {
         const user = msg.mentions.members.first();
