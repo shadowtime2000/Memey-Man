@@ -68,6 +68,9 @@ bot.on("message", async msg => {
     if(command.startsWith("embed")) {
         bot.commands.get('embed').execute(msg, args);
     }
+    if(command.startsWith("repeat")) {
+        bot.commands.get('repeat').execute(msg, args);
+    }
 
 
     if(msg.content == prefix + "ping") {
@@ -139,20 +142,20 @@ bot.on("message", async msg => {
         });
     }
 
-	if (msg.content.startsWith(prefix + 'repeat')) {
-        var user = msg.mentions.members.first()
-        const args = msg.content.split(' ').slice(1);
-        var repeatword = args.join(' ')
-        if(!repeatword) return msg.reply('Nothing to repeat!');
-        if(repeatword.includes(prefix + "kick")) return msg.reply("Don't try it!")
-        if(repeatword.includes(prefix + "ban")) return msg.reply("Don't try it!")
-        if(repeatword.includes(prefix + "purge")) return msg.reply("Don't try it!")   
-        if(repeatword.includes("@everyone")) return msg.reply("Don't try it!")
-        if(repeatword.includes("@here")) return msg.reply("Don't try it!")
-        if(user) return msg.channel.send("I can't mention user!")
-        var repeatword = repeatword.replace(/@&|@!/g, "**Non-ping:** ")
-        msg.channel.send(repeatword)
-	}
+	// if (msg.content.startsWith(prefix + 'repeat')) {
+    //     var user = msg.mentions.members.first()
+    //     const args = msg.content.split(' ').slice(1);
+    //     var repeatword = args.join(' ')
+    //     if(!repeatword) return msg.reply('Nothing to repeat!');
+    //     if(repeatword.includes(prefix + "kick")) return msg.reply("Don't try it!")
+    //     if(repeatword.includes(prefix + "ban")) return msg.reply("Don't try it!")
+    //     if(repeatword.includes(prefix + "purge")) return msg.reply("Don't try it!")   
+    //     if(repeatword.includes("@everyone")) return msg.reply("Don't try it!")
+    //     if(repeatword.includes("@here")) return msg.reply("Don't try it!")
+    //     if(user) return msg.channel.send("I can't mention user!")
+    //     var repeatword = repeatword.replace(/@&|@!/g, "**Non-ping:** ")
+    //     msg.channel.send(repeatword)
+	// }
 
     if(msg.content.startsWith(prefix + 'purge')) {	
 
@@ -211,18 +214,6 @@ bot.on("message", async msg => {
             .setDescription( msg.author.toString() + ' hugged ' + member.toString() + "!" )
         msg.channel.send(hugee)
     }
-
-    // if (msg.content.startsWith(prefix + 'embed')) {
-    //     const args = msg.content.split(' ').slice(1);
-    //     const repeatword = args.join(' ')
-    //     if(!repeatword) return msg.reply('Nothing to put in an embed!');
-    //     const embedembed = new Discord.MessageEmbed()
-    //         .setColor('#003152')
-    //         .setTitle('Message from ' + msg.member.displayName)
-    //         .setDescription(repeatword)
-    //         .setTimestamp()
-    //     msg.channel.send(embedembed)
-	// }
 
     if(msg.content.startsWith(prefix + 'kick')) {
 
