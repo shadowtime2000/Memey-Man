@@ -116,19 +116,19 @@ bot.on("message", async msg => {
         msg.channel.send(WelcomeTestEmbed) 
     }
     
-    if(msg.content == prefix + "meme") {
-        fetch('https://meme-api.herokuapp.com/gimme')
-            .then(res => res.json())
-            .then(json => {
-                const memeembed = new Discord.MessageEmbed()
-                    .setColor('#7cfc00')
-                    .setTitle(json.title)
-                    .setImage(json.url)
-                    .setFooter(`Subreddit: r/${json.subreddit}`)
-                    //.setTimestamp()
-                msg.channel.send(memeembed)
-            });
-    }
+        // if(msg.content == prefix + "meme") {
+        //     fetch('https://meme-api.herokuapp.com/gimme')
+        //         .then(res => res.json())
+        //         .then(json => {
+        //             const memeembed = new Discord.MessageEmbed()
+        //                 .setColor('#7cfc00')
+        //                 .setTitle(json.title)
+        //                 .setImage(json.url)
+        //                 .setFooter(`Subreddit: r/${json.subreddit}`)
+        //                 //.setTimestamp()
+        //             msg.channel.send(memeembed)
+        //         });
+        // }
 
     if(msg.content == prefix + "cat") {
         fetch('https://aws.random.cat/meow')
