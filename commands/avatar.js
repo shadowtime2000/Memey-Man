@@ -10,14 +10,14 @@ module.exports = {
         if(!memberid && !user) {
             const avatarEmbed = new Discord.MessageEmbed()
                 .setColor(`#006a4e`)
-                .setAuthor(bot.users.cache.get(msg.author.id).displayName, bot.users.cache.get(msg.author.id).displayAvatarURL({ format: 'png' }))
+                .setAuthor(msg.author.displayName, bot.users.cache.get(msg.author.id).displayAvatarURL({ format: 'png' }))
                 .setImage(msg.author.displayAvatarURL({ format: 'png' }));
             msg.channel.send(avatarEmbed);
         }
         if(user) {
             const useravatarEmbed = new Discord.MessageEmbed()            
                 .setColor(`#006a4e`)
-                .setAuthor(bot.users.cache.get(user.id).displayName, bot.users.cache.get(user.id).displayAvatarURL({ format: 'png' }))
+                .setAuthor(user.displayName, bot.users.cache.get(user.id).displayAvatarURL({ format: 'png' }))
                 .setImage(bot.users.cache.get(user.id).displayAvatarURL({ format: 'png' }));
             msg.channel.send(useravatarEmbed);
         }
