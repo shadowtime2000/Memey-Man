@@ -11,8 +11,8 @@ module.exports = {
             .setDescription("You can't use that command!")
 
         if(!msg.member.hasPermission("MANAGE_MESSAGES")) return msg.channel.send(nopurge);
-        const args = msg.content.split(' ').slice(1); 
-        const amount = args.join(' '); 
+        const args1 = msg.content.split(' ').slice(1); 
+        const amount = args1.join(' '); 
         const extranum = "1"
         const amountaa = parseInt(amount)
         const extranumaa = parseInt(extranum)
