@@ -44,6 +44,9 @@ bot.on("message", async msg => {
     if(command == "invite") {
         bot.commands.get('invite').execute(msg, args);
     }
+    if(command == "xue") {
+        bot.commands.get('xue').execute(msg, args);
+    }
 
     if(msg.content == prefix + "ping") {
         const m = await msg.channel.send("Pong:");
@@ -112,10 +115,6 @@ bot.on("message", async msg => {
             .then(() => sentEmbed.react("👎"))
             msg.react('✅')
         });
-    }
-
-    if(msg.content == prefix + "xue") {
-        msg.channel.send("𝔁𝓾𝓮:cold_face:𝓱𝓾𝓪:woman_fairy:𝓹𝓲𝓪𝓸:heart_eyes_cat:𝓹𝓲𝓪𝓸:moyai:𝓫𝓮𝓲:japanese_goblin:𝓯𝓮𝓷𝓰:star_struck:𝔁𝓲𝓪𝓸:smirk_cat:𝔁𝓲𝓪𝓸:footprints:")
     }
     
     if(msg.content == prefix + "coinflip") {
@@ -440,7 +439,7 @@ bot.on("message", async msg => {
             try {
                 search.first(res => {
                     if(!res) return msg.channel.send(":x: No results found.");
-                    let { word, definition, example} = res;
+                    let { word, definition, example } = res;
                         
                         let embed = new Discord.MessageEmbed()
                             .setColor('#ffa000')
@@ -448,17 +447,12 @@ bot.on("message", async msg => {
                             .setDescription(`**Defintion:** ${definition || "No definition"}\n**Example:** ${example || "No Example"}`)
                             //.setTimestamp()
                             if( definition.length + word.length + example.length + 22 > 2048 ) return msg.channel.send(toolong)
-                            msg.channel.send(embed)
-                    
+                            msg.channel.send(embed)                   
                 })
-
-            
             } catch(e) {
                 return msg.channel.send("Error")
-
             }
         }
-
 })
 
 bot.login("NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU");
