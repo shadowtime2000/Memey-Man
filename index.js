@@ -24,15 +24,23 @@ var prefix = "&"
 
 bot.on("message", async msg => {
 
-    const args = msg.content.slice(prefix.length).split(/ +/);
+    if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+	const args = message.content.slice(prefix.length).split(/ +/);
 	const command = args.shift().toLowerCase();
 
-    if(!msg.content.startsWith(prefix) || msg.author.bot) return;
-
-    if (!bot.commands.has(command)) return;
-
-    bot.commands.get(command).execute(msg, args);
-    
+    if(command == "dog") {
+        bot.commands.get('dog').execute(msg, args);
+    }
+    if(command == "cat") {
+        bot.commands.get('cat').execute(msg, args);
+    }
+    if(command == "fox") {
+        bot.commands.get('fox').execute(msg, args);
+    }
+    if(command == "meme") {
+        bot.commands.get('meme').execute(msg, args);
+    }
 
     if(msg.content == prefix + "ping") {
         const m = await msg.channel.send("Pong:");
