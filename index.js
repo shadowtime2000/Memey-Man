@@ -50,6 +50,15 @@ bot.on("message", async msg => {
     if(command == "botinfo") {
         bot.commands.get('botinfo').execute(msg, args);
     }
+    if(command == "topic") {
+        bot.commands.get('topic').execute(msg, args);
+    }
+    if(command == "diceroll") {
+        bot.commands.get('diceroll').execute(msg, args);
+    }
+    if(command == "coinflip") {
+        bot.commands.get('coinflip').execute(msg, args);
+    }
 
     if(msg.content == prefix + "ping") {
         const m = await msg.channel.send("Pong:");
