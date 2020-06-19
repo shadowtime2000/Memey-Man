@@ -2,8 +2,8 @@ const Discord = require('discord.js');
 module.exports = {
 	name: 'repeat',
 	description: 'repeat command',
-	execute(msg, args, [mention]) {
-        const user = msg.mentions.members.first()
+	execute(msg, args) {
+        const user = getUserFromMention(args[0]);
         const args1 = msg.content.split(' ').slice(1);
         var repeatword = args1.join(' ')
         if(!repeatword) return msg.reply('Nothing to repeat!');
