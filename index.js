@@ -128,40 +128,6 @@ bot.on("message", async msg => {
             msg.react('✅')
         });
     }
-    
-    // if(msg.content == prefix + "coinflip") {
-    //     var facts = ["Head", "tail"]
-    //     var fact = Math.floor(Math.random() * facts.length);
-    //     const coinembed = new Discord.MessageEmbed()
-    //         .setColor('#9c51b6')
-    //         .setTitle('Coin flip')
-    //         .setDescription( 'Result: ' + facts[fact] )
-    //         .setTimestamp()
-    //     msg.channel.send(coinembed)
-    // }
-    
-    // if(msg.content == prefix + "diceroll") {
-    // var facts = ["1", "2", "3", "4", "5", "6"]
-    // var fact = Math.floor(Math.random() * facts.length);
-    // const diceembed = new Discord.MessageEmbed()
-    //     .setColor('#9c51b6')
-    //     .setTitle('Dice roll')
-    //     .setDescription( 'Result: ' + facts[fact] )
-    //     .setTimestamp()
-    // msg.channel.send(diceembed)
-
-    // }
-
-    // if(msg.content == prefix + "topic") {
-    //     var facts = ["What is your favorite drink?", "What country do you want to visit?", "What is your favorite Discord server?", "What is your favorite song?", "What did you do yesterday?", "What will you do tomorrow?", "What is your favorite movie?", "What is your favorite food?", "What games do you play?", "What is your favorite game?"];
-    //     var fact = Math.floor(Math.random() * facts.length);
-    //     const topicEmbed = new Discord.MessageEmbed()
-    //         .setColor('#7cfc00')
-    //         .setTitle('**Topic:**')
-    //         .setDescription(facts[fact])
-    //         .setTimestamp()
-    //     msg.channel.send(topicEmbed);
-    // }
 
 	if (msg.content.startsWith(prefix + 'repeat')) {
         var user = msg.mentions.members.first()
