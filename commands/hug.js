@@ -8,7 +8,7 @@ module.exports = {
             .setColor('#ffa500')
             .setTitle('Hug command')
             .setDescription('Usage: &hug [member mention]')
-        if (!member) return msg.channel.send(huge)
+        if (!user) return msg.channel.send(huge)
         const hugee = new Discord.MessageEmbed()
             .setColor('#ffa500')
             .setTitle( msg.member.displayName + " :hugging: " + user.displayName )

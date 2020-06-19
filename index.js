@@ -172,20 +172,6 @@ bot.on("message", async msg => {
         });
     }
 
-    // if(msg.content.startsWith(prefix + 'hug')) {
-    //     var member= msg.mentions.members.first();
-    //     const huge = new Discord.MessageEmbed()
-    //         .setColor('#ffa500')
-    //         .setTitle('Hug command')
-    //         .setDescription('Usage: &hug [member mention]')
-    //     if (!member) return msg.channel.send(huge)
-    //     const hugee = new Discord.MessageEmbed()
-    //         .setColor('#ffa500')
-    //         .setTitle( msg.member.displayName + " :hugging: " + member.displayName )
-    //         .setDescription( msg.author.toString() + ' hugged ' + member.toString() + "!" )
-    //     msg.channel.send(hugee)
-    // }
-
     if(msg.content.startsWith(prefix + 'kick')) {
 
         if (msg.channel.type == "dm") return;
