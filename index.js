@@ -65,6 +65,9 @@ bot.on("message", async msg => {
     if(command.startsWith("8ball")) {
         bot.commands.get('8ball').execute(msg, args);
     }
+    if(command.startsWith("embed")) {
+        bot.commands.get('embed').execute(msg, args);
+    }
 
 
     if(msg.content == prefix + "ping") {
@@ -151,19 +154,6 @@ bot.on("message", async msg => {
         msg.channel.send(repeatword)
 	}
 
-    // if(msg.content.startsWith(prefix + '8ball')) {
-    //     const args = msg.content.split(' ').slice(1); 
-    //     const question = args.join(' '); 
-    //     var facts = ["Yes.", "No.", "I don't know", "Of course.", "Never.", "Maybe.", "Hmm...", "Excuse me?"];
-    //     var fact = Math.floor(Math.random() * facts.length);
-    //     const ballembed = new Discord.MessageEmbed()
-    //         .setColor('#9c51b6')
-    //         .setTitle('**8ball**')
-    //         .setDescription( '**Your question**: ' + question + '\n**My answer**: ' + facts[fact] )
-    //         .setTimestamp()
-    //     msg.channel.send(ballembed);
-    // }
-	
     if(msg.content.startsWith(prefix + 'purge')) {	
 
         if (msg.channel.type == "dm") return;
@@ -222,17 +212,17 @@ bot.on("message", async msg => {
         msg.channel.send(hugee)
     }
 
-    if (msg.content.startsWith(prefix + 'embed')) {
-        const args = msg.content.split(' ').slice(1);
-        const repeatword = args.join(' ')
-        if(!repeatword) return msg.reply('Nothing to put in an embed!');
-        const embedembed = new Discord.MessageEmbed()
-            .setColor('#003152')
-            .setTitle('Message from ' + msg.member.displayName)
-            .setDescription(repeatword)
-            .setTimestamp()
-        msg.channel.send(embedembed)
-	}
+    // if (msg.content.startsWith(prefix + 'embed')) {
+    //     const args = msg.content.split(' ').slice(1);
+    //     const repeatword = args.join(' ')
+    //     if(!repeatword) return msg.reply('Nothing to put in an embed!');
+    //     const embedembed = new Discord.MessageEmbed()
+    //         .setColor('#003152')
+    //         .setTitle('Message from ' + msg.member.displayName)
+    //         .setDescription(repeatword)
+    //         .setTimestamp()
+    //     msg.channel.send(embedembed)
+	// }
 
     if(msg.content.startsWith(prefix + 'kick')) {
 
