@@ -5,7 +5,7 @@ module.exports = {
 	execute(msg, args) {
         const serverembed = new Discord.MessageEmbed()
             .setColor("#999900")
-            .setTitle("Server info")
+            .setTitle("**Server info**")
             .addFields(
                 { name: 'Server name', value: msg.guild.name },
                 { name: 'Member count', value: msg.guild.memberCount },

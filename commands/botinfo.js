@@ -5,8 +5,12 @@ module.exports = {
 	execute(msg, args) {
         const infoEmbed = new Discord.MessageEmbed()
 	    .setColor('#0099ff')
-            .setTitle('**BOT INFO**')
-            .setDescription('Bot name: Memey Man\nDeveloper: RedTea\nPrefix: &')
+			.setTitle('**Bot info**')
+			.addFields(
+                { name: 'Bot name', value: 'Memey Man' },
+                { name: 'Developer', value: 'RedTea' },
+                { name: 'Bot prefix', value: '&' },
+            )
             .setFooter('Type &help to get help!')
 	    msg.channel.send(infoEmbed);
 	},
