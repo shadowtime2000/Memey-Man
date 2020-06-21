@@ -10,7 +10,7 @@ module.exports = {
 			.setThumbnail(bot.users.cache.get('702068724957446145').displayAvatarURL({ format: 'png' }))
 			.addFields(
                 { name: 'Bot name', value: 'Memey Man' },
-                { name: 'Developer', value: 'RedTea' },
+                { name: 'Developer', value: 'RedTea#8520' },
                 { name: 'Bot prefix', value: '&' },
             )
             .setFooter('Type &help to get help!')
