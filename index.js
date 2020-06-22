@@ -130,7 +130,7 @@ bot.on("message", async msg => {
         ctx.clip();
 
         const avatar = await Canvas.loadImage(bot.users.cache.get(msg.author.id).displayAvatarURL({ format: 'png' }));
-        ctx.drawImage(avatar, 25, 25, 200, 200);
+        ctx.drawImage(avatar, 600, 200, 300, 300);
 
         const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'amiajoke.jpg');
 
