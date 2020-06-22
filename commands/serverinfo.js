@@ -6,7 +6,7 @@ module.exports = {
         const serverembed = new Discord.MessageEmbed()
             .setColor("#999900")
             .setTitle("**Server info**")
-            .setThumbnail(msg.guild.iconURL({ format: png }))
+            .setThumbnail(msg.guild.iconURL({ format: 'png' }))
             .addFields(
                 { name: 'Server name', value: msg.guild.name },
                 { name: 'Member count', value: msg.guild.memberCount },
