@@ -89,6 +89,9 @@ bot.on("message", async msg => {
     if(command.startsWith("poll")) {
         bot.commands.get('poll').execute(msg, args);
     }
+    if(command.startsWith("repeat")) {
+        bot.commands.get('repeat').execute(msg, args);
+    }
     //Command handler end
 
     if(command == "ping") {
@@ -96,22 +99,22 @@ bot.on("message", async msg => {
         m.edit(`Pong: ${m.createdTimestamp - msg.createdTimestamp}ms`);
     }
 
-    if(command.startsWith("repeat")) {
-        const user = msg.mentions.members.first();
-        const args1 = msg.content.split(' ').slice(1);
-        var repeatword = args1.join(' ')
-        if(!repeatword) return msg.reply('Nothing to repeat!');
-        if(repeatword.includes("&kick")) return msg.reply("Don't try it!")
-        if(repeatword.includes("&ban")) return msg.reply("Don't try it!")
-        if(repeatword.includes("&purge")) return msg.reply("Don't try it!")   
-        if(repeatword.includes("&slowmode")) return msg.reply("Don't try it!")  
-        if(repeatword.includes("&vote")) return msg.reply("Don't try it!")  
-        if(repeatword.includes("@everyone")) return msg.reply("Don't try it!")
-        if(repeatword.includes("@here")) return msg.reply("Don't try it!")
-        if(user) return msg.channel.send("I can't mention user!")
-        var repeatword = repeatword.replace(/@&|@!/g, "**Non-ping:** ")
-        msg.channel.send(repeatword)
-    }
+    // if(command.startsWith("repeat")) {
+    //     const user = msg.mentions.members.first();
+    //     const args1 = msg.content.split(' ').slice(1);
+    //     var repeatword = args1.join(' ')
+    //     if(!repeatword) return msg.reply('Nothing to repeat!');
+    //     if(repeatword.includes("&kick")) return msg.reply("Don't try it!")
+    //     if(repeatword.includes("&ban")) return msg.reply("Don't try it!")
+    //     if(repeatword.includes("&purge")) return msg.reply("Don't try it!")   
+    //     if(repeatword.includes("&slowmode")) return msg.reply("Don't try it!")  
+    //     if(repeatword.includes("&vote")) return msg.reply("Don't try it!")  
+    //     if(repeatword.includes("@everyone")) return msg.reply("Don't try it!")
+    //     if(repeatword.includes("@here")) return msg.reply("Don't try it!")
+    //     if(user) return msg.channel.send("I can't mention user!")
+    //     var repeatword = repeatword.replace(/@&|@!/g, "**Non-ping:** ")
+    //     msg.channel.send(repeatword)
+    // }
 
     if(command == "amiajoke") {
         const canvas = Canvas.createCanvas(897, 601);
