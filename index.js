@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
-const fetch = require('node-fetch');
-const urban = require('urban')
+const Canvas = require('canvas');
 const fs = require('fs');
 
 const bot = new Discord.Client();
@@ -114,6 +113,29 @@ bot.on("message", async msg => {
         msg.channel.send(repeatword)
     }
 
+    if(msg.content == prefix + "amiajoke") {
+        const canvas = Canvas.createCanvas(897, 601);
+        const ctx = canvas.getContext('2d');
+
+        const background = await Canvas.loadImage('./amiajoke.jpg');
+        ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+
+        // Pick up the pen
+        ctx.beginPath();
+        // Start the arc to form a circle
+        ctx.arc(125, 125, 100, 0, Math.PI * 2, true);
+        // Put the pen down
+        ctx.closePath();
+        // Clip off the region you drew on
+        ctx.clip();
+
+        const avatar = await Canvas.loadImage(member.user.displayAvatarURL({ format: 'jpg' }));
+        ctx.drawImage(avatar, 25, 25, 200, 200);
+
+        const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'amiajoke.jpg');
+
+        msg.channel.send(attachment)
+    }
 
     if(msg.content.startsWith(prefix + 'avatar')) {
         var user = msg.mentions.members.first()
