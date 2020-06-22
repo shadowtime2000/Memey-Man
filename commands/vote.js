@@ -1,8 +1,7 @@
 const Discord = require('discord.js');
-const bot = new Discord.Client();
 module.exports = {
-	name: 'poll',
-	description: 'poll command',
+	name: 'serverinfo',
+	description: 'serverinfo command',
 	execute(msg, args) {
         const noperm = new Discord.MessageEmbed()
             .setColor('#FFC0CB')
@@ -13,20 +12,22 @@ module.exports = {
 
         const noembed = new Discord.MessageEmbed()
             .setColor('#FFC0CB')
-            .setTitle("Poll command")
-            .setDescription("Usage: &poll [channel mention] [poll content]")
+            .setTitle("Vote command")
+            .setDescription("Usage: &vote [channel mention] [option amount] [vote content]")
 
-        const args1 = msg.content.split(' ').slice(2); 
+        const args1 = msg.content.split(' ').slice(3); 
         const votetitle = args1.join(' '); 
+        const amount = msg.content.split(" ", 3);
         let mention = msg.mentions.channels.first();
         if(!mention) return msg.channel.send(noembed)
         if(!votetitle) return msg.channel.send(noembed)
+        if(!amount) return msg.channel.send(noembed)
 
         const voteEmbed = new Discord.MessageEmbed()
             .setColor(`#FFC0CB`)
-            .setTitle( "**Poll**: " + votetitle )
+            .setTitle( "**Vote**: " + votetitle )
             .setDescription("React to vote!")
-            .setFooter("Poll created by " + msg.member.displayName)
+            .setFooter("Vote created by " + msg.member.displayName)
             .setTimestamp()
 
         mention.send(voteEmbed).then(sentEmbed => {
@@ -34,5 +35,6 @@ module.exports = {
             .then(() => sentEmbed.react("👎"))
             msg.react('✅')
         });
-    },
+        msg.channel.send(amount)
+	},
 };

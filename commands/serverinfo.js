@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const { stringify } = require('querystring');
 module.exports = {
 	name: 'serverinfo',
 	description: 'serverinfo command',
