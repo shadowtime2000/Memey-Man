@@ -24,9 +24,9 @@ module.exports = {
 
         const voteEmbed = new Discord.MessageEmbed()
             .setColor(`#FFC0CB`)
-            .setTitle( "**Poll**: " + votetitle )
-            .setDescription("React to vote!")
-            .setFooter("Poll created by " + msg.member.displayName)
+            .setTitle( `**Poll by ${msg.member.displayName}**` )
+            .setDescription(votetitle)
+            .setFooter("React to vote!")
             .setTimestamp()
 
         mention.send(voteEmbed).then(sentEmbed => {
