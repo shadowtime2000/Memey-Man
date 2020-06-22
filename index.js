@@ -125,6 +125,21 @@ bot.on("message", async msg => {
         msg.channel.send(attachment)
     }
 
+    if(command == "russia") {
+        const canvas = Canvas.createCanvas(608, 342);
+        const ctx = canvas.getContext('2d');
+
+        const background = await Canvas.loadImage('./russia.jpg');
+        ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+
+        const avatar = await Canvas.loadImage(bot.users.cache.get(msg.author.id).displayAvatarURL({ format: 'png' }));
+        ctx.drawImage(avatar, 480, 150, 100, 100);
+
+        const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'russia.jpg');
+
+        msg.channel.send(attachment)
+    }
+
     if(command == "kimjongun") {
         const canvas = Canvas.createCanvas(1280, 720);
         const ctx = canvas.getContext('2d');
