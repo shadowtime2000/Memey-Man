@@ -4,9 +4,6 @@ module.exports = {
 	name: 'serverinfo',
 	description: 'serverinfo command',
 	execute(msg, args) {
-        var s = msg.guild.createdAt;
-        s = toString(s)
-        s = s.substring(0, s.indexOf('+'));
         const serverembed = new Discord.MessageEmbed()
             .setColor("#999900")
             .setTitle("**Server info**")
@@ -14,7 +11,7 @@ module.exports = {
             .addFields(
                 { name: 'Server name', value: msg.guild.name },
                 { name: 'Member count', value: msg.guild.memberCount },
-                { name: 'Created time', value: s },
+                { name: 'Verification level', value: msg.guild.verificationLevel },
                 { name: 'Server owner', value: msg.guild.owner },
                 { name: 'Server ID', value: msg.guild.id }
             )
