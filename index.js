@@ -120,15 +120,6 @@ bot.on("message", async msg => {
         const background = await Canvas.loadImage('./amiajoke.jpg');
         ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
-        // Pick up the pen
-        ctx.beginPath();
-        // Start the arc to form a circle
-        ctx.arc(125, 125, 100, 0, Math.PI * 2, true);
-        // Put the pen down
-        ctx.closePath();
-        // Clip off the region you drew on
-        ctx.clip();
-
         const avatar = await Canvas.loadImage(bot.users.cache.get(msg.author.id).displayAvatarURL({ format: 'png' }));
         ctx.drawImage(avatar, 600, 200, 300, 300);
 
