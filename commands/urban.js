@@ -30,7 +30,6 @@ module.exports = {
                             .setColor('#ffa000')
                             .setAuthor(`Urban Dictionary | ${word}`, image )
                             .setDescription(`**Defintion:** ${definition || "No definition"}\n**Example:** ${example || "No Example"}`)
-                            //.setTimestamp()
                             if( definition.length + word.length + example.length + 22 > 2048 ) return msg.channel.send(toolong)
                             msg.channel.send(embed)                   
                 })
