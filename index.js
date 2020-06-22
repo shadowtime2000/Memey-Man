@@ -182,7 +182,7 @@ bot.on("message", async msg => {
             const avatarEmbed = new Discord.MessageEmbed()
                 .setColor(`#006a4e`)
                 .setAuthor(bot.users.cache.get(msg.author.id).tag, bot.users.cache.get(msg.author.id).displayAvatarURL({ format: 'png' }))
-                .setImage(msg.author.displayAvatarURL({ size: 512, format: 'png' }));
+                .setImage(msg.author.displayAvatarURL({ size: 256, format: 'png' }));
             msg.channel.send(avatarEmbed);
         }
         if(user) {
