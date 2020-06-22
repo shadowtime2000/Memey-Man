@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 module.exports = {
-	name: 'help',
-	description: 'help command',
+	name: 'vote',
+	description: 'vote command',
 	execute(msg, args) {
         const noperm = new Discord.MessageEmbed()
             .setColor('#FFC0CB')
