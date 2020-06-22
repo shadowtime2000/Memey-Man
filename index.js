@@ -86,11 +86,10 @@ bot.on("message", async msg => {
     if(command.startsWith("hug")) {
         bot.commands.get('hug').execute(msg, args);
     }
-    //Command handler end
-    if(command == "test") {
-        bot.commands.get('test').execute(msg, args);
+    if(command == "amiajoke") {
+        bot.commands.get('amiajoke').execute(msg, args);
     }
-
+    //Command handler end
 
     if(command == "ping") {
         const m = await msg.channel.send("Pong:");
@@ -114,20 +113,20 @@ bot.on("message", async msg => {
         msg.channel.send(repeatword)
     }
 
-    if(command == "amiajoke") {
-        const canvas = Canvas.createCanvas(897, 601);
-        const ctx = canvas.getContext('2d');
+    // if(command == "amiajoke") {
+    //     const canvas = Canvas.createCanvas(897, 601);
+    //     const ctx = canvas.getContext('2d');
 
-        const background = await Canvas.loadImage('./amiajoke.jpg');
-        ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+    //     const background = await Canvas.loadImage('./amiajoke.jpg');
+    //     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
-        const avatar = await Canvas.loadImage(bot.users.cache.get(msg.author.id).displayAvatarURL({ format: 'png' }));
-        ctx.drawImage(avatar, 480, 50, 330, 330);
+    //     const avatar = await Canvas.loadImage(bot.users.cache.get(msg.author.id).displayAvatarURL({ format: 'png' }));
+    //     ctx.drawImage(avatar, 480, 50, 330, 330);
 
-        const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'amiajoke.jpg');
+    //     const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'amiajoke.jpg');
 
-        msg.channel.send(attachment)
-    }
+    //     msg.channel.send(attachment)
+    // }
 
     if(command == "nou") {
         const canvas = Canvas.createCanvas(640, 454);
