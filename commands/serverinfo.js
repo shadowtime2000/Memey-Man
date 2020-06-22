@@ -10,7 +10,7 @@ module.exports = {
             .addFields(
                 { name: 'Server name', value: msg.guild.name },
                 { name: 'Member count', value: msg.guild.memberCount },
-                { name: 'Created time', value: msg.guild.createdTimestamp },
+                { name: 'Created time', value: msg.guild.createdAt },
                 { name: 'Server owner', value: msg.guild.owner },
                 { name: 'Server ID', value: msg.guild.id }
             )
