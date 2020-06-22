@@ -92,6 +92,9 @@ bot.on("message", async msg => {
     if(command.startsWith("repeat")) {
         bot.commands.get('repeat').execute(msg, args);
     }
+    if(command.startsWith("vote")) {
+        bot.commands.get('vote').execute(msg, args);
+    }
     //Command handler end
 
     if(command == "ping") {
