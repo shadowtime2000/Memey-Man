@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 module.exports = {
-	name: 'vote',
-	description: 'vote command',
+	name: 'poll',
+	description: 'poll command',
 	execute(msg, args) {
         const noperm = new Discord.MessageEmbed()
             .setColor('#FFC0CB')
@@ -13,8 +13,8 @@ module.exports = {
 
         const noembed = new Discord.MessageEmbed()
             .setColor('#FFC0CB')
-            .setTitle("Vote command")
-            .setDescription("Usage: &vote [channel mention] [vote title]")
+            .setTitle("Poll command")
+            .setDescription("Usage: &poll [channel mention] [vote title]")
 
         const args1 = msg.content.split(' ').slice(2); 
         const votetitle = args1.join(' '); 
@@ -24,7 +24,7 @@ module.exports = {
 
         const voteEmbed = new Discord.MessageEmbed()
             .setColor(`#FFC0CB`)
-            .setTitle( "**Vote**: " + votetitle )
+            .setTitle( "**Poll**: " + votetitle )
             .setDescription("React to vote!")
             .setFooter("Vote created by " + msg.member.displayName)
             .setTimestamp()

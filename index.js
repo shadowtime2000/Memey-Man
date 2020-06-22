@@ -86,8 +86,8 @@ bot.on("message", async msg => {
     if(command.startsWith("hug")) {
         bot.commands.get('hug').execute(msg, args);
     }
-    if(command.startsWith("vote")) {
-        bot.commands.get('vote').execute(msg, args);
+    if(command.startsWith("poll")) {
+        bot.commands.get('poll').execute(msg, args);
     }
     //Command handler end
 
