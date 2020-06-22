@@ -23,6 +23,7 @@ module.exports = {
         if(!mention) return msg.channel.send(noembed)
         if(!votetitle) return msg.channel.send(noembed)
         if(!amount) return msg.channel.send(noembed)
+        if(amount > 5) return msg.reply("Amount max is 5!")
 
         const voteEmbed = new Discord.MessageEmbed()
             .setColor(`#FFC0CB`)
@@ -48,36 +49,14 @@ module.exports = {
                 sentEmbed.react("1️⃣")
                 .then(() => sentEmbed.react("2️⃣"))
                 .then(() => sentEmbed.react("3️⃣"))
+                .then(() => sentEmbed.react("4️⃣"))
             }
             if(amount == "5") {
                 sentEmbed.react("1️⃣")
                 .then(() => sentEmbed.react("2️⃣"))
                 .then(() => sentEmbed.react("3️⃣"))
-            }
-            if(amount == "6") {
-                sentEmbed.react("1️⃣")
-                .then(() => sentEmbed.react("2️⃣"))
-                .then(() => sentEmbed.react("3️⃣"))
-            }
-            if(amount == "7") {
-                sentEmbed.react("1️⃣")
-                .then(() => sentEmbed.react("2️⃣"))
-                .then(() => sentEmbed.react("3️⃣"))
-            }
-            if(amount == "8") {
-                sentEmbed.react("1️⃣")
-                .then(() => sentEmbed.react("2️⃣"))
-                .then(() => sentEmbed.react("3️⃣"))
-            }
-            if(amount == "9") {
-                sentEmbed.react("1️⃣")
-                .then(() => sentEmbed.react("2️⃣"))
-                .then(() => sentEmbed.react("3️⃣"))
-            }
-            if(amount == "10") {
-                sentEmbed.react("1️⃣")
-                .then(() => sentEmbed.react("2️⃣"))
-                .then(() => sentEmbed.react("3️⃣"))
+                .then(() => sentEmbed.react("4️⃣"))
+                .then(() => sentEmbed.react("5️⃣"))
             }
             msg.react('✅')
         });
