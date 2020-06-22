@@ -86,6 +86,9 @@ bot.on("message", async msg => {
     if(command.startsWith("hug")) {
         bot.commands.get('hug').execute(msg, args);
     }
+    if(command.startsWith("vote")) {
+        bot.commands.get('vote').execute(msg, args);
+    }
     //Command handler end
 
     if(command == "ping") {
@@ -214,39 +217,39 @@ bot.on("message", async msg => {
 
     }
 
-    if(command.startsWith("vote")) {
+    // if(command.startsWith("vote")) {
 
-        const noperm = new Discord.MessageEmbed()
-            .setColor('#FFC0CB')
-            .setTitle("Oops!")
-            .setDescription("You can't use that command!")
+    //     const noperm = new Discord.MessageEmbed()
+    //         .setColor('#FFC0CB')
+    //         .setTitle("Oops!")
+    //         .setDescription("You can't use that command!")
 
-        if(!msg.member.hasPermission("MANAGE_MESSAGES")) return msg.channel.send(noperm)
+    //     if(!msg.member.hasPermission("MANAGE_MESSAGES")) return msg.channel.send(noperm)
 
-        const noembed = new Discord.MessageEmbed()
-            .setColor('#FFC0CB')
-            .setTitle("Vote command")
-            .setDescription("Usage: &vote [channel mention] [vote title]")
+    //     const noembed = new Discord.MessageEmbed()
+    //         .setColor('#FFC0CB')
+    //         .setTitle("Vote command")
+    //         .setDescription("Usage: &vote [channel mention] [vote title]")
 
-        const args = msg.content.split(' ').slice(2); 
-        const votetitle = args.join(' '); 
-        let mention = msg.mentions.channels.first();
-        if(!mention) return msg.channel.send(noembed)
-        if(!votetitle) return msg.channel.send(noembed)
+    //     const args = msg.content.split(' ').slice(2); 
+    //     const votetitle = args.join(' '); 
+    //     let mention = msg.mentions.channels.first();
+    //     if(!mention) return msg.channel.send(noembed)
+    //     if(!votetitle) return msg.channel.send(noembed)
 
-        const voteEmbed = new Discord.MessageEmbed()
-            .setColor(`#FFC0CB`)
-            .setTitle( "**Vote**: " + votetitle )
-            .setDescription("React to vote!")
-            .setFooter("Vote created by " + msg.member.displayName)
-            .setTimestamp()
+    //     const voteEmbed = new Discord.MessageEmbed()
+    //         .setColor(`#FFC0CB`)
+    //         .setTitle( "**Vote**: " + votetitle )
+    //         .setDescription("React to vote!")
+    //         .setFooter("Vote created by " + msg.member.displayName)
+    //         .setTimestamp()
 
-        bot.channels.cache.get(mention.id).send(voteEmbed).then(sentEmbed => {
-            sentEmbed.react("👍")
-            .then(() => sentEmbed.react("👎"))
-            msg.react('✅')
-        });
-    }
+    //     bot.channels.cache.get(mention.id).send(voteEmbed).then(sentEmbed => {
+    //         sentEmbed.react("👍")
+    //         .then(() => sentEmbed.react("👎"))
+    //         msg.react('✅')
+    //     });
+    // }
 
     if(command.startsWith('kick')) {
 
