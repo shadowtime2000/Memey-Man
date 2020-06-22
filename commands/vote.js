@@ -18,7 +18,7 @@ module.exports = {
         const args1 = msg.content.split(' ').slice(3); 
         const votetitle = args1.join(' '); 
         const amounts = msg.content.split(" ", 3);
-        const amount = amounts[3]
+        const amount = amounts[2]
         let mention = msg.mentions.channels.first();
         if(!mention) return msg.channel.send(noembed)
         if(!votetitle) return msg.channel.send(noembed)
