@@ -86,9 +86,6 @@ bot.on("message", async msg => {
     if(command.startsWith("hug")) {
         bot.commands.get('hug').execute(msg, args);
     }
-    if(command.startsWith("kick")) {
-        bot.commands.get('kick').execute(msg, args);
-    }
     //Command handler end
 
     if(msg.content == prefix + "ping") {
