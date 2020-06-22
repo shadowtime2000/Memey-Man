@@ -4,7 +4,7 @@ module.exports = {
 	description: 'serverinfo command',
 	execute(msg, args) {
         const time = msg.guild.createdAt
-        time = time.substring(0, time.indexOf('+'));
+        time = time.split('+')[0]
         const serverembed = new Discord.MessageEmbed()
             .setColor("#999900")
             .setTitle("**Server info**")
