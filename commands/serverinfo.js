@@ -6,7 +6,7 @@ module.exports = {
 	execute(msg, args) {
         var s = msg.guild.createdAt;
         s = toString(s)
-        s = s.split('+')[0]
+        s = s.substring(0, s.indexOf('+'));
         const serverembed = new Discord.MessageEmbed()
             .setColor("#999900")
             .setTitle("**Server info**")
