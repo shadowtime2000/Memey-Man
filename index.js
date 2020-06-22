@@ -125,6 +125,21 @@ bot.on("message", async msg => {
         msg.channel.send(attachment)
     }
 
+    if(msg.content == prefix + "nou") {
+        const canvas = Canvas.createCanvas(640, 454);
+        const ctx = canvas.getContext('2d');
+
+        const background = await Canvas.loadImage('./nou.jpg');
+        ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+
+        const avatar = await Canvas.loadImage(bot.users.cache.get(msg.author.id).displayAvatarURL({ format: 'png' }));
+        ctx.drawImage(avatar, 50, 50, 200, 200);
+
+        const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'amiajoke.jpg');
+
+        msg.channel.send(attachment)
+    }
+
     if(msg.content.startsWith(prefix + 'avatar')) {
         var user = msg.mentions.members.first()
         const arguments = msg.content.split(' ').slice(1); 
