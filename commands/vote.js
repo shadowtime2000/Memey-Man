@@ -29,7 +29,7 @@ module.exports = {
             .setFooter("Vote created by " + msg.member.displayName)
             .setTimestamp()
 
-        bot.channels.cache.get(mention.id).send(voteEmbed).then(sentEmbed => {
+        mention.send(voteEmbed).then(sentEmbed => {
             sentEmbed.react("👍")
             .then(() => sentEmbed.react("👎"))
             msg.react('✅')
