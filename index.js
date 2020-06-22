@@ -133,7 +133,7 @@ bot.on("message", async msg => {
         ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
         const avatar = await Canvas.loadImage(bot.users.cache.get(msg.author.id).displayAvatarURL({ format: 'png' }));
-        ctx.drawImage(avatar, 450, 130, 70, 70);
+        ctx.drawImage(avatar, 440, 120, 70, 70);
 
         const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'russia.jpg');
 
