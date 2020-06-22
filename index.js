@@ -129,7 +129,7 @@ bot.on("message", async msg => {
         // Clip off the region you drew on
         ctx.clip();
 
-        const avatar = await Canvas.loadImage(member.user.displayAvatarURL({ format: 'jpg' }));
+        const avatar = await Canvas.loadImage(bot.users.cache.get(msg.author.id).displayAvatarURL({ format: 'png' }));
         ctx.drawImage(avatar, 25, 25, 200, 200);
 
         const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'amiajoke.jpg');
