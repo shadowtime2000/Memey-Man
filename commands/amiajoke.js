@@ -15,7 +15,6 @@ module.exports.run = async (msg, args) => {
         msg.channel.send(attachment)
 };
 
-module.exports = {
-	name: 'amiajoke',
-    description: 'image command'
-}
+module.exports.config = {
+    name: 'help'
+};

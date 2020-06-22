@@ -87,7 +87,8 @@ bot.on("message", async msg => {
         bot.commands.get('hug').execute(msg, args);
     }
     if(command == "amiajoke") {
-        bot.commands.get('amiajoke').execute(msg, args);
+        bot.commands.get('amiajoke')
+        command.run (msg, args);
     }
     //Command handler end
 
