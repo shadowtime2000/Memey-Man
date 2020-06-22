@@ -87,6 +87,10 @@ bot.on("message", async msg => {
         bot.commands.get('hug').execute(msg, args);
     }
     //Command handler end
+    if(command == "test") {
+        bot.commands.get('test').execute(msg, args);
+    }
+
 
     if(command == "ping") {
         const m = await msg.channel.send("Pong:");
