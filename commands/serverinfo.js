@@ -5,7 +5,7 @@ module.exports = {
 	description: 'serverinfo command',
 	execute(msg, args) {
         var s = msg.guild.createdAt;
-        var s = string(s)
+        var s = toString(s)
         s = s.substring(0, s.indexOf('+'));
         const serverembed = new Discord.MessageEmbed()
             .setColor("#999900")
