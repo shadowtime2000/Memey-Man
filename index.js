@@ -88,12 +88,12 @@ bot.on("message", async msg => {
     }
     //Command handler end
 
-    if(msg.content == prefix + "ping") {
+    if(command == "ping") {
         const m = await msg.channel.send("Pong:");
         m.edit(`Pong: ${m.createdTimestamp - msg.createdTimestamp}ms`);
     }
 
-    if(msg.content.startsWith(prefix + "repeat")) {
+    if(command.startsWith("repeat")) {
         const user = msg.mentions.members.first();
         const args1 = msg.content.split(' ').slice(1);
         var repeatword = args1.join(' ')
@@ -110,7 +110,7 @@ bot.on("message", async msg => {
         msg.channel.send(repeatword)
     }
 
-    if(msg.content == prefix + "amiajoke") {
+    if(command == "amiajoke") {
         const canvas = Canvas.createCanvas(897, 601);
         const ctx = canvas.getContext('2d');
 
@@ -125,7 +125,7 @@ bot.on("message", async msg => {
         msg.channel.send(attachment)
     }
 
-    if(msg.content == prefix + "nou") {
+    if(command == "nou") {
         const canvas = Canvas.createCanvas(640, 454);
         const ctx = canvas.getContext('2d');
 
@@ -135,12 +135,27 @@ bot.on("message", async msg => {
         const avatar = await Canvas.loadImage(bot.users.cache.get(msg.author.id).displayAvatarURL({ format: 'png' }));
         ctx.drawImage(avatar, 37, 80, 200, 200);
 
-        const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'amiajoke.jpg');
+        const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'nou.jpg');
 
         msg.channel.send(attachment)
     }
 
-    if(msg.content.startsWith(prefix + 'avatar')) {
+    if(command == "pogchamp") {
+        const canvas = Canvas.createCanvas(700, 394);
+        const ctx = canvas.getContext('2d');
+
+        const background = await Canvas.loadImage('./pogchamp.jpg');
+        ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+
+        const avatar = await Canvas.loadImage(bot.users.cache.get(msg.author.id).displayAvatarURL({ format: 'png' }));
+        ctx.drawImage(avatar, 350, 80, 200, 200);
+
+        const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'pogchamp.jpg');
+
+        msg.channel.send(attachment)
+    }
+
+    if(command.startsWith('avatar')) {
         var user = msg.mentions.members.first()
         const arguments = msg.content.split(' ').slice(1); 
         const memberid = arguments.join(' '); 
@@ -169,7 +184,7 @@ bot.on("message", async msg => {
 
     }
 
-    if(msg.content.startsWith(prefix + "vote")) {
+    if(command.startsWith("vote")) {
 
         const noperm = new Discord.MessageEmbed()
             .setColor('#FFC0CB')
@@ -203,7 +218,7 @@ bot.on("message", async msg => {
         });
     }
 
-    if(msg.content.startsWith(prefix + 'kick')) {
+    if(command.startsWith('kick')) {
 
         if (msg.channel.type == "dm") return;
 
@@ -257,7 +272,7 @@ bot.on("message", async msg => {
         });
     }
 
-    if(msg.content.startsWith(prefix + 'ban')) {
+    if(command.startsWith('ban')) {
 
         if (msg.channel.type == "dm") return;
 
