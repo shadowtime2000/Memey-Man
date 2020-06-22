@@ -103,7 +103,7 @@ bot.on("message", async msg => {
         const canvas = Canvas.createCanvas(897, 601);
         const ctx = canvas.getContext('2d');
 
-        const background = await Canvas.loadImage('./amiajoke.jpg');
+        const background = await Canvas.loadImage('./images/amiajoke.jpg');
         ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
         const avatar = await Canvas.loadImage(bot.users.cache.get(msg.author.id).displayAvatarURL({ format: 'png' }));
@@ -118,7 +118,7 @@ bot.on("message", async msg => {
         const canvas = Canvas.createCanvas(608, 342);
         const ctx = canvas.getContext('2d');
 
-        const background = await Canvas.loadImage('./russia.jpg');
+        const background = await Canvas.loadImage('./images/russia.jpg');
         ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
         const avatar = await Canvas.loadImage(bot.users.cache.get(msg.author.id).displayAvatarURL({ format: 'png' }));
@@ -133,7 +133,7 @@ bot.on("message", async msg => {
         const canvas = Canvas.createCanvas(1280, 720);
         const ctx = canvas.getContext('2d');
 
-        const background = await Canvas.loadImage('./kimjongun.jpg');
+        const background = await Canvas.loadImage('./images/kimjongun.jpg');
         ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
         const avatar = await Canvas.loadImage(bot.users.cache.get(msg.author.id).displayAvatarURL({ format: 'png' }));
@@ -148,7 +148,7 @@ bot.on("message", async msg => {
         const canvas = Canvas.createCanvas(640, 454);
         const ctx = canvas.getContext('2d');
 
-        const background = await Canvas.loadImage('./nou.jpg');
+        const background = await Canvas.loadImage('./images/nou.jpg');
         ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
         const avatar = await Canvas.loadImage(bot.users.cache.get(msg.author.id).displayAvatarURL({ format: 'png' }));
@@ -163,7 +163,7 @@ bot.on("message", async msg => {
         const canvas = Canvas.createCanvas(700, 394);
         const ctx = canvas.getContext('2d');
 
-        const background = await Canvas.loadImage('./pogchamp.jpg');
+        const background = await Canvas.loadImage('./images/pogchamp.jpg');
         ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
         const avatar = await Canvas.loadImage(bot.users.cache.get(msg.author.id).displayAvatarURL({ format: 'png' }));
