@@ -129,7 +129,7 @@ bot.on("message", async msg => {
         const canvas = Canvas.createCanvas(1280, 720);
         const ctx = canvas.getContext('2d');
 
-        const background = await Canvas.loadImage('./kimojongun.jpg');
+        const background = await Canvas.loadImage('./kimjongun.jpg');
         ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
         const avatar = await Canvas.loadImage(bot.users.cache.get(msg.author.id).displayAvatarURL({ format: 'png' }));
