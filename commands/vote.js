@@ -32,10 +32,54 @@ module.exports = {
             .setTimestamp()
 
         mention.send(voteEmbed).then(sentEmbed => {
-            sentEmbed.react("👍")
-            .then(() => sentEmbed.react("👎"))
+            if(amount == "1") {
+                sentEmbed.react("1️⃣")
+            }
+            if(amount == "2") {
+                sentEmbed.react("1️⃣")
+                .then(() => sentEmbed.react("2️⃣"))
+            }
+            if(amount == "3") {
+                sentEmbed.react("1️⃣")
+                .then(() => sentEmbed.react("2️⃣"))
+                .then(() => sentEmbed.react("3️⃣"))
+            }
+            if(amount == "4") {
+                sentEmbed.react("1️⃣")
+                .then(() => sentEmbed.react("2️⃣"))
+                .then(() => sentEmbed.react("3️⃣"))
+            }
+            if(amount == "5") {
+                sentEmbed.react("1️⃣")
+                .then(() => sentEmbed.react("2️⃣"))
+                .then(() => sentEmbed.react("3️⃣"))
+            }
+            if(amount == "6") {
+                sentEmbed.react("1️⃣")
+                .then(() => sentEmbed.react("2️⃣"))
+                .then(() => sentEmbed.react("3️⃣"))
+            }
+            if(amount == "7") {
+                sentEmbed.react("1️⃣")
+                .then(() => sentEmbed.react("2️⃣"))
+                .then(() => sentEmbed.react("3️⃣"))
+            }
+            if(amount == "8") {
+                sentEmbed.react("1️⃣")
+                .then(() => sentEmbed.react("2️⃣"))
+                .then(() => sentEmbed.react("3️⃣"))
+            }
+            if(amount == "9") {
+                sentEmbed.react("1️⃣")
+                .then(() => sentEmbed.react("2️⃣"))
+                .then(() => sentEmbed.react("3️⃣"))
+            }
+            if(amount == "10") {
+                sentEmbed.react("1️⃣")
+                .then(() => sentEmbed.react("2️⃣"))
+                .then(() => sentEmbed.react("3️⃣"))
+            }
             msg.react('✅')
         });
-        msg.channel.send(amount)
 	},
 };
