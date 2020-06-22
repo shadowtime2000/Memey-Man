@@ -7,11 +7,9 @@ module.exports = {
         function capitalizeFirstLetter(string) {
             return string.charAt(0).toUpperCase() + string.slice(1);
         }
-        
+
         var s = msg.guild.verificationLevel
-        s = toString(s)
-        s = toLowerCase(s)
-        s = capitalizeFirstLetter(s)
+        var temp = s.toString().toLowerCase().capitalizeFirstLetter();
         
         const serverembed = new Discord.MessageEmbed()
             .setColor("#999900")
@@ -20,7 +18,7 @@ module.exports = {
             .addFields(
                 { name: 'Server name', value: msg.guild.name },
                 { name: 'Member count', value: msg.guild.memberCount },
-                { name: 'Verification level', value: s },
+                { name: 'Verification level', value: temp },
                 { name: 'Server owner', value: msg.guild.owner },
                 { name: 'Server ID', value: msg.guild.id }
             )
