@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 module.exports = {
-	name: 'ban',
-    description: 'ban command',
+	name: 'kick',
+    description: 'kick command',
     execute(bot, msg, [mention, ...reason]) {
         const args = msg.content.split(' ').slice(2); 
         const kickreason = args.join(' '); 
