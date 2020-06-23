@@ -2,9 +2,9 @@ const Discord = require('discord.js');
 module.exports = {
 	name: 'kick',
     description: 'kick command',
-    execute(bot, msg) {
-        const args = msg.content.split(' ').slice(2); 
-        const kickreason = args.join(' '); 
+    execute(msg, args) {
+        const args1 = msg.content.split(' ').slice(2); 
+        const kickreason = args1.join(' '); 
         const kickmember= msg.mentions.members.first();
 
         const noperm = new Discord.MessageEmbed()

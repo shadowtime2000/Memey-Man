@@ -2,9 +2,9 @@ const Discord = require('discord.js');
 module.exports = {
 	name: 'ban',
     description: 'ban command',
-    execute(bot, msg) {
-        const args = msg.content.split(' ').slice(2); 
-        const banreason = args.join(' '); 
+    execute(msg, args) {
+        const args1 = msg.content.split(' ').slice(2); 
+        const banreason = args1.join(' '); 
         const banmember= msg.mentions.members.first();
 
         const noperm1 = new Discord.MessageEmbed()
