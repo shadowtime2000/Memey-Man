@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 module.exports = {
-	name: '8ball',
-	description: '8ball command',
+	name: 'ping',
+	description: 'ping command',
 	execute(msg, args) {
         async () => {
             const m = await msg.channel.send("Pong:");
