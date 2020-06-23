@@ -27,7 +27,7 @@ module.exports = {
                 .setColor('#EE0000')
                 .setTitle("Successfully turned off slowmode")
                 .setDescription(`Turned off slowmode.`)
-                .setFooter('Slowmode time unit is seconds. (Ex. 10s)')
+                .setFooter('Slowmode time unit is seconds')
                 .setTimestamp()
             msg.channel.send(slowmodeoff)
         }
@@ -37,6 +37,7 @@ module.exports = {
                 .setColor('#EE0000')
                 .setTitle("Successfully set slowmode")
                 .setDescription(`Slowmode set to ${num}s.`)
+                .setFooter('Slowmode time unit is seconds')
                 .setTimestamp()
             msg.channel.send(slowmodey)
             
