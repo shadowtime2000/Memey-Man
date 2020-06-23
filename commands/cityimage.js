@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
 const fetch = require('node-fetch');
 module.exports = {
-	name: 'meme',
-	description: 'meme command',
+	name: 'cityimage',
+	description: 'cityimage command',
 	execute(msg, args) {
         const arguments = msg.content.split(' ').slice(1); 
         const cityname = arguments.join(' '); 
