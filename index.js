@@ -28,83 +28,14 @@ bot.on("message", async msg => {
 	const args = msg.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
     
-    if (!bot.commands.has(command)) return;
-
-    try {
-        bot.commands.get(command).execute(msg, args);
-    } catch (error) {
-        console.error(error);
-        msg.reply('there was an error trying to execute that command!');
+    if (bot.commands.has(command)) {
+        try {
+            bot.commands.get(command).execute(msg, args);
+        } catch (error) {
+            console.error(error);
+            msg.reply('There was an error executing that command.');
+        }
     }
-
-    //Command handler start
-    // if(command == "dog") {
-    //     bot.commands.get('dog').execute(msg, args);
-    // }
-    // if(command == "cat") {
-    //     bot.commands.get('cat').execute(msg, args);
-    // }
-    // if(command == "fox") {
-    //     bot.commands.get('fox').execute(msg, args);
-    // }
-    // if(command == "meme") {
-    //     bot.commands.get('meme').execute(msg, args);
-    // }
-    // if(command == "invite") {
-    //     bot.commands.get('invite').execute(msg, args);
-    // }
-    // if(command == "xue") {
-    //     bot.commands.get('xue').execute(msg, args);
-    // }
-    // if(command == "botinfo") {
-    //     bot.commands.get('botinfo').execute(msg, args);
-    // }
-    // if(command == "topic") {
-    //     bot.commands.get('topic').execute(msg, args);
-    // }
-    // if(command == "diceroll") {
-    //     bot.commands.get('diceroll').execute(msg, args);
-    // }
-    // if(command == "coinflip") {
-    //     bot.commands.get('coinflip').execute(msg, args);
-    // }
-    // if(command == "help") {
-    //     bot.commands.get('help').execute(msg, args);
-    // }
-    // if(command == "serverinfo") {
-    //     bot.commands.get('serverinfo').execute(msg, args);
-    // }
-    // if(command.startsWith("8ball")) {
-    //     bot.commands.get('8ball').execute(msg, args);
-    // }
-    // if(command.startsWith("embed")) {
-    //     bot.commands.get('embed').execute(msg, args);
-    // }
-    // if(command.startsWith("slowmode")) {
-    //     bot.commands.get('slowmode').execute(msg, args);
-    // }
-    // if(command.startsWith("purge")) {
-    //     bot.commands.get('purge').execute(msg, args);
-    // }
-    // if(command.startsWith("urban")) {
-    //     bot.commands.get('urban').execute(msg, args);
-    // }
-    // if(command.startsWith("punch")) {
-    //     bot.commands.get('punch').execute(msg, args);
-    // }
-    // if(command.startsWith("hug")) {
-    //     bot.commands.get('hug').execute(msg, args);
-    // }
-    // if(command.startsWith("poll")) {
-    //     bot.commands.get('poll').execute(msg, args);
-    // }
-    // if(command.startsWith("repeat")) {
-    //     bot.commands.get('repeat').execute(msg, args);
-    // }
-    // if(command.startsWith("vote")) {
-    //     bot.commands.get('vote').execute(msg, args);
-    // }
-    //Command handler end
 
     if(command == "ping") {
         const m = await msg.channel.send("Pong:");
