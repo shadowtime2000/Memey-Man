@@ -22,20 +22,35 @@ bot.on("ready", () =>{
 var prefix = "&"
 
 bot.on("message", async msg => {
+    if (msg.author.bot) return;
 
-    if (!msg.content.startsWith(prefix) || msg.author.bot) return;
+    if (!msg.content.startsWith(prefix)) return;
 
-	const args = msg.content.slice(prefix.length).split(/ +/);
+    // Our standard argument/command name definition.
+    const args = msg.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
-    
-    if (bot.commands.has(command)) {
-        try {
-            bot.commands.get(command).execute(msg, args);
-        } catch (error) {
-            console.error(error);
-            msg.reply('There was an error executing that command.');
-        }
+
+    // Grab the command data from the client.commands Enmap
+    const cmd = bot.commands.get(command);
+
+    // If that command doesn't exist, silently exit and do nothing
+    if (cmd) {
+        cmd.run(bot, msg, args);
     }
+
+    // if (!msg.content.startsWith(prefix) || msg.author.bot) return;
+
+	// const args = msg.content.slice(prefix.length).split(/ +/);
+    // const command = args.shift().toLowerCase();
+    
+    // if (bot.commands.has(command)) {
+    //     try {
+    //         bot.commands.get(command).execute(msg, args);
+    //     } catch (error) {
+    //         console.error(error);
+    //         msg.reply('There was an error executing that command.');
+    //     }
+    // }
 
     if(command == "ping") {
         const m = await msg.channel.send("Pong:");
