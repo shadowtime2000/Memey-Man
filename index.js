@@ -72,21 +72,6 @@ bot.on("message", async msg => {
         msg.channel.send(attachment)
     }
 
-    if(command == "kimjongun") {
-        const canvas = Canvas.createCanvas(1280, 720);
-        const ctx = canvas.getContext('2d');
-
-        const background = await Canvas.loadImage('./images/kimjongun.jpg');
-        ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
-
-        const avatar = await Canvas.loadImage(bot.users.cache.get(msg.author.id).displayAvatarURL({ format: 'png' }));
-        ctx.drawImage(avatar, 530, 100, 280, 280);
-
-        const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'kimjongun.jpg');
-
-        msg.channel.send(attachment)
-    }
-
     if(command == "nou") {
         const canvas = Canvas.createCanvas(640, 454);
         const ctx = canvas.getContext('2d');
