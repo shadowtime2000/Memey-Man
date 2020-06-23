@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 module.exports = {
 	name: 'kick',
     description: 'kick command',
-    execute(bot, msg, [mention, ...reason]) {
+    execute(bot, msg) {
         const args = msg.content.split(' ').slice(2); 
         const kickreason = args.join(' '); 
         const kickmember= msg.mentions.members.first();
@@ -45,7 +45,7 @@ module.exports = {
 
         kickmember.send(dmkickembed)
             .then(() => {
-                kickmember.kick(reason.join(" ")).then(member => {
+                kickmember.kick(kickreason).then(member => {
                 msg.channel.send(kickembed)
                 })
             }).catch(() => {

@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 module.exports = {
 	name: 'ban',
     description: 'ban command',
-    execute(bot, msg, [mention, ...reason]) {
+    execute(bot, msg) {
         const args = msg.content.split(' ').slice(2); 
         const banreason = args.join(' '); 
         const banmember= msg.mentions.members.first();
@@ -45,7 +45,7 @@ module.exports = {
 
         banmember.send(dmbanembed)
             .then(() => {
-                banmember.ban(reason.join(" ")).then(member => {
+                banmember.ban(banreason).then(member => {
                 msg.channel.send(banembed)
                 })
             }).catch(() => {
