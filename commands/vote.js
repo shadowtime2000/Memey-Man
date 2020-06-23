@@ -22,8 +22,8 @@ module.exports = {
         let mention = msg.mentions.channels.first();
         if(!mention) return msg.channel.send(noembed)
         if(!votetitle) return msg.channel.send(noembed)
-        if(!amount) return msg.channel.send(noembed)
-        if(amount > 5) return msg.reply("Amount max is 5!")
+        if(!amount || isNaN(amount)) return msg.channel.send(noembed)
+        if(amount > 5 || amount < 1) return msg.reply("Amount max is 5!")
 
         const voteEmbed = new Discord.MessageEmbed()
             .setColor(`#FFC0CB`)
