@@ -146,113 +146,59 @@ bot.on("message", async msg => {
 
     }
 
-    if(command.startsWith('kick')) {
+    // if(command.startsWith('ban')) {
 
-        if (msg.channel.type == "dm") return;
+    //     if (msg.channel.type == "dm") return;
 
-        const args = msg.content.split(' ').slice(2); 
-        const kickreason = args.join(' '); 
-        var mem= msg.mentions.members.first();
+    //     const args = msg.content.split(' ').slice(2); 
+    //     const banreason = args.join(' '); 
+    //     var mem1= msg.mentions.members.first();
 
-        const noperm = new Discord.MessageEmbed()
-            .setColor('#FFFF00')
-            .setTitle('Oops!')
-            .setDescription("You can't use that command!")
-        
-        const nomemmber = new Discord.MessageEmbed()
-            .setColor('#FFFF00')
-            .setTitle('Oops!')
-            .setDescription("Give a member to kick!")
+    //     const noperm1 = new Discord.MessageEmbed()
+    //         .setColor('#FFFF00')
+    //         .setTitle('Oops!')
+    //         .setDescription("You can't use that command!")
 
-        const noreason = new Discord.MessageEmbed()
-            .setColor('#FFFF00')
-            .setTitle('Oops!')
-            .setDescription("Give me a reason!")
+    //     const nomemberembed = new Discord.MessageEmbed()
+    //         .setColor('#FFFF00')
+    //         .setTitle('Oops!')
+    //         .setDescription("Give me a member to ban!")
 
-        const cantkick = new Discord.MessageEmbed()
-            .setColor('#FFFF00')
-            .setTitle('Oops!')
-            .setDescription("An errror occurred.")
+    //     const noreasonembed = new Discord.MessageEmbed()
+    //         .setColor('#FFFF00')
+    //         .setTitle('Oops!')
+    //         .setDescription("Give me a reason!")
 
-            if(!msg.member.hasPermission("KICK_MEMBERS")) return msg.channel.send(noperm);
-            if(!mem) return msg.channel.send(nomemmber)
-            if(!kickreason) return msg.channel.send(noreason)
-            
-            const kickembed = new Discord.MessageEmbed()
-                .setColor('#ff0000')
-                .setTitle('**Successfully kicked member**')
-                .setDescription( `**Kicked ${mem.displayName}.**` + '\n**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + kickreason )
-                .setTimestamp()
+    //     const cantban = new Discord.MessageEmbed()
+    //         .setColor('#FFFF00')
+    //         .setTitle('Oops!')
+    //         .setDescription("An error occurred.")
 
-            const dmkickembed = new Discord.MessageEmbed()
-                .setColor('#ff0000')
-                .setTitle(`**You have been kicked from ${msg.guild.name}**`)
-                .setDescription( '**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + kickreason )
-                .setTimestamp()
+    //         if(!msg.member.hasPermission("BAN_MEMBERS")) return msg.channel.send(noperm1)
+    //         if(!mem1) return msg.channel.send(nomemberembed)
+    //         if(!banreason) return msg.channel.send(noreasonembed)
 
-            mem.send(dmkickembed)
-            .then(() => {
-                mem.kick().then((member) => {
-                msg.channel.send(kickembed)
-                })
-            }).catch(() => {
-                msg.channel.send(cantkick);
-        });
-    }
+    //         const banembed = new Discord.MessageEmbed()
+    //             .setColor('#ff0000')
+    //             .setTitle('**Successfully banned member**')
+    //             .setDescription( `**Banned ${mem1.displayName}.**` + '\n**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + banreason )
+    //             .setTimestamp()
 
-    if(command.startsWith('ban')) {
+    //         const dmbanembed = new Discord.MessageEmbed()
+    //             .setColor('#ff0000')
+    //             .setTitle(`**You have been banned from ${msg.guild.name}**`)
+    //             .setDescription( '**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + banreason )
+    //             .setTimestamp()
 
-        if (msg.channel.type == "dm") return;
-
-        const args = msg.content.split(' ').slice(2); 
-        const banreason = args.join(' '); 
-        var mem1= msg.mentions.members.first();
-
-        const noperm1 = new Discord.MessageEmbed()
-            .setColor('#FFFF00')
-            .setTitle('Oops!')
-            .setDescription("You can't use that command!")
-
-        const nomemberembed = new Discord.MessageEmbed()
-            .setColor('#FFFF00')
-            .setTitle('Oops!')
-            .setDescription("Give me a member to ban!")
-
-        const noreasonembed = new Discord.MessageEmbed()
-            .setColor('#FFFF00')
-            .setTitle('Oops!')
-            .setDescription("Give me a reason!")
-
-        const cantban = new Discord.MessageEmbed()
-            .setColor('#FFFF00')
-            .setTitle('Oops!')
-            .setDescription("An error occurred.")
-
-            if(!msg.member.hasPermission("BAN_MEMBERS")) return msg.channel.send(noperm1)
-            if(!mem1) return msg.channel.send(nomemberembed)
-            if(!banreason) return msg.channel.send(noreasonembed)
-
-            const banembed = new Discord.MessageEmbed()
-                .setColor('#ff0000')
-                .setTitle('**Successfully banned member**')
-                .setDescription( `**Banned ${mem1.displayName}.**` + '\n**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + banreason )
-                .setTimestamp()
-
-            const dmbanembed = new Discord.MessageEmbed()
-                .setColor('#ff0000')
-                .setTitle(`**You have been banned from ${msg.guild.name}**`)
-                .setDescription( '**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + banreason )
-                .setTimestamp()
-
-            mem1.send(dmbanembed)
-            .then(() => {
-                mem1.ban().then((member) => {
-                msg.channel.send(banembed)
-                })
-            }).catch(() => {
-                msg.channel.send(cantban);
-        });
-    }
+    //         mem1.send(dmbanembed)
+    //         .then(() => {
+    //             mem1.ban().then((member) => {
+    //             msg.channel.send(banembed)
+    //             })
+    //         }).catch(() => {
+    //             msg.channel.send(cantban);
+    //     });
+    // }
 })
 
 bot.login("NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU");

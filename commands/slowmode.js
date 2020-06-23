@@ -24,7 +24,7 @@ module.exports = {
         if(!num) {
             msg.channel.setRateLimitPerUser(num)
             const slowmodeoff = new Discord.MessageEmbed()
-                .setColor('#EE0000')
+                .setColor('#FF0000')
                 .setTitle("Successfully turned off slowmode")
                 .setDescription(`Turned off slowmode.`)
                 .setFooter('Slowmode time unit is seconds')
@@ -34,7 +34,7 @@ module.exports = {
         else {
             msg.channel.setRateLimitPerUser(num)
             const slowmodey = new Discord.MessageEmbed()
-                .setColor('#EE0000')
+                .setColor('#FF0000')
                 .setTitle("Successfully set slowmode")
                 .setDescription(`Slowmode set to ${num}s.`)
                 .setFooter('Slowmode time unit is seconds')
