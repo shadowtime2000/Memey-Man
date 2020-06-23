@@ -13,7 +13,7 @@ module.exports = {
                 //     .setColor('#7cfc00')
                 //     .setTitle("City picture of " + cityname + "!")
                 //     .setImage(json.image)
-                msg.channel.send(json.web)
+                msg.channel.send(json.image[web])
             });
 	},
 };
