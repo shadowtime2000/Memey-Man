@@ -12,7 +12,7 @@ module.exports = {
                 const memeembed = new Discord.MessageEmbed()
                     .setColor('#7cfc00')
                     .setTitle("City picture of " + cityname + "!")
-                    .setImage(json.web)
+                    .setImage(json.image.web)
                 msg.channel.send(memeembed)
             });
 	},
