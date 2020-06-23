@@ -32,7 +32,7 @@ bot.on("message", async msg => {
         try {
             bot.commands.get(command).execute(msg, args);
         } catch (error) {
-            console.error(error);
+            console.log(error);
             msg.reply('There was an error executing that command.');
         }
     }
@@ -117,34 +117,34 @@ bot.on("message", async msg => {
         msg.channel.send(attachment)
     }
 
-    // if(command.startsWith('avatar')) {
-    //     var user = msg.mentions.members.first()
-    //     const arguments = msg.content.split(' ').slice(1); 
-    //     const memberid = arguments.join(' '); 
-    //     if(!memberid && !user) {
-    //         const avatarEmbed = new Discord.MessageEmbed()
-    //             .setColor(`#006a4e`)
-    //             .setAuthor(bot.users.cache.get(msg.author.id).tag, bot.users.cache.get(msg.author.id).displayAvatarURL({ format: 'png' }))
-    //             .setImage(msg.author.displayAvatarURL({ size: 1024, format: 'png' }));
-    //         msg.channel.send(avatarEmbed);
-    //     }
-    //     if(user) {
-    //         const useravatarEmbed = new Discord.MessageEmbed()            
-    //             .setColor(`#006a4e`)
-    //             .setAuthor(bot.users.cache.get(user.id).tag, bot.users.cache.get(user.id).displayAvatarURL({ format: 'png' }))
-    //             .setImage(bot.users.cache.get(user.id).displayAvatarURL({ size: 1024, format: 'png' }));
-    //         msg.channel.send(useravatarEmbed);
-    //     }
-    //     if(memberid && !user && msg.guild.member(memberid)) {
-    //         const idavatarEmbed = new Discord.MessageEmbed() 
-    //             .setColor(`#006a4e`)
-    //             .setAuthor(bot.users.cache.get(memberid).tag, bot.users.cache.get(memberid).displayAvatarURL({ format: 'png' }))
-    //             .setImage(bot.users.cache.get(memberid).displayAvatarURL({ size: 1024, format: 'png' }));
-    //         msg.channel.send(idavatarEmbed);
-    //     } 
-    //     if(memberid && !user && !msg.guild.member(memberid) ) return msg.channel.send(":x: No results found.")
+    if(command.startsWith('avatar')) {
+        var user = msg.mentions.members.first()
+        const arguments = msg.content.split(' ').slice(1); 
+        const memberid = arguments.join(' '); 
+        if(!memberid && !user) {
+            const avatarEmbed = new Discord.MessageEmbed()
+                .setColor(`#006a4e`)
+                .setAuthor(msg.author.tag, msg.author.displayAvatarURL({ format: 'png' }))
+                .setImage(msg.author.displayAvatarURL({ size: 1024, format: 'png' }));
+            msg.channel.send(avatarEmbed);
+        }
+        if(user) {
+            const useravatarEmbed = new Discord.MessageEmbed()            
+                .setColor(`#006a4e`)
+                .setAuthor(user.tag, bot.users.cache.get(user.id).displayAvatarURL({ format: 'png' }))
+                .setImage(bot.users.cache.get(user.id).displayAvatarURL({ size: 1024, format: 'png' }));
+            msg.channel.send(useravatarEmbed);
+        }
+        if(memberid && !user && msg.guild.member(memberid)) {
+            const idavatarEmbed = new Discord.MessageEmbed() 
+                .setColor(`#006a4e`)
+                .setAuthor(bot.users.cache.get(memberid).tag, bot.users.cache.get(memberid).displayAvatarURL({ format: 'png' }))
+                .setImage(bot.users.cache.get(memberid).displayAvatarURL({ size: 1024, format: 'png' }));
+            msg.channel.send(idavatarEmbed);
+        } 
+        if(memberid && !user && !msg.guild.member(memberid) ) return msg.channel.send(":x: No results found.")
 
-    // }
+    }
 })
 
 bot.login("NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU");
