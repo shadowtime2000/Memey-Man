@@ -117,87 +117,33 @@ bot.on("message", async msg => {
         msg.channel.send(attachment)
     }
 
-    if(command.startsWith('avatar')) {
-        var user = msg.mentions.members.first()
-        const arguments = msg.content.split(' ').slice(1); 
-        const memberid = arguments.join(' '); 
-        if(!memberid && !user) {
-            const avatarEmbed = new Discord.MessageEmbed()
-                .setColor(`#006a4e`)
-                .setAuthor(bot.users.cache.get(msg.author.id).tag, bot.users.cache.get(msg.author.id).displayAvatarURL({ format: 'png' }))
-                .setImage(msg.author.displayAvatarURL({ size: 1024, format: 'png' }));
-            msg.channel.send(avatarEmbed);
-        }
-        if(user) {
-            const useravatarEmbed = new Discord.MessageEmbed()            
-                .setColor(`#006a4e`)
-                .setAuthor(bot.users.cache.get(user.id).tag, bot.users.cache.get(user.id).displayAvatarURL({ format: 'png' }))
-                .setImage(bot.users.cache.get(user.id).displayAvatarURL({ size: 1024, format: 'png' }));
-            msg.channel.send(useravatarEmbed);
-        }
-        if(memberid && !user && msg.guild.member(memberid)) {
-            const idavatarEmbed = new Discord.MessageEmbed() 
-                .setColor(`#006a4e`)
-                .setAuthor(bot.users.cache.get(memberid).tag, bot.users.cache.get(memberid).displayAvatarURL({ format: 'png' }))
-                .setImage(bot.users.cache.get(memberid).displayAvatarURL({ size: 1024, format: 'png' }));
-            msg.channel.send(idavatarEmbed);
-        } 
-        if(memberid && !user && !msg.guild.member(memberid) ) return msg.channel.send(":x: No results found.")
+    // if(command.startsWith('avatar')) {
+    //     var user = msg.mentions.members.first()
+    //     const arguments = msg.content.split(' ').slice(1); 
+    //     const memberid = arguments.join(' '); 
+    //     if(!memberid && !user) {
+    //         const avatarEmbed = new Discord.MessageEmbed()
+    //             .setColor(`#006a4e`)
+    //             .setAuthor(bot.users.cache.get(msg.author.id).tag, bot.users.cache.get(msg.author.id).displayAvatarURL({ format: 'png' }))
+    //             .setImage(msg.author.displayAvatarURL({ size: 1024, format: 'png' }));
+    //         msg.channel.send(avatarEmbed);
+    //     }
+    //     if(user) {
+    //         const useravatarEmbed = new Discord.MessageEmbed()            
+    //             .setColor(`#006a4e`)
+    //             .setAuthor(bot.users.cache.get(user.id).tag, bot.users.cache.get(user.id).displayAvatarURL({ format: 'png' }))
+    //             .setImage(bot.users.cache.get(user.id).displayAvatarURL({ size: 1024, format: 'png' }));
+    //         msg.channel.send(useravatarEmbed);
+    //     }
+    //     if(memberid && !user && msg.guild.member(memberid)) {
+    //         const idavatarEmbed = new Discord.MessageEmbed() 
+    //             .setColor(`#006a4e`)
+    //             .setAuthor(bot.users.cache.get(memberid).tag, bot.users.cache.get(memberid).displayAvatarURL({ format: 'png' }))
+    //             .setImage(bot.users.cache.get(memberid).displayAvatarURL({ size: 1024, format: 'png' }));
+    //         msg.channel.send(idavatarEmbed);
+    //     } 
+    //     if(memberid && !user && !msg.guild.member(memberid) ) return msg.channel.send(":x: No results found.")
 
-    }
-
-    // if(command.startsWith('ban')) {
-
-    //     if (msg.channel.type == "dm") return;
-
-    //     const args = msg.content.split(' ').slice(2); 
-    //     const banreason = args.join(' '); 
-    //     var mem1= msg.mentions.members.first();
-
-    //     const noperm1 = new Discord.MessageEmbed()
-    //         .setColor('#FFFF00')
-    //         .setTitle('Oops!')
-    //         .setDescription("You can't use that command!")
-
-    //     const nomemberembed = new Discord.MessageEmbed()
-    //         .setColor('#FFFF00')
-    //         .setTitle('Oops!')
-    //         .setDescription("Give me a member to ban!")
-
-    //     const noreasonembed = new Discord.MessageEmbed()
-    //         .setColor('#FFFF00')
-    //         .setTitle('Oops!')
-    //         .setDescription("Give me a reason!")
-
-    //     const cantban = new Discord.MessageEmbed()
-    //         .setColor('#FFFF00')
-    //         .setTitle('Oops!')
-    //         .setDescription("An error occurred.")
-
-    //         if(!msg.member.hasPermission("BAN_MEMBERS")) return msg.channel.send(noperm1)
-    //         if(!mem1) return msg.channel.send(nomemberembed)
-    //         if(!banreason) return msg.channel.send(noreasonembed)
-
-    //         const banembed = new Discord.MessageEmbed()
-    //             .setColor('#ff0000')
-    //             .setTitle('**Successfully banned member**')
-    //             .setDescription( `**Banned ${mem1.displayName}.**` + '\n**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + banreason )
-    //             .setTimestamp()
-
-    //         const dmbanembed = new Discord.MessageEmbed()
-    //             .setColor('#ff0000')
-    //             .setTitle(`**You have been banned from ${msg.guild.name}**`)
-    //             .setDescription( '**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + banreason )
-    //             .setTimestamp()
-
-    //         mem1.send(dmbanembed)
-    //         .then(() => {
-    //             mem1.ban().then((member) => {
-    //             msg.channel.send(banembed)
-    //             })
-    //         }).catch(() => {
-    //             msg.channel.send(cantban);
-    //     });
     // }
 })
 
