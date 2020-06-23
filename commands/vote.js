@@ -23,7 +23,7 @@ module.exports = {
         if(!mention) return msg.channel.send(noembed)
         if(!votetitle) return msg.channel.send(noembed)
         if(!amount || isNaN(amount)) return msg.channel.send(noembed)
-        if(amount > 5 || amount < 1) return msg.reply("Amount max is 5!")
+        if(amount > 5 || amount < 1) return msg.reply("Amount must be equal to or larger than 1, and equal to or smaller than 5.")
 
         const voteEmbed = new Discord.MessageEmbed()
             .setColor(`#FFC0CB`)
