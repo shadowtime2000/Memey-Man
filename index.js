@@ -21,6 +21,11 @@ bot.on("ready", () =>{
 
 var prefix = "&"
 
+bot.on("guildCreate", guild => {
+    const defaultChannel = guild.channels.find(channel => channel.permissionsFor(guild.me).has("SEND_MESSAGES"));
+    defaultChannel.send("Thanks for adding me! Bot prefix is ``&``.")
+});
+
 bot.on("message", async msg => {
 
     if (!msg.content.startsWith(prefix) || msg.author.bot) return;
