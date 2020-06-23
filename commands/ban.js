@@ -34,7 +34,7 @@ module.exports = {
         const banembed = new Discord.MessageEmbed()
             .setColor('#ff0000')
             .setTitle('**Successfully banned member**')
-            .setDescription( `**Banned ${mem1.displayName}.**` + '\n**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + banreason )
+            .setDescription( `**Banned ${banmember.displayName}.**` + '\n**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + banreason )
             .setTimestamp()
 
         const dmbanembed = new Discord.MessageEmbed()

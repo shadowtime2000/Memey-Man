@@ -34,7 +34,7 @@ module.exports = {
         const kickembed = new Discord.MessageEmbed()
                 .setColor('#ff0000')
                 .setTitle('**Successfully kicked member**')
-                .setDescription( `**Kicked ${mem.displayName}.**` + '\n**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + kickreason )
+                .setDescription( `**Kicked ${kickmember.displayName}.**` + '\n**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + kickreason )
                 .setTimestamp()
 
         const dmkickembed = new Discord.MessageEmbed()
