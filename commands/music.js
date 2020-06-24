@@ -1,9 +1,8 @@
-const Discord = require('discord.js');
+const ytdl = require('ytdl-core');
 module.exports = {
 	name: 'music',
 	description: 'music command',
 	execute(msg, args) {
-    if (command == 'music') {
             if (msg.channel.type !== 'text') return;
 
             const args1 = msg.content.split(' ').slice(1); 
@@ -20,7 +19,6 @@ module.exports = {
                 const dispatcher = connection.play(stream);
 
                 dispatcher.on('end', () => voiceChannel.leave());
-            });
-        }
+        });
     },
 };

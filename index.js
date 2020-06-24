@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
 const Canvas = require('canvas');
 const fs = require('fs');
-const ytdl = require('ytdl-core');
 
 const bot = new Discord.Client();
 bot.commands = new Discord.Collection();
