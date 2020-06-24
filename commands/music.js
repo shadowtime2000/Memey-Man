@@ -14,9 +14,6 @@ module.exports = {
                 return message.reply('Please join a voice channel!');
             }
 
-            const songInfo = ytdl.getInfo(musicurl);
-            const title = songInfo.title
-
             msg.reply(`Playing music now!`)
 
             voiceChannel.join().then(connection => {
