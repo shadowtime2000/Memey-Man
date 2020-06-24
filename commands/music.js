@@ -14,6 +14,11 @@ module.exports = {
                 .setTitle('Youtube command')
                 .setDescription('Usage: &youtube [youtube link]')
 
+            const playing = new Discord.MessageEmbed()
+                .setColor('#505050')
+                .setTitle('Playing music now!')
+                .setDescription('Now listen to the music! :notes:')
+
             if(!musicurl) return msg.channel.send(nosong)
 
             const voiceChannel = msg.member.voice.channel;
@@ -23,7 +28,7 @@ module.exports = {
             voiceChannel.join().then(connection => {
                 const stream = ytdl(musicurl, { filter: 'audioonly' });
                 const dispatcher = connection.play(stream);
-                msg.reply(`Playing music now!`)
+                msg.channel.send(playing)
 
                 dispatcher.on('end', () => bot.leaveVoiceChannel(msg.member.voiceState.channelID));
             })
