@@ -16,6 +16,7 @@
     "cheerio": "^1.0.0-rc.3",
     "cleverbot-node": "^0.3.11",
     "discord.js": "^12.2.0",
+    "ffmpeg-static": "^4.2.4",
     "querystring": "^0.2.0",
     "urban": "^0.3.2",
     "urban-dictionary": "^2.2.1",
