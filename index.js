@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const Canvas = require('canvas');
 const fs = require('fs');
+const ytdl = require('ytdl-core');
 
 const bot = new Discord.Client();
 bot.commands = new Discord.Collection();
@@ -130,6 +131,26 @@ bot.on("message", async msg => {
         if(memberid && !user && !msg.guild.member(memberid) ) return msg.channel.send(":x: No results found.")
 
     }
+
+
+
+
+    if (command == 'rickroll') {
+		if (msg.channel.type !== 'text') return;
+
+		const voiceChannel = msg.member.voice.channel;
+
+		if (!voiceChannel) {
+			return message.reply('please join a voice channel first!');
+		}
+
+		voiceChannel.join().then(connection => {
+			const stream = ytdl('https://www.youtube.com/watch?v=dQw4w9WgXcQ', { filter: 'audioonly' });
+			const dispatcher = connection.play(stream);
+
+			dispatcher.on('end', () => voiceChannel.leave());
+		});
+	}
 })
 
 bot.login("NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU");
