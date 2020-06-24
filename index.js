@@ -29,12 +29,7 @@ bot.on("message", async msg => {
     const command = args.shift().toLowerCase();
     
     if (bot.commands.has(command)) {
-        try {
-            bot.commands.get(command).execute(msg, args);
-        } catch (error) {
-            console.log(error);
-            msg.reply('There was an error executing that command.');
-        }
+        bot.commands.get(command).execute(msg, args);
     }
 
     if(command == "ping") {
