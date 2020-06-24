@@ -8,12 +8,13 @@ module.exports = {
             const args1 = msg.content.split(' ').slice(1); 
             const musicurl = args1.join(' '); 
 
-            if(!musicurl) {
+            if(!musicurl) { 
                 const nosong = new Discord.MessageEmbed()
                     .setColor('#505050')
                     .setTitle('Youtube command')
                     .setDescription('Usage: &youtube [youtube link]')
                 msg.channel.send(nosong)
+                return;
             }
 
             const voiceChannel = msg.member.voice.channel;
