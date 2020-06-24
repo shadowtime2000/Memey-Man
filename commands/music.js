@@ -17,7 +17,7 @@ module.exports = {
             const songInfo = ytdl.getInfo(musicurl);
             const title = songInfo.title
 
-            msg.reply(`Playing ${title} now!`)
+            msg.reply(`Playing music now!`)
 
             voiceChannel.join().then(connection => {
                 const stream = ytdl(musicurl, { filter: 'audioonly' });
