@@ -37,6 +37,5 @@ module.exports = {
 
                 dispatcher.on('end', () => bot.leaveVoiceChannel(msg.member.voiceState.channelID));
             })
-            process.on('unhandledRejection', error => console.error('Uncaught Promise Rejection', error));
     },
 };
