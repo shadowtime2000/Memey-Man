@@ -21,7 +21,7 @@ module.exports = {
 
             const novc = new Discord.MessageEmbed()
                 .setColor('#505050')
-                .setTitle('Join a voice channel!')
+                .setTitle('You are not in a voice channel!')
                 .setDescription('You have to join a music channel before playing music.')
 
             if(!musicurl) return msg.channel.send(nosong)
