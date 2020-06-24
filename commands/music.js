@@ -18,7 +18,7 @@ module.exports = {
                 const stream = ytdl(musicurl, { filter: 'audioonly' });
                 const dispatcher = connection.play(stream);
 
-                dispatcher.on('end', () => voiceChannel.leave());
+                dispatcher.on('end', () => bot.leaveVoiceChannel(msg.member.voiceState.channelID));
         });
     },
 };
