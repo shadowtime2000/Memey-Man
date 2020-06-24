@@ -39,5 +39,6 @@ module.exports = {
                     voiceChannel.leave();
                 });
             })
+            .catch(() => console.log(error));
     },
 };
