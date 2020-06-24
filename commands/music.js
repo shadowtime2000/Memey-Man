@@ -19,11 +19,16 @@ module.exports = {
                 .setTitle('Playing music now!')
                 .setDescription('Now listen to the music! :notes:')
 
+            const novc = new Discord.MessageEmbed()
+                .setColor('#505050')
+                .setTitle('Join a voice channel!')
+                .setDescription('You have to join a music channel before playing music.')
+
             if(!musicurl) return msg.channel.send(nosong)
 
             const voiceChannel = msg.member.voice.channel;
 
-            if (!voiceChannel) return msg.reply('Please join a voice channel!');
+            if (!voiceChannel) return msg.channel.send(novc);
 
             voiceChannel.join().then(connection => {
                 const stream = ytdl(musicurl, { filter: 'audioonly' });
