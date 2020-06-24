@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 module.exports = {
-	name: 'help',
-	description: 'help command',
+	name: 'music',
+	description: 'music command',
 	execute(msg, args) {
     if (command == 'music') {
             if (msg.channel.type !== 'text') return;
@@ -21,8 +21,6 @@ module.exports = {
 
                 dispatcher.on('end', () => voiceChannel.leave());
             });
-            
-            msg.reply("You got rickrolled!")
         }
     },
 };
