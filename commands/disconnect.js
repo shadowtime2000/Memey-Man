@@ -6,9 +6,9 @@ module.exports = {
 	execute(msg, args) {
         if (msg.guild.me.voiceChannel !== undefined) {
             msg.guild.me.voiceChannel.leave();
-            message.reply("Left the voice channel.");
+            msg.reply("Left the voice channel.");
           } else {
-            message.reply("I'm not connected to a voice channel!");
+            msg.reply("I'm not connected to a voice channel!");
           }
     },
 };
