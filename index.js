@@ -135,7 +135,7 @@ bot.on("message", async msg => {
 
 
 
-    if (command == 'rickroll') {
+    if (command == 'music') {
 		if (msg.channel.type !== 'text') return;
 
 		const voiceChannel = msg.member.voice.channel;
@@ -149,7 +149,9 @@ bot.on("message", async msg => {
 			const dispatcher = connection.play(stream);
 
 			dispatcher.on('end', () => voiceChannel.leave());
-		});
+        });
+        
+        msg.reply("You got rickrolled!")
 	}
 })
 
