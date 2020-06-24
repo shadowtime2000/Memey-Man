@@ -14,11 +14,14 @@ module.exports = {
                 return message.reply('Please join a voice channel!');
             }
 
+            msg.reply("Playing now!")
+
             voiceChannel.join().then(connection => {
                 const stream = ytdl(musicurl, { filter: 'audioonly' });
                 const dispatcher = connection.play(stream);
 
                 dispatcher.on('end', () => bot.leaveVoiceChannel(msg.member.voiceState.channelID));
-        });
+            })
+            .catch(() => msg.reply(`Couldn't play music. Check if your link is valid youtube link!`));
     },
 };
