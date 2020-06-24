@@ -8,14 +8,14 @@ module.exports = {
             if(!member) {
                 const rateembed = new Discord.MessageEmbed()
                     .setColor("#cccccc")
-                    .setTitle("Gayrate")
-                    .setDescription(`You are ${rate}% gay! :rainbow-flag:`)
+                    .setTitle("Gayrate :rainbow_flag:")
+                    .setDescription(`You are ${rate}% gay!`)
                 msg.channel.send(rateembed)
             } if(member) {
                 const memberrateembed = new Discord.MessageEmbed()
                     .setColor("#cccccc")
-                    .setTitle("Gayrate")
-                    .setDescription(`${member.displayName} is ${rate}% gay! :rainbow-flag:`)
+                    .setTitle("Gayrate :rainbow_flag:")
+                    .setDescription(`${member.displayName} is ${rate}% gay!`)
                 msg.channel.send(memberrateembed)
             }
         },
