@@ -35,7 +35,7 @@ module.exports = {
                 const dispatcher = connection.play(stream);
                 msg.channel.send(playing)
 
-                dispatcher.on('end', () => voiceChannel.leave());
+                dispatcher.on('end', () => msg.guild.me.voiceChannel.leave());
             })
     },
 };
