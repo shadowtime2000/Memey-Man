@@ -120,7 +120,7 @@ bot.on("message", async msg => {
         ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
         const avatar = await Canvas.loadImage(bot.users.cache.get(msg.author.id).displayAvatarURL({ format: 'png' }));
-        ctx.drawImage(avatar, 570, 270, 70, 70);
+        ctx.drawImage(avatar, 550, 260, 50, 50);
 
         const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'ussr.jpg');
 
