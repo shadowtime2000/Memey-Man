@@ -7,6 +7,7 @@ module.exports = {
         if(!msg.guild.me.voice.channel) return msg.reply("I'm not in a voice channel!")
         if(msg.guild.me.voice.channel == msg.member.voice.channel){
             msg.guild.me.voice.channel.leave(); 
+            msg.reply('Successfully disconnected!')
         } else {
             msg.reply("You are not in the same voice channel with me!")
         }
