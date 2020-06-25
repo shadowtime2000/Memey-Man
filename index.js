@@ -154,9 +154,15 @@ bot.on("message", async msg => {
             .setTitle('Join a voice channel first!')
             .setDescription('You have to join a music channel before playing music.')
 
+        const invalid = new Discord.MessageEmbed()
+            .setColor('#505050')
+            .setTitle('YouTube link invalid!')
+            .setDescription('Please provide a valid youtube link.')
+
+
         if(!musicurl) return msg.channel.send(nosong)
 
-        if(ytdl.validateURL(musicurl) == false) return msg.reply("That is not a valid YouTube link.")
+        if(ytdl.validateURL(musicurl) == false) return msg.channel.send(invalid)
 
         const voiceChannel = msg.member.voice.channel;
 
@@ -165,13 +171,20 @@ bot.on("message", async msg => {
         const songInfo = await ytdl.getInfo(musicurl);
         const song = {
           title: songInfo.title,
-          url: songInfo.video_url
+          url: songInfo.video_url,
+          duration: songInfo.length_seconds
         };
+
+        const playing = new Discord.MessageEmbed()
+            .setColor('#505050')
+            .setTitle('Playing music!')
+            .setDescription(`Playing **${song.title}** now! :notes:`)
+            .setFooter(`Song duration: ${song.duration}`)
 
         voiceChannel.join().then(connection => {
             const stream = ytdl(musicurl, { filter: 'audioonly' });
             const dispatcher = connection.play(stream);
-            msg.channel.send(`Playing **${song.title}** now! :notes:`)
+            msg.channel.send(playing)
 
             dispatcher.on('finish', () => 
             voiceChannel.leave()
