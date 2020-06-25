@@ -180,7 +180,9 @@ bot.on("message", async msg => {
 
         if(ytdl.validateURL(musicurl) == false) {
 
-            const result = await youtube.searchVideos(musicurl);
+            const music = encodeURI(musicurl);
+
+            const result = await youtube.searchVideos(music);
 
             const songInfo = await ytdl.getInfo(result.url);
             const song = {
@@ -189,8 +191,6 @@ bot.on("message", async msg => {
                 duration: songInfo.length_seconds
             };
 
-            var music = encodeURI(result.url);
-    
             var minute = parseInt(song.duration / 60); 
             var second = song.duration % 60;
 
@@ -201,7 +201,7 @@ bot.on("message", async msg => {
                 .setFooter(`Song duration: ${minute} minutes ${second} seconds`)
 
             voiceChannel.join().then(connection => {
-                const stream = ytdl(music, { filter: 'audioonly' });
+                const stream = ytdl(result.url, { filter: 'audioonly' });
                 const dispatcher = connection.play(stream);
                 msg.channel.send(playing)
     
