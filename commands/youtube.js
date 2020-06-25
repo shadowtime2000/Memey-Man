@@ -12,7 +12,7 @@ module.exports = {
             ytdl.getInfo(musicurl,{downloadURL: true},
                 function(err, info) {
                     if (err) throw err;
-                    var songTitle = info.title              
+                    const songTitle = info.title              
                 }
             );
 
@@ -24,7 +24,7 @@ module.exports = {
             const playing = new Discord.MessageEmbed()
                 .setColor('#505050')
                 .setTitle('Playing music!')
-                .setDescription(`Playing ``${songTitle}`` now! :notes:`)
+                .setDescription(`Playing ` + songTitle + ` now! :notes:`)
 
             const novc = new Discord.MessageEmbed()
                 .setColor('#505050')
