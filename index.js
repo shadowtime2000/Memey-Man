@@ -165,11 +165,11 @@ bot.on("message", async msg => {
           title: songInfo.title,
           url: songInfo.video_url
         };
-        
+
         voiceChannel.join().then(connection => {
             const stream = ytdl(musicurl, { filter: 'audioonly' });
             const dispatcher = connection.play(stream);
-            msg.channel.send(`Playing ``${song.title}`` now! :notes:`)
+            msg.channel.send(`Playing "${song.title}" now! :notes:`)
 
             dispatcher.on('finish', () => 
             voiceChannel.leave()
