@@ -162,6 +162,8 @@ bot.on("message", async msg => {
 
         if(!musicurl) return msg.channel.send(nosong)
 
+        if(msg.guild.me.voice.channel != msg.member.voice.channel) return msg.reply("You are not in the same voice channel with me!")
+
         if(ytdl.validateURL(musicurl) == false) return msg.channel.send(invalid)
 
         const voiceChannel = msg.member.voice.channel;
@@ -176,13 +178,13 @@ bot.on("message", async msg => {
         };
 
         var minute = parseInt(song.duration / 60); 
-        var seconds = song.duration % 60;
+        var second = song.duration % 60;
 
         const playing = new Discord.MessageEmbed()
             .setColor('#505050')
             .setTitle('Playing music!')
             .setDescription(`Playing **${song.title}** now! :notes:`)
-            .setFooter(`Song duration: ${minute} minute(s) ${seconds} second(s)`)
+            .setFooter(`Song duration: ${minute} minutes ${second} seconds`)
 
         voiceChannel.join().then(connection => {
             const stream = ytdl(musicurl, { filter: 'audioonly' });
