@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 module.exports = {
-	name: 'disconnect',
-	description: 'disconnect command',
+	name: 'userinfo',
+	description: 'userinfo command',
 	execute(msg, args) {
         const user = msg.mentions.members.first()
         const arguments = msg.content.split(' ').slice(1); 
