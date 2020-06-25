@@ -162,7 +162,7 @@ bot.on("message", async msg => {
 
         if(!musicurl) return msg.channel.send(nosong)
 
-        if(msg.guild.me.voice.channel != msg.member.voice.channel) return msg.reply("You are not in the same voice channel with me!")
+        if(msg.guild.me.voice.channel != msg.member.voice.channel && msg.guild.me.voice.channel) return msg.reply("You are not in the same voice channel with me!")
 
         if(ytdl.validateURL(musicurl) == false) return msg.channel.send(invalid)
 
