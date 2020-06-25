@@ -149,11 +149,6 @@ bot.on("message", async msg => {
             .setTitle('Youtube command')
             .setDescription('Usage: &youtube [youtube link]')
 
-        const playing = new Discord.MessageEmbed()
-            .setColor('#505050')
-            .setTitle('Playing music now!')
-            .setDescription('Now listen to the music! :notes:')
-
         const novc = new Discord.MessageEmbed()
             .setColor('#505050')
             .setTitle('Join a voice channel first!')
@@ -164,6 +159,17 @@ bot.on("message", async msg => {
         const voiceChannel = msg.member.voice.channel;
 
         if (!voiceChannel) return msg.channel.send(novc);
+
+        const songInfo = await ytdl.getInfo(musicurl);
+        const song = {
+          title: songInfo.title,
+          url: songInfo.video_url
+        };
+
+        const playing = new Discord.MessageEmbed()
+        .setColor('#505050')
+        .setTitle('Playing music!')
+        .setDescription(`Playing ${song.title}! :notes:`)
 
         voiceChannel.join().then(connection => {
             const stream = ytdl(musicurl, { filter: 'audioonly' });
