@@ -9,6 +9,8 @@ module.exports = {
             const args1 = msg.content.split(' ').slice(1); 
             const musicurl = args1.join(' '); 
 
+
+
             const nosong = new Discord.MessageEmbed()
                 .setColor('#505050')
                 .setTitle('Youtube command')
@@ -35,15 +37,25 @@ module.exports = {
 
             if (!voiceChannel) return msg.channel.send(novc);
 
-            voiceChannel.join().then(connection => {
-                const stream = ytdl(musicurl, { filter: 'audioonly' });
-                const dispatcher = connection.play(stream);
-                msg.channel.send(playing)
-
-                dispatcher.on('finish', () => 
-                voiceChannel.leave()
-                );
-            })
-            .catch(() => console.log(error));
+            var url = (musicurl).val();
+                if (url != undefined || url != '') {
+                    var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\?v=)([^#\&\?]*).*/;
+                    var match = url.match(regExp);
+                    if (match && match[2].length == 11) {
+                        voiceChannel.join().then(connection => {
+                            const stream = ytdl(musicurl, { filter: 'audioonly' });
+                            const dispatcher = connection.play(stream);
+                            msg.channel.send(playing)
+            
+                            dispatcher.on('finish', () => 
+                            voiceChannel.leave()
+                            );
+                        })
+                        .catch(() => console.log(error));
+                    }
+                    else {
+                        return msg.reply("That is not a youtube link.")
+                    }
+                }
     },
 };
