@@ -136,6 +136,50 @@ bot.on("message", async msg => {
         if(memberid && !user && !msg.guild.member(memberid) ) return msg.channel.send(":x: No results found.")
 
     }
+
+    if(msg.content.startsWith("play")) {
+        if (msg.channel.type !== 'text') return;
+
+        const args1 = msg.content.split(' ').slice(1); 
+        const musicurl = args1.join(' '); 
+
+        const nosong = new Discord.MessageEmbed()
+            .setColor('#505050')
+            .setTitle('Youtube command')
+            .setDescription('Usage: &youtube [youtube link]')
+
+        const playing = new Discord.MessageEmbed()
+            .setColor('#505050')
+            .setTitle('Playing music now!')
+            .setDescription('Now listen to the music! :notes:')
+
+        const novc = new Discord.MessageEmbed()
+            .setColor('#505050')
+            .setTitle('Join a voice channel first!')
+            .setDescription('You have to join a music channel before playing music.')
+
+        const end = new Discord.MessageEmbed()
+            .setColor('#505050')
+            .setTitle('Music ended!')
+            .setDescription('Now play your next music!')
+
+        if(!musicurl) return msg.channel.send(nosong)
+
+        const voiceChannel = msg.member.voice.channel;
+
+        if (!voiceChannel) return msg.channel.send(novc);
+
+        voiceChannel.join().then(connection => {
+            const stream = ytdl(musicurl, { filter: 'audioonly' });
+            const dispatcher = connection.play(stream);
+            msg.channel.send(playing)
+
+            dispatcher.on('finish', () => 
+            voiceChannel.leave()
+            );
+        })
+        .catch(() => console.log(error));         
+    }
 })
 
 bot.login("NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU");
