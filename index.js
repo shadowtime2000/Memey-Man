@@ -137,7 +137,7 @@ bot.on("message", async msg => {
 
     }
 
-    if(msg.content.startsWith("play")) {
+    if(command.startsWith("play")) {
         if (msg.channel.type !== 'text') return;
 
         const args1 = msg.content.split(' ').slice(1); 
