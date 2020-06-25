@@ -9,13 +9,6 @@ module.exports = {
             const args1 = msg.content.split(' ').slice(1); 
             const musicurl = args1.join(' '); 
 
-            ytdl.getInfo(musicurl,{downloadURL: true},
-                function(err, info) {
-                    if (err) throw err;
-                    const songTitle = info.title              
-                }
-            );
-
             const nosong = new Discord.MessageEmbed()
                 .setColor('#505050')
                 .setTitle('Youtube command')
@@ -23,8 +16,8 @@ module.exports = {
 
             const playing = new Discord.MessageEmbed()
                 .setColor('#505050')
-                .setTitle('Playing music!')
-                .setDescription(`Playing ` + songTitle + ` now! :notes:`)
+                .setTitle('Playing music now!')
+                .setDescription('Now listen to the music! :notes:')
 
             const novc = new Discord.MessageEmbed()
                 .setColor('#505050')
@@ -41,6 +34,8 @@ module.exports = {
             const voiceChannel = msg.member.voice.channel;
 
             if (!voiceChannel) return msg.channel.send(novc);
+
+            
 
             voiceChannel.join().then(connection => {
                 const stream = ytdl(musicurl, { filter: 'audioonly' });
