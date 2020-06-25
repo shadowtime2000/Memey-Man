@@ -9,7 +9,7 @@ module.exports = {
             const args1 = msg.content.split(' ').slice(1); 
             const musicurl = args1.join(' '); 
 
-            getInfo('https://www.youtube.com/watch?v=YQHsXMglC9A', function(err, info) {
+            getInfo(musicurl, function(err, info) {
                 const title = info.title
             });
 
