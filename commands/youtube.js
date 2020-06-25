@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
 const ytdl = require('ytdl-core');
 module.exports = {
-	name: 'youtube',
-	description: 'youtube command',
+	name: 'play',
+	description: 'play command',
 	execute(msg, args) {
             if (msg.channel.type !== 'text') return;
 
