@@ -191,7 +191,7 @@ bot.on("message", async msg => {
                 duration: songInfo.length_seconds
             };
 
-            if(!song.title) return msg.channel.send(":x: No results found.")
+            if(ytdl.validateURL(result.url) == false) return msg.channel.send(":x: No results found.")
 
             var minute = parseInt(song.duration / 60); 
             var second = song.duration % 60;
