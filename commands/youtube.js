@@ -9,7 +9,7 @@ module.exports = {
             const args1 = msg.content.split(' ').slice(1); 
             const musicurl = args1.join(' '); 
 
-            ytdl(youtube_url)
+            ytdl(musicurl)
             .on('info', (info) => {
                 const title = info.title
             });
