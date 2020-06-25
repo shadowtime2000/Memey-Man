@@ -202,10 +202,18 @@ bot.on("message", async msg => {
                 .setDescription(`Playing **${song.title}** now! :notes:`)
                 .setFooter(`Song duration: ${minute} minutes ${second} seconds`)
 
+            console.log(result)
+            console.log(song.title)
+            console.log(result.url)
+
+
             voiceChannel.join().then(connection => {
                 const stream = ytdl(result.url, { filter: 'audioonly' });
                 const dispatcher = connection.play(stream);
                 msg.channel.send(playing)
+                console.log(result)
+                console.log(song.title)
+                console.log(result.url)
     
                 dispatcher.on('finish', () => 
                 voiceChannel.leave()
