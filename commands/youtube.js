@@ -24,6 +24,11 @@ module.exports = {
                 .setTitle('Join a voice channel first!')
                 .setDescription('You have to join a music channel before playing music.')
 
+            const end = new Discord.MessageEmbed()
+                .setColor('#505050')
+                .setTitle('Music ended!')
+                .setDescription('Now play your next music!')
+
             if(!musicurl) return msg.channel.send(nosong)
 
             const voiceChannel = msg.member.voice.channel;
@@ -35,7 +40,10 @@ module.exports = {
                 const dispatcher = connection.play(stream);
                 msg.channel.send(playing)
 
-                dispatcher.on('finish', () => voiceChannel.leave());
+                dispatcher.on('finish', () => 
+                voiceChannel.leave()
+                .then(() => msg.channel.send(end))
+                );
             })
             .catch(() => console.log(error));
     },
