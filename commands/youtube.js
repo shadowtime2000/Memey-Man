@@ -37,25 +37,24 @@ module.exports = {
 
             if (!voiceChannel) return msg.channel.send(novc);
 
-            var url = (musicurl).val();
-                if (url != undefined || url != '') {
-                    var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\?v=)([^#\&\?]*).*/;
-                    var match = url.match(regExp);
-                    if (match && match[2].length == 11) {
-                        voiceChannel.join().then(connection => {
-                            const stream = ytdl(musicurl, { filter: 'audioonly' });
-                            const dispatcher = connection.play(stream);
-                            msg.channel.send(playing)
-            
-                            dispatcher.on('finish', () => 
-                            voiceChannel.leave()
-                            );
-                        })
-                        .catch(() => console.log(error));
-                    }
-                    else {
-                        return msg.reply("That is not a youtube link.")
-                    }
+            if (musicurl != undefined || musicurl != '') {
+                var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\?v=)([^#\&\?]*).*/;
+                var match = musicurl.match(regExp);
+                if (match && match[2].length == 11) {
+                    voiceChannel.join().then(connection => {
+                        const stream = ytdl(musicurl, { filter: 'audioonly' });
+                        const dispatcher = connection.play(stream);
+                        msg.channel.send(playing)
+        
+                        dispatcher.on('finish', () => 
+                        voiceChannel.leave()
+                        );
+                    })
+                    .catch(() => console.log(error));
                 }
+                else {
+                    return msg.reply("That is not a youtube link.")
+                }
+            }
     },
 };
