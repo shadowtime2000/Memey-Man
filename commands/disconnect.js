@@ -3,10 +3,10 @@ module.exports = {
 	name: 'disconnect',
 	description: 'disconnect command',
 	execute(msg, args) {
-        if(!msg.author.voiceChannel) return msg.reply("You are not in a voice channel!")
-        if(!msg.guild.me.voiceChannel) return msg.reply("I'm not in a voice channel!")
-        if(msg.guild.me.voiceChannel == msg.author.voiceChannel){
-            msg.guild.me.voiceChannel.leave(); 
+        if(!msg.member.voice.channel) return msg.reply("You are not in a voice channel!")
+        if(!msg.guild.me.voice.channel) return msg.reply("I'm not in a voice channel!")
+        if(msg.guild.me.voice.channel == msg.member.voice.channel){
+            msg.guild.me.voice.channel.leave(); 
         } else {
             msg.reply("You are not in the same voice channel with me!")
         }
