@@ -9,10 +9,12 @@ module.exports = {
             const args1 = msg.content.split(' ').slice(1); 
             const musicurl = args1.join(' '); 
 
-            ytdl(musicurl)
-            .on('info', (info) => {
-                const title = info.title
-            });
+            ytdl.getInfo(musicurl,{downloadURL: true},
+                function(err, info) {
+                    if (err) throw err;
+                    var songTitle = info.title              
+                }
+            );
 
             const nosong = new Discord.MessageEmbed()
                 .setColor('#505050')
@@ -22,7 +24,7 @@ module.exports = {
             const playing = new Discord.MessageEmbed()
                 .setColor('#505050')
                 .setTitle('Playing music!')
-                .setDescription(`Playing ``${title}`` now! :notes:`)
+                .setDescription(`Playing ``${songTitle}`` now! :notes:`)
 
             const novc = new Discord.MessageEmbed()
                 .setColor('#505050')
