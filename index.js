@@ -146,8 +146,8 @@ bot.on("message", async msg => {
 
         const nosong = new Discord.MessageEmbed()
             .setColor('#505050')
-            .setTitle('Youtube command')
-            .setDescription('Usage: &youtube [youtube link]')
+            .setTitle('Play command')
+            .setDescription('Usage: &play [YouTube link]')
 
         const novc = new Discord.MessageEmbed()
             .setColor('#505050')
@@ -155,6 +155,8 @@ bot.on("message", async msg => {
             .setDescription('You have to join a music channel before playing music.')
 
         if(!musicurl) return msg.channel.send(nosong)
+
+        if(ytdl.validateURL(musicurl) == false) return msg.reply("That is not a valid YouTube link.")
 
         const voiceChannel = msg.member.voice.channel;
 
