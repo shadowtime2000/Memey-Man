@@ -169,7 +169,7 @@ bot.on("message", async msg => {
         const playing = new Discord.MessageEmbed()
         .setColor('#505050')
         .setTitle('Playing music!')
-        .setDescription(`Playing ${song.title}! :notes:`)
+        .setDescription(`Playing ``${song.title}`` now! :notes:`)
 
         voiceChannel.join().then(connection => {
             const stream = ytdl(musicurl, { filter: 'audioonly' });
