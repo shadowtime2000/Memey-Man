@@ -42,7 +42,6 @@ module.exports = {
 
                 dispatcher.on('finish', () => 
                 voiceChannel.leave()
-                .then(() => msg.channel.send(end))
                 );
             })
             .catch(() => console.log(error));
