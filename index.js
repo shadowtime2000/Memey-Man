@@ -112,6 +112,21 @@ bot.on("message", async msg => {
         msg.channel.send(attachment)
     }
 
+    if(command == "ussr") {
+        const canvas = Canvas.createCanvas(855, 481);
+        const ctx = canvas.getContext('2d');
+
+        const background = await Canvas.loadImage('./images/ussr.jpg');
+        ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+
+        const avatar = await Canvas.loadImage(bot.users.cache.get(msg.author.id).displayAvatarURL({ format: 'png' }));
+        ctx.drawImage(avatar, 300, 600, 100, 100);
+
+        const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'pogchamp.jpg');
+
+        msg.channel.send(attachment)
+    }
+
     if(command.startsWith('avatar')) {
         var user = msg.mentions.members.first()
         const arguments = msg.content.split(' ').slice(1); 
