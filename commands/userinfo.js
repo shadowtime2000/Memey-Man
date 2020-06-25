@@ -19,7 +19,7 @@ module.exports = {
                 .setColor(`#E0FFFF`)
                 .setTitle(`User info`)
                 .addFields(
-                    { name: 'User username', value: user.username },
+                    { name: 'User username', value: user.userName },
                     { name: 'User nickname', value: user.displayName },
                     { name: 'Account created at', value: user.createdAt },
                     { name: 'Joined server at', value: user.joinedAt },
