@@ -152,7 +152,7 @@ bot.on("message", async msg => {
         const novc = new Discord.MessageEmbed()
             .setColor('#505050')
             .setTitle('Join a voice channel first!')
-            .setDescription('You have to join a music channel before playing music.')
+            .setDescription('You have to join a voice channel before playing music.')
 
         const invalid = new Discord.MessageEmbed()
             .setColor('#505050')
