@@ -194,8 +194,7 @@ bot.on("message", async msg => {
             dispatcher.on('finish', () => 
             voiceChannel.leave()
             );
-        })
-        .catch(() => console.log(error));         
+        })        
     }
 })
 
