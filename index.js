@@ -210,6 +210,7 @@ bot.on("message", async msg => {
                 dispatcher.on('finish', () => 
                 voiceChannel.leave()
                 );
+                process.on('unhandledRejection', error => msg.channel.send(":x: No results found. This might be an error."));
             })  
         }
         
