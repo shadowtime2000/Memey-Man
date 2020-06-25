@@ -37,6 +37,12 @@ bot.on("message", async msg => {
         }
     }
 
+    //Additional command handler start
+	if (command === 'dc') {
+        bot.commands.get('disconnect').execute(msg, args);
+    }
+    //Additional command handler end
+
     if(command == "ping") {
         const m = await msg.channel.send("Pong:");
         m.edit(`Pong: ${m.createdTimestamp - msg.createdTimestamp}ms`);
