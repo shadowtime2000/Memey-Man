@@ -17,7 +17,7 @@ module.exports = {
         if(user) {
             const userinfoEmbed = new Discord.MessageEmbed()            
                 .setColor(`#E0FFFF`)
-                .setAuthor(bot.users.cache.get(user.id).tag, bot.users.cache.get(user.id).displayAvatarURL({ format: 'png' }))
+                .setTitle(`User info`)
                 .addFields(
                     { name: 'User username', value: user.username },
                     { name: 'User nickname', value: user.displayName },
@@ -31,12 +31,13 @@ module.exports = {
         if(memberid && !user && msg.guild.member(memberid)) {
             const idinfoEmbed = new Discord.MessageEmbed() 
                 .setColor(`#E0FFFF`)
-                .setAuthor(bot.users.cache.get(memberid).tag, bot.users.cache.get(memberid).displayAvatarURL({ format: 'png' }))
+                .setTitle(`User info`)
                 .addFields(
-                    { name: 'Server name', value: msg.guild.name },
-                    { name: 'Member count', value: msg.guild.memberCount },
-                    { name: 'Server owner', value: msg.guild.owner },
-                    { name: 'Server ID', value: msg.guild.id }
+                    { name: 'User username', value: user.username },
+                    { name: 'User nickname', value: user.displayName },
+                    { name: 'Account created at', value: user.createdAt },
+                    { name: 'Joined server at', value: user.joinedAt },
+                    { name: 'User ID', value: user.id }
                 )
                 .setTimestamp()
             msg.channel.send(idavatarEmbed);
