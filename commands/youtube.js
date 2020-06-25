@@ -9,7 +9,9 @@ module.exports = {
             const args1 = msg.content.split(' ').slice(1); 
             const musicurl = args1.join(' '); 
 
-
+            getInfo('https://www.youtube.com/watch?v=YQHsXMglC9A', function(err, info) {
+                const title = info.title
+            });
 
             const nosong = new Discord.MessageEmbed()
                 .setColor('#505050')
@@ -18,8 +20,8 @@ module.exports = {
 
             const playing = new Discord.MessageEmbed()
                 .setColor('#505050')
-                .setTitle('Playing music now!')
-                .setDescription('Now listen to the music! :notes:')
+                .setTitle('Playing music!')
+                .setDescription(`Playing ``${title}`` now! :notes:`)
 
             const novc = new Discord.MessageEmbed()
                 .setColor('#505050')
@@ -37,24 +39,15 @@ module.exports = {
 
             if (!voiceChannel) return msg.channel.send(novc);
 
-            if (musicurl != undefined || musicurl != '') {
-                var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\?v=)([^#\&\?]*).*/;
-                var match = musicurl.match(regExp);
-                if (match && match[2].length == 11) {
-                    voiceChannel.join().then(connection => {
-                        const stream = ytdl(musicurl, { filter: 'audioonly' });
-                        const dispatcher = connection.play(stream);
-                        msg.channel.send(playing)
-        
-                        dispatcher.on('finish', () => 
-                        voiceChannel.leave()
-                        );
-                    })
-                    .catch(() => console.log(error));
-                }
-                else {
-                    return msg.reply("That is not a youtube link.")
-                }
-            }
+            voiceChannel.join().then(connection => {
+                const stream = ytdl(musicurl, { filter: 'audioonly' });
+                const dispatcher = connection.play(stream);
+                msg.channel.send(playing)
+
+                dispatcher.on('finish', () => 
+                voiceChannel.leave()
+                );
+            })
+            .catch(() => console.log(error));         
     },
 };
