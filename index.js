@@ -102,7 +102,7 @@ bot.on("message", async msg => {
         msg.channel.send(attachment)
     }
 
-    if(command.args[0] == "avatar" || command.args[0] == "av") {
+    if(command.startsWith('avatar')) {
         var user = msg.mentions.members.first()
         const arguments = msg.content.split(' ').slice(1); 
         const memberid = arguments.join(' '); 
