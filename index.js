@@ -175,11 +175,14 @@ bot.on("message", async msg => {
           duration: songInfo.length_seconds
         };
 
+        var minute = parseInt(song.duration / 60); 
+        var seconds = song.duration % 60;
+
         const playing = new Discord.MessageEmbed()
             .setColor('#505050')
             .setTitle('Playing music!')
             .setDescription(`Playing **${song.title}** now! :notes:`)
-            .setFooter(`Song duration: ${song.duration}`)
+            .setFooter(`Song duration: ${minute} minute(s) ${seconds} second(s)`)
 
         voiceChannel.join().then(connection => {
             const stream = ytdl(musicurl, { filter: 'audioonly' });
