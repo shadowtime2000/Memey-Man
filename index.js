@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const Canvas = require('canvas');
+const ytdl = require('ytdl-core');
 const fs = require('fs');
 
 const bot = new Discord.Client();
@@ -157,11 +158,6 @@ bot.on("message", async msg => {
             .setColor('#505050')
             .setTitle('Join a voice channel first!')
             .setDescription('You have to join a music channel before playing music.')
-
-        const end = new Discord.MessageEmbed()
-            .setColor('#505050')
-            .setTitle('Music ended!')
-            .setDescription('Now play your next music!')
 
         if(!musicurl) return msg.channel.send(nosong)
 
