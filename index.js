@@ -7,6 +7,8 @@ const fs = require('fs');
 const bot = new Discord.Client();
 bot.commands = new Discord.Collection();
 
+const queue = new Map();
+
 const youtube = new YouTube("AIzaSyDTOmYVyZvnv7gSXM2TiHVH6FCSC9uqFCw");
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
@@ -156,104 +158,199 @@ bot.on("message", async msg => {
 
     }
 
-    if(command.startsWith("play")) {
-        if (msg.channel.type !== 'text') return;
+    // if(command.startsWith("play")) {
+    //     if (msg.channel.type !== 'text') return;
 
-        const voiceChannel = msg.member.voice.channel;
+    //     const voiceChannel = msg.member.voice.channel;
 
-        const args1 = msg.content.split(' ').slice(1); 
-        const musicurl = args1.join(' '); 
+    //     const args1 = msg.content.split(' ').slice(1); 
+    //     const musicurl = args1.join(' '); 
 
-        const nosong = new Discord.MessageEmbed()
-            .setColor('#505050')
-            .setTitle('Play command')
-            .setDescription('Usage: &play [YouTube link or keyword]')
+    //     const nosong = new Discord.MessageEmbed()
+    //         .setColor('#505050')
+    //         .setTitle('Play command')
+    //         .setDescription('Usage: &play [YouTube link or keyword]')
 
-        const novc = new Discord.MessageEmbed()
-            .setColor('#505050')
-            .setTitle('Join a voice channel first!')
-            .setDescription('You have to join a voice channel before playing music.')
+    //     const novc = new Discord.MessageEmbed()
+    //         .setColor('#505050')
+    //         .setTitle('Join a voice channel first!')
+    //         .setDescription('You have to join a voice channel before playing music.')
 
-        if(!musicurl) return msg.channel.send(nosong)
+    //     if(!musicurl) return msg.channel.send(nosong)
 
-        if(msg.guild.me.voice.channel != msg.member.voice.channel && msg.guild.me.voice.channel) return msg.reply("You are not in the same voice channel with me!")
+    //     if(msg.guild.me.voice.channel != msg.member.voice.channel && msg.guild.me.voice.channel) return msg.reply("You are not in the same voice channel with me!")
 
-        if(ytdl.validateURL(musicurl) == false) {
+    //     if(ytdl.validateURL(musicurl) == false) {
 
-            const music = encodeURI(musicurl);
+    //         const music = encodeURI(musicurl);
 
-            let result
+    //         let result
 
-            try {
-                result = await youtube.searchVideos(music);
-            } catch (error) {
-                msg.channel.send(`:x: No results found. This might be an error.`)
-                console.log(error)
-            }
+    //         try {
+    //             result = await youtube.searchVideos(music);
+    //         } catch (error) {
+    //             msg.channel.send(`:x: No results found. This might be an error.`)
+    //             console.log(error)
+    //         }
 
-            const songInfo = await ytdl.getInfo(result.url);
-            const song = {
-                title: songInfo.title,
-                url: songInfo.video_url,
-                duration: songInfo.length_seconds
-            }; 
+    //         const songInfo = await ytdl.getInfo(result.url);
+    //         const song = {
+    //             title: songInfo.title,
+    //             url: songInfo.video_url,
+    //             duration: songInfo.length_seconds
+    //         }; 
 
-            if(!result) return msg.channel.send(":x: No results found.")
+    //         if(!result) return msg.channel.send(":x: No results found.")
 
-            var minute = parseInt(song.duration / 60); 
-            var second = song.duration % 60;
+    //         var minute = parseInt(song.duration / 60); 
+    //         var second = song.duration % 60;
 
-            const playing = new Discord.MessageEmbed()
-                .setColor('#505050')
-                .setTitle('Playing music!')
-                .setDescription(`Playing **${song.title}** now! :notes:`)
-                .setFooter(`Song duration: ${minute} minutes ${second} seconds`)
+    //         const playing = new Discord.MessageEmbed()
+    //             .setColor('#505050')
+    //             .setTitle('Playing music!')
+    //             .setDescription(`Playing **${song.title}** now! :notes:`)
+    //             .setFooter(`Song duration: ${minute} minutes ${second} seconds`)
 
-            voiceChannel.join().then(connection => {
-                const stream = ytdl(result.url, { filter: 'audioonly' });
-                const dispatcher = connection.play(stream);
-                msg.channel.send(playing)
-                console.log(result)
-                console.log(song.title)
-                console.log(result.url)
+    //         voiceChannel.join().then(connection => {
+    //             const stream = ytdl(result.url, { filter: 'audioonly' });
+    //             const dispatcher = connection.play(stream);
+    //             msg.channel.send(playing)
+    //             console.log(result)
+    //             console.log(song.title)
+    //             console.log(result.url)
     
-                dispatcher.on('finish', () => 
-                voiceChannel.leave()
-                );
-            })  
+    //             dispatcher.on('finish', () => 
+    //             voiceChannel.leave()
+    //             );
+    //         })  
             
-        }
+    //     }
         
-        else {
+    //     else {
 
-            if (!voiceChannel) return msg.channel.send(novc);
+    //         if (!voiceChannel) return msg.channel.send(novc);
 
-            const songInfo = await ytdl.getInfo(musicurl);
-            const song = {
-            title: songInfo.title,
-            url: songInfo.video_url,
-            duration: songInfo.length_seconds
-            };
+    //         const songInfo = await ytdl.getInfo(musicurl);
+    //         const song = {
+    //         title: songInfo.title,
+    //         url: songInfo.video_url,
+    //         duration: songInfo.length_seconds
+    //         };
 
-            var minute = parseInt(song.duration / 60); 
-            var second = song.duration % 60;
+    //         var minute = parseInt(song.duration / 60); 
+    //         var second = song.duration % 60;
 
-            const playing = new Discord.MessageEmbed()
-                .setColor('#505050')
-                .setTitle('Playing music!')
-                .setDescription(`Playing **${song.title}** now! :notes:`)
-                .setFooter(`Song duration: ${minute} minutes ${second} seconds`)
+    //         const playing = new Discord.MessageEmbed()
+    //             .setColor('#505050')
+    //             .setTitle('Playing music!')
+    //             .setDescription(`Playing **${song.title}** now! :notes:`)
+    //             .setFooter(`Song duration: ${minute} minutes ${second} seconds`)
 
-            voiceChannel.join().then(connection => {
-                const stream = ytdl(musicurl, { filter: 'audioonly' });
-                const dispatcher = connection.play(stream);
-                msg.channel.send(playing)
+    //         voiceChannel.join().then(connection => {
+    //             const stream = ytdl(musicurl, { filter: 'audioonly' });
+    //             const dispatcher = connection.play(stream);
+    //             msg.channel.send(playing)
 
-                dispatcher.on('finish', () => 
-                voiceChannel.leave()
-                );
-        })        
-    }}
+    //             dispatcher.on('finish', () => 
+    //             voiceChannel.leave()
+    //             );
+    //     })        
+    // }}
+  
+    const serverQueue = queue.get(msg.guild.id);
+  
+    if (msg.content.startsWith(`${prefix}play`)) {
+      execute(msg, serverQueue);
+      return;
+    } else if (msg.content.startsWith(`${prefix}skip`)) {
+      skip(msg, serverQueue);
+      return;
+    } else if (msg.content.startsWith(`${prefix}stop`)) {
+      stop(msg, serverQueue);
+      return;
+    } 
+
+    async function execute(msg, serverQueue) {
+    const args = msg.content.split(" ");
+  
+    const voiceChannel = msg.member.voice.channel;
+    if (!voiceChannel)
+      return msg.channel.send(
+        "You need to be in a voice channel to play music!"
+    );
+  
+    const songInfo = await ytdl.getInfo(args[1]);
+    const song = {
+      title: songInfo.title,
+      url: songInfo.video_url
+    };
+  
+    if (!serverQueue) {
+      const queueContruct = {
+        textChannel: msg.channel,
+        voiceChannel: voiceChannel,
+        connection: null,
+        songs: [],
+        volume: 5,
+        playing: true
+      };
+  
+      queue.set(msg.guild.id, queueContruct);
+  
+      queueContruct.songs.push(song);
+  
+    try {
+        var connection = await voiceChannel.join();
+        queueContruct.connection = connection;
+        play(msg.guild, queueContruct.songs[0]);
+        } catch (err) {
+            console.log(err);
+            queue.delete(msg.guild.id);
+            return msg.channel.send(err);
+        }
+        } else {
+        serverQueue.songs.push(song);
+        return msg.channel.send(`${song.title} has been added to the queue!`);
+        }
+    }
+  
+    function skip(msg, serverQueue) {
+        if (!msg.member.voice.channel)
+        return msg.channel.send(
+            "You have to be in a voice channel to stop the music!"
+        );
+        if (!serverQueue)
+        return msg.channel.send("There is no song that I could skip!");
+        serverQueue.connection.dispatcher.end();
+    }
+  
+    function stop(msg, serverQueue) {
+        if (!msg.member.voice.channel)
+        return msg.channel.send(
+            "You have to be in a voice channel to stop the music!"
+        );
+        serverQueue.songs = [];
+        serverQueue.connection.dispatcher.end();
+    }
+    
+    function play(guild, song) {
+        const serverQueue = queue.get(guild.id);
+        if (!song) {
+        serverQueue.voiceChannel.leave();
+        queue.delete(guild.id);
+        return;
+    }
+  
+    const dispatcher = serverQueue.connection
+      .play(ytdl(song.url))
+      .on("finish", () => {
+        serverQueue.songs.shift();
+        play(guild, serverQueue.songs[0]);
+      })
+      .on("error", error => console.error(error));
+    dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
+    serverQueue.textChannel.send(`Start playing: **${song.title}**`);
+  }
 })
 
 bot.login("NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU");
