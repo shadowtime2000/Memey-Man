@@ -28,7 +28,6 @@ module.exports = {
         msg.channel.messages.fetch({ limit: messageamount }).then(messages => {
             msg.channel.bulkDelete(messages).catch(error => console.log(error.stack));
         });     
-        msg.delete().catch(O_o => { })
-        .then(() => msg.reply(`I can only delete messages created within 14 days!`))
+        msg.reply(`I can only delete messages created within 14 days!`)
 	},
 };
