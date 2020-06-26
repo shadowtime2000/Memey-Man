@@ -260,7 +260,7 @@ bot.on("message", async msg => {
     }
 
     if(command.startsWith("send")){
-        const args1 = msg.content.split(' ').slice(1); 
+        const args1 = msg.content.split(' ').slice(2); 
         const amount = args1.join(' '); 
         let mention = msg.mentions.channels.first();
         mention.send(amount)
