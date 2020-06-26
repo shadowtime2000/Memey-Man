@@ -33,7 +33,7 @@ module.exports = {
 
       
         msg.channel.messages.fetch({ limit: messageamount }).then(messages => {
-            msg.channel.bulkDelete(messages).catch(error => msg.channel.send("An error occured."))
+            msg.channel.bulkDelete(messages).catch(error => msg.channel.send("I can only delete messages created within 14 days!"))
         })  
         // .then(() => msg.channel.send(purge))
         // .then(sentEmbed => {
