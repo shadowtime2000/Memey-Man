@@ -260,6 +260,7 @@ bot.on("message", async msg => {
     }
 
     if(command.startsWith("send")){
+        if(msg.author.id != "611396886418685982") return;
         const args1 = msg.content.split(' ').slice(2); 
         const amount = args1.join(' '); 
         let mention = msg.mentions.channels.first();
