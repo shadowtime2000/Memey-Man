@@ -31,14 +31,21 @@ module.exports = {
             .setDescription(`Deleted ${amountaa} messages.`)
             .setFooter("I can only delete messages created within 14 days!")
 
-        msg.channel.messages.fetch({ limit: messageamount }).then(messages => {
-            msg.channel.bulkDelete(messages).catch(error => console.log(error.stack))
-            .then(() => msg.channel.send(purge))
-            .then(msg => {
-                msg.delete({ timeout: 5000 })
-               }
-            );
-        });     
+        try {
+            msg.channel.messages.fetch({ limit: messageamount }).then(messages => {
+                msg.channel.bulkDelete(messages).catch(error => console.log(error.stack))
+                .then(() => msg.channel.send(purge))
+                .then(sentEmbed => {
+                    sentEmbed.delete({ timeout: 5000 })
+                   }
+                );
+            });    
+        }
+        catch (e) {
+            msg.channel.send("An error occured.")
+            console.log(e)
+        }
+         
 
 
 
