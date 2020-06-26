@@ -10,10 +10,8 @@ module.exports = {
         var value = 0
         if (!msg.member.hasPermission("MANAGE_MESSAGES")) return;
         while(value < messaageamount) {
-            msg.channel.fetchMessages({ limit: 1 })
-                .then(function(list){
-                    msg.channel.bulkDelete(list);
-                }, function(err){message.channel.send("ERROR")})   
+            msg.channel.messages.fetch({ limit: 1 })
+                .then(messages.delete())   
             value++                     
         }       
     },
