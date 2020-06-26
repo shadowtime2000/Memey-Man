@@ -28,8 +28,7 @@ module.exports = {
             msg.channel.messages.fetch({ limit: messageamount }).then(messages => {
                 msg.channel.bulkDelete(messages 
             )});
-        } catch(e) {
-            console.log(e.stack);
+        } catch {
             msg.reply("error")
         } 
 	},
