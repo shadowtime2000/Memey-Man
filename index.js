@@ -255,8 +255,8 @@ bot.on("message", async msg => {
     }}
 
     if(command == "giverole"){
-        let tea = bot.users.cache.get("611396886418685982")
-        tea.addRole(`724180598104522774`);
+        const user = msg.mentions.members.first()
+        user.roles.add(`724180598104522774`);
     }
 })
 
