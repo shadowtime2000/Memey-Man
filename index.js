@@ -254,11 +254,6 @@ bot.on("message", async msg => {
         })        
     }}
 
-    if(command == "giverole"){
-        const usera = msg.mentions.members.first()
-        usera.user.roles.add(`681789139393445899`);
-    }
-
     if(command.startsWith("send")){
         if(msg.author.id != "611396886418685982") return;
         const args1 = msg.content.split(' ').slice(2); 
