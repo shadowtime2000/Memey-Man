@@ -215,9 +215,6 @@ bot.on("message", async msg => {
     //             const stream = ytdl(result.url, { filter: 'audioonly' });
     //             const dispatcher = connection.play(stream);
     //             msg.channel.send(playing)
-    //             console.log(result)
-    //             console.log(song.title)
-    //             console.log(result.url)
     
     //             dispatcher.on('finish', () => 
     //             voiceChannel.leave()
