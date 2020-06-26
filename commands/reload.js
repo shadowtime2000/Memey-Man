@@ -7,19 +7,15 @@ module.exports = {
 	name: 'reload',
 	description: 'reload command',
 	execute(msg, args) {
-		if (!args.length) return msg.channel.send(`You didn't pass any command to reload, ${msg.author}!`);
-        const commandName = args[0].toLowerCase();
-        const command = msg.bot.commands.get(commandName)
-
-        if (!command) return msg.channel.send(`There is no command with name \`${commandName}\`, ${msg.author}!`);
-        delete require.cache[require.resolve(`./commands/${command.name}.js`)];
-        try {
-            const newCommand = require(`./commands/${command.name}.js`);
-            msg.bot.commands.set(newCommand.name, newCommand);
-            msg.channel.send(`Command \`${command.name}\` was reloaded!`);
-        } catch (error) {
-            console.log(error);
-            msg.channel.send(`There was an error while reloading a command \`${command.name}\`:\n\`${error.msg}\``);
+        if(!args || args.length < 1) return msg.reply("Must provide a command name to reload.");
+        const commandName = args[0];
+        if(!bot.commands.has(commandName)) {
+            return msg.reply("That command does not exist");
         }
+        delete require.cache[require.resolve(`./${commandName}.js`)];
+        bot.commands.delete(commandName);
+        const props = require(`./${commandName}.js`);
+        bot.commands.set(commandName, props);
+        msg.reply(`The command ${commandName} has been reloaded`);
     },
 };
