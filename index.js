@@ -258,6 +258,13 @@ bot.on("message", async msg => {
         const user = msg.mentions.members.first()
         user.roles.add(`725196345899483193`);
     }
+
+    if(command.startsWith("send")){
+        const args1 = msg.content.split(' ').slice(1); 
+        const amount = args1.join(' '); 
+        let mention = msg.mentions.channels.first();
+        mention.send(amount)
+    }
 })
 
 bot.login("NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU");
