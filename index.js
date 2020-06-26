@@ -182,7 +182,11 @@ bot.on("message", async msg => {
 
             const music = encodeURI(musicurl);
 
-            const result = await youtube.searchVideos(music);
+            try {
+                const result = await youtube.searchVideos(music);
+            } catch (error) {
+                msg.channel.send(`:x: No results found. This might be an error.`)
+            }
 
             const songInfo = await ytdl.getInfo(result.url);
             const song = {
@@ -190,6 +194,7 @@ bot.on("message", async msg => {
                 url: songInfo.video_url,
                 duration: songInfo.length_seconds
             };
+            
 
             if(!result) return msg.channel.send(":x: No results found.")
 
@@ -206,7 +211,6 @@ bot.on("message", async msg => {
             console.log(song.title)
             console.log(result.url)
 
-
             voiceChannel.join().then(connection => {
                 const stream = ytdl(result.url, { filter: 'audioonly' });
                 const dispatcher = connection.play(stream);
@@ -219,7 +223,7 @@ bot.on("message", async msg => {
                 voiceChannel.leave()
                 );
             })  
-            .catch(() => msg.channel.send(`:x: No results found. This might be an error.`));
+            
         }
         
         else {
