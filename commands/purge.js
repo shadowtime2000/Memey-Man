@@ -24,10 +24,17 @@ module.exports = {
         if (amount > 99) return msg.reply("Too many messages to purge! Give me a smaller number."); 
         if (amount < 1) return msg.reply("You can't purge less than 1 message! Give me a bigger number."); 
         
-        
+        const purge = new Discord.MessageEmbed()
+            .setColor('#FF0000')
+            .setTitle('Successfully deleted messages')
+            .setDescription(`Deleted ${messageamount}`)
+
         msg.channel.messages.fetch({ limit: messageamount }).then(messages => {
-            msg.channel.bulkDelete(messages).catch(error => console.log(error.stack));
+            msg.channel.bulkDelete(messages).catch(error => console.log(error.stack))
+            .then(() => msg.channel.send(purge))
         });     
-        msg.delete().catch(O_o => { })
+
+
+
 	},
 };
