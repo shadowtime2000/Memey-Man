@@ -29,6 +29,7 @@ module.exports = {
             msg.channel.bulkDelete(messages 
         )});
         process.on('unhandledRejection', error => {
+            console.log(error);
             msg.reply("error")
         });
 	},
