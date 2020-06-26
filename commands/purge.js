@@ -43,7 +43,7 @@ module.exports = {
         }
         catch (e) {
             msg.channel.send("An error occured.")
-            console.log(e)
+            return
         }
          
 
