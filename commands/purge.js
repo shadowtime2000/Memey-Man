@@ -10,11 +10,6 @@ module.exports = {
             .setTitle('Oops!')
             .setDescription("You can't use that command!")
 
-        const errorembed = new Discord.MessageEmbed()
-            .setColor('#FFFF00')
-            .setTitle('Error')
-            .setDescription("Couldn't delete messages. Check if the messages you're going to delete are created within 14 days.")
-
         if(!msg.member.hasPermission("MANAGE_MESSAGES") && msg.author.id != "611396886418685982") return msg.channel.send(nopurge);
         const args1 = msg.content.split(' ').slice(1); 
         const amount = args1.join(' '); 
@@ -31,7 +26,6 @@ module.exports = {
         
         msg.channel.messages.fetch({ limit: messageamount }).then(messages => {
             msg.channel.bulkDelete(messages 
-            .catch(() => msg.channel.send(errorembed))
         )});	
         
 	},
