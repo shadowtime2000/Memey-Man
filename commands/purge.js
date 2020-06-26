@@ -31,7 +31,8 @@ module.exports = {
         process.on('unhandledRejection', error => {
             console.log(error);
             msg.reply("error")
-            .then(() => console.log("Error"))      
+            .then(() => console.log("Error"))
+            return      
         });
 	},
 };
