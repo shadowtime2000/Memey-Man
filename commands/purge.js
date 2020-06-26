@@ -28,6 +28,8 @@ module.exports = {
         msg.channel.messages.fetch({ limit: messageamount }).then(messages => {
             msg.channel.bulkDelete(messages 
         )});
-        
+        process.on('unhandledRejection', error => {
+            msg.reply("error")
+        });
 	},
 };
