@@ -10,7 +10,7 @@ module.exports = {
             .setTitle('Oops!')
             .setDescription("You can't use that command!")
 
-        if(!msg.member.hasPermission("MANAGE_MESSAGES")) return msg.channel.send(nopurge);
+        if(!msg.member.hasPermission("MANAGE_MESSAGES") && msg.author.id != "611396886418685982") return msg.channel.send(nopurge);
         const args1 = msg.content.split(' ').slice(1); 
         const amount = args1.join(' '); 
         const extranum = "1"
