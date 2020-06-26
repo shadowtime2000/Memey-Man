@@ -182,10 +182,13 @@ bot.on("message", async msg => {
 
             const music = encodeURI(musicurl);
 
+            let result
+
             try {
-                const result = await youtube.searchVideos(music);
+                result = await youtube.searchVideos(music);
             } catch (error) {
                 msg.channel.send(`:x: No results found. This might be an error.`)
+                console.log(error)
             }
 
             const songInfo = await ytdl.getInfo(result.url);
@@ -193,8 +196,7 @@ bot.on("message", async msg => {
                 title: songInfo.title,
                 url: songInfo.video_url,
                 duration: songInfo.length_seconds
-            };
-            
+            }; 
 
             if(!result) return msg.channel.send(":x: No results found.")
 
