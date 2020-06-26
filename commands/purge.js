@@ -9,6 +9,7 @@ module.exports = {
             .setColor('#FFFF00')
             .setTitle('Oops!')
             .setDescription("You can't use that command!")
+            .setFooter("I can only delete messages created within 14 days!")
 
         if(!msg.member.hasPermission("MANAGE_MESSAGES")) return msg.channel.send(nopurge);
         const args1 = msg.content.split(' ').slice(1); 
@@ -27,11 +28,16 @@ module.exports = {
         const purge = new Discord.MessageEmbed()
             .setColor('#FF0000')
             .setTitle('Successfully deleted messages')
-            .setDescription(`Deleted ${messageamount}`)
+            .setDescription(`Deleted ${amountaa} messages.`)
+            .setFooter("I can only delete messages created within 14 days!")
 
         msg.channel.messages.fetch({ limit: messageamount }).then(messages => {
             msg.channel.bulkDelete(messages).catch(error => console.log(error.stack))
             .then(() => msg.channel.send(purge))
+            .then(msg => {
+                msg.delete({ timeout: 5000 })
+               }
+            );
         });     
 
 
