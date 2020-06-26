@@ -26,12 +26,8 @@ module.exports = {
         
         
         msg.channel.messages.fetch({ limit: messageamount }).then(messages => {
-            msg.channel.bulkDelete(messages 
-        )});
-        process.on('unhandledRejection', error => {
-            msg.reply("error")
-            .then(() => console.log("Error"))
-            return      
-        });
+            msg.channel.bulkDelete(messages).catch(error => console.log(error.stack));
+        });     
+        msg.delete().catch(O_o => { });
 	},
 };
