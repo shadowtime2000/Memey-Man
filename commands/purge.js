@@ -33,9 +33,8 @@ module.exports = {
 
       
         msg.channel.messages.fetch({ limit: messageamount }).then(messages => {
-            msg.channel.bulkDelete(messages).catch(error => console.log(error.stack))
+            msg.channel.bulkDelete(messages).catch(error => msg.channel.send("An error occured."))
         })  
-        .catch(() => msg.channel.send("An error occured.") )
         // .then(() => msg.channel.send(purge))
         // .then(sentEmbed => {
         //     sentEmbed.delete({ timeout: 5000 })
