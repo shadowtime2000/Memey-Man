@@ -8,7 +8,7 @@ module.exports = {
 	description: 'reload command',
 	execute(msg, args) {
         if(!args || args.length < 1) return msg.reply("Must provide a command name to reload.");
-        const commandName = args[0];
+        const commandName = args[1];
         if(!bot.commands.has(commandName)) {
             return msg.reply("That command does not exist");
         }
