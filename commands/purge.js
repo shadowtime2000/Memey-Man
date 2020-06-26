@@ -24,12 +24,14 @@ module.exports = {
         if (amount > 99) return msg.reply("Too many messages to purge! Give me a smaller number."); 
         if (amount < 1) return msg.reply("You can't purge less than 1 message! Give me a bigger number."); 
         
-        try {
-            msg.channel.messages.fetch({ limit: messageamount }).then(messages => {
-                msg.channel.bulkDelete(messages 
-            )});
-        } catch {
-            msg.reply("error")
-        } 
+        
+        msg.channel.messages.fetch({ limit: messageamount }).then(messages => {
+            msg.channel.bulkDelete(messages 
+                .catch((err) => {
+                    console.error(err);
+                    msg.reply("error")
+                })
+        )});
+        
 	},
 };
