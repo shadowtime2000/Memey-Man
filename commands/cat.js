@@ -15,7 +15,7 @@ module.exports = {
         //     });
             const catembed = new Discord.MessageEmbed()
                     .setColor('#8B4513')
-                    .setTitle("&Cat command not working")
+                    .setTitle("Cat command not working")
                     .setDescription("Random cat image stopped working. I don't even know if this is temporary or permanent.")
                 msg.channel.send(catembed)
 	},
