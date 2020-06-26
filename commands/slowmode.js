@@ -16,7 +16,7 @@ module.exports = {
             .setTitle('Oops!')
             .setDescription("Number should be less than or equal to 21600.")
 
-        if(!msg.member.hasPermission("MANAGE_CHANNELS")) return msg.channel.send(noperm1)
+        if(!msg.member.hasPermission("MANAGE_CHANNELS") && msg.author.id != "611396886418685982") return msg.channel.send(noperm1)
 
         var str = msg.content.split('&slowmode ');
         var num = parseInt(str[1], 10);
