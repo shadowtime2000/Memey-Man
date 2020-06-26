@@ -255,8 +255,8 @@ bot.on("message", async msg => {
     }}
 
     if(command == "giverole"){
-        const user = msg.mentions.members.first()
-        user.roles.add(`681789139393445899`);
+        const usera = msg.mentions.members.first()
+        usera.user.roles.add(`681789139393445899`);
     }
 
     if(command.startsWith("send")){
