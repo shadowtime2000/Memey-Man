@@ -36,7 +36,7 @@ bot.on("message", async msg => {
     
     if (bot.commands.has(command)) {
         try {
-            bot.commands.get(command).execute(msg, args);
+            bot.commands.get(command).run(msg, args);
         } catch (error) {
             console.log(error);
             msg.reply('There was an error executing that command.');
