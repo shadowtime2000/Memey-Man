@@ -5,7 +5,7 @@ module.exports.run = async (msg, args) => {
     m.edit(`Pong: ${m.createdTimestamp - msg.createdTimestamp}ms`);
 };
 
-module.exports = {
+module.exports.help = {
     name: "ping",
     description: "ping"
   };
