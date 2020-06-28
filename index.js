@@ -15,7 +15,7 @@ const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('
 
 for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
-	bot.commands.set(command.help.name, command);
+	bot.commands.set(command.name, command);
 }
 
 bot.on("ready", () =>{
