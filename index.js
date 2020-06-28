@@ -13,11 +13,21 @@ const youtube = new YouTube("AIzaSyDTOmYVyZvnv7gSXM2TiHVH6FCSC9uqFCw");
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
-for (const file of commandFiles) {
-    const command = require(`./commands/${file}`);
-    let commandName = file.split(".")[0];
-	bot.commands.set(commandName, command);
-}
+// for (const file of commandFiles) {
+//     const command = require(`./commands/${file}`);
+//     let commandName = file.split(".")[0];
+// 	bot.commands.set(commandName, command);
+// }
+
+fs.readdir("./commands/", (err, files) => {
+    if (err) return console.error(err);
+    files.forEach(file => {
+      if (!file.endsWith(".js")) return;
+      let props = require(`./commands/${file}`);
+      let commandName = file.split(".")[0];
+      bot.commands.set(commandName, props);
+    });
+});
 
 bot.on("ready", () =>{
     bot.login("NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU")
