@@ -49,10 +49,10 @@ bot.on("message", async msg => {
     }
     //Additional command handler end
 
-    if(command == "ping") {
-        const m = await msg.channel.send("Pong:");
-        m.edit(`Pong: ${m.createdTimestamp - msg.createdTimestamp}ms`);
-    }
+    // if(command == "ping") {
+    //     const m = await msg.channel.send("Pong:");
+    //     m.edit(`Pong: ${m.createdTimestamp - msg.createdTimestamp}ms`);
+    // }
 
     if(command == "amiajoke") {
         const canvas = Canvas.createCanvas(897, 601);
