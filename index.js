@@ -15,7 +15,8 @@ const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('
 
 for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
-	bot.commands.set(command.name, command);
+    let commandName = file.split(".")[0];
+	bot.commands.set(commandName, command);
 }
 
 bot.on("ready", () =>{
@@ -34,9 +35,9 @@ bot.on("message", async msg => {
 	const args = msg.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
     
-    if (bot.commands.has(command)) {
+    if (bot.commands.has(commandName)) {
         try {
-            bot.commands.get(command).run(msg, args);
+            bot.commands.get(commandName).run(msg, args);
         } catch (error) {
             console.log(error);
             msg.reply('There was an error executing that command.');
