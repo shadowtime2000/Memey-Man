@@ -13,21 +13,10 @@ const youtube = new YouTube("AIzaSyDTOmYVyZvnv7gSXM2TiHVH6FCSC9uqFCw");
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
-// for (const file of commandFiles) {
-//     const command = require(`./commands/${file}`);
-//     let commandName = file.split(".")[0];
-// 	bot.commands.set(commandName, command);
-// }
-
-fs.readdir("./commands/", (err, files) => {
-    if (err) return console.error(err);
-    files.forEach(file => {
-      if (!file.endsWith(".js")) return;
-      let props = require(`./commands/${file}`);
-      let commandName = file.split(".")[0];
-      bot.commands.set(commandName, props);
-    });
-});
+for (const file of commandFiles) {
+    const command = require(`./commands/${file}`);
+	bot.commands.set(command.name, command);
+}
 
 bot.on("ready", () =>{
     bot.login("NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU")
@@ -45,9 +34,9 @@ bot.on("message", async msg => {
 	const args = msg.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
     
-    if (bot.commands.has(commandName)) {
+    if (bot.commands.has(command)) {
         try {
-            bot.commands.get(commandName).run(msg, args);
+            bot.commands.get(command).run(msg, args);
         } catch (error) {
             console.log(error);
             msg.reply('There was an error executing that command.');
@@ -60,10 +49,10 @@ bot.on("message", async msg => {
     }
     //Additional command handler end
 
-    // if(command == "ping") {
-    //     const m = await msg.channel.send("Pong:");
-    //     m.edit(`Pong: ${m.createdTimestamp - msg.createdTimestamp}ms`);
-    // }
+    if(command == "ping") {
+        const m = await msg.channel.send("Pong:");
+        m.edit(`Pong: ${m.createdTimestamp - msg.createdTimestamp}ms`);
+    }
 
     if(command == "amiajoke") {
         const canvas = Canvas.createCanvas(897, 601);
