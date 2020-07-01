@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const fetch = require('node-fetch');
-exports.run = (msg, args) => {
+exports.run = (bot, msg, args) => {
     fetch('https://meme-api.herokuapp.com/gimme')
         .then(res => res.json())
         .then(json => {
