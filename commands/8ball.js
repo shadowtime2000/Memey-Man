@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-module.exports = (bot, msg, args) => {
+exports.run = (bot, msg, args) => {
         const args1 = msg.content.split(' ').slice(1); 
         const question = args1.join(' '); 
         var facts = ["Yes.", "No.", "I don't know", "Of course.", "Never.", "Maybe.", "Hmm...", "Excuse me?"];
