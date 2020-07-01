@@ -1,8 +1,5 @@
 const Discord = require('discord.js');
-module.exports = {
-	name: 'serverinfo',
-	description: 'serverinfo command',
-	execute(msg, args) {
+exports.run = (bot, msg, args) => {
         const serverembed = new Discord.MessageEmbed()
             .setColor("#999900")
             .setTitle("**Server info**")
@@ -15,5 +12,4 @@ module.exports = {
             )
             .setTimestamp()
         msg.channel.send(serverembed)
-	},
 };

@@ -1,8 +1,5 @@
 const Discord = require('discord.js');
-module.exports = {
-	name: 'embed',
-	description: 'embed command',
-	execute(msg, args) {
+exports.run = (bot, msg, args) => {
         const args1 = msg.content.split(' ').slice(1);
         const repeatword = args1.join(' ')
         if(!repeatword) return msg.reply('Nothing to put in an embed!');
@@ -12,5 +9,4 @@ module.exports = {
             .setDescription(repeatword)
             .setTimestamp()
         msg.channel.send(embedembed)
-	},
 };

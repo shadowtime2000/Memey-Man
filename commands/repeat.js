@@ -1,9 +1,5 @@
 const Discord = require('discord.js');
-const bot = new Discord.Client();
-module.exports = {
-	name: 'repeat',
-	description: 'repeat command',
-	execute(msg, args) {
+exports.run = (bot, msg, args) => {
         let user = msg.mentions.members.first();
         const args1 = msg.content.split(' ').slice(1);
         var repeatword = args1.join(' ')
@@ -18,5 +14,4 @@ module.exports = {
         if(user) return msg.channel.send("I can't mention user!")
         var repeatword = repeatword.replace(/@&|@!/g, "**Non-ping:** ")
         msg.channel.send(repeatword)
-    },
 };

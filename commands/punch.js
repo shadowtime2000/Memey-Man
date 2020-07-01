@@ -1,8 +1,5 @@
 const Discord = require('discord.js');
-module.exports = {
-	name: 'punch',
-	description: 'punch command',
-	execute(msg, args) {
+exports.run = (bot, msg, args) => {
         let user = msg.mentions.members.first();
         const spanke = new Discord.MessageEmbed()
             .setColor('#ffa500')
@@ -14,5 +11,4 @@ module.exports = {
             .setTitle( msg.member.displayName + " :right_facing_fist: " + user.displayName)
             .setDescription( msg.author.toString() + ' punched ' + user.toString() + "!" )
         msg.channel.send(hitee)
-	},
 };

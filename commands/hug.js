@@ -1,8 +1,5 @@
 const Discord = require('discord.js');
-module.exports = {
-	name: 'hug',
-	description: 'hug command',
-	execute(msg, args) {
+exports.run = (bot, msg, args) => {
         let user = msg.mentions.members.first();
         const huge = new Discord.MessageEmbed()
             .setColor('#ffa500')
@@ -14,5 +11,4 @@ module.exports = {
             .setTitle( msg.member.displayName + " :hugging: " + user.displayName )
             .setDescription( msg.author.toString() + ' hugged ' + user.toString() + "!" )
         msg.channel.send(hugee)
-	},
 };

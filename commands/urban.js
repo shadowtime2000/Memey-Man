@@ -1,9 +1,6 @@
 const Discord = require('discord.js');
 const urban = require('urban')
-module.exports = {
-	name: 'urban',
-	description: 'urban dictionary command',
-	execute(msg, args) {
+exports.run = (bot, msg, args) => {
         const args1 = msg.content.split(' ').slice(1); 
         const searchword = args1.join(' '); 
 
@@ -36,5 +33,4 @@ module.exports = {
             } catch(e) {
                 return msg.channel.send("Error")
             }
-	},
 };

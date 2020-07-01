@@ -1,9 +1,6 @@
 const Discord = require('discord.js');
 const fetch = require('node-fetch');
-module.exports = {
-	name: 'dog',
-	description: 'dog command',
-	execute(msg, args) {
+exports.run = (bot, msg, args) => {
         fetch('https://dog.ceo/api/breeds/image/random')
             .then(res => res.json())
             .then(json => {
@@ -13,5 +10,4 @@ module.exports = {
                     .setImage(json.message)
                 msg.channel.send(dogembed)
             });
-	},
 };

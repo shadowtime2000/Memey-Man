@@ -1,8 +1,5 @@
 const Discord = require('discord.js');
-module.exports = {
-	name: 'slowmode',
-	description: 'slowmode command',
-	execute(msg, args) {
+exports.run = (bot, msg, args) => {
 
         if (msg.channel.type == "dm") return;
 
@@ -42,5 +39,4 @@ module.exports = {
             msg.channel.send(slowmodey)
             
         }
-	},
 };

@@ -1,8 +1,5 @@
 const Discord = require('discord.js');
-module.exports = {
-	name: 'vote',
-	description: 'vote command',
-	execute(msg, args) {
+exports.run = (bot, msg, args) => {
         const noperm = new Discord.MessageEmbed()
             .setColor('#FFC0CB')
             .setTitle("Oops!")
@@ -60,5 +57,4 @@ module.exports = {
             }
             msg.react('✅')
         });
-	},
 };

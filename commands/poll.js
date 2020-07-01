@@ -1,9 +1,6 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-module.exports = {
-	name: 'poll',
-	description: 'poll command',
-	execute(msg, args) {
+exports.run = (bot, msg, args) => {
         const noperm = new Discord.MessageEmbed()
             .setColor('#FFC0CB')
             .setTitle("Oops!")
@@ -34,5 +31,4 @@ module.exports = {
             .then(() => sentEmbed.react("👎"))
             msg.react('✅')
         });
-    },
 };
