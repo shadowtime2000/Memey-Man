@@ -35,7 +35,7 @@ exports.run = async (bot, msg, args) => {
             try {
                 result = await youtube.searchVideos(music);
             } catch (error) {
-                msg.channel.send(`:x: No results found. This might be an error.`)
+                msg.channel.send(`:x: No results found.`)
                 console.log(error)
             }
 
