@@ -33,27 +33,17 @@ var prefix = "&"
 bot.on("message", async msg => {
 
     if (msg.author.bot) return;
-
-  // Ignore messages not starting with the prefix (in config.json)
     if (msg.content.indexOf(prefix) !== 0) return;
-
-  // Our standard argument/command name definition.
     const args = msg.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
-
-    // Grab the command data from the client.commands Enmap
     const cmd = bot.commands.get(command);
-
-    // If that command doesn't exist, silently exit and do nothing
     if (!cmd) return;
-
-    // Run the command
     cmd.run(bot, msg, args);
 
-    if(command == "ping") {
-        const m = await msg.channel.send("Pong:");
-        m.edit(`Pong: ${m.createdTimestamp - msg.createdTimestamp}ms`);
-    }
+    // if(command == "ping") {
+    //     const m = await msg.channel.send("Pong:");
+    //     m.edit(`Pong: ${m.createdTimestamp - msg.createdTimestamp}ms`);
+    // }
 
     if(command == "amiajoke") {
         const canvas = Canvas.createCanvas(897, 601);
