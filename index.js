@@ -40,25 +40,21 @@ bot.on("message", async msg => {
     if (!cmd) return;
     cmd.run(bot, msg, args);
 
-    // if(command == "ping") {
-    //     const m = await msg.channel.send("Pong:");
-    //     m.edit(`Pong: ${m.createdTimestamp - msg.createdTimestamp}ms`);
+
+    // if(command == "amiajoke") {
+    //     const canvas = Canvas.createCanvas(897, 601);
+    //     const ctx = canvas.getContext('2d');
+
+    //     const background = await Canvas.loadImage('./images/amiajoke.jpg');
+    //     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+
+    //     const avatar = await Canvas.loadImage(bot.users.cache.get(msg.author.id).displayAvatarURL({ format: 'png' }));
+    //     ctx.drawImage(avatar, 480, 50, 330, 330);
+
+    //     const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'amiajoke.jpg');
+
+    //     msg.channel.send(attachment)
     // }
-
-    if(command == "amiajoke") {
-        const canvas = Canvas.createCanvas(897, 601);
-        const ctx = canvas.getContext('2d');
-
-        const background = await Canvas.loadImage('./images/amiajoke.jpg');
-        ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
-
-        const avatar = await Canvas.loadImage(bot.users.cache.get(msg.author.id).displayAvatarURL({ format: 'png' }));
-        ctx.drawImage(avatar, 480, 50, 330, 330);
-
-        const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'amiajoke.jpg');
-
-        msg.channel.send(attachment)
-    }
 
     if(command == "russia") {
         const canvas = Canvas.createCanvas(608, 342);
