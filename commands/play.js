@@ -7,6 +7,8 @@ exports.run = async (bot, msg, args) => {
 
         const voiceChannel = msg.member.voice.channel;
 
+        if (!voiceChannel) return msg.channel.send(novc);
+
         const args1 = msg.content.split(' ').slice(1); 
         const musicurl = args1.join(' '); 
 
@@ -68,8 +70,6 @@ exports.run = async (bot, msg, args) => {
         }
         
         else {
-
-            if (!voiceChannel) return msg.channel.send(novc);
 
             const songInfo = await ytdl.getInfo(musicurl);
             const song = {
