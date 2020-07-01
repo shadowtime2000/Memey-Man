@@ -48,7 +48,7 @@ bot.on("message", async msg => {
     if (!cmd) return;
 
     // Run the command
-    cmd.run(client, message, args);
+    cmd.run(bot, message, args);
 
     if(command == "ping") {
         const m = await msg.channel.send("Pong:");
