@@ -1,8 +1,10 @@
 const Discord = require('discord.js');
 const ytdl = require('ytdl-core');
 const YouTube = require("discord-youtube-api");
-const youtube = new YouTube("AIzaSyDTOmYVyZvnv7gSXM2TiHVH6FCSC9uqFCw");
 exports.run = async (bot, msg, args) => {
+
+        const youtube = new YouTube("AIzaSyDTOmYVyZvnv7gSXM2TiHVH6FCSC9uqFCw");
+
         if (msg.channel.type !== 'text') return;
 
         const voiceChannel = msg.member.voice.channel;
