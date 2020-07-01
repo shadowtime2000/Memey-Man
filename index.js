@@ -4,8 +4,6 @@ const fs = require('fs');
 
 const bot = new Discord.Client();
 
-const youtube = new YouTube("AIzaSyDTOmYVyZvnv7gSXM2TiHVH6FCSC9uqFCw");
-
 bot.commands = new Enmap();
 
 fs.readdir("./commands/", (err, files) => {
