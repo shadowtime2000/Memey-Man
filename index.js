@@ -2,21 +2,24 @@ const Discord = require('discord.js');
 const Canvas = require('canvas');
 const ytdl = require('ytdl-core');
 const YouTube = require("discord-youtube-api");
+const Enmap = require("enmap");
 const fs = require('fs');
 
 const bot = new Discord.Client();
-bot.commands = new Discord.Collection();
-
-const queue = new Map();
 
 const youtube = new YouTube("AIzaSyDTOmYVyZvnv7gSXM2TiHVH6FCSC9uqFCw");
 
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+bot.commands = new Enmap();
 
-for (const file of commandFiles) {
-    const command = require(`./commands/${file}`);
-	bot.commands.set(command.name, command);
-}
+fs.readdir("./commands/", (err, files) => {
+  if (err) return console.error(err);
+  files.forEach(file => {
+    if (!file.endsWith(".js")) return;
+    let props = require(`./commands/${file}`);
+    let commandName = file.split(".")[0];
+    bot.commands.set(commandName, props);
+  });
+});
 
 bot.on("ready", () =>{
     bot.login("NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU")
@@ -29,25 +32,23 @@ var prefix = "&"
 
 bot.on("message", async msg => {
 
-    if (!msg.content.startsWith(prefix) || msg.author.bot) return;
+    if (msg.author.bot) return;
 
-	const args = msg.content.slice(prefix.length).split(/ +/);
+  // Ignore messages not starting with the prefix (in config.json)
+    if (msg.content.indexOf(prefix) !== 0) return;
+
+  // Our standard argument/command name definition.
+    const args = msg.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
-    
-    if (bot.commands.has(command)) {
-        try {
-            bot.commands.get(command).execute(msg, args);
-        } catch (error) {
-            console.log(error);
-            msg.reply('There was an error executing that command.');
-        }
-    }
 
-    //Additional command handler start
-	if (command === 'dc') {
-        bot.commands.get('disconnect').execute(msg, args);
-    }
-    //Additional command handler end
+    // Grab the command data from the client.commands Enmap
+    const cmd = bot.commands.get(command);
+
+    // If that command doesn't exist, silently exit and do nothing
+    if (!cmd) return;
+
+    // Run the command
+    cmd.run(client, message, args);
 
     if(command == "ping") {
         const m = await msg.channel.send("Pong:");
