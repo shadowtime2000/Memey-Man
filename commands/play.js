@@ -1,9 +1,9 @@
 const Discord = require('discord.js');
 const ytdl = require('ytdl-core');
-const YouTube = require("discord-youtube-api");
+const youtubeapi = require('discord-youtube-api');
 exports.run = async (bot, msg, args) => {
 
-        const youtube = new YouTube("AIzaSyDTOmYVyZvnv7gSXM2TiHVH6FCSC9uqFCw");
+        const youtube = new youtubeapi("AIzaSyDTOmYVyZvnv7gSXM2TiHVH6FCSC9uqFCw");
 
         if (msg.channel.type !== 'text') return;
 
