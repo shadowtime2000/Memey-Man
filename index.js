@@ -7,6 +7,7 @@ const bot = new Discord.Client();
 bot.commands = new Enmap();
 
 var loopnum = 1;
+module.exports = { varToExport: loopnum };
 
 fs.readdir("./commands/", (err, files) => {
     if (err) return console.error(err);
@@ -43,7 +44,6 @@ bot.on("message", async msg => {
       }      
       if(msg.content == prefix + "loop"){
         loopnum = parseInt(loopnum) + 1
-        module.exports = { varToExport: loopnum };
         console.log(loopnum % 2)
       }
     } 
