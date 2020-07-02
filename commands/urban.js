@@ -26,10 +26,7 @@ exports.run = (bot, msg, args) => {
                         let embed = new Discord.MessageEmbed()
                             .setColor('#ffa000')
                             .setAuthor(`Urban Dictionary | ${word}`, image )
-                            .addFields(
-                                { name: 'Defintion', value: definition },
-                                { name: 'Example', value: example },
-                            )
+                            .setDescription(`**Defintion:** ${definition || "No definition"}\n**Example:** ${example || "No Example"}`)
                             if( definition.length + word.length + example.length + 22 > 2048 ) return msg.channel.send(toolong)
                             msg.channel.send(embed)                   
                 })
