@@ -3,8 +3,6 @@ const ytdl = require('ytdl-core');
 const YouTube = require('discord-youtube-api');
 exports.run = async (bot, msg, args) => {
 
-        var loopnum = require('/app/index.js').varToExport;
-
         console.log(loopnum)
 
         const youtube = new YouTube('AIzaSyCz2eWaiih_tD1Rei1kj0hKvaV_TFwphYU');
@@ -68,6 +66,8 @@ exports.run = async (bot, msg, args) => {
                     const stream = ytdl(result.url, { filter: 'audioonly' });
                     const dispatcher = connection.play(stream);
                     msg.channel.send(playing)
+
+                    var loopnum = require('/app/index.js').varToExport;
 
                     if(parseInt(loopnum) % 2 == 1) {
                         dispatcher.on('finish', () => 
