@@ -37,7 +37,7 @@ bot.on("message", async msg => {
     } else {
       if(msg.content == prefix + "dc") {
         const disconnectcommand = bot.commands.get(disconnect)
-        cmd.run(disconnectcommand)
+        disconnectcommand.run(bot, msg, args)
       }      
     } 
 })
