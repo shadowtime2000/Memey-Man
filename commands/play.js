@@ -60,14 +60,9 @@ exports.run = async (bot, msg, args) => {
                 .setFooter(`Song duration: ${minute} minutes ${second} seconds`)
 
             voiceChannel.join().then(connection => {
-                function play (connection) {
-                    const stream = ytdl(result.url, { filter: 'audioonly' });
-                    const dispatcher = connection.play(stream);
-                    msg.channel.send(playing)
 
-                    var loopnum = require('/app/index.js').varToExport;
-                    console.log(loopnum)
-
+                function loopdetect () {
+                    var loopnum = require('/app/index.js').varToExport
                     if(parseInt(loopnum) % 2 == 1) {
                         dispatcher.on('finish', () => 
                         voiceChannel.leave()
@@ -76,8 +71,19 @@ exports.run = async (bot, msg, args) => {
                         dispatcher.on('finish', () => 
                         play(connection)
                         );
-                    }
+                    }  
                 }
+
+                function play (connection) {
+                    const stream = ytdl(result.url, { filter: 'audioonly' });
+                    const dispatcher = connection.play(stream);
+                    msg.channel.send(playing)
+
+                    dispatcher.on('finish', () => 
+                    loopdetect()
+                    );
+                }
+
                 play(connection)
             })  
             
