@@ -74,7 +74,8 @@ exports.run = async (bot, msg, args) => {
                     );
                 } else {
                     dispatcher.on('finish', () =>         
-                        play(connection)
+                        connection.play(stream)
+                        .then(() => { msg.channel.send(playing) })
                     );
                 }
                 
