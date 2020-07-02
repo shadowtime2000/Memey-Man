@@ -35,6 +35,10 @@ bot.on("message", async msg => {
     if (!cmd) return;
     cmd.run(bot, msg, args);
 
+    if(msg.content == prefix + "dc") {
+      const disconnectcommand = bot.commands.get(disconnect)
+      cmd.run(disconnectcommand)
+    }
 })
 
 bot.login("NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU");
