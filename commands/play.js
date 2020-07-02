@@ -75,7 +75,9 @@ exports.run = async (bot, msg, args) => {
                     voiceChannel.leave()
                     );
                 } else {      
+                    dispatcher.on('finish', () => 
                     play(connection)
+                    );
                 }
                 
             })  
