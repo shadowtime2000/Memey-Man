@@ -3,7 +3,7 @@ const ytdl = require('ytdl-core');
 const YouTube = require('discord-youtube-api');
 exports.run = async (bot, msg, args) => {
 
-        const loopnum = require('/app/index.js').varToExport;
+        var loopnum = require('/app/index.js').varToExport;
 
         console.log(loopnum)
 
