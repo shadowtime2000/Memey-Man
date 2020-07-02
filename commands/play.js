@@ -5,6 +5,8 @@ exports.run = async (bot, msg, args) => {
 
         const loopnum = require('/app/index.js').varToExport;
 
+        console.log(loopnum)
+
         const youtube = new YouTube('AIzaSyCz2eWaiih_tD1Rei1kj0hKvaV_TFwphYU');
 
         if (msg.channel.type !== 'text') return;
