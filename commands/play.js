@@ -68,18 +68,18 @@ exports.run = async (bot, msg, args) => {
                     const stream = ytdl(result.url, { filter: 'audioonly' });
                     const dispatcher = connection.play(stream);
                     msg.channel.send(playing)
-                }
 
-                if(parseInt(loopnum) % 2 == 1) {
-                    dispatcher.on('finish', () => 
-                    voiceChannel.leave()
-                    );
-                } else {      
-                    dispatcher.on('finish', () => 
-                    play(connection)
-                    );
+                    if(parseInt(loopnum) % 2 == 1) {
+                        dispatcher.on('finish', () => 
+                        voiceChannel.leave()
+                        );
+                    } else {      
+                        dispatcher.on('finish', () => 
+                        play(connection)
+                        );
+                    }
                 }
-                
+                play(connection)
             })  
             
         }
