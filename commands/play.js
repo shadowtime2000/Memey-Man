@@ -64,16 +64,20 @@ exports.run = async (bot, msg, args) => {
                 .setFooter(`Song duration: ${minute} minutes ${second} seconds`)
 
             voiceChannel.join().then(connection => {
-                const stream = ytdl(result.url, { filter: 'audioonly' });
-                const dispatcher = connection.play(stream);
-                msg.channel.send(playing)
+                function play (connection) {
+                    const stream = ytdl(result.url, { filter: 'audioonly' });
+                    const dispatcher = connection.play(stream);
+                    msg.channel.send(playing)
+                }
+
+                play(connection)
 
                 if(parseInt(loopnum) % 2 == 1) {
                     dispatcher.on('finish', () => 
                     voiceChannel.leave()
                     );
                 } else {      
-                        connection.play(connection)
+                    play(connection)
                 }
                 
             })  
