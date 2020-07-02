@@ -3,8 +3,6 @@ const ytdl = require('ytdl-core');
 const YouTube = require('discord-youtube-api');
 exports.run = async (bot, msg, args) => {
 
-        console.log(loopnum)
-
         const youtube = new YouTube('AIzaSyCz2eWaiih_tD1Rei1kj0hKvaV_TFwphYU');
 
         if (msg.channel.type !== 'text') return;
@@ -68,6 +66,7 @@ exports.run = async (bot, msg, args) => {
                     msg.channel.send(playing)
 
                     var loopnum = require('/app/index.js').varToExport;
+                    console.log(loopnum)
 
                     if(parseInt(loopnum) % 2 == 1) {
                         dispatcher.on('finish', () => 
