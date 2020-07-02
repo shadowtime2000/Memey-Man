@@ -28,7 +28,7 @@ exports.run = (bot, msg, args) => {
                             .setAuthor(`Urban Dictionary | ${word}`, image )
                             .addFields(
                                 { name: 'Defintion', value: definition },
-                                { name: 'Example:', value: example },
+                                { name: 'Example', value: example },
                             )
                             if( definition.length + word.length + example.length + 22 > 2048 ) return msg.channel.send(toolong)
                             msg.channel.send(embed)                   
