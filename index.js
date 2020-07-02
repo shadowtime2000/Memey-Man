@@ -6,6 +6,8 @@ const bot = new Discord.Client();
 
 bot.commands = new Enmap();
 
+var loopnum = 1;
+
 fs.readdir("./commands/", (err, files) => {
     if (err) return console.error(err);
     files.forEach(file => {
@@ -39,6 +41,10 @@ bot.on("message", async msg => {
         const disconnectcommand = bot.commands.get(`disconnect`)
         disconnectcommand.run(bot, msg, args)
       }      
+      if(msg.content == prefix + "loop"){
+        loopnum = parseInt(loopnum) + 1
+        module.exports = { varToExport: loopnum };
+      }
     } 
 })
 
