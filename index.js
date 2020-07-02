@@ -44,6 +44,7 @@ bot.on("message", async msg => {
       if(msg.content == prefix + "loop"){
         loopnum = parseInt(loopnum) + 1
         module.exports = { varToExport: loopnum };
+        console.log(loopnum % 2)
       }
     } 
 })
