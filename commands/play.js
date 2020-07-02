@@ -70,8 +70,6 @@ exports.run = async (bot, msg, args) => {
                     msg.channel.send(playing)
                 }
 
-                play(connection)
-
                 if(parseInt(loopnum) % 2 == 1) {
                     dispatcher.on('finish', () => 
                     voiceChannel.leave()
