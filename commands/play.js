@@ -9,6 +9,11 @@ exports.run = async (bot, msg, args) => {
 
         const voiceChannel = msg.member.voice.channel;
 
+        const novc = new Discord.MessageEmbed()
+            .setColor('#505050')
+            .setTitle('Join a voice channel first!')
+            .setDescription('You have to join a voice channel before playing music.')
+
         if (!voiceChannel) return msg.channel.send(novc);
 
         const args1 = msg.content.split(' ').slice(1); 
@@ -18,11 +23,6 @@ exports.run = async (bot, msg, args) => {
             .setColor('#505050')
             .setTitle('Play command')
             .setDescription('Usage: &play [YouTube link or keyword]')
-
-        const novc = new Discord.MessageEmbed()
-            .setColor('#505050')
-            .setTitle('Join a voice channel first!')
-            .setDescription('You have to join a voice channel before playing music.')
 
         if(!musicurl) return msg.channel.send(nosong)
 
