@@ -1,6 +1,18 @@
 const Discord = require('discord.js');
 const urban = require('urban')
 exports.run = (bot, msg, args) => {
+
+        function chunkstr(str, size) {
+            const numChunks = Math.ceil(str.length / size)
+            const chunks = new Array(numChunks)
+        
+            for (let i = 0, o = 0; i < numChunks; ++i, o += size) {
+            chunks[i] = str.substr(o, size)
+            }
+        
+            return chunks
+        }
+
         const args1 = msg.content.split(' ').slice(1); 
         const searchword = args1.join(' '); 
 
@@ -27,8 +39,16 @@ exports.run = (bot, msg, args) => {
                             .setColor('#ffa000')
                             .setAuthor(`Urban Dictionary | ${word}`, image )
                             .setDescription(`**Defintion:** ${definition || "No definition"}\n**Example:** ${example || "No Example"}`)
-                            if( definition.length + word.length + example.length + 22 > 2048 ) return msg.channel.send(toolong)
-                            msg.channel.send(embed)                   
+                        if( definition.length + word.length + example.length + 22 > 2048 ){
+                            const longmeaning = chunkstr(definition, 1000)
+                            const longexample = chunkstr(example, 1000)
+                            let longembed = new Discord.MessageEmbed()
+                                .setColor(`#ffa000`)
+                                .setDescription(`**Definition:** ${longmeaning}\n**Example:** ${longexample}`)
+                            msg.channel.send(longembed)
+                        } else {
+                            msg.channel.send(embed)
+                        }                   
                 })
             } catch(e) {
                 return msg.channel.send("Error")
