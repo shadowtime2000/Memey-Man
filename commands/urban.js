@@ -40,11 +40,13 @@ exports.run = (bot, msg, args) => {
                             .setAuthor(`Urban Dictionary | ${word}`, image )
                             .setDescription(`**Defintion:** ${definition || "No definition"}\n**Example:** ${example || "No Example"}`)
                         if( definition.length + word.length + example.length + 22 > 2048 ){
-                            const longmeaning = chunkstr(definition, 1000)
-                            const longexample = chunkstr(example, 1000)
+                            
+                            const longdefinition = str.substring(i, Math.min(definition.length, i + 1000));
+                            const longexample = str.substring(i, Math.min(example.length, i + 1000));
+                            
                             let longembed = new Discord.MessageEmbed()
                                 .setColor(`#ffa000`)
-                                .setDescription(`**Definition:** ${longmeaning}\n**Example:** ${longexample}`)
+                                .setDescription(`**Definition:** ${longdefinition}\n**Example:** ${longexample}`)
                             msg.channel.send(longembed)
                         } else {
                             msg.channel.send(embed)
