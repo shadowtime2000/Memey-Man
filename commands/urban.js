@@ -40,14 +40,14 @@ exports.run = (bot, msg, args) => {
                         let longexample
 
                         for(let i = 0; i < definition.length; i += 2000) {
-                            longdefinition = definition.substring(i, Math.min(definition.length, i + 100));                                
+                            longdefinition = definition.substring(i, Math.min(definition.length, i + 1000));                                
                         }
                         for(let j = 0; j < example.length; j += 2000) {
                             longexample = example.substring(j, Math.min(example.length, j + 1000));
                         }
                         let longembed = new Discord.MessageEmbed()
                             .setColor(`#ffa000`)
-                            .setDescription(`**Definition:** ${longdefinition}...(cut because of discord embed letter limit)\n**Example:** ${longexample}`)
+                            .setDescription(`**Definition:** ${longdefinition}\n**Example:** ${longexample}`)
                         msg.channel.send(longembed)
                     } else {
                         let embed = new Discord.MessageEmbed()
