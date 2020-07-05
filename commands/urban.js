@@ -43,7 +43,7 @@ exports.run = (bot, msg, args) => {
                             longdefinition = definition.substring(i, Math.min(definition.length, i + 1000));                                
                         }
                         for(let j = 0; j < example.length; j += 2000) {
-                            longexample = example.substring(i, Math.min(example.length, i + 1000));
+                            longexample = example.substring(j, Math.min(example.length, j + 1000));
                         }
                         let longembed = new Discord.MessageEmbed()
                             .setColor(`#ffa000`)
