@@ -33,30 +33,30 @@ exports.run = (bot, msg, args) => {
             try {
                 search.first(res => {
                     if(!res) return msg.channel.send(":x: No results found.");
-                    let { word, definition, example } = res;
+                    let { word, definition, example } = res;                        
+                        if( definition.length + word.length + example.length + 22 > 2048 ){
                         
+                        let longdefinition
+                        let longexample
+
+                        for(let i = 0; i < str.length; i += 2000) {
+                            longdefinition = definition.substring(i, Math.min(definition.length, i + 1000));                                
+                        }
+                        for(let j = 0; j < str.length; j += 2000) {
+                            longexample = example.substring(i, Math.min(example.length, i + 1000));
+                        }
+                        let longembed = new Discord.MessageEmbed()
+                            .setColor(`#ffa000`)
+                            .setDescription(`**Definition:** ${longdefinition}\n**Example:** ${longexample}`)
+                        msg.channel.send(longembed)
+                    } else {
                         let embed = new Discord.MessageEmbed()
                             .setColor('#ffa000')
                             .setAuthor(`Urban Dictionary | ${word}`, image )
                             .setDescription(`**Defintion:** ${definition || "No definition"}\n**Example:** ${example || "No Example"}`)
-                        if( definition.length + word.length + example.length + 22 > 2048 ){
-                            
-                            let longdefinition
-                            let longexample
-
-                            for(let i = 0; i < str.length; i += 2000) {
-                                longdefinition = definition.substring(i, Math.min(definition.length, i + 1000));                                
-                            }
-                            for(let j = 0; j < str.length; j += 2000) {
-                                longexample = example.substring(i, Math.min(example.length, i + 1000));
-                            }
-                            let longembed = new Discord.MessageEmbed()
-                                .setColor(`#ffa000`)
-                                .setDescription(`**Definition:** ${longdefinition}\n**Example:** ${longexample}`)
-                            msg.channel.send(longembed)
-                        } else {
-                            msg.channel.send(embed)
-                        }                   
+                    
+                        msg.channel.send(embed)
+                    }                   
                 })
             } catch(e) {
                 return msg.channel.send("Error")
