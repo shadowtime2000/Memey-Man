@@ -41,9 +41,15 @@ exports.run = (bot, msg, args) => {
                             .setDescription(`**Defintion:** ${definition || "No definition"}\n**Example:** ${example || "No Example"}`)
                         if( definition.length + word.length + example.length + 22 > 2048 ){
                             
-                            const longdefinition = definition.substring(i, Math.min(definition.length, i + 1000));
-                            const longexample = example.substring(i, Math.min(example.length, i + 1000));
-                            
+                            let longdefinition
+                            let longexample
+
+                            for(let i = 0; i < str.length; i += 2000) {
+                                longdefinition = definition.substring(i, Math.min(definition.length, i + 1000));                                
+                            }
+                            for(let j = 0; j < str.length; j += 2000) {
+                                longexample = example.substring(i, Math.min(example.length, i + 1000));
+                            }
                             let longembed = new Discord.MessageEmbed()
                                 .setColor(`#ffa000`)
                                 .setDescription(`**Definition:** ${longdefinition}\n**Example:** ${longexample}`)
