@@ -36,22 +36,7 @@ bot.on("message", async msg => {
     const cmd = bot.commands.get(command);
     if (cmd) {
       cmd.run(bot, msg, args);
-    } else {
-      if(msg.content == prefix + "dc") {
-        const disconnectcommand = bot.commands.get(`disconnect`)
-        disconnectcommand.run(bot, msg, args)
-      }      
-      if(msg.content == prefix + "loop"){
-        loopnum = parseInt(loopnum) + 1
-        console.log(loopnum % 2)
-        if(parseInt(loopnum) % 2 == 1) {
-            msg.reply("Loop off!")
-        } else {
-            msg.reply("Loop on!")
-        }
-        module.exports = { varToExport: loopnum };
-      }
-    } 
+    }
 })
 
 bot.login("NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU");
