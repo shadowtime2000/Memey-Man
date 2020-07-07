@@ -8,6 +8,6 @@ exports.run = (bot, msg, args) => {
             .setColor('#9c51b6')
             .setTitle('**8ball**')
             .setDescription( '**Your question**: ' + question + '\n**My answer**: ' + facts[fact] )
-            .setTimestamp()
+            .setTimestamp() 
         msg.channel.send(ballembed);
 };
