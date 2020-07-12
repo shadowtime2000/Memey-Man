@@ -25,7 +25,7 @@ exports.run = (bot, msg, args) => {
             const msg = await processArticle(article);
             msg.channel.send(msg)
             }
-        }
+        } 
         
     } catch (e) {
         message.say('Something failed along the way');
