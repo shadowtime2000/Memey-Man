@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const fetch = require('node-fetch');
 
-exports.run = (bot, msg, args) => {
+exports.run = async (bot, msg, args) => {
     try {
          const response = await fetch(
         `https://newsapi.org/v2/top-headlines?sources=reuters&pageSize=5&apiKey=9ab9ebbe7afb4ede86c593e2a804b729`
