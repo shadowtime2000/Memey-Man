@@ -12,10 +12,10 @@ exports.run = async (bot, msg, args) => {
         .setColor('#FF4F00')
         .setTitle(article.title)
         .setURL(article.url)
-        .setAuthor(article.author)
         .setDescription(article.description)
         .setThumbnail(article.urlToImage)
         .setTimestamp(article.publishedAt)
+        .setFooter(`Author: ${article.author}`)
       
     msg.channel.send(embed)
 
