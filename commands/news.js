@@ -8,7 +8,7 @@ exports.run = async (bot, msg, args) => {
     const json = await response.json();
     const articleArr = json.articles;
     const articleLength = json.totalResults;
-    const articlenum = Math.random() * (articleLength - 1);
+    const articlenum = Math.random() * (articleLength - 2);
     const articlenumber = Math.round(articlenum)
     const article = articleArr[articlenumber]
 
