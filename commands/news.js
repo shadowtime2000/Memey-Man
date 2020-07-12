@@ -7,7 +7,10 @@ exports.run = async (bot, msg, args) => {
     )
     const json = await response.json();
     const articleArr = json.articles;
-    const article = articleArr[0]
+    const articleLength = json.totalResults;
+    const articlenum = Math.random() * (articleLength - 1);
+    const article = articleArr[articlenum]
+    
     const embed = new Discord.MessageEmbed()
         .setColor('#FF4F00')
         .setTitle(article.title)
@@ -18,11 +21,5 @@ exports.run = async (bot, msg, args) => {
         .setFooter(`Author: ${article.author}`)
       
     msg.channel.send(embed)
-
-    async function processArray(array) {
-        for (const article of array) {
-        const msg = await processArticle(article);
-        msg.channel.send(msg)
-        }
-    } 
+    
 };
