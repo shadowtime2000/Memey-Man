@@ -7,17 +7,16 @@ exports.run = async (bot, msg, args) => {
     )
     const json = await response.json();
     const articleArr = json.articles;
-    let processArticle = article => {
-        const embed = new Discord.MessageEmbed()
-            .setColor('#FF4F00')
-            .setTitle(article.title)
-            .setURL(article.url)
-            .setAuthor(article.author)
-            .setDescription(article.description)
-            .setThumbnail(article.urlToImage)
-            .setTimestamp(article.publishedAt)
-        return embed;
-    };
+    const embed = new Discord.MessageEmbed()
+        .setColor('#FF4F00')
+        .setTitle(article.title)
+        .setURL(article.url)
+        .setAuthor(article.author)
+        .setDescription(article.description)
+        .setThumbnail(article.urlToImage)
+        .setTimestamp(article.publishedAt)
+      
+    msg.channel.send(embed)
 
     async function processArray(array) {
         for (const article of array) {
