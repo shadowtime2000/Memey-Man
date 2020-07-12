@@ -9,8 +9,9 @@ exports.run = async (bot, msg, args) => {
     const articleArr = json.articles;
     const articleLength = json.totalResults;
     const articlenum = Math.random() * (articleLength - 1);
-    const article = articleArr[articlenum]
-    
+    const articlenumber = Math.round(articlenum)
+    const article = articleArr[articlenumber]
+
     const embed = new Discord.MessageEmbed()
         .setColor('#FF4F00')
         .setTitle(article.title)
