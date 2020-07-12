@@ -7,6 +7,7 @@ exports.run = async (bot, msg, args) => {
     )
     const json = await response.json();
     const articleArr = json.articles;
+    const article = articleArr[0]
     const embed = new Discord.MessageEmbed()
         .setColor('#FF4F00')
         .setTitle(article.title)
