@@ -23,6 +23,9 @@ exports.run = (bot, msg, args) => {
         if (amount < 1) return msg.reply("You can't purge less than 1 message! Give me a bigger number."); 
       
         msg.channel.messages.fetch({ limit: messageamount }).then(messages => {
-            msg.channel.bulkDelete(messages).catch(error => msg.reply("I can only delete messages created within 14 days!"))
+            msg.channel.bulkDelete(messages)
+            .catch(error => 
+                msg.reply("I can only delete messages created within 14 days!"))
+                console.log(error)
         })  
 };
