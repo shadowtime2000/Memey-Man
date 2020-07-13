@@ -36,13 +36,13 @@ bot.on("message", async msg => {
     const command = args.shift().toLowerCase();
 
     
-    if (talkedRecently.has(msg.author.id) && command == `news`) return msg.reply(`You can use this command once every 10 seconds.`)
+    if (talkedRecently.has(msg.author.id) && command == `news`) return msg.reply(`You can use this command once every 30 seconds.`)
 
     if(command == `news`)
         talkedRecently.add(msg.author.id);
         setTimeout(() => {
         talkedRecently.delete(msg.author.id);
-        }, 10000);
+        }, 30000);
 
     const cmd = bot.commands.get(command);
     if (cmd) {
