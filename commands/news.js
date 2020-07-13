@@ -7,8 +7,7 @@ exports.run = async (bot, msg, args) => {
     )
     const json = await response.json();
     const articleArr = json.articles;
-    const articleLength = json.totalResults;
-    const articlen =  Math.floor(Math.random() * (articleLength - 1));
+    const articlen =  Math.floor(Math.random() * (9));
     const article = articleArr[articlen]
 
     const embed = new Discord.MessageEmbed()
