@@ -35,15 +35,6 @@ bot.on("message", async msg => {
     const args = msg.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 
-    
-    if (talkedRecently.has(msg.author.id) && command == `news`) return msg.reply(`You can use this command once every 30 seconds.`)
-
-    if(command == `news`)
-        talkedRecently.add(msg.author.id);
-        setTimeout(() => {
-        talkedRecently.delete(msg.author.id);
-        }, 30000);
-
     const cmd = bot.commands.get(command);
     if (cmd) {
       cmd.run(bot, msg, args);
