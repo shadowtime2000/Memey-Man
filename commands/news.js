@@ -7,8 +7,7 @@ exports.run = async (bot, msg, args) => {
     )
     const json = await response.json();
     const articleArr = json.articles;
-    const articlen =  Math.floor(Math.random() * (9));
-    const article = articleArr[articlen]
+    const article = articleArr[1]
 
     const embed = new Discord.MessageEmbed()
         .setColor('#FF4F00')
