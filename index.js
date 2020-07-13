@@ -6,7 +6,7 @@ const bot = new Discord.Client();
 
 bot.commands = new Enmap();
 
-var loopnum = 1;
+const talkedRecently = new Set();
 
 fs.readdir("./commands/", (err, files) => {
     if (err) return console.error(err);
@@ -31,8 +31,19 @@ bot.on("message", async msg => {
 
     if (msg.author.bot) return;
     if (msg.content.indexOf(prefix) !== 0) return;
+
     const args = msg.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
+
+    
+    if (talkedRecently.has(msg.author.id) && command == `news`) return msg.reply(`You can use this command once every 10 minutes.`)
+
+    if(command == `news`)
+        talkedRecently.add(msg.author.id);
+        setTimeout(() => {
+        talkedRecently.delete(msg.author.id);
+        }, 10000);
+
     const cmd = bot.commands.get(command);
     if (cmd) {
       cmd.run(bot, msg, args);
