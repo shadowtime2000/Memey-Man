@@ -36,7 +36,7 @@ bot.on("message", async msg => {
     const command = args.shift().toLowerCase();
 
     
-    if (talkedRecently.has(msg.author.id) && command == `news`) return msg.reply(`You can use this command once every 10 minutes.`)
+    if (talkedRecently.has(msg.author.id) && command == `news`) return msg.reply(`You can use this command once every 10 seconds.`)
 
     if(command == `news`)
         talkedRecently.add(msg.author.id);
