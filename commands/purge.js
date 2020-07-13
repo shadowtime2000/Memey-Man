@@ -21,7 +21,7 @@ exports.run = (bot, msg, args) => {
 
         if (amount > 99) return msg.reply("Too many messages to purge! Give me a smaller number."); 
         if (amount < 1) return msg.reply("You can't purge less than 1 message! Give me a bigger number."); 
-      
+       
         msg.channel.messages.fetch({ limit: messageamount }).then(messages => {
             msg.channel.bulkDelete(messages)
             .catch(error => 
