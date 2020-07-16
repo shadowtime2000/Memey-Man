@@ -6,13 +6,13 @@ exports.run = (bot, msg, args) => {
             const rateembed = new Discord.MessageEmbed()
                 .setColor("#cccccc")
                 .setTitle("Gayrate :rainbow_flag:")
-                .setDescription(`You are ${Math.round(rate)}% gay!`)
+                .setDescription(`You are ${Math.floor(rate)}% gay!`)
             msg.channel.send(rateembed)
         } if(member) {
             const memberrateembed = new Discord.MessageEmbed()
                 .setColor("#cccccc")
                 .setTitle("Gayrate :rainbow_flag:")
-                .setDescription(`${member.displayName} is ${Math.round(rate)}% gay!`)
+                .setDescription(`${member.displayName} is ${Math.floor(rate)}% gay!`)
             msg.channel.send(memberrateembed)
         }
 };
