@@ -6,7 +6,7 @@ exports.run = (bot, msg, args) => {
             .setColor('#FFFF00')
             .setTitle('Oops!')
             .setDescription("You can't use that command!")
-            .setFooter("I can only delete messages created within 14 days!")
+            .setFooter("No permissions!")
 
         if(!msg.member.hasPermission("MANAGE_MESSAGES")) return msg.channel.send(nopurge);
         const args1 = msg.content.split(' ').slice(1); 
