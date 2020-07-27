@@ -1,39 +1,31 @@
 const Discord = require('discord.js');
 const { ReactionCollector } = require("discord.js-collector");
 exports.run = async (bot, msg, args) => {
-        const botMessage = await msg.reply('Testing reaction menu...')
-        ReactionCollector.menu({
+        const botMessage = await message.channel.send("Simple paginator...");
+        ReactionCollector.paginator({
                 botMessage,
-                user: msg,
-                pages: {
-                        '😄': {
-                                embed: {
-                                        color: "#1167b1",
-                                        title: "Fun commands",
-                                        description: 'First page content, you can edit and put your custom embed.'
-                                }
-                        },
-                        '🎨': {
-                                embed: {
-                                        color: "#1167b1",
-                                        title: "Image commands",
-                                        description: 'e'
-                                }
-                        },
-                        '🔤': {
-                                embed: {
-                                        color: "#1167b1",
-                                        title: "Text commands",
-                                        description: 'e'
-                                }
-                        },
-                        '🔨': {
-                                embed: {
-                                        color: "#1167b1",
-                                        title: "Moderator commands",
-                                        description: 'e'
-                                }
-                        }
-                }
+                user: message,
+                pages: [
+                        new MessageEmbed({ 
+                                title: "Command list",
+                                description: "``Page 1`` Fun commands\n``Page 2`` Image commands\n``Page 3`` Text commands\n``Page 4`` Moderation commands" 
+                        }),
+                        new MessageEmbed({ 
+                                title: "Fun commands",
+                                description: "First page content..." 
+                        }),
+                        new MessageEmbed({ 
+                                title: "Image commands",
+                                description: "First page content..." 
+                        }),
+                        new MessageEmbed({ 
+                                title: "Text commands",
+                                description: "First page content..." 
+                        }),
+                        new MessageEmbed({ 
+                                title: "Moderation commands",
+                                description: "First page content..." 
+                        }),
+                ],
         });
 };
