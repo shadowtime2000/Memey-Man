@@ -34,7 +34,7 @@ exports.run = async (bot, msg, args) => {
                                         description: '``&xue`` Xue hua piao piao bei feng piao piao'
                                 }
                         },
-                        '⚙️': {
+                        '🔨': {
                                 embed: {
                                         color: "#1167b1",
                                         title: "Moderator commands",
