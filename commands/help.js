@@ -13,7 +13,7 @@ exports.run = async (bot, msg, args) => {
                                         description: '``&meme`` Gives a random meme.\n``&gayrate`` See how gay is someone\n``&hug`` Hug a user!\n``&punch`` Punch a user!\n``&topic`` Gives a chat topic\n``&urban`` Searchs a word at urban dictionary.'
                                 }
                         },
-                        '⚙️': {
+                        '⚒️': {
                                 embed: {
                                         color: "#1167b1",
                                         title: "Tool commands",
@@ -34,7 +34,7 @@ exports.run = async (bot, msg, args) => {
                                         description: '``&xue`` Xue hua piao piao bei feng piao piao'
                                 }
                         },
-                        '🔨': {
+                        '⚙️': {
                                 embed: {
                                         color: "#1167b1",
                                         title: "Moderator commands",
