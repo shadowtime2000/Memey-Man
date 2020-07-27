@@ -11,6 +11,7 @@ exports.run = async (bot, msg, args) => {
                                 embed: {
                                         description: 'First page content, you can edit and put your custom embed.'
                                 },
+                        },
                         '❌': {
                                 content: 'What happened?',
                                 embed: {
@@ -18,5 +19,5 @@ exports.run = async (bot, msg, args) => {
                                 }
                         }
                 }
-        }});
+        });
 };
