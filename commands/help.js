@@ -6,16 +6,32 @@ exports.run = async (bot, msg, args) => {
                 botMessage,
                 user: msg,
                 pages: {
-                        '✅': {
+                        '😄': {
                                 embed: {
                                         color: "#1167b1",
-                                        description: 'First page content, you can edit and put your custom embed.',
-                                        Footer: "test"
+                                        title: "Fun commands",
+                                        description: 'First page content, you can edit and put your custom embed.'
                                 }
                         },
-                        '❌': {
+                        '🎨': {
                                 embed: {
-                                        description: 'You clicked ❌ emoji.'
+                                        color: "#1167b1",
+                                        title: "Image commands",
+                                        description: 'e'
+                                }
+                        },
+                        '🔤': {
+                                embed: {
+                                        color: "#1167b1",
+                                        title: "Text commands",
+                                        description: 'e'
+                                }
+                        },
+                        '🔨': {
+                                embed: {
+                                        color: "#1167b1",
+                                        title: "Moderator commands",
+                                        description: 'e'
                                 }
                         }
                 }
