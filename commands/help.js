@@ -8,25 +8,15 @@ exports.run = async (bot, msg, args) => {
                 pages: {
                         '✅': {
                                 content: 'Hello world!',
-                                reactions: ['?'], // Reactions to acess next sub-page
                                 embed: {
-                                description: 'First page content, you can edit and put your custom embed.'
+                                        description: 'First page content, you can edit and put your custom embed.'
                                 },
-                                pages:{ // Exemple sub-pages
-                                        '❓': {
-                                                content: '?',
-                                                embed: {
-                                                description: 'You\'ve found the secret page.'
-                                                }
-                                        }
-                                }
-                        },
                         '❌': {
-                                content: 'What\'s happened?',
+                                content: 'What happened?',
                                 embed: {
-                                        description: 'You\'ve clicked in ❌ emoji.'
+                                        description: 'You clicked ❌ emoji.'
                                 }
                         }
                 }
-        });
+        }});
 };
