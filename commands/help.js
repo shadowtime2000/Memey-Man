@@ -7,13 +7,11 @@ exports.run = async (bot, msg, args) => {
                 user: msg,
                 pages: {
                         '✅': {
-                                content: 'Hello world!',
                                 embed: {
                                         description: 'First page content, you can edit and put your custom embed.'
-                                },
+                                }
                         },
                         '❌': {
-                                content: 'What happened?',
                                 embed: {
                                         description: 'You clicked ❌ emoji.'
                                 }
