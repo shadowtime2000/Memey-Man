@@ -8,7 +8,9 @@ exports.run = async (bot, msg, args) => {
                 pages: {
                         '✅': {
                                 embed: {
-                                        description: 'First page content, you can edit and put your custom embed.'
+                                        color: "#1167b1",
+                                        description: 'First page content, you can edit and put your custom embed.',
+                                        Footer: "test"
                                 }
                         },
                         '❌': {
