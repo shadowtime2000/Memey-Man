@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const { ReactionCollector } = require("discord.js-collector");
-exports.run = (bot, msg, args) => {
+exports.run = async (bot, msg, args) => {
         const botMessage = await msg.reply('Testing reaction menu...')
         ReactionCollector.menu({
                 botMessage,
