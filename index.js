@@ -6,8 +6,6 @@ const bot = new Discord.Client();
 
 bot.commands = new Enmap();
 
-const talkedRecently = new Set();
-
 fs.readdir("./commands/", (err, files) => {
     if (err) return console.error(err);
     files.forEach(file => {
@@ -19,9 +17,7 @@ fs.readdir("./commands/", (err, files) => {
 });
 
 bot.on("ready", () =>{
-    bot.login("NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU")
-    console.log('Logged in!');
-    console.log("The bot is online in " + bot.guilds.cache.size + " servers.");
+    console.log("Logged in / Online in " + bot.guilds.cache.size + " servers.");
     bot.user.setActivity("you | &help", {type: "WATCHING"});
 });
 
@@ -36,8 +32,9 @@ bot.on("message", async msg => {
     const command = args.shift().toLowerCase();
 
     const cmd = bot.commands.get(command);
+
     if (cmd) {
-      cmd.run(bot, msg, args);
+        cmd.run(bot, msg, args);
     }
 })
 
