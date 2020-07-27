@@ -1,10 +1,10 @@
 const Discord = require('discord.js');
 const { ReactionCollector } = require("discord.js-collector");
 exports.run = async (bot, msg, args) => {
-        const botMessage = await message.channel.send("Simple paginator...");
+        const botMessage = await msg.channel.send("Memey Man's commands!");
         ReactionCollector.paginator({
                 botMessage,
-                user: message,
+                user: msg,
                 pages: [
                         new MessageEmbed({ 
                                 title: "Command list",
