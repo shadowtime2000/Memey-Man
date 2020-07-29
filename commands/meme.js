@@ -6,12 +6,12 @@ exports.run = (bot, msg, args) => {
             .then(res => res.json())
             .then(json => {
 
-                if(json.nsfw == true) {
+                if(json.nsfw == "true") {
                     console.log("Filtered 1 meme (Reason: NSFW)")
                     meme()
                 }
 
-                if(json.subreddit == "r/dankmemes") {
+                if(json.subreddit == "dankmemes") {
                     console.log("Filtered 1 meme (Reason: SUBREDDIT)")
                     meme()
                 }
@@ -21,7 +21,7 @@ exports.run = (bot, msg, args) => {
                     .setTitle(json.title)
                     .setImage(json.url)
                     .setFooter(`Subreddit: r/${json.subreddit}`)   
-                            
+
                 msg.channel.send(memeembed) 
             });
     }
