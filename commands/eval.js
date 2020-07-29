@@ -4,8 +4,8 @@ exports.run = async (bot, msg, args) => {
 
     if (msg.author.id !== '611396886418685982') return;
 
-    const args = msg.content.split(' ').slice(1); 
-    const evalcmd = args.join(' '); 
+    const args1 = msg.content.split(' ').slice(1); 
+    const evalcmd = args1.join(' '); 
 
     let evaled;
     try {
