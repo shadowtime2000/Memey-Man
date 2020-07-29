@@ -8,12 +8,12 @@ exports.run = (bot, msg, args) => {
 
                 if(json.nsfw == "true") {
                     console.log("Filtered 1 meme (Reason: NSFW)")
-                    return meme()
+                    return setTimeout(meme, 500)
                 }
 
                 if(json.subreddit == "dankmemes") {
                     console.log("Filtered 1 meme (Reason: SUBREDDIT)")
-                    return meme()
+                    return setTimeout(meme, 500)
                 }
 
                 const memeembed = new Discord.MessageEmbed()
