@@ -13,7 +13,7 @@ exports.run = async (bot, msg, args) => {
         msg.channel.send("```yaml\n" + 
         inspect(evaled)
         + "\n```").catch(error => {
-            msg.channel.send("```" + error + "```")
+            msg.channel.send("```-- ERROR WHILE SENDING RESULTS -- \n" + error + "```")
         });
         console.log("-- Inspection result --\n" + inspect(evaled) + "\n------------------------");
     }
