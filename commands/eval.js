@@ -10,7 +10,9 @@ exports.run = async (bot, msg, args) => {
     let evaled;
     try {
         evaled = await eval(evalcmd);
-        msg.channel.send("```"+ inspect(evaled) + "```");
+        msg.channel.send("```yaml\n" + 
+        inspect(evaled)
+        + "\n```");
         console.log("-- Inspection result --\n" + inspect(evaled) + "\n------------------------");
     }
     catch (error) {
