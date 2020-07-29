@@ -5,12 +5,23 @@ exports.run = (bot, msg, args) => {
         fetch('https://meme-api.herokuapp.com/gimme')
             .then(res => res.json())
             .then(json => {
+
+                if(json.nsfw == true) {
+                    console.log("Filtered 1 meme (Reason: NSFW)")
+                    meme()
+                }
+
+                if(json.subreddit == "r/dankmemes") {
+                    console.log("Filtered 1 meme (Reason: SUBREDDIT)")
+                    meme()
+                }
+
                 const memeembed = new Discord.MessageEmbed()
                     .setColor('#7cfc00')
                     .setTitle(json.title)
                     .setImage(json.url)
-                    .setFooter(`Subreddit: r/${json.subreddit}`)
-                if(json.nsfw == true) return meme()
+                    .setFooter(`Subreddit: r/${json.subreddit}`)   
+                            
                 msg.channel.send(memeembed) 
             });
     }
