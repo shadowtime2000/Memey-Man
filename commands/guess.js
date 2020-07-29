@@ -1,11 +1,9 @@
 const Discord = require('discord.js');
-const searchByImage = require("reverse-image-search-google");
+const reverseImageSearch = require('reverse-image-search-google')
 exports.run = (bot, msg, args) => {
-    var searchpic = msg.attachments.first().url
-
     const doSomething = (results) => {
         console.log(results)
     }
 
-    searchByImage(searchpic, doSomething)
+    reverseImageSearch('i.ebayimg.com/00/s/OTAwWDkwMA==/z/3G8AAOSwzoxd80XB/$_83.JPG', doSomething)
 };
