@@ -2,17 +2,6 @@ const Discord = require('discord.js');
 const urban = require('urban')
 exports.run = (bot, msg, args) => {
 
-        function chunkstr(str, size) {
-            const numChunks = Math.ceil(str.length / size)
-            const chunks = new Array(numChunks)
-        
-            for (let i = 0, o = 0; i < numChunks; ++i, o += size) {
-            chunks[i] = str.substr(o, size)
-            }
-        
-            return chunks
-        }
-
         const args1 = msg.content.split(' ').slice(1); 
         const searchword = args1.join(' '); 
 
