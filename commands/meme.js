@@ -6,16 +6,6 @@ exports.run = (bot, msg, args) => {
             .then(res => res.json())
             .then(json => {
 
-                if(json.nsfw == "true") {
-                    console.log("Filtered 1 meme (Reason: NSFW)")
-                    return setTimeout(meme, 500)
-                }
-
-                if(json.subreddit == "dankmemes") {
-                    console.log("Filtered 1 meme (Reason: SUBREDDIT)")
-                    return setTimeout(meme, 500)
-                }
-
                 const memeembed = new Discord.MessageEmbed()
                     .setColor('#7cfc00')
                     .setTitle(json.title)
@@ -23,6 +13,7 @@ exports.run = (bot, msg, args) => {
                     .setFooter(`Subreddit: r/${json.subreddit}`)   
 
                 msg.channel.send(memeembed) 
+                
             });
     }
 
