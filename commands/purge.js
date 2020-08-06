@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-exports.run = (bot, msg, args) => {
+exports.run = async (bot, msg, args) => {
         if (msg.channel.type == "dm") return;
 
         const nopurge = new Discord.MessageEmbed()
@@ -23,8 +23,7 @@ exports.run = (bot, msg, args) => {
        
         msg.channel.messages.fetch({ limit: messageamount }).then(messages => {
             msg.channel.bulkDelete(messages)
-        }).catch(error => 
-            console.log(error),
+        }).catch(async error => 
             msg.reply("I can only delete messages created within 14 days!"))
             
 };
