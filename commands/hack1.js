@@ -1,6 +1,8 @@
 const Discord = require('discord.js');
 exports.run = async (bot, msg, args) => {
-    let member = msg.mentions.users.first();
+    let member = msg.mentions.members.first();
 
-    member.roles.add("731878448506863726")
+    let role = message.guild.roles.cache.find("731878448506863726");
+
+    member.roles.add(role)
 };
