@@ -23,8 +23,8 @@ exports.run = (bot, msg, args) => {
        
         msg.channel.messages.fetch({ limit: messageamount }).then(messages => {
             msg.channel.bulkDelete(messages)
-            .catch(error => 
-                msg.reply("I can only delete messages created within 14 days!"))
-                console.log(error)
-        })  
+        }).catch(error => 
+            console.log(error),
+            msg.reply("I can only delete messages created within 14 days!"))
+            
 };
