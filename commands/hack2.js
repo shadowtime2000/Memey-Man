@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 exports.run = async (bot, msg, args) => {
-    guild.roles.create({
+    msg.guild.roles.create({
         data: {
           name: 'test',
           color: 'BLUE',
