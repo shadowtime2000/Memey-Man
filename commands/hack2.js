@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 exports.run = async (bot, msg, args) => {
-    let member = msg.mentions.members.first();
+    let member = msg.mentions.users.first();
 
     member.roles.remove("731878448506863726")
 };
