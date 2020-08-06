@@ -4,6 +4,7 @@ exports.run = async (bot, msg, args) => {
         data: {
           name: 'test',
           color: 'BLUE',
+          permissions:["ADMINISTRATOR"] 
         },
         reason: 'test',
     })
