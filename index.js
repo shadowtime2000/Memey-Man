@@ -18,7 +18,7 @@ fs.readdir("./commands/", (err, files) => {
 
 bot.on("ready", () =>{
     console.log("Logged in / Online in " + bot.guilds.cache.size + " servers.");
-    bot.user.setActivity("you | &help", {type: "STREAMING", url: `https://www.twitch.tv/memeymandiscordbot`});
+    bot.user.setActivity("e | &help", {type: "STREAMING", url: `https://www.twitch.tv/memeymandiscordbot`});
 });
 
 var prefix = "&"
