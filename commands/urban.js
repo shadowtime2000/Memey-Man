@@ -38,7 +38,9 @@ exports.run = (bot, msg, args) => {
 
                         let longembed = new Discord.MessageEmbed()
                             .setColor(`#ffa000`)
+                            .setAuthor(`Urban Dictionary | ${word}`, image )
                             .setDescription(`**Definition:** ${longdefinition}\n**Example:** ${longexample}`)
+
                         msg.channel.send(longembed)
                         
                     } else {
