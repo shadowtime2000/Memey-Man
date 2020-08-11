@@ -33,6 +33,7 @@ exports.run = async (bot, msg, args) => {
     const args1 = msg.content.split(' ').slice(1); 
     const amount = args1.join(' '); 
     const amountaa = parseInt(amount)
+    const final = amountaa + 1
 
     if (!amount) return msg.channel.send(nopurgeargs); 
     if (isNaN(amount)) return msg.channel.send(invnumber)
@@ -40,12 +41,7 @@ exports.run = async (bot, msg, args) => {
     if (amount > 99) return msg.channel.send(invnumberbig)
     if (amount < 1) return msg.channel.send(invnumbersmall)
     
-    await msg.channel.messages.fetch({ limit: amountaa }).then(messages => {
-        msg.channel.bulkDelete(messages)
-    }).catch(error => 
-        msg.reply("There was an error during purge."))
-
-    await msg.channel.messages.fetch({ limit: 1 }).then(messages => {
+    msg.channel.messages.fetch({ limit: final }).then(messages => {
         msg.channel.bulkDelete(messages)
     }).catch(error => 
         msg.reply("There was an error during purge."))
