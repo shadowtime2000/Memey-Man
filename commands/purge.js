@@ -39,10 +39,13 @@ exports.run = async (bot, msg, args) => {
 
     if (amount > 99) return msg.channel.send(invnumberbig)
     if (amount < 1) return msg.channel.send(invnumbersmall)
-
-    msg.delete(1)
     
-    await msg.channel.messages.fetch({ limit: amountaa }).then(messages => {
+    msg.channel.messages.fetch({ limit: amountaa }).then(messages => {
+        msg.channel.bulkDelete(messages)
+    }).catch(error => 
+        msg.reply("There was an error during purge."))
+
+    await msg.channel.messages.fetch({ limit: 1 }).then(messages => {
         msg.channel.bulkDelete(messages)
     }).catch(error => 
         msg.reply("There was an error during purge."))
