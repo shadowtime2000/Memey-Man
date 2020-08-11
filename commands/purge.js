@@ -45,7 +45,7 @@ exports.run = async (bot, msg, args) => {
     }).catch(error => 
         msg.reply("There was an error during purge."))
 
-    msg.channel.messages.fetch({ limit: 1 }).then(messages => {
+    await msg.channel.messages.fetch({ limit: 1 }).then(messages => {
         msg.channel.bulkDelete(messages)
     }).catch(error => 
         msg.reply("There was an error during purge."))
