@@ -6,22 +6,22 @@ exports.run = (bot, msg, args) => {
     const kickmember= msg.mentions.members.first();
 
     const noperm = new Discord.MessageEmbed()
-        .setColor('#FFFF00')
+        .setColor('#FFA500')
         .setTitle('Missing permissions')
         .setDescription("You need ``Kick members`` permission to use this command.")
     
     const nomemmber = new Discord.MessageEmbed()
-        .setColor('#FFFF00')
+        .setColor('#FFA500')
         .setTitle('Invalid argument')
         .setDescription("You didn't provide a member to kick.")
 
     const noreason = new Discord.MessageEmbed()
-        .setColor('#FF0000')
+        .setColor('#FFA500')
         .setTitle('Invalid argument')
         .setDescription("You didn't provide a kick reason.")
 
     const cantkick = new Discord.MessageEmbed()
-        .setColor('#FF0000')
+        .setColor('#FFA500')
         .setTitle('Couldn\'t kick member')
         .setDescription("Failed to ban member.")
 
