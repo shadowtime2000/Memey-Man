@@ -104,7 +104,7 @@ dist
 .tern-port
 
 # Deleted commands
-.commands/hack1.js
-.commands/hack2.js
-.commands/hack3.js
-.commands/vote.js
+commands/hack1.js
+commands/hack2.js
+commands/hack3.js
+commands/vote.js
