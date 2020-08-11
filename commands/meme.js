@@ -1,22 +1,18 @@
 const Discord = require('discord.js');
 const fetch = require('node-fetch');
 exports.run = (bot, msg, args) => {
-    function meme() {
-        fetch('https://meme-api.herokuapp.com/gimme')
-            .then(res => res.json())
-            .then(json => {
 
-                const memeembed = new Discord.MessageEmbed()
-                    .setColor('#7cfc00')
-                    .setTitle(json.title)
-                    .setImage(json.url)
-                    .setFooter(`Subreddit: r/${json.subreddit}`)   
+    fetch('https://meme-api.herokuapp.com/gimme')
+    .then(res => res.json())
+    .then(json => {
 
-                msg.channel.send(memeembed) 
-                
-            });
-    }
+        const memeembed = new Discord.MessageEmbed()
+            .setColor('#7cfc00')
+            .setTitle(json.title)
+            .setImage(json.url)
+            .setFooter(`Subreddit: r/${json.subreddit}`)   
 
-    meme()
+        msg.channel.send(memeembed)   
+    });
 
 };
