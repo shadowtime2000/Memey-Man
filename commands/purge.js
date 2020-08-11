@@ -10,22 +10,22 @@ exports.run = async (bot, msg, args) => {
 
     const nopurgeargs = new Discord.MessageEmbed()
         .setColor('#FFa500')
-        .setTitle('Invalid arguments')
+        .setTitle('Invalid argument')
         .setDescription("You didn't provide the number messages to purge.")
 
     const invnumber = new Discord.MessageEmbed()
         .setColor('#FFa500')
-        .setTitle('Invalid arguments')
+        .setTitle('Invalid argument')
         .setDescription("Number of messages should be a number.")
 
     const invnumberbig = new Discord.MessageEmbed()
         .setColor('#FFa500')
-        .setTitle('Invalid arguments')
+        .setTitle('Invalid argument')
         .setDescription("It's unable to purge more than 100 messages.")
 
     const invnumbersmall = new Discord.MessageEmbed()
         .setColor('#FFa500')
-        .setTitle('Invalid arguments')
+        .setTitle('Invalid argument')
         .setDescription("It's unable to purge less than 1 message..")
 
     if(!msg.member.hasPermission("MANAGE_MESSAGES")) return msg.channel.send(nopurge);
