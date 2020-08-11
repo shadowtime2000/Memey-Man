@@ -1,12 +1,21 @@
 const Discord = require('discord.js');
 exports.run = (bot, msg, args) => {
-        const args1 = msg.content.split(' ').slice(1);
-        const repeatword = args1.join(' ')
-        if(!repeatword) return msg.reply('Nothing to put in an embed!');
-        const embedembed = new Discord.MessageEmbed()
-            .setColor('#003152')
-            .setTitle('Message from ' + msg.member.displayName)
-            .setDescription(repeatword)
-            .setTimestamp()
-        msg.channel.send(embedembed)
+
+    const args1 = msg.content.split(' ').slice(1);
+    const repeatword = args1.join(' ')
+
+    const noword = new Discord.MessageEmbed()
+        .setColor("FFFF00")
+        .setTitle("Invalid argument")
+        .setDescription("You didn't provide the text to put in an embed.")
+
+    if(!repeatword) return msg.channel.send(noword);
+
+    const embedembed = new Discord.MessageEmbed()
+        .setColor('#003152')
+        .setTitle('Message from ' + msg.member.displayName)
+        .setDescription(repeatword)
+        .setTimestamp()
+    msg.channel.send(embedembed)
+
 };

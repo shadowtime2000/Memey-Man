@@ -102,3 +102,8 @@ dist
 
 # TernJS port file
 .tern-port
+
+#etc
+commands/hack1.js
+commands/hack2.js
+commands/hack3.js

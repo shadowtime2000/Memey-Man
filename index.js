@@ -36,6 +36,7 @@ bot.on("message", async msg => {
     if (cmd) {
         cmd.run(bot, msg, args);
     }
+    
 })
 
 bot.login("NzAyMDY4NzI0OTU3NDQ2MTQ1.XqALgg.vyM6B7AAFi3fO8UBzaxmD9xz9gU");
