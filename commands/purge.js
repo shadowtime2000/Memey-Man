@@ -21,7 +21,7 @@ exports.run = async (bot, msg, args) => {
     const invnumberbig = new Discord.MessageEmbed()
         .setColor('#FFa500')
         .setTitle('Invalid argument')
-        .setDescription("It's unable to purge more than 100 messages.")
+        .setDescription("It's unable to purge more than 99 messages.")
 
     const invnumbersmall = new Discord.MessageEmbed()
         .setColor('#FFa500')
