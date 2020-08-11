@@ -103,7 +103,8 @@ dist
 # TernJS port file
 .tern-port
 
-#etc
+# Deleted commands
 .commands/hack1.js
 .commands/hack2.js
 .commands/hack3.js
+.commands/vote.js
