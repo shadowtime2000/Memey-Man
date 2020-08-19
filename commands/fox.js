@@ -9,6 +9,7 @@ exports.run = (bot, msg, args) => {
             .setColor('#8B4513')
             .setTitle(":fox: Fox image!")
             .setImage(json.image)
+
         msg.channel.send(foxembed)
     });
 
