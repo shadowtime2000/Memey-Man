@@ -13,6 +13,7 @@ exports.run = (bot, msg, args) => {
             .setFooter(`Subreddit: r/${json.subreddit}`)   
 
         msg.channel.send(memeembed)   
+
     });
 
 };
