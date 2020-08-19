@@ -15,7 +15,7 @@ exports.run = (bot, msg, args) => {
                  "Excuse me?"];
 
     var answer = Math.floor(Math.random() * answers.length);
-
+ 
     const ballembed = new Discord.MessageEmbed()
         .setColor('#9c51b6')
         .setTitle('**8ball**')
