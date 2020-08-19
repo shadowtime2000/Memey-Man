@@ -12,5 +12,7 @@ exports.run = (bot, msg, args) => {
             .setImage(json.message)
 
         msg.channel.send(dogembed)
+
     });
+
 };
