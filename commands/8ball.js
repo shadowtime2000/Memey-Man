@@ -23,4 +23,5 @@ exports.run = (bot, msg, args) => {
         .setTimestamp() 
 
     msg.channel.send(ballembed);
+
 };
