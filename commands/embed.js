@@ -16,6 +16,7 @@ exports.run = (bot, msg, args) => {
         .setTitle('Message from ' + msg.member.displayName)
         .setDescription(repeatword)
         .setTimestamp()
+
     msg.channel.send(embedembed)
 
 };
