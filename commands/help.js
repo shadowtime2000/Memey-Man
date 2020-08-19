@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const { ReactionCollector } = require("discord.js-collector");
 exports.run = async (bot, msg, args) => {
+
     const botMessage = await msg.channel.send('``React to view my commands!``')
     ReactionCollector.menu({
         botMessage,
