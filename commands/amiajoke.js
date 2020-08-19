@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const Canvas = require('canvas');
 exports.run = async (bot, msg, args) => {
+
     const canvas = Canvas.createCanvas(897, 601);
     const ctx = canvas.getContext('2d');
 
@@ -13,4 +14,5 @@ exports.run = async (bot, msg, args) => {
     const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'amiajoke.jpg');
 
     msg.channel.send(attachment)
+
 };
