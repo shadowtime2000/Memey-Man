@@ -12,6 +12,7 @@ exports.run = (bot, msg, args) => {
             { name: 'Server ID', value: msg.guild.id }
         )
         .setTimestamp()
+
     msg.channel.send(serverembed)
 
 };
