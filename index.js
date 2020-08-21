@@ -34,8 +34,7 @@ bot.on("message", async msg => {
 
     if(!serverprefixarray) {
         
-        serverprefix = "&"
-        return
+        db.push(`prefixlist.${serverid}`, `&`)
 
     }
 
