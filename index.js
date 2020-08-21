@@ -28,11 +28,18 @@ bot.on("message", async msg => {
 
     var serverid = msg.guild.id
 
-    db.push(`prefixlist.${serverid}`, '&')
+    var serverprefix
 
     var serverprefixarray = db.get(`prefixlist.${serverid}`)
 
-    var serverprefix = serverprefixarray[0]
+    if(!serverprefixarray) {
+        
+        serverprefix = "&"
+        return
+
+    }
+
+    serverprefix = serverprefixarray[0]
 
     var prefix = serverprefix
 
