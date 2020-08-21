@@ -22,30 +22,26 @@ bot.on("ready", () =>{
     bot.user.setActivity("e | &help", {type: "STREAMING", url: `https://www.twitch.tv/memeymandiscordbot`});
 });
 
+db.set('prefixlist', { difficulty: 'Easy' })
+
 bot.on("message", async msg => {
 
-    let prefix
+    var serverprefixarray = db.get(`prefixlist.${msg.guild.id}`)
 
-    if (msg.content != "urqahfjlsacjsandkldj2i5u18-529783p4oihrwfkbsalhcansskxk") {
+    if(!serverprefixarray) {
 
-        var serverprefixarray = db.get(`prefixlist.${msg.guild.id}`)
-
-        if(!serverprefixarray) {
-
-            var serverprefix = "&"
-            return
-
-        }
-
-        var serverprefix = serverprefixarray[0]
-
-        console.log(serverprefix)
-
-        prefix = serverprefix
-
-        console.log(prefix)
+        var serverprefix = "&"
+        return
 
     }
+
+    var serverprefix = serverprefixarray[0]
+
+    console.log(serverprefix)
+
+    var prefix = serverprefix
+
+    console.log(prefix)
 
     if (msg.author.bot) return;
     if (msg.content.indexOf(prefix) !== 0) return;
@@ -56,8 +52,6 @@ bot.on("message", async msg => {
     const cmd = bot.commands.get(command);
 
     if (command == "prefix") {
-
-        db.set('prefixlist', { difficulty: 'Easy' })
 
         const arguments = msg.content.split(' ').slice(1); 
         const newprefix = arguments.join(' '); 
