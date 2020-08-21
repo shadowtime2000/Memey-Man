@@ -54,6 +54,8 @@ bot.on("message", async msg => {
 
     if (command == "prefix") {
 
+        if(!msg.member.hasPermission("MANAGE_SERVER")) return msg.channel.send("Missing permissions.")
+
         const arguments = msg.content.split(' ').slice(1); 
         const newprefix = arguments.join(' '); 
 
