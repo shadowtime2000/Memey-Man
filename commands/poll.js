@@ -11,12 +11,14 @@ exports.run = (bot, msg, args) => {
     const nochannel = new Discord.MessageEmbed()
         .setColor('#FFA500')
         .setTitle("Invalid argument")
-        .setDescription("You didn't provide a channel to post the poll.")
+        .setDescription("&poll [channel mention] [poll content]")
+        .setFooter("You didn't provide a channel to post the poll.")
 
     const notitle = new Discord.MessageEmbed()
         .setColor('#FFA500')
         .setTitle("Invaild argument")
-        .setDescription("You didn't provide the poll content.")
+        .setDescription("&poll [channel mention] [poll content]")
+        .setFooter("You didn't provide the poll content.")
 
     const args1 = msg.content.split(' ').slice(2); 
     const votetitle = args1.join(' '); 

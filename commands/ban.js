@@ -13,12 +13,14 @@ exports.run = (bot, msg, args) => {
     const nomemberembed = new Discord.MessageEmbed()
         .setColor('#FFA500')
         .setTitle('Invalid argument')
-        .setDescription("You didn't provide a member to ban.")
+        .setDescription("&ban [member mention] [ban reason]")
+        .setFooter("You didn't provide a member to ban.")
 
     const noreasonembed = new Discord.MessageEmbed()
         .setColor('#FFA500')
         .setTitle('Invalid argument')
-        .setDescription("You didn't provide a ban reason.")
+        .setDescription("&ban [member mention] [ban reason]")
+        .setFooter("You didn't provide a ban reason.")
 
     const cantban = new Discord.MessageEmbed()
         .setColor('#FFA500')

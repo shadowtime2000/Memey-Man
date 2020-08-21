@@ -42,6 +42,7 @@ exports.run = (bot, msg, args) => {
             .setDescription(`Slowmode set to ${num}s.`)
             .setFooter('Slowmode time unit is seconds')
             .setTimestamp()
+            
         msg.channel.send(slowmodey)
        
     }

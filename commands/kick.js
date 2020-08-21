@@ -13,12 +13,14 @@ exports.run = (bot, msg, args) => {
     const nomemmber = new Discord.MessageEmbed()
         .setColor('#FFA500')
         .setTitle('Invalid argument')
-        .setDescription("You didn't provide a member to kick.")
+        .setDescription("&kick [member mention] [ban reason]")
+        .setFooter("You didn't provide a member to kick.")
 
     const noreason = new Discord.MessageEmbed()
         .setColor('#FFA500')
         .setTitle('Invalid argument')
-        .setDescription("You didn't provide a kick reason.")
+        .setDescription("&kick [member mention] [ban reason]")
+        .setFooter("You didn't provide a kick reason.")
 
     const cantkick = new Discord.MessageEmbed()
         .setColor('#FFA500')

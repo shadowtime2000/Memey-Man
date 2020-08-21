@@ -6,7 +6,8 @@ exports.run = (bot, msg, args) => {
     const spanke = new Discord.MessageEmbed()
         .setColor('#ffa500')
         .setTitle('Invalid argument')
-        .setDescription('You didn\'t provide a member to punch.')
+        .setDescription('&punch [member mention]')
+        .setFooter('You didn\'t provide a member to punch.')
 
     if (!user) return msg.channel.send(spanke)
 
