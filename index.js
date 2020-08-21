@@ -35,7 +35,11 @@ bot.on("message", async msg => {
 
     var serverprefix = serverprefixarray[0]
 
+    console.log(serverprefix)
+
     const prefix = serverprefix
+
+    console.log(prefix)
 
     if (msg.author.bot) return;
     if (msg.content.indexOf(prefix) !== 0) return;
