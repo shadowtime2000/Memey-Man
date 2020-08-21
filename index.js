@@ -22,13 +22,15 @@ bot.on("ready", () =>{
     bot.user.setActivity("e | &help", {type: "STREAMING", url: `https://www.twitch.tv/memeymandiscordbot`});
 });
 
-db.set('prefixlist')
+db.set('prefixlist', { difficulty: 'Easy' })
 
 bot.on("message", async msg => {
 
-    db.push(`prefixlist.${msg.guild.id}`, '&')
+    var serverid = msg.guild.id
 
-    var serverprefixarray = db.get(`prefixlist.${msg.guild.id}`)
+    db.push(`prefixlist.${serverid}`, '&')
+
+    var serverprefixarray = db.get(`prefixlist.${serverid}`)
 
     var serverprefix = serverprefixarray[0]
 
@@ -51,12 +53,12 @@ bot.on("message", async msg => {
         const arguments = msg.content.split(' ').slice(1); 
         const newprefix = arguments.join(' '); 
 
-        if(!newprefix) return msg.channel.send("Current prefix is " + db.get(`userInfo.${msg.guild.id}` || "&"))
+        if(!newprefix) return msg.channel.send("Current prefix is " + db.get(`prefixlist.${serverid}` || "&"))
 
         try {
 
-            db.delete(`prefixlist.${msg.guild.id}`)
-            db.push(`prefixlist.${msg.guild.id}`, newprefix)
+            db.delete(`prefixlist.${serverid}`)
+            db.push(`prefixlist.${serverid}`, newprefix)
             msg.channel.send(`Set prefix to ${newprefix}`)
 
         } catch(error) {
