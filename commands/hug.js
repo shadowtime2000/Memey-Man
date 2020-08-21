@@ -14,6 +14,7 @@ exports.run = (bot, msg, args) => {
         .setColor('#00ff00')
         .setTitle( msg.member.displayName + " :hugging: " + user.displayName )
         .setDescription( msg.author.toString() + ' hugged ' + user.toString() + "!" )
+   
     msg.channel.send(hugee)
 
 };

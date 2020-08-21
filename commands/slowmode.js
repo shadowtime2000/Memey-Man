@@ -18,18 +18,24 @@ exports.run = (bot, msg, args) => {
     var str = msg.content.split('&slowmode ');
     var num = parseInt(str[1], 10);
     if(num > 21600) return msg.channel.send(nonum)
-    if(!num) {
+
+    if (!num) {
+
         msg.channel.setRateLimitPerUser(num)
+
         const slowmodeoff = new Discord.MessageEmbed()
             .setColor('#FF0000')
             .setTitle("Successfully turned off slowmode")
             .setDescription(`Turned off slowmode.`)
             .setFooter('Slowmode time unit is seconds')
             .setTimestamp()
+
         msg.channel.send(slowmodeoff)
-    }
-    else {
+
+    } else {
+
         msg.channel.setRateLimitPerUser(num)
+
         const slowmodey = new Discord.MessageEmbed()
             .setColor('#FF0000')
             .setTitle("Successfully set slowmode")
@@ -37,7 +43,7 @@ exports.run = (bot, msg, args) => {
             .setFooter('Slowmode time unit is seconds')
             .setTimestamp()
         msg.channel.send(slowmodey)
-        
+       
     }
     
 };

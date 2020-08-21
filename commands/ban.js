@@ -42,12 +42,12 @@ exports.run = (bot, msg, args) => {
         .setTimestamp()
 
     banmember.send(dmbanembed)
-        .then(() => {
-            banmember.ban(banreason).then(member => {
-            msg.channel.send(banembed)
-            }) 
-        }).catch(() => {
-            msg.channel.send(cantban);
+    .then(() => {
+        banmember.ban(banreason).then(member => {
+        msg.channel.send(banembed)
+        }) 
+    }).catch(() => {
+        msg.channel.send(cantban);
     })
     
 }

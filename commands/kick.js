@@ -42,12 +42,12 @@ exports.run = (bot, msg, args) => {
         .setTimestamp()
 
     kickmember.send(dmkickembed)
-        .then(() => {
-            kickmember.kick(kickreason).then(member => {
-            msg.channel.send(kickembed)
-            })
-        }).catch(() => {
-            msg.channel.send(cantkick);
+    .then(() => {
+        kickmember.kick(kickreason).then(member => {
+        msg.channel.send(kickembed)
+        })
+    }).catch(() => {
+        msg.channel.send(cantkick);
     })
 
 }
