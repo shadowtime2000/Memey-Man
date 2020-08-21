@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const Enmap = require("enmap");
 const fs = require('fs');
+const db = require('quick.db');
 
 const bot = new Discord.Client();
 
@@ -21,7 +22,12 @@ bot.on("ready", () =>{
     bot.user.setActivity("e | &help", {type: "STREAMING", url: `https://www.twitch.tv/memeymandiscordbot`});
 });
 
-var prefix = "&"
+var serverprefixarray = db.get(`prefixlist.${msg.guild.id}`)
+var serverprefix = serverprefixarray[0]
+
+if(!serverprefixarray) var serverprefix = "&"
+
+var prefix = serverprefix
 
 bot.on("message", async msg => {
 
@@ -33,8 +39,32 @@ bot.on("message", async msg => {
 
     const cmd = bot.commands.get(command);
 
-    if (cmd) {
+    if (command == "prefix") {
+
+        db.set('prefixlist', { difficulty: 'Easy' })
+
+        const arguments = msg.content.split(' ').slice(1); 
+        const newprefix = arguments.join(' '); 
+
+        if(!newprefix) return msg.channel.send("Current prefix is " + db.get(`userInfo.${msg.guild.id}` || "&"))
+
+        try {
+
+            db.delete(`prefixlist.${msg.guild.id}`)
+            db.push(`prefixlist.${msg.guild.id}`, newprefix)
+            msg.channel.send(`Set prefix to ${newprefix}`)
+
+        } catch(error) {
+
+            console.log(error)
+            msg.channel.send("Error.")
+
+        }
+
+    } else if (cmd) {
+
         cmd.run(bot, msg, args);
+
     }
 
 })
