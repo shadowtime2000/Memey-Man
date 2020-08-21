@@ -26,7 +26,7 @@ bot.on("message", async msg => {
 
     let prefix
 
-    if (msg.content) {
+    if (msg) {
 
         var serverprefixarray = db.get(`prefixlist.${msg.guild.id}`)
 
