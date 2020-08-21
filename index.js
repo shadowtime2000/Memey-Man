@@ -24,22 +24,28 @@ bot.on("ready", () =>{
 
 bot.on("message", async msg => {
 
-    var serverprefixarray = db.get(`prefixlist.${msg.guild.id}`)
+    let prefix
 
-    if(!serverprefixarray) {
+    if (msg.content) {
 
-        var serverprefix = "&"
-        return
+        var serverprefixarray = db.get(`prefixlist.${msg.guild.id}`)
+
+        if(!serverprefixarray) {
+
+            var serverprefix = "&"
+            return
+
+        }
+
+        var serverprefix = serverprefixarray[0]
+
+        console.log(serverprefix)
+
+        prefix = serverprefix
+
+        console.log(prefix)
 
     }
-
-    var serverprefix = serverprefixarray[0]
-
-    console.log(serverprefix)
-
-    const prefix = serverprefix
-
-    console.log(prefix)
 
     if (msg.author.bot) return;
     if (msg.content.indexOf(prefix) !== 0) return;
