@@ -32,7 +32,7 @@ bot.on("message", async msg => {
 
     var serverprefixarray = db.get(`prefixlist.${serverid}`)
 
-    if(!serverprefixarray) {
+    if(!serverprefixarray.length) {
         
         db.push(`prefixlist.${serverid}`, `&`)
 
