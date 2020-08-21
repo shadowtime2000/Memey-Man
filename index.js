@@ -22,14 +22,14 @@ bot.on("ready", () =>{
     bot.user.setActivity("e | &help", {type: "STREAMING", url: `https://www.twitch.tv/memeymandiscordbot`});
 });
 
-var serverprefixarray = db.get(`prefixlist.${msg.guild.id}`)
-var serverprefix = serverprefixarray[0]
-
-if(!serverprefixarray) var serverprefix = "&"
-
-var prefix = serverprefix
-
 bot.on("message", async msg => {
+
+    var serverprefixarray = db.get(`prefixlist.${msg.guild.id}`)
+    var serverprefix = serverprefixarray[0]
+
+    if(!serverprefixarray) var serverprefix = "&"
+
+    const prefix = serverprefix
 
     if (msg.author.bot) return;
     if (msg.content.indexOf(prefix) !== 0) return;
