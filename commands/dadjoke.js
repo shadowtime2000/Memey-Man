@@ -1,5 +1,3 @@
-const { DiscordAPIError } = require("discord.js");
-
 const Discord = require('discord.js');
 exports.run = (bot, msg, args) => {
 	async function fetchRedditData() {
