@@ -26,7 +26,8 @@
     "search-image": "^1.0.3",
     "urban": "^0.3.2",
     "urban-dictionary": "^2.2.1",
-    "util": "^0.12.3"
+    "util": "^0.12.3",
+    "node-fetch": "latest"
   },
   "devDependencies": {},
   "repository": {

@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
 const Enmap = require("enmap");
 const fs = require('fs');
-const db = require('quick.db');
 
 const bot = new Discord.Client();
 
@@ -23,8 +22,6 @@ bot.on("ready", () =>{
     console.log("Logged in / Online in " + bot.guilds.cache.size + " servers.");
     bot.user.setActivity("e | &help", {type: "STREAMING", url: `https://www.twitch.tv/memeymandiscordbot`});
 });
-
-db.set('prefixlist', { difficulty: 'Easy' })
 
 bot.on("message", async msg => {
 

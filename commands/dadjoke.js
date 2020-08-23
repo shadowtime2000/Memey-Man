@@ -3,7 +3,7 @@ const fetch = require('node-fetch');
 exports.run = (bot, msg, args) => {
 	async function fetchRedditData() {
 
-    const res = await fetch("https://www.reddit.com/r/dadjokes/random.json");
+        const res = await fetch("https://www.reddit.com/r/dadjokes/random.json");
         const data = await res.json();
     
         const title = data[0].data.children[0].data.title
@@ -16,8 +16,10 @@ exports.run = (bot, msg, args) => {
             .setDescription(text)
             .setFooter(`Post by u/${author}`)
 
-        msg.channel.send(jokeembed)
+        await msg.channel.send(jokeembed)
+
     }
     
     fetchRedditData()
+
 };
