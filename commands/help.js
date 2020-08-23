@@ -12,7 +12,7 @@ exports.run = async (bot, msg, args) => {
                 embed: {
                     color: "#1167b1",
                     title: "Fun commands",
-                    description: '``&meme`` Gives a random meme.\n``&gayrate`` See how gay is someone\n``&hug`` Hug a user!\n``&punch`` Punch a user!\n``&topic`` Gives a chat topic\n``&urban`` Searchs a word at urban dictionary.'
+                    description: '``&meme`` Gets a random meme.\n``&dadjoke`` Gets a random dad joke\n``&gayrate`` See how gay is someone\n``&hug`` Hug a user!\n``&punch`` Punch a user!\n``&topic`` Gives a chat topic\n``&urban`` Searchs a word at urban dictionary.'
                 }
             },
 

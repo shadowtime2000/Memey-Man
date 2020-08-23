@@ -12,7 +12,7 @@ exports.run = (bot, msg, args) => {
 
         const jokeembed = new Discord.MessageEmbed()
             .setColor(`#9c51b6'`)
-            .setTitle(title)
+            .setAuthor(title)
             .setDescription(text)
             .setFooter(`Post by u/${author}`)
 
