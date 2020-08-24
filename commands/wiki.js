@@ -19,7 +19,7 @@ exports.run = async (bot, msg, args) => {
     const data = await res.json();
 
     const title = data.title || "No result found.";
-    const text = data.extract || null;
+    const text = data.extract || "Couldn't retrieve any result.";
     const thumbnail = data.originalimage.source || null;
     const url = data.content_urls.desktop.page || null;
 
