@@ -9,7 +9,7 @@ exports.run = (bot, msg, args) => {
         const avatarEmbed = new Discord.MessageEmbed()
             .setColor(`#006a4e`)
             .setAuthor(msg.author.tag, msg.author.displayAvatarURL({ format: 'png' }))
-            .setImage(msg.author.displayAvatarURL({ size: 1024, format: 'png' }));
+            .setImage(msg.author.displayAvatarURL({ size: 1024, format: 'png', dynamic: true }));
         msg.channel.send(avatarEmbed);
     }
 
@@ -17,7 +17,7 @@ exports.run = (bot, msg, args) => {
         const useravatarEmbed = new Discord.MessageEmbed()            
             .setColor(`#006a4e`)
             .setAuthor(bot.users.cache.get(user.id).tag, bot.users.cache.get(user.id).displayAvatarURL({ format: 'png' }))
-            .setImage(bot.users.cache.get(user.id).displayAvatarURL({ size: 1024, format: 'png' }));
+            .setImage(bot.users.cache.get(user.id).displayAvatarURL({ size: 1024, format: 'png', dynamic: true }));
         msg.channel.send(useravatarEmbed);
     }
 
@@ -25,7 +25,7 @@ exports.run = (bot, msg, args) => {
         const idavatarEmbed = new Discord.MessageEmbed() 
             .setColor(`#006a4e`)
             .setAuthor(bot.users.cache.get(memberid).tag, bot.users.cache.get(memberid).displayAvatarURL({ format: 'png' }))
-            .setImage(bot.users.cache.get(memberid).displayAvatarURL({ size: 1024, format: 'png' }));
+            .setImage(bot.users.cache.get(memberid).displayAvatarURL({ size: 1024, format: 'png', dynamic: true }));
         msg.channel.send(idavatarEmbed);
     } 
 
