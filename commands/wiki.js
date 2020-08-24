@@ -20,10 +20,12 @@ exports.run = async (bot, msg, args) => {
 
     const title = data.title;
     const text = data.extract;
+    const thumbnail = data.originalimage.source || null;
 
     const jokeembed = new Discord.MessageEmbed()
         .setColor(`#228B22`)
         .setAuthor(title)
+        .setThumbnail(thumbnail)
         .setDescription(text)
 
     await msg.channel.send(jokeembed)
