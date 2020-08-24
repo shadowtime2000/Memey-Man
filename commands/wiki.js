@@ -18,9 +18,17 @@ exports.run = async (bot, msg, args) => {
     const res = await fetch("https://en.wikipedia.org/api/rest_v1/page/summary/" + searchword);
     const data = await res.json();
 
-    const title = data.title || "No result found.";
+    const title = data.title;
     const text = data.extract || "Couldn't retrieve any result.";
-    const thumbnail = data.originalimage.source || null;
+
+    let thumbnail
+
+    if(data.originalimage) {
+        thumbnail = data.originalimage.source;
+    } else {
+        thumbnail = null
+    }
+
     const url = data.content_urls.desktop.page || null;
 
     const jokeembed = new Discord.MessageEmbed()
