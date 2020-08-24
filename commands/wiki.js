@@ -23,13 +23,19 @@ exports.run = async (bot, msg, args) => {
 
     let thumbnail
 
-    if(data.originalimage) {
+    if (data.originalimage) {
         thumbnail = data.originalimage.source;
     } else {
         thumbnail = null
     }
 
-    const url = data.content_urls.desktop.page || null;
+    let url
+
+    if (data.content_urls) {
+        url = data.content_urls.desktop.page
+    } else {
+        url = null
+    }
 
     const jokeembed = new Discord.MessageEmbed()
         .setColor(`#228B22`)
