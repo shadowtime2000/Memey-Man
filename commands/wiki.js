@@ -18,10 +18,10 @@ exports.run = async (bot, msg, args) => {
     const res = await fetch("https://en.wikipedia.org/api/rest_v1/page/summary/" + searchword);
     const data = await res.json();
 
-    const title = data.title;
-    const text = data.extract;
+    const title = data.title || "No result found.";
+    const text = data.extract || null;
     const thumbnail = data.originalimage.source || null;
-    const url = data.content_urls.desktop.page;
+    const url = data.content_urls.desktop.page || null;
 
     const jokeembed = new Discord.MessageEmbed()
         .setColor(`#228B22`)
