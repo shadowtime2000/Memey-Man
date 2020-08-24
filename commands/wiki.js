@@ -1,3 +1,5 @@
+const Discord = require('discord.js');
+const fetch = require('node-fetch');
 exports.run = async (bot, msg, args) => {
 
     const args1 = msg.content.split(' ').slice(1);
