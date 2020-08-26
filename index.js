@@ -59,7 +59,6 @@ bot.on("message", async msg => {
         if(!msg.member.hasPermission("MANAGE_GUILD")) return msg.channel.send("Missing permissions")
 
         const test = await guildprefix.findOne({ serverid: msg.guild.id })
-        console.log(test)
 
         if (test == null) {
             await new guildprefix({ serverid: msg.guild.id, prefix: newprefix }).save();
@@ -70,7 +69,7 @@ bot.on("message", async msg => {
         const setprefix = await guildprefix.findOne({ serverid: msg.guild.id })
         msg.channel.send("Set prefix to ``" + setprefix.prefix + "``")
 
-    } else if (msg.content == "&dev") {
+    } else if (msg.content == "&prefixtesting") {
 
         const e = await guildprefix.findOne({ serverid: msg.guild.id })
         console.log(e)
