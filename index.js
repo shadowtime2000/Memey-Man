@@ -51,6 +51,8 @@ bot.on("message", async msg => {
 
     if (command.startsWith("prefix")) {
 
+        console.log("e")
+
         const args = msg.content.split(' ').slice(1); 
         const newprefix = args.join(' '); 
 
