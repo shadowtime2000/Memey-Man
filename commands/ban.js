@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-var prefix = require('/app/index.js').prefixa;
 exports.run = (bot, msg, args) => {
     
     const args1 = msg.content.split(' ').slice(2); 
