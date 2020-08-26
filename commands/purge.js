@@ -11,7 +11,7 @@ exports.run = async (bot, msg, args) => {
     const nopurgeargs = new Discord.MessageEmbed()
         .setColor('#FFa500')
         .setTitle('Invalid argument')
-        .setDescription("&purge [number of messages]")
+        .setDescription(prefix + "purge [number of messages]")
         .setFooter("You didn't provide the number messages to purge.")
 
     const invnumber = new Discord.MessageEmbed()

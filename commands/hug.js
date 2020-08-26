@@ -6,7 +6,7 @@ exports.run = (bot, msg, args) => {
     const huge = new Discord.MessageEmbed()
         .setColor('#FFA500')
         .setTitle('Invalid argument')
-        .setDescription('&hug [member mention]')
+        .setDescription(prefix + 'hug [member mention]')
         .setFooter('You didn\'t provide a member to hug.')
 
     if (!user) return msg.channel.send(huge)

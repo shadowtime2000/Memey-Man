@@ -5,7 +5,7 @@ exports.run = async (bot, msg, args) => {
     const nosearch = new Discord.MessageEmbed()
         .setColor("#FFA500")
         .setTitle("Invalid argument")
-        .setDescription("&wiki [search word]")
+        .setDescription(prefix + "wiki [search word]")
         .setFooter("You didn't provide a search word.")
 
     const args1 = msg.content.split(' ').slice(1);

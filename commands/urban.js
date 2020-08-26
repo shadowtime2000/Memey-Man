@@ -8,7 +8,7 @@ exports.run = (bot, msg, args) => {
     const noword = new Discord.MessageEmbed()
         .setColor('#ffa500')
         .setTitle('Invalid argument')
-        .setDescription("&urban [search word]")
+        .setDescription(prefix + "urban [search word]")
         .setFooter('You didn\'t provide a word to search.')
 
     if(!searchword) return msg.channel.send(noword);
