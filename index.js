@@ -51,12 +51,10 @@ bot.on("message", async msg => {
 
     if (command.startsWith("prefix")) {
 
-        console.log("e")
-
         const args = msg.content.split(' ').slice(1); 
         const newprefix = args.join(' '); 
 
-        if(!newprefix) return msg.channel.send(`Current prefix is: ${prefix}`)
+        if(!newprefix) return msg.channel.send("Current prefix is ``"+ prefix + "``")
 
         if(!msg.member.hasPermission("MANAGE_GUILD")) return msg.channel.send("Missing permissions")
 
@@ -64,15 +62,13 @@ bot.on("message", async msg => {
         console.log(test)
 
         if (test == null) {
-            console.log("not found")
             await new guildprefix({ serverid: msg.guild.id, prefix: newprefix }).save();
         } else {
-            console.log("found")
             await guildprefix.updateOne({ serverid: msg.guild.id }, { prefix: newprefix });
         }
 
         const setprefix = await guildprefix.findOne({ serverid: msg.guild.id })
-        msg.channel.send(`Set prefix to ${setprefix.prefix}`)
+        msg.channel.send("Set prefix to ``" + setprefix.prefix + "``")
 
     } else if (msg.content == "&dev") {
 
