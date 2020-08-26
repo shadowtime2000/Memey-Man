@@ -20,7 +20,7 @@ exports.run = async (bot, msg, args) => {
                 embed: {
                     color: "#1167b1",
                     title: "Tool commands",
-                    description: '``ping`` Gets bot ping.\n``wiki`` Searches something on Wikipedia \n``avatar`` Gives user\'s avatar.\n``poll`` Creates a poll.\n``serverinfo`` Gives server info.'
+                    description: '``ping`` Gets bot ping.\n``prefix`` Sets bot prefix.\n``wiki`` Searches something on Wikipedia.\n``avatar`` Gives user\'s avatar.\n``poll`` Creates a poll.\n``serverinfo`` Gives server info.'
                 }
             },
 
