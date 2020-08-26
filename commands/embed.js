@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
-const prefixmodule = require('/app/index.js')
-const prefix = prefixmodule.prefix
+var myModule = require('./app/index.js');
+var prefix = myModule.prefix;
 exports.run = (bot, msg, args) => {
 
     const args1 = msg.content.split(' ').slice(1);
