@@ -73,6 +73,9 @@ bot.on("message", async msg => {
 
         })();
 
+    } else if (command == "&dev") {
+        const e = await guildprefix.findOne({ serverid: msg.guild.id })
+        console.log(e)
     } else if (cmd) {
         try {
             cmd.run(bot, msg, args);
