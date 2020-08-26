@@ -73,7 +73,7 @@ bot.on("message", async msg => {
 
         })();
 
-    } else if (command == "&dev") {
+    } else if (msg.content == "&dev") {
         const e = await guildprefix.findOne({ serverid: msg.guild.id })
         console.log(e)
     } else if (cmd) {
