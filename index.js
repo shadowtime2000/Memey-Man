@@ -60,13 +60,7 @@ bot.on("message", async msg => {
 
         (async () => {
 
-            const test = await guildprefix.findOne({ serverid: msg.guild.id })
-
-            if (test == null) {
-                await new guildprefix({ serverid: msg.guild.id, prefix: newprefix }).save();
-            } else {
-                await guildprefix.findOneAndUpdate({ serverid: msg.guild.id }, { prefix: newprefix });
-            }
+            await guildprefix.updateOne({ serverid: msg.guild.id }, { prefix: newprefix }, { upsert: true });
 
             const setprefix = await guildprefix.findOne({ serverid: msg.guild.id })
             msg.channel.send(`Set prefix to ${setprefix.prefix}`)
