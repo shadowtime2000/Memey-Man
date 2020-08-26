@@ -64,7 +64,7 @@ bot.on("message", async msg => {
 
             const test = await guildprefix.findOne({ serverid: msg.guild.id })
 
-            if (test == null) {
+            if (!test) {
                 await new guildprefix({ serverid: msg.guild.id, prefix: newprefix }).insertOne();
             } else {
                 await guildprefix.updateOne({ serverid: msg.guild.id }, { prefix: newprefix });
