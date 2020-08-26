@@ -9,12 +9,12 @@ bot.commands = new Enmap();
 
 mongoose.connect(process.env.MONGODB,  { useNewUrlParser: true, useUnifiedTopology: true } )
 
-mongoose.connection.on('connecting', function ()    { console.log('MongoDB: Trying to connect: ' + dbURI);                             }); 
-mongoose.connection.on('connected', function ()     { console.log('MongoDB: Successfully connected to: ' + dbURI);          }); 
-mongoose.connection.on('error', function (err)       { console.log('MongoDB: ERROR connecting to: ' + dbURI + ' - ' + err);  }); 
+mongoose.connection.on('connecting', function ()    { console.log('MongoDB: Trying to connect: ' + process.env.MONGODB);                             }); 
+mongoose.connection.on('connected', function ()     { console.log('MongoDB: Successfully connected to: ' + process.env.MONGODB);          }); 
+mongoose.connection.on('error', function (err)       { console.log('MongoDB: ERROR connecting to: ' + process.env.MONGODB + ' - ' + err);  }); 
 mongoose.connection.on('close', function (err)       { console.log('MongoDB: Connection closed');                            }); 
 mongoose.connection.on('reconnected', function ()   { console.log('MongoDB: Database link was reconnected');                });
-mongoose.connection.on('disconnected', function ()  { console.log('MongoDB: The connection ended on: ' + dbURI );                             });
+mongoose.connection.on('disconnected', function ()  { console.log('MongoDB: The connection ended on: ' + process.env.MONGODB );                             });
 
 fs.readdir("./commands/", (err, files) => {
     if (err) return console.error(err);
