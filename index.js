@@ -7,7 +7,7 @@ const bot = new Discord.Client();
 
 bot.commands = new Enmap();
 
-mongoose.connect(process.env.MONGODB,  { useNewUrlParser: true, useUnifiedTopology: true } )
+const conn = mongoose.connect(process.env.MONGODB,  { useNewUrlParser: true, useUnifiedTopology: true } )
 
 mongoose.connection.on('connecting', function ()    { console.log('MongoDB: Trying to connect: ' + process.env.MONGODB);                             }); 
 mongoose.connection.on('connected', function ()     { console.log('MongoDB: Successfully connected to: ' + process.env.MONGODB);          }); 
@@ -26,7 +26,10 @@ fs.readdir("./commands/", (err, files) => {
     });
 });
 
-const prefix = "&" 
+const guildprefix = mongoose.model('guildprefix', new mongoose.Schema({
+    serverid: String,
+    prefix: String
+}));
 
 bot.on("ready", () =>{
     console.log("Logged in / Online in " + bot.guilds.cache.size + " servers.");
@@ -34,6 +37,8 @@ bot.on("ready", () =>{
 });
 
 bot.on("message", async msg => {
+
+    const prefix = await guildprefix.findOne({ serverid: msg.guild.id }) || "&"
 
     if (msg.author.bot) return;
     if (msg.content.indexOf(prefix) !== 0) return;
@@ -44,8 +49,21 @@ bot.on("message", async msg => {
     const cmd = bot.commands.get(command);
 
     if (command == "prefix") {
+
         const args = msg.content.split(' ').slice(1); 
         const newprefix = args.join(' '); 
+
+        (async () => {
+            await guildprefix.update({ serverid: msg.guild.id }, { prefix: newprefix });
+            const setprefix = await guildprefix.findOne({ serverid: msg.guild.id })
+            msg.channel.send(`Set prefix to ${setprefix}`)
+        })();
+
+    } else if (msg.content == "&devtest") {
+
+        const e = await guildprefix.findOne({ serverid: msg.guild.id })
+        console.log(e)
+
     } else if (cmd) {
         try {
             cmd.run(bot, msg, args);
