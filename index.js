@@ -51,7 +51,7 @@ bot.on("message", async msg => {
 
     if (command == "prefix") {
 
-        const args = command.split(' ').slice(1); 
+        const args = msg.content.split(' ').slice(1); 
         const newprefix = args.join(' '); 
 
         if(!newprefix) return msg.channel.send(`Current prefix is: ${prefix}`)
