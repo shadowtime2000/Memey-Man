@@ -1,10 +1,17 @@
 const Discord = require('discord.js');
 const Enmap = require("enmap");
 const fs = require('fs');
+const mongoose = require('mongoose')
 
 const bot = new Discord.Client();
 
 bot.commands = new Enmap();
+
+mongoose.connect(process.env.MONGODB)
+
+mongoose.connection.on('connect', function() {
+    console.log('MongoDB has connected successfully');
+});
 
 fs.readdir("./commands/", (err, files) => {
     if (err) return console.error(err);
@@ -16,7 +23,7 @@ fs.readdir("./commands/", (err, files) => {
     });
 });
 
-const prefix = "&"
+const prefix = "&" 
 
 bot.on("ready", () =>{
     console.log("Logged in / Online in " + bot.guilds.cache.size + " servers.");
@@ -33,7 +40,10 @@ bot.on("message", async msg => {
 
     const cmd = bot.commands.get(command);
 
-    if (cmd) {
+    if (command == "prefix") {
+        const args = msg.content.split(' ').slice(1); 
+        const newprefix = args.join(' '); 
+    } else if (cmd) {
         try {
             cmd.run(bot, msg, args);
         } catch (error) {
