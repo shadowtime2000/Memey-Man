@@ -41,9 +41,7 @@ bot.on("message", async msg => {
     const prefixmap = await guildprefix.findOne({ serverid: msg.guild.id }) || { prefix: "&" }
     const prefix = prefixmap.prefix
 
-    let prefixe
-    prefixe = prefix;
-    module.exports.prefix = prefixe;
+    module.exports.prefix = prefix;
 
     if (msg.author.bot) return;
     if (msg.content.indexOf(prefix) !== 0) return;

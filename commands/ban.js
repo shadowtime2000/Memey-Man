@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-var myModule = require('/app/index.js');
+var myModule = require('./index.js');
 var prefix = myModule.prefix;
 exports.run = (bot, msg, args) => {
     
