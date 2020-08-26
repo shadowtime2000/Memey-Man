@@ -65,14 +65,9 @@ bot.on("message", async msg => {
             }
 
             const setprefix = await guildprefix.findOne({ serverid: msg.guild.id })
-            msg.channel.send(`Set prefix to ${setprefix.prefix}`)
+            msg.channel.send(`Set prefix to ``${setprefix.prefix}```)
 
         })();
-
-    } else if (msg.content == "&devtest") {
-
-        const e = await guildprefix.findOne({ serverid: msg.guild.id })
-        console.log(e)
 
     } else if (cmd) {
         try {
