@@ -54,6 +54,10 @@ bot.on("message", async msg => {
         const args = msg.content.split(' ').slice(1); 
         const newprefix = args.join(' '); 
 
+        if(!newprefix) return msg.channel.send(`Current prefix is: ${prefix}`)
+
+        if(!msg.member.hasPermission("MANAGE_GUILD")) return msg.channel.send("Missing permissions")
+
         (async () => {
 
             const test = await guildprefix.findOne({ serverid: msg.guild.id })
