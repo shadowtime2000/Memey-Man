@@ -60,7 +60,13 @@ bot.on("message", async msg => {
 
         (async () => {
 
-            await guildprefix.findOneAndUpdate({ serverid: msg.guild.id }, { prefix: newprefix } , { upsert: true });
+            const test = await guildprefix.findOne({ serverid: msg.guild.id })
+
+            if (test == null) {
+                await new guildprefix({ serverid: msg.guild.id, prefix: newprefix }).save();
+            } else {
+                await guildprefix.updateOne({ serverid: msg.guild.id }, { prefix: newprefix }, { upsert: true });
+            }
 
             const setprefix = await guildprefix.findOne({ serverid: msg.guild.id })
             msg.channel.send(`Set prefix to ${setprefix.prefix}`)
@@ -71,7 +77,7 @@ bot.on("message", async msg => {
 
         const e = await guildprefix.findOne({ serverid: msg.guild.id })
         console.log(e)
-
+        
     } else if (cmd) {
         try {
             cmd.run(bot, msg, args);
