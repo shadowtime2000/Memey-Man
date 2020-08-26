@@ -65,7 +65,7 @@ bot.on("message", async msg => {
             const test = await guildprefix.findOne({ serverid: msg.guild.id })
             console.log(test)
 
-            if (!test) {
+            if (test == null) {
                 console.log("not found")
                 await new guildprefix({ serverid: msg.guild.id, prefix: newprefix }).save();
             } else {
