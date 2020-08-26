@@ -67,7 +67,13 @@ bot.on("message", async msg => {
         }
 
         const setprefix = await guildprefix.findOne({ serverid: msg.guild.id })
-        msg.channel.send("Set prefix to ``" + setprefix.prefix + "``")
+
+        const prefixembed = new Discord.MessageEmbed()
+            .setColor(`#0859C6`)
+            .setTitle(`Successfully set prefix`)
+            .setDescription("The new prefix is ``" + setprefix.prefix + "``")
+
+        msg.channel.send(prefixembed)
 
     } else if (msg.content == "&prefixtesting") {
 
