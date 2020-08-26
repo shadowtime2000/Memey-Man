@@ -43,7 +43,7 @@ bot.on("message", async msg => {
 
     let prefixe
     prefixe = prefix;
-    exports.prefix = prefixe;
+    module.exports.prefix = prefixe;
 
     if (msg.author.bot) return;
     if (msg.content.indexOf(prefix) !== 0) return;
