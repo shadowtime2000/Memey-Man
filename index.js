@@ -51,7 +51,7 @@ bot.on("message", async msg => {
 
     if (command == "prefix") {
 
-        const args = msg.content.split(' ').slice(1); 
+        const args = command.split(' ').slice(1); 
         const newprefix = args.join(' '); 
 
         if(!newprefix) return msg.channel.send(`Current prefix is: ${prefix}`)
@@ -60,7 +60,7 @@ bot.on("message", async msg => {
 
         (async () => {
 
-            await guildprefix.updateOne({ serverid: msg.guild.id }, { prefix: newprefix }, { upsert: true });
+            await guildprefix.findOneAndUpdate({ serverid: msg.guild.id }, { prefix: newprefix } , { upsert: true });
 
             const setprefix = await guildprefix.findOne({ serverid: msg.guild.id })
             msg.channel.send(`Set prefix to ${setprefix.prefix}`)
@@ -68,8 +68,10 @@ bot.on("message", async msg => {
         })();
 
     } else if (msg.content == "&dev") {
+
         const e = await guildprefix.findOne({ serverid: msg.guild.id })
         console.log(e)
+
     } else if (cmd) {
         try {
             cmd.run(bot, msg, args);
