@@ -66,9 +66,10 @@ bot.on("message", async msg => {
             console.log(test)
 
             if (!test) {
-                console
+                console.log("not found")
                 await new guildprefix({ serverid: msg.guild.id, prefix: newprefix }).save();
             } else {
+                console.log("found")
                 await guildprefix.updateOne({ serverid: msg.guild.id }, { prefix: newprefix });
             }
 
