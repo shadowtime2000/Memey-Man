@@ -38,7 +38,7 @@ bot.on("ready", () =>{
 
 bot.on("message", async msg => {
 
-    const prefix = await guildprefix.findOne({ serverid: msg.guild.id }) || "&"
+    const prefix = await guildprefix.findOne({ serverid: msg.guild.id }).prefix || "&"
 
     if (msg.author.bot) return;
     if (msg.content.indexOf(prefix) !== 0) return;
@@ -64,8 +64,8 @@ bot.on("message", async msg => {
             }
 
             const setprefix = await guildprefix.findOne({ serverid: msg.guild.id })
-            msg.channel.send(`Set prefix to ${setprefix}`)
-            
+            msg.channel.send(`Set prefix to ${setprefix.prefix}`)
+
         })();
 
     } else if (msg.content == "&devtest") {
