@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const prefix = require('./index.js').varToExport;
 exports.run = (bot, msg, args) => {
     
     const args1 = msg.content.split(' ').slice(2); 
@@ -13,13 +14,13 @@ exports.run = (bot, msg, args) => {
     const nomemberembed = new Discord.MessageEmbed()
         .setColor('#FFA500')
         .setTitle('Invalid argument')
-        .setDescription("&ban [member mention] [ban reason]")
+        .setDescription(prefix + "ban [member mention] [ban reason]")
         .setFooter("You didn't provide a member to ban.")
 
     const noreasonembed = new Discord.MessageEmbed()
         .setColor('#FFA500')
         .setTitle('Invalid argument')
-        .setDescription("&ban [member mention] [ban reason]")
+        .setDescription(prefix + "ban [member mention] [ban reason]")
         .setFooter("You didn't provide a ban reason.")
 
     const cantban = new Discord.MessageEmbed()
