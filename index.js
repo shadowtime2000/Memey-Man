@@ -7,7 +7,7 @@ const bot = new Discord.Client();
 
 bot.commands = new Enmap();
 
-mongoose.connect(process.env.MONGODB)
+mongoose.connect(process.env.MONGODB,  { useNewUrlParser: true } )
 
 mongoose.connection.on('connect', function() {
     console.log('MongoDB has connected successfully');
