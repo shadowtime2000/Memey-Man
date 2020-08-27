@@ -12,13 +12,13 @@ exports.run = (bot, msg, args) => {
     const nonum = new Discord.MessageEmbed()
         .setColor('#FF665B')
         .setTitle('Invalid argument')
-        .setDescription("Number should be less than or equal to 21600.")
+        .setDescription("Slowmode must be shorter than 6 hours.")
 
     if(!msg.member.hasPermission("MANAGE_CHANNELS")) return msg.channel.send(noperm1)
 
     var str = msg.content.split(' ').slice(1)
     str = str[0]
-    
+
     console.log(str)
     var num = ms(str)/1000
 
@@ -27,7 +27,7 @@ exports.run = (bot, msg, args) => {
     msg.channel.setRateLimitPerUser(num)
 
     const slowmodey = new Discord.MessageEmbed()
-        .setColor('#FF0000')
+        .setColor('#73DB6A')
         .setTitle("Successfully set slowmode")
         .setDescription(`Slowmode set to ${str}.`)
         .setTimestamp()
