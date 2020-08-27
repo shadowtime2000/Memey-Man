@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const Canvas = require("canvas")
 const bot = new Discord.Client();
-exports.run = (bot, msg, args) => {
+exports.run = async (bot, msg, args) => {
 
     const canvas = Canvas.createCanvas(770, 433);
     const ctx = canvas.getContext('2d');
