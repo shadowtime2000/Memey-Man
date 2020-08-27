@@ -15,7 +15,7 @@ exports.run = async (bot, msg, args) => {
                     description: '``meme`` Gets a random meme.\n``dadjoke`` Gets a random dad joke\n``gayrate`` See how gay is someone\n``hug`` Hug a user!\n``punch`` Punch a user!\n``topic`` Gives a chat topic\n``urban`` Searches something on urban dictionary.',
                     footer: {
                         iconURL: "https://i.imgur.com/XiiqQWn.png",
-                        text: "This server's prefix is " + prefix + "."
+                        text: "This server's prefix is " + prefix
                     }
                 }
             },
@@ -27,7 +27,7 @@ exports.run = async (bot, msg, args) => {
                     description: '``ping`` Gets bot ping.\n``prefix`` Sets bot prefix.\n``wiki`` Searches something on Wikipedia.\n``avatar`` Gives user\'s avatar.\n``translate`` Translates text to English.\n``poll`` Creates a poll.\n``serverinfo`` Gives server info.',
                     footer: {
                         iconURL: "https://i.imgur.com/XiiqQWn.png",
-                        text: "This server's prefix is " + prefix + "."
+                        text: "This server's prefix is " + prefix
                     }
                 }
             },
@@ -39,7 +39,7 @@ exports.run = async (bot, msg, args) => {
                     description: '``dog`` Gives a dog image.\n``fox`` Gives a fox image.\n``amiajoke`` Am I a joke to you?\n``pogchamp`` Pogchamp!\n``nou`` No u\n``russia`` Mother Russia!',
                     footer: {
                         iconURL: "https://i.imgur.com/XiiqQWn.png",
-                        text: "This server's prefix is " + prefix + "."
+                        text: "This server's prefix is " + prefix
                     }
                 }
             },
@@ -51,7 +51,7 @@ exports.run = async (bot, msg, args) => {
                     description: '``xue`` Xue hua piao piao bei feng piao piao',
                     footer: {
                         iconURL: "https://i.imgur.com/XiiqQWn.png",
-                        text: "This server's prefix is " + prefix + "."
+                        text: "This server's prefix is " + prefix
                     }
                 }
             },
@@ -63,7 +63,7 @@ exports.run = async (bot, msg, args) => {
                     description: '``kick`` Kicks a user.\n``ban`` Bans a user.\n``purge`` Deletes messages.\n``slowmode`` Sets slowmode.',
                     footer: {
                         iconURL: "https://i.imgur.com/XiiqQWn.png",
-                        text: "This server's prefix is " + prefix + "."
+                        text: "This server's prefix is " + prefix
                     }
                 }
             }
