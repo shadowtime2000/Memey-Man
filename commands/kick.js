@@ -32,7 +32,7 @@ exports.run = (bot, msg, args) => {
     if(!kickreason) return msg.channel.send(noreason)
 
     const kickembed = new Discord.MessageEmbed()
-        .setColor('#800020')
+        .setColor('#73DB6A')
         .setTitle('Successfully kicked ' + kickmember.displayName)
         .addFields(
             { name: 'Moderator', value: msg.member.displayName, inline: true },
@@ -40,7 +40,7 @@ exports.run = (bot, msg, args) => {
         ).setTimestamp()
 
     const dmkickembed = new Discord.MessageEmbed()
-        .setColor('#800020')
+        .setColor('#FFB347')
         .setTitle(`You have been kicked from ${msg.guild.name}`)
         .addFields(
             { name: 'Moderator', value: msg.member.displayName, inline: true },

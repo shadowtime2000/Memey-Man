@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 exports.run = (bot, msg, args) => {
 
     const mutemember = msg.mentions.members.first();
-    const role = msg.guild.roles.cache.find(r => r.name === 'Muted');
+    const role = msg.guild.roles.cache.find(r => r.name === 'Muted by Memey Man');
 
     const args1 = msg.content.split(' ').slice(2); 
     const mutereason = args1.join(' ');
@@ -27,7 +27,7 @@ exports.run = (bot, msg, args) => {
     if(!role) {
         msg.guild.roles.create({
             data:{
-                name: "Muted",
+                name: "Muted by Memey Man",
                 color: "#000000",
                 permissions: []
             }
@@ -52,7 +52,7 @@ exports.run = (bot, msg, args) => {
     });
 
     const muted = new Discord.MessageEmbed()
-        .setColor("800020")
+        .setColor("73DB6A")
         .setTitle(`Successfully muted ${mutemember.displayName}`)
         .addFields(
             { name: 'Moderator', value: msg.member.displayName, inline: true },

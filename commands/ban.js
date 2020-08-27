@@ -32,7 +32,7 @@ exports.run = (bot, msg, args) => {
     if(!banreason) return msg.channel.send(noreasonembed)
 
     const banembed = new Discord.MessageEmbed()
-        .setColor('#800020')
+        .setColor('#73DB6A')
         .setTitle('Successfully banned ' + banmember.displayName)
         .addFields(
             { name: 'Moderator', value: msg.member.displayName, inline: true },
@@ -41,7 +41,7 @@ exports.run = (bot, msg, args) => {
         .setTimestamp()
 
     const dmbanembed = new Discord.MessageEmbed()
-        .setColor('#800020')
+        .setColor('#FFB347')
         .setTitle(`You have been banned from ${msg.guild.name}`)
         .addFields(
             { name: 'Moderator', value: msg.member.displayName, inline: true },
