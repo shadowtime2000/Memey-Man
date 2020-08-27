@@ -24,10 +24,10 @@ exports.run = (bot, msg, args) => {
     var str = msg.content.split(' ').slice(1)
     str = str[0]
 
-    console.log(str)
+    if(!str) return msg.channel.send(nonum)
+    
     var num = ms(str)/1000
 
-    if(!num) return msg.channel.send(nonum)
     if(num > 21600) return msg.channel.send(nonuma)
 
     msg.channel.setRateLimitPerUser(num)
