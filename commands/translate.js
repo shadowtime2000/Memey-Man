@@ -5,7 +5,13 @@ exports.run = async (bot, msg, args) => {
     const args1 = msg.content.split(' ').slice(1); 
     const giventext = args1.join(' '); 
 
-    if (!giventext) return msg.channel.send("Enter text to translate.")
+    const notext = new Discord.MessageEmbed()
+        .setColor('#FFA500')
+        .setTitle("Invalid argument")
+        .setDescription(prefix + "translate [text]")
+        .setFooter("You didn't enter text to translate.")
+
+    if (!giventext) return msg.channel.send(notext)
  
     const translator = new Translator({
         from: 'auto',
@@ -18,6 +24,8 @@ exports.run = async (bot, msg, args) => {
     const res = await translator.translate(giventext)
         .catch(err => {
             console.error(err);
+            msg.channel.send("Error while translating.")
+            msg.channel.send("```" + err + "```")
         });
 
     const translateembed = new Discord.MessageEmbed()
