@@ -36,7 +36,7 @@ exports.run = async (bot, msg, args) => {
                 embed: {
                     color: "#1167b1",
                     title: "Image commands",
-                    description: '``dog`` Gives a dog image.\n``fox`` Gives a fox image.\n``amiajoke`` Am I a joke to you?\n``pogchamp`` Pogchamp!\n``nou`` No u\n``russia`` Mother Russia!',
+                    description: '``dog`` Gives a dog image.\n``fox`` Gives a fox image.\n``amiajoke`` Am I a joke to you image with your pfp.\n``pogchamp`` Pogchamp image with your pfp.\n``nou`` No u image with your pfp.\n``russia`` Mother Russia!\n``hackerman`` Hackerman image with your pfp.',
                     footer: {
                         iconURL: "https://i.imgur.com/XiiqQWn.png",
                         text: "This server's prefix is " + prefix
