@@ -34,7 +34,7 @@ exports.run = (bot, msg, args) => {
         })
     }
 
-    if (!msg.author.hasPermission("KICK_MEMBERS")) return msg.channel.send(noperm)
+    if (!msg.member.hasPermission("KICK_MEMBERS")) return msg.channel.send(noperm)
 
     if(!mutemember) return msg.channel.send(nomem);
     if(!mutereason) return msg.channel.send(nor)
