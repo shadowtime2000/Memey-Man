@@ -50,7 +50,11 @@ bot.on("message", async msg => {
 
     const cmd = bot.commands.get(command);
 
-    if (command.startsWith("prefix")) {
+    if (msg.content == "<@!702068724957446145>") {
+
+        msg.reply(`My prefix is ${prefix}`)
+        
+    } else if (command.startsWith("prefix")) {
 
         const args = msg.content.split(' ').slice(1); 
         const newprefix = args.join(' '); 
