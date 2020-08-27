@@ -33,13 +33,13 @@ exports.run = (bot, msg, args) => {
 
     const banembed = new Discord.MessageEmbed()
         .setColor('#ff0000')
-        .setTitle('**Successfully banned member**')
+        .setTitle('Successfully banned member')
         .setDescription( `**Banned ${banmember.displayName}.**` + '\n**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + banreason )
         .setTimestamp()
 
     const dmbanembed = new Discord.MessageEmbed()
         .setColor('#ff0000')
-        .setTitle(`**You have been banned from ${msg.guild.name}**`)
+        .setTitle(`You have been banned from ${msg.guild.name}`)
         .setDescription( '**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + banreason )
         .setTimestamp()
 

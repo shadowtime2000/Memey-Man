@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const ms = require('ms')
 exports.run = (bot, msg, args) => {
 
     if (msg.channel.type == "dm") return;
@@ -21,7 +22,7 @@ exports.run = (bot, msg, args) => {
 
     if (!num) {
 
-        msg.channel.setRateLimitPerUser(num)
+        msg.channel.setRateLimitPerUser(ms(num)*1000)
 
         const slowmodeoff = new Discord.MessageEmbed()
             .setColor('#FF0000')

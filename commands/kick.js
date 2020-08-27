@@ -33,13 +33,13 @@ exports.run = (bot, msg, args) => {
 
     const kickembed = new Discord.MessageEmbed()
         .setColor('#ff0000')
-        .setTitle('**Successfully kicked member**')
+        .setTitle('Successfully kicked member')
         .setDescription( `**Kicked ${kickmember.displayName}.**` + '\n**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + kickreason )
         .setTimestamp()
 
     const dmkickembed = new Discord.MessageEmbed()
         .setColor('#ff0000')
-        .setTitle(`**You have been kicked from ${msg.guild.name}**`)
+        .setTitle(`You have been kicked from ${msg.guild.name}`)
         .setDescription( '**Moderator**: ' + msg.member.displayName + '\n**Reason**: ' + kickreason )
         .setTimestamp()
 
