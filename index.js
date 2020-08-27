@@ -49,7 +49,7 @@ bot.on("message", async msg => {
         msg.reply(`My prefix is ${prefix}`)
         
     }
-    
+
     if (msg.content.indexOf(prefix) !== 0) return;
 
     const args = msg.content.slice(prefix.length).trim().split(/ +/g);
@@ -63,9 +63,14 @@ bot.on("message", async msg => {
         const args = msg.content.split(' ').slice(1); 
         const newprefix = args.join(' '); 
 
+        const noperm = new Discord.MessageEmbed()
+            .setColor('#FF665B')
+            .setTitle('Missing permissions')
+            .setDescription("You need ``Manage guild`` permission to use this command.")
+
         if(!newprefix) return msg.channel.send("Current prefix is ``"+ prefix + "``")
 
-        if(!msg.member.hasPermission("MANAGE_GUILD")) return msg.channel.send("Missing permissions")
+        if(!msg.member.hasPermission("MANAGE_GUILD")) return msg.channel.send(noperm)
 
         const test = await guildprefix.findOne({ serverid: msg.guild.id })
 
