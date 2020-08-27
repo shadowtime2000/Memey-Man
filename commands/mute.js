@@ -53,8 +53,11 @@ exports.run = (bot, msg, args) => {
 
     const muted = new Discord.MessageEmbed()
         .setColor("ff0000")
-        .setTitle(`Successfully muted member`)
-        .setDescription(`**Muted ${mutemember.displayName}.**\n**Moderator**: ${msg.member.displayName}\n**Reason**: ${mutereason}`)
+        .setTitle(`Successfully muted ${mutemember.displayName}`)
+        .addFields(
+            { name: 'Moderator', value: msg.member.displayName, inline: true },
+            { name: 'Reason', value: mutereason, inline: true },
+        )
         .setTimestamp()
 
     msg.channel.send(muted);

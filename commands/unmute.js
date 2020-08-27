@@ -15,11 +15,6 @@ exports.run = (bot, msg, args) => {
         .setDescription(prefix + "unmute [member mention]")
         .setFooter("You didn't provide a member to unmute.")
 
-    const notm = new Discord.MessageEmbed()
-        .setColor("#FFA500") 
-        .setTitle('Member not muted')
-        .setDescription(`${mutemember.displayName} is not muted.`)
-
     if (!msg.member.hasPermission("KICK_MEMBERS")) return msg.channel.send(noperm)
 
     if(!mutemember) return msg.channel.send(nomem);
@@ -28,8 +23,10 @@ exports.run = (bot, msg, args) => {
 
     const muted = new Discord.MessageEmbed()
         .setColor("ff0000")
-        .setTitle(`Successfully unmuted member`)
-        .setDescription(`**Unmuted ${mutemember.displayName}.**\n**Moderator**: ${msg.member.displayName}`)
+        .setTitle(`Successfully unmuted ${mutemember.displayName}`)
+        .addFields(
+            { name: 'Moderator', value: msg.member.displayName, inline: true },
+        )
         .setTimestamp()
 
     msg.channel.send(muted);
