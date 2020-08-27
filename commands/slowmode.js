@@ -17,7 +17,7 @@ exports.run = (bot, msg, args) => {
     if(!msg.member.hasPermission("MANAGE_CHANNELS") && msg.author.id != "611396886418685982") return msg.channel.send(noperm1)
 
     var str = msg.content.split('&slowmode ');
-    var num = ms(str)/1000
+    var num = parseInt(ms(str))/1000
 
     if(num > 21600) return msg.channel.send(nonum)
 
