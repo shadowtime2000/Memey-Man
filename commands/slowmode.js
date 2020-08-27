@@ -17,7 +17,8 @@ exports.run = (bot, msg, args) => {
     if(!msg.member.hasPermission("MANAGE_CHANNELS")) return msg.channel.send(noperm1)
 
     var str = msg.content.split(' ').slice(1)
-    str = str.join(" ")
+    str = str[0]
+    
     console.log(str)
     var num = ms(str)/1000
 
