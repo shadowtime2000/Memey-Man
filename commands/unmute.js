@@ -24,8 +24,6 @@ exports.run = (bot, msg, args) => {
 
     if(!mutemember) return msg.channel.send(nomem);
 
-    if (!mutemember.roles.some((r) => r.name === "Muted")) return msg.channel.send(notm)
-
     mutemember.roles.remove(role);
 
     const muted = new Discord.MessageEmbed()
