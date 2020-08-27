@@ -10,7 +10,7 @@ exports.run = async (bot, msg, args) => {
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
     const avatar = await Canvas.loadImage(bot.users.cache.get(msg.author.id).displayAvatarURL({ format: 'png' }));
-    ctx.drawImage(avatar, 330, 73, 100, 100);
+    ctx.drawImage(avatar, 330, 80, 100, 100);
 
     const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'hackerman.jpg');
 
