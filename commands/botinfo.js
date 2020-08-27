@@ -9,7 +9,7 @@ exports.run = (bot, msg, args) => {
 	.addFields(
             { name: 'Bot name', value: 'Memey Man' },
             { name: 'Developer', value: 'RedTea#8520' },
-            { name: 'Bot prefix', value: '&' },
+            { name: 'Bot prefix', value: prefix },
         )
         .setFooter('Type &help to get help!')
 
