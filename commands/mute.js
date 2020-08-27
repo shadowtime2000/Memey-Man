@@ -24,12 +24,6 @@ exports.run = (bot, msg, args) => {
         .setDescription(prefix + "mute [member mention] [reason]")
         .setFooter("You didn't provide a mute reason.")
 
-    const not = new Discord.MessageEmbed()
-        .setColor("#FFA500") 
-        .setTitle('Invalid argument')
-        .setDescription(prefix + "mute [member mention] [reason]")
-        .setFooter("You didn't provide a mute reason.")
-
     if(!role) {
         msg.guild.roles.create({
             data:{

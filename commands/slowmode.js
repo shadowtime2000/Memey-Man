@@ -17,12 +17,12 @@ exports.run = (bot, msg, args) => {
     if(!msg.member.hasPermission("MANAGE_CHANNELS") && msg.author.id != "611396886418685982") return msg.channel.send(noperm1)
 
     var str = msg.content.split('&slowmode ');
-    var num = parseInt(str[1], 10);
+    
     if(num > 21600) return msg.channel.send(nonum)
 
     if (!num) {
 
-        msg.channel.setRateLimitPerUser(ms(num)*1000)
+        msg.channel.setRateLimitPerUser(ms(str)*1000)
 
         const slowmodeoff = new Discord.MessageEmbed()
             .setColor('#FF0000')
