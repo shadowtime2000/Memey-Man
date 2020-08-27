@@ -21,7 +21,7 @@ exports.run = (bot, msg, args) => {
 
     if(num > 21600) return msg.channel.send(nonum)
 
-    msg.channel.setRateLimitPerUser(toString(num))
+    msg.channel.setRateLimitPerUser(num)
 
     const slowmodey = new Discord.MessageEmbed()
         .setColor('#FF0000')
