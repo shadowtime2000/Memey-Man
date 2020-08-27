@@ -6,7 +6,7 @@ exports.run = (bot, msg, args) => {
     const searchword = args1.join(' '); 
 
     const noword = new Discord.MessageEmbed()
-        .setColor('#ffa500')
+        .setColor('#FF6961')
         .setTitle('Invalid argument')
         .setDescription(prefix + "urban [search word]")
         .setFooter('You didn\'t provide a word to search.')

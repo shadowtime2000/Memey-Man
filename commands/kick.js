@@ -11,13 +11,13 @@ exports.run = (bot, msg, args) => {
         .setDescription("You need ``Kick members`` permission to use this command.")
     
     const nomemmber = new Discord.MessageEmbed()
-        .setColor('#FFA500')
+        .setColor('#FF6961')
         .setTitle('Invalid argument')
         .setDescription(prefix + "kick [member mention] [ban reason]")
         .setFooter("You didn't provide a member to kick.")
 
     const noreason = new Discord.MessageEmbed()
-        .setColor('#FFA500')
+        .setColor('#FF6961')
         .setTitle('Invalid argument')
         .setDescription(prefix + "kick [member mention] [ban reason]")
         .setFooter("You didn't provide a kick reason.")

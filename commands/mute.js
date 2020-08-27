@@ -8,18 +8,18 @@ exports.run = (bot, msg, args) => {
     const mutereason = args1.join(' ');
 
     const noperm = new Discord.MessageEmbed()
-        .setColor('#FFA500')
+        .setColor('#FF6961')
         .setTitle('Missing permissions')
         .setDescription("You need ``Kick members`` permission to use this command.")
 
     const nomem = new Discord.MessageEmbed()
-        .setColor("#FFA500") 
+        .setColor("#FF6961") 
         .setTitle('Invalid argument')
         .setDescription(prefix + "mute [member mention] [reason]")
         .setFooter("You didn't provide a member to mute.")
 
     const nor = new Discord.MessageEmbed()
-        .setColor("#FFA500") 
+        .setColor("#FF6961") 
         .setTitle('Invalid argument')
         .setDescription(prefix + "mute [member mention] [reason]")
         .setFooter("You didn't provide a mute reason.")

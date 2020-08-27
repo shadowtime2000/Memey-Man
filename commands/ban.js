@@ -6,18 +6,18 @@ exports.run = (bot, msg, args) => {
     const banmember= msg.mentions.members.first();
 
     const noperm1 = new Discord.MessageEmbed()
-        .setColor('#FFA500')
+        .setColor('#FF6961')
         .setTitle('Missing permissions')
         .setDescription("You need ``Ban members`` permission to use this command.")
 
     const nomemberembed = new Discord.MessageEmbed()
-        .setColor('#FFA500')
+        .setColor('#FF6961')
         .setTitle('Invalid argument')
         .setDescription(prefix + "ban [member mention] [ban reason]")
         .setFooter("You didn't provide a member to ban.")
 
     const noreasonembed = new Discord.MessageEmbed()
-        .setColor('#FFA500')
+        .setColor('#FF6961')
         .setTitle('Invalid argument')
         .setDescription(prefix + "ban [member mention] [ban reason]")
         .setFooter("You didn't provide a ban reason.")

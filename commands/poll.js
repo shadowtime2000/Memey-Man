@@ -2,20 +2,20 @@ const Discord = require('discord.js');
 exports.run = (bot, msg, args) => {
 
     const noperm = new Discord.MessageEmbed()
-        .setColor('#FFA500')
+        .setColor('#FF6961')
         .setTitle("Missing permissions")
         .setDescription("You need ``Manage messages`` permission to use this command.")
 
     if(!msg.member.hasPermission("MANAGE_MESSAGES")) return msg.channel.send(noperm)
 
     const nochannel = new Discord.MessageEmbed()
-        .setColor('#FFA500')
+        .setColor('#FF6961')
         .setTitle("Invalid argument")
         .setDescription(prefix + "poll [channel mention] [poll content]")
         .setFooter("You didn't provide a channel to post the poll.")
 
     const notitle = new Discord.MessageEmbed()
-        .setColor('#FFA500')
+        .setColor('#FF6961')
         .setTitle("Invaild argument")
         .setDescription(prefix + "poll [channel mention] [poll content]")
         .setFooter("You didn't provide the poll content.")

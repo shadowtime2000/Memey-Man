@@ -4,7 +4,7 @@ exports.run = (bot, msg, args) => {
     let user = msg.mentions.members.first();
 
     const spanke = new Discord.MessageEmbed()
-        .setColor('#ffa500')
+        .setColor('#FF6961')
         .setTitle('Invalid argument')
         .setDescription(prefix + 'punch [member mention]')
         .setFooter('You didn\'t provide a member to punch.')

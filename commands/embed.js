@@ -5,7 +5,7 @@ exports.run = (bot, msg, args) => {
     const repeatword = args1.join(' ')
 
     const noword = new Discord.MessageEmbed()
-        .setColor("FFA500")
+        .setColor("FF6961")
         .setTitle("Invalid argument")
         .setDescription(prefix + "embed [text]")
         .setFooter("You didn't provide the text to put in an embed.")

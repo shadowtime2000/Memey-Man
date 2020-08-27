@@ -5,12 +5,12 @@ exports.run = (bot, msg, args) => {
     const role = msg.guild.roles.cache.find(r => r.name === 'Muted by Memey Man');
 
     const noperm = new Discord.MessageEmbed()
-        .setColor('#FFA500')
+        .setColor('#FF6961')
         .setTitle('Missing permissions')
         .setDescription("You need ``Kick members`` permission to use this command.")
 
     const nomem = new Discord.MessageEmbed()
-        .setColor("#FFA500") 
+        .setColor("#FF6961") 
         .setTitle('Invalid argument')
         .setDescription(prefix + "unmute [member mention]")
         .setFooter("You didn't provide a member to unmute.")

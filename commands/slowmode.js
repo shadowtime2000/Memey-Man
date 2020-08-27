@@ -5,12 +5,12 @@ exports.run = (bot, msg, args) => {
     if (msg.channel.type == "dm") return;
 
     const noperm1 = new Discord.MessageEmbed()
-        .setColor('#FFa500')
+        .setColor('#FF6961')
         .setTitle('Missing permissions')
         .setDescription("You need ``Manage channels`` permission to use this command.")
 
     const nonum = new Discord.MessageEmbed()
-        .setColor('#FFa500')
+        .setColor('#FF6961')
         .setTitle('Invalid argument')
         .setDescription("Number should be less than or equal to 21600.")
 
