@@ -17,37 +17,18 @@ exports.run = (bot, msg, args) => {
     if(!msg.member.hasPermission("MANAGE_CHANNELS") && msg.author.id != "611396886418685982") return msg.channel.send(noperm1)
 
     var str = msg.content.split('&slowmode ');
-    
-    try {
+    var num = ms(str)/1000
 
-        var num = ms(str)/1000
+    if(num > 21600) return msg.channel.send(nonum)
 
-        if(num > 21600) return msg.channel.send(nonum)
+    msg.channel.setRateLimitPerUser(toString(num))
 
-        msg.channel.setRateLimitPerUser(toString(num))
-
-        const slowmodey = new Discord.MessageEmbed()
-            .setColor('#FF0000')
-            .setTitle("Successfully set slowmode")
-            .setDescription(`Slowmode set to ${str}.`)
-            .setTimestamp()
-            
-        msg.channel.send(slowmodey)
-
-    } catch (error) {
-
-        console.log(error)
-
-        msg.channel.setRateLimitPerUser("0")
-
-        const slowmodeoff = new Discord.MessageEmbed()
-            .setColor('#FF0000')
-            .setTitle("Successfully turned off slowmode")
-            .setDescription(`Turned off slowmode.`)
-            .setTimestamp()
-
-        msg.channel.send(slowmodeoff)
-
-    }
+    const slowmodey = new Discord.MessageEmbed()
+        .setColor('#FF0000')
+        .setTitle("Successfully set slowmode")
+        .setDescription(`Slowmode set to ${str}.`)
+        .setTimestamp()
+        
+    msg.channel.send(slowmodey)
     
 };
