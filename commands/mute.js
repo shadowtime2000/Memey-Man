@@ -24,6 +24,11 @@ exports.run = (bot, msg, args) => {
         .setDescription(prefix + "mute [member mention] [reason]")
         .setFooter("You didn't provide a mute reason.")
 
+    const notm = new Discord.MessageEmbed()
+        .setColor("#FFA500") 
+        .setTitle('Member not muted')
+        .setDescription(`${mutemember.displayName} is not muted.`) 
+
     if(!role) {
         msg.guild.roles.create({
             data:{
@@ -37,6 +42,9 @@ exports.run = (bot, msg, args) => {
     if (!msg.member.hasPermission("KICK_MEMBERS")) return msg.channel.send(noperm)
 
     if(!mutemember) return msg.channel.send(nomem);
+    
+    if (mutemember.roles.cache.some(r => r.name === 'Muted')) return msg.channel.send(notm)
+
     if(!mutereason) return msg.channel.send(nor)
 
     msg.guild.channels.cache.forEach((channel) => {
