@@ -36,6 +36,8 @@ exports.run = (bot, msg, args) => {
 
     } catch (error) {
 
+        console.log(error)
+
         msg.channel.setRateLimitPerUser("0")
 
         const slowmodeoff = new Discord.MessageEmbed()
