@@ -31,7 +31,7 @@ exports.run = (bot, msg, args) => {
     const muted = new Discord.MessageEmbed()
         .setColor("ff0000")
         .setTitle(`Successfully unmuted member`)
-        .setDescription(`**Unmuted ${mutemember.displayName}.**\n**Moderator**: ${msg.author.displayName}`)
+        .setDescription(`**Unmuted ${mutemember.displayName}.**\n**Moderator**: ${msg.member.displayName}`)
         .setTimestamp()
 
     msg.channel.send(muted);
