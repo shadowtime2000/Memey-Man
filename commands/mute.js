@@ -4,7 +4,7 @@ exports.run = (bot, msg, args) => {
     const mutemember = msg.mentions.members.first();
     const role = msg.guild.roles.cache.find(r => r.name === 'Muted');
 
-    const args1 = msg.content.split(' ').slice(3); 
+    const args1 = msg.content.split(' ').slice(2); 
     const mutereason = args1.join(' ');
 
     const noperm = new Discord.MessageEmbed()
@@ -40,9 +40,13 @@ exports.run = (bot, msg, args) => {
     if(!mutereason) return msg.channel.send(nor)
 
     msg.guild.channels.cache.forEach((channel) => {
-        channel.overwritePermissions(role, {
-            SEND_MESSAGES: false
-        });
+        channel.overwritePermissions([
+            {
+               id: role.id,
+               deny: ['SEND_MESSAGES'],
+            },
+        ], 'mute');
+
         mutemember.roles.add(role);
     });
 
