@@ -4,12 +4,12 @@ exports.run = (bot, msg, args) => {
     if (msg.channel.type == "dm") return;
 
     const noperm1 = new Discord.MessageEmbed()
-        .setColor('#FFa500')
+        .setColor('#FF665B')
         .setTitle('Missing permissions')
         .setDescription("You need ``Manage channels`` permission to use this command.")
 
     const nonum = new Discord.MessageEmbed()
-        .setColor('#FFa500')
+        .setColor('#FF665B')
         .setTitle('Invalid argument')
         .setDescription("Number should be less than or equal to 21600.")
 
@@ -23,7 +23,7 @@ exports.run = (bot, msg, args) => {
 
         msg.channel.setRateLimitPerUser(num)
         const slowmodeoff = new Discord.MessageEmbed()
-            .setColor('#FF0000')
+            .setColor('#73DB6A')
             .setTitle("Successfully turned off slowmode")
             .setDescription(`Turned off slowmode.`)
             .setFooter('Slowmode time unit is seconds')
@@ -34,7 +34,7 @@ exports.run = (bot, msg, args) => {
 
         msg.channel.setRateLimitPerUser(num)
         const slowmodey = new Discord.MessageEmbed()
-            .setColor('#FF0000')
+            .setColor('#73DB6A')
             .setTitle("Successfully set slowmode")
             .setDescription(`Slowmode set to ${num}s.`)
             .setFooter('Slowmode time unit is seconds')
