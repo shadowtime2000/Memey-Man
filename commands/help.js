@@ -12,7 +12,7 @@ exports.run = async (bot, msg, args) => {
                 embed: {
                     color: "#1167b1",
                     title: "Fun commands",
-                    description: '``meme`` Gets a random meme.\n``dadjoke`` Gets a random dad joke\n``gayrate`` See how gay is someone\n``hug`` Hug a user!\n``punch`` Punch a user!\n``topic`` Gives a chat topic\n``urban`` Searches something on urban dictionary.',
+                    description: '``meme`` Gets a random meme.\n``dadjoke`` Gets a random dad joke.\n``gayrate`` See how gay is someone\n``hug`` Hug a user!\n``punch`` Punch a user!\n``topic`` Gives a chat topic\n``urban`` Searches something on urban dictionary.',
                     footer: {
                         iconURL: "https://i.imgur.com/XiiqQWn.png",
                         text: "This server's prefix is " + prefix
@@ -24,7 +24,7 @@ exports.run = async (bot, msg, args) => {
                 embed: {
                     color: "#1167b1",
                     title: "Tool commands",
-                    description: '``ping`` Gets bot ping.\n``prefix`` Sets bot prefix.\n``wiki`` Searches something on Wikipedia.\n``avatar`` Gives user\'s avatar.\n``translate`` Translates text to English.\n``poll`` Creates a poll.\n``serverinfo`` Gives server info.',
+                    description: '``ping`` Gets bot ping.\n``prefix`` Sets bot prefix.\n``avatar`` Gives user\'s avatar.\n``wiki`` Searches something on Wikipedia.\n``calculate`` Calculates an equation.\n``translate`` Translates text to English.\n``poll`` Creates a poll.\n``serverinfo`` Gives server info.',
                     footer: {
                         iconURL: "https://i.imgur.com/XiiqQWn.png",
                         text: "This server's prefix is " + prefix
