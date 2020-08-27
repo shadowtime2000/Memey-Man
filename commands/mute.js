@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 exports.run = (bot, msg, args) => {
 
-    const mutemember = message.mentions.members.first();
+    const mutemember = msg.mentions.members.first();
     const role = msg.guild.roles.cache.find(r => r.name === 'Muted');
 
     const args1 = msg.content.split(' ').slice(3); 
