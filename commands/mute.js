@@ -43,7 +43,7 @@ exports.run = (bot, msg, args) => {
 
     if(!mutemember) return msg.channel.send(nomem);
     
-    if (msg.guild.mutemember.roles.cache.has(role)) return msg.channel.send(notm)
+    if (mutemember.roles.some((r) => r.name === "Muted")) return msg.channel.send(notm)
 
     if(!mutereason) return msg.channel.send(nor)
 
