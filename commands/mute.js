@@ -52,7 +52,7 @@ exports.run = (bot, msg, args) => {
     });
 
     const muted = new Discord.MessageEmbed()
-        .setColor("ff0000")
+        .setColor("800020")
         .setTitle(`Successfully muted ${mutemember.displayName}`)
         .addFields(
             { name: 'Moderator', value: msg.member.displayName, inline: true },

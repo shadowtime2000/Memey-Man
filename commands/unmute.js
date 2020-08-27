@@ -22,7 +22,7 @@ exports.run = (bot, msg, args) => {
     mutemember.roles.remove(role);
 
     const muted = new Discord.MessageEmbed()
-        .setColor("ff0000")
+        .setColor("800020")
         .setTitle(`Successfully unmuted ${mutemember.displayName}`)
         .addFields(
             { name: 'Moderator', value: msg.member.displayName, inline: true },
