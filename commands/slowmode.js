@@ -9,10 +9,15 @@ exports.run = (bot, msg, args) => {
         .setTitle('Missing permissions')
         .setDescription("You need ``Manage channels`` permission to use this command.")
 
-    const nonum = new Discord.MessageEmbed()
+    const nonuma = new Discord.MessageEmbed()
         .setColor('#FF665B')
         .setTitle('Invalid argument')
         .setDescription("Slowmode must be shorter than 6 hours.")
+
+    const nonum = new Discord.MessageEmbed()
+        .setColor('#FF665B')
+        .setTitle('Invalid argument')
+        .setDescription(prefix + "slowmode [time]")
 
     if(!msg.member.hasPermission("MANAGE_CHANNELS")) return msg.channel.send(noperm1)
 
@@ -22,7 +27,8 @@ exports.run = (bot, msg, args) => {
     console.log(str)
     var num = ms(str)/1000
 
-    if(num > 21600) return msg.channel.send(nonum)
+    if(!num) return msg.channel.send(nonum)
+    if(num > 21600) return msg.channel.send(nonuma)
 
     msg.channel.setRateLimitPerUser(num)
 
