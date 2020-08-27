@@ -43,6 +43,13 @@ bot.on("message", async msg => {
     global.prefix = prefix
 
     if (msg.author.bot) return;
+
+    if (msg.content == "<@!702068724957446145>") {
+
+        msg.reply(`My prefix is ${prefix}`)
+        
+    }
+    
     if (msg.content.indexOf(prefix) !== 0) return;
 
     const args = msg.content.slice(prefix.length).trim().split(/ +/g);
@@ -50,11 +57,8 @@ bot.on("message", async msg => {
 
     const cmd = bot.commands.get(command);
 
-    if (msg.content == "<@!702068724957446145>") {
-
-        msg.reply(`My prefix is ${prefix}`)
-        
-    } else if (command.startsWith("prefix")) {
+    
+    if (command.startsWith("prefix")) {
 
         const args = msg.content.split(' ').slice(1); 
         const newprefix = args.join(' '); 
