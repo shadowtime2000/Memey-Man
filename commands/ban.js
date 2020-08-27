@@ -45,7 +45,7 @@ exports.run = (bot, msg, args) => {
         .setTitle(`You have been banned from ${msg.guild.name}`)
         .addFields(
             { name: 'Moderator', value: msg.member.displayName, inline: true },
-            { name: 'Reason', value: banereason, inline: true },
+            { name: 'Reason', value: banreason, inline: true },
         )
         .setTimestamp()
 
