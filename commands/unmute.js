@@ -24,7 +24,7 @@ exports.run = (bot, msg, args) => {
 
     if(!mutemember) return msg.channel.send(nomem);
 
-    if (!mutemember.roles.cache.some(r => r.name === 'Muted')) return msg.channel.send(notm)
+    if (!mutemember.roles.cache.has(role)) return msg.channel.send(notm)
 
     mutemember.roles.remove(role);
 
