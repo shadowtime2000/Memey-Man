@@ -4,28 +4,28 @@ exports.run = async (bot, msg, args) => {
     if (msg.channel.type == "dm") return;
 
     const nopurge = new Discord.MessageEmbed()
-        .setColor('#FF6961')
+        .setColor('#FF665B')
         .setTitle('Missing permissions')
         .setDescription("You need ``Manage Messages`` permission to use this command.")
 
     const nopurgeargs = new Discord.MessageEmbed()
-        .setColor('#FF6961')
+        .setColor('#FF665B')
         .setTitle('Invalid argument')
         .setDescription(prefix + "purge [number of messages]")
         .setFooter("You didn't provide the number messages to purge.")
 
     const invnumber = new Discord.MessageEmbed()
-        .setColor('#FF6961')
+        .setColor('#FF665B')
         .setTitle('Invalid argument')
         .setDescription("Number of messages should be a number.")
 
     const invnumberbig = new Discord.MessageEmbed()
-        .setColor('#FF6961')
+        .setColor('#FF665B')
         .setTitle('Invalid argument')
         .setDescription("It's unable to purge more than 99 messages.")
 
     const invnumbersmall = new Discord.MessageEmbed()
-        .setColor('#FF6961')
+        .setColor('#FF665B')
         .setTitle('Invalid argument')
         .setDescription("It's unable to purge less than 1 message..")
 

@@ -4,7 +4,7 @@ exports.run = (bot, msg, args) => {
     let user = msg.mentions.members.first();
 
     const huge = new Discord.MessageEmbed()
-        .setColor('#FF6961')
+        .setColor('#FF665B')
         .setTitle('Invalid argument')
         .setDescription(prefix + 'hug [member mention]')
         .setFooter('You didn\'t provide a member to hug.')

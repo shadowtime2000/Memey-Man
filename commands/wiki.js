@@ -3,7 +3,7 @@ const fetch = require('node-fetch');
 exports.run = async (bot, msg, args) => {
 
     const nosearch = new Discord.MessageEmbed()
-        .setColor("#FF6961")
+        .setColor("#FF665B")
         .setTitle("Invalid argument")
         .setDescription(prefix + "wiki [search word]")
         .setFooter("You didn't provide a search word.")

@@ -6,7 +6,7 @@ exports.run = async (bot, msg, args) => {
     const giventext = args1.join(' '); 
 
     const notext = new Discord.MessageEmbed()
-        .setColor('#FF6961')
+        .setColor('#FF665B')
         .setTitle("Invalid argument")
         .setDescription(prefix + "translate [text]")
         .setFooter("You didn't enter text to translate.")
