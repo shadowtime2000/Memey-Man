@@ -9,6 +9,7 @@
   "author": "redtea",
   "license": "ISC",
   "dependencies": {
+    "@danke77/google-translate-api": "^1.0.0",
     "@discordjs/opus": "^0.3.2",
     "apiai": "^4.0.3",
     "axios": "^0.19.2",
@@ -23,7 +24,6 @@
     "needle": "^2.3.0",
     "node-fetch": "latest",
     "querystring": "^0.2.0",
-    "quick.db": "^7.1.1",
     "reverse-image-search-google": "^1.0.1",
     "search-image": "^1.0.3",
     "urban": "^0.3.2",
