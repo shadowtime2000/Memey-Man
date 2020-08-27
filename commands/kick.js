@@ -25,7 +25,7 @@ exports.run = (bot, msg, args) => {
     const cantkick = new Discord.MessageEmbed()
         .setColor('#FF6961')
         .setTitle('Couldn\'t kick member')
-        .setDescription("Failed to ban member.")
+        .setDescription("Failed to kick member.")
 
     if(!msg.member.hasPermission("KICK_MEMBERS")) return msg.channel.send(noperm);
     if(!kickmember) return msg.channel.send(nomemmber)
