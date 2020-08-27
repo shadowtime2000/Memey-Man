@@ -23,7 +23,7 @@ exports.run = (bot, msg, args) => {
         .setFooter("You didn't provide a ban reason.")
 
     const cantban = new Discord.MessageEmbed()
-        .setColor('#FFA500')
+        .setColor('#FF6961')
         .setTitle('Couldn\'t ban member.')
         .setDescription("Failed to ban member.")
 

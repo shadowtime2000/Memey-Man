@@ -23,7 +23,7 @@ exports.run = (bot, msg, args) => {
         .setFooter("You didn't provide a kick reason.")
 
     const cantkick = new Discord.MessageEmbed()
-        .setColor('#FFA500')
+        .setColor('#FF6961')
         .setTitle('Couldn\'t kick member')
         .setDescription("Failed to ban member.")
 
