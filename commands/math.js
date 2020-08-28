@@ -12,7 +12,7 @@ exports.run = (bot, msg, args) => {
         .setColor("#FF665B")
         .setTitle("Invalid argument")
         .setDescription(prefix + "math [equation]")
-        .setFooter("You didn't a valid equation.")
+        .setFooter("You provided an invalid equation.")
 
     const args1 = msg.content.split(' ').slice(1);
     const equation = args1.join(' ');
