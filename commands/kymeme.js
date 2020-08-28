@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
 const nodeyourmeme =require('nodeyourmeme')
 
-exports.run = (bot, msg, args) => {
+exports.run = async (bot, msg, args) => {
     
     const nosearch = new Discord.MessageEmbed()
         .setColor("#FF665B")
