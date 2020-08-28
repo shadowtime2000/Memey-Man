@@ -2,16 +2,6 @@ const Discord = require('discord.js')
 const { evalExpression } = require('@hkh12/node-calc');
 exports.run = (bot, msg, args) => {
 
-    var images = [
-        "https://thumbs.gfycat.com/QualifiedGreedyBeardedcollie-size_restricted.gif",
-        "https://thumbs.gfycat.com/PerkyGloriousFlatfish-size_restricted.gif",
-        "https://thumbs.gfycat.com/AccurateSpecificKingfisher-size_restricted.gif",
-        "https://thumbs.gfycat.com/ZanyGloomyGreatdane-size_restricted.gif",
-        "https://thumbs.gfycat.com/PowerfulParchedEider-size_restricted.gif"
-        ];
-
-    var image = Math.floor(Math.random() * images.length);
-
     const noe = new Discord.MessageEmbed()
         .setColor("#FF665B")
         .setTitle("Invalid argument")
