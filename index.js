@@ -47,9 +47,9 @@ bot.on('guildMemberAdd', async member => {
 
     const welcomeembed = new Discord.MessageEmbed()
         .setColor("#800080")
-        .setAuthor(member, member.user.displayAvatarURL({ format: 'png' }))
-        .setDescription("Welcome to " + member.guild.name + "! You're the " + member.guild.memberCount + " member. Don't forget to read the rules!")
-        .setFooter(member.guild.name)
+        .setTitle("***Welcome to " + member.guild.name + "!***")
+        .setDescription(`<@!${member.user.id}>, Welcome to this server! You're the ${member.guild.memberCount} member. Enjoy this server!`)
+        .setFooter(member.user.tag, member.user.displayAvatarURL({ format: 'png' }))
         .setTimestamp()
 
 });
