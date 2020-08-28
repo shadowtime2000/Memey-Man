@@ -25,6 +25,7 @@
     "ms": "^2.1.2",
     "needle": "^2.3.0",
     "node-fetch": "latest",
+    "nodeyourmeme": "^2.0.0",
     "querystring": "^0.2.0",
     "reverse-image-search-google": "^1.0.1",
     "search-image": "^1.0.3",
