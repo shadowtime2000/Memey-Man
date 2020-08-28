@@ -48,10 +48,10 @@ bot.on('guildMemberAdd', async member => {
     const channel = member.guild.channels.cache.find(ch => ch.name == 'welcome');
 
     const welcomeembed = new Discord.MessageEmbed()
-        .setColor("#98ff98")
+        .setColor("#53dc98")
         .setTitle("***Welcome to " + member.guild.name + "!***")
         .setThumbnail(member.guild.iconURL({ format: 'png' }))
-        .setDescription(`<@!${member.user.id}>, Welcome to this server! You're the ${member.guild.memberCount} member. Enjoy this server!`)
+        .setDescription(`<@!${member.user.id}>, Welcome to this server! You're the ${member.guild.memberCount} member. Please check <#717897434105118780> channel. Enjoy this server!`)
         .setFooter(member.user.tag, member.user.displayAvatarURL({ format: 'png' }))
         .setTimestamp()
 
