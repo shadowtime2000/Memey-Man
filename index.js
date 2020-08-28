@@ -30,7 +30,10 @@ fs.readdir("./commands/", (err, files) => {
 });
 
 bot.on('guildMemberAdd', async member => {
-    const channel = member.guild.channels.cache.find(ch => ch.name === 'member-log');
+
+    if (member.guild.id != `717895996155101244`) return
+
+    const channel = member.guild.channels.cache.find(ch => ch.name === 'welcome');
     if (!channel) return;
 
     const canvas = Canvas.createCanvas(700, 250);
@@ -61,6 +64,7 @@ bot.on('guildMemberAdd', async member => {
     const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'welcome-image.png');
 
     channel.send(`Welcome to the server, ${member}!`, attachment);
+
 });
 
 bot.on("ready", () =>{
@@ -73,7 +77,14 @@ const guildprefix = mongoose.model('guildprefix', new mongoose.Schema({
     prefix: String
 }));
 
+const guildwelcome = mongoose.model('guildprefix', new mongoose.Schema({
+    on: Boolean,
+    serverid: String,
+    channelid: String
+}));
+
 global.guildprefix = guildprefix
+global.guildwelcome = guildwelcome
 
 bot.on("message", async msg => {
 
