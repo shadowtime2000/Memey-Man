@@ -59,9 +59,9 @@ bot.on('guildMemberAdd', async member => {
 
     ctx.font = '28px sans-serif';
     ctx.fillStyle = '#ffffff';
-    ctx.fillText('Welcome to this server,', canvas.width / 2.5, canvas.height / 2.9);
+    ctx.fillText('Welcome to this server,', canvas.width / 2.5, canvas.height / 2.88);
 
-    ctx.font = applyText(canvas, `${member.displayName}!`);
+    ctx.font = applyText(canvas, `${member.displayName}`);
     ctx.fillStyle = '#ffffff';
     ctx.fillText(`${member.displayName}!`, canvas.width / 2.5, canvas.height / 1.6);
 
@@ -70,7 +70,7 @@ bot.on('guildMemberAdd', async member => {
     ctx.closePath();
     ctx.clip();
 
-    const avatar = await Canvas.loadImage(member.user.displayAvatarURL({ format: 'jpg' }));
+    const avatar = await Canvas.loadImage(member.guild.iconURL({ format: 'png' }));
     ctx.drawImage(avatar, 25, 25, 200, 200);
 
     const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'welcome-image.png');
