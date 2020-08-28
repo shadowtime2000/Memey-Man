@@ -22,15 +22,23 @@ exports.run = (bot, msg, args) => {
     let result
 
     try {
-
         result = evalExpression(equation)
-
     } catch (error) {
-
         console.log(error)
         msg.channel.send(inve)
 
         return
+    }
+
+    if (result == "Infinity") {
+
+        const infinity = new Discord.MessageEmbed()
+            .setColor("#B399D4")
+            .setTitle("YOU BROKE THE UNIVERSE!!!")
+            .setImage("https://thumbs.gfycat.com/QualifiedGreedyBeardedcollie-size_restricted.gif")
+            .setDescription('AAAAA LOOK AT WHAT YOU\'VE DONE!!!')
+
+        return msg.channel.send(infinity)
 
     }
 
