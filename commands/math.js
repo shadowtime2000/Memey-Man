@@ -4,9 +4,9 @@ exports.run = (bot, msg, args) => {
 
     var images = [
         "https://thumbs.gfycat.com/QualifiedGreedyBeardedcollie-size_restricted.gif",
-        "https://media0.giphy.com/media/3o7aD9v4MANhSuurYs/giphy.gif",
+        "https://thumbs.gfycat.com/PerkyGloriousFlatfish-size_restricted.gif",
         "https://thumbs.gfycat.com/AccurateSpecificKingfisher-size_restricted.gif",
-        "https://media1.giphy.com/media/ghIeczlW5Ba8JzXtgO/source.gif",
+        "https://thumbs.gfycat.com/ZanyGloomyGreatdane-size_restricted.gif",
         "https://thumbs.gfycat.com/PowerfulParchedEider-size_restricted.gif"
         ];
 
