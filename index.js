@@ -51,11 +51,11 @@ bot.on('guildMemberAdd', async member => {
         .setColor("#53dc98")
         .setTitle("***Welcome to " + member.guild.name + "!***")
         .setThumbnail(member.guild.iconURL({ format: 'png' }))
-        .setDescription(`<@!${member.user.id}>, Welcome to this server! You're the ${member.guild.memberCount} member. Please check <#717897434105118780> channel. Enjoy this server!`)
+        .setDescription(`<@!${member.user.id}>, Welcome to this server! You're the ${member.guild.memberCount} member. Please check the <#717897434105118780> channel. Enjoy this server!`)
         .setFooter(member.user.tag, member.user.displayAvatarURL({ format: 'png' }))
         .setTimestamp()
 
-    channel.send(welcomeembed)
+    channel.send(member + welcomeembed)
 
 });
 
