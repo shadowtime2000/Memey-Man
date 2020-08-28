@@ -59,11 +59,11 @@ bot.on('guildMemberAdd', async member => {
 
     ctx.font = '28px sans-serif';
     ctx.fillStyle = '#ffffff';
-    ctx.fillText('Welcome to this server,', canvas.width / 2.5, canvas.height / 3.2);
+    ctx.fillText('Welcome to this server,', canvas.width / 2.5, canvas.height / 3);
 
     ctx.font = applyText(canvas, `${member.displayName}!`);
     ctx.fillStyle = '#ffffff';
-    ctx.fillText(`${member.displayName}!`, canvas.width / 2.5, canvas.height / 1.4);
+    ctx.fillText(`${member.displayName}!`, canvas.width / 2.5, canvas.height / 1.55);
 
     ctx.beginPath();
     ctx.arc(125, 125, 100, 0, Math.PI * 2, true);
