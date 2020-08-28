@@ -8,12 +8,29 @@ exports.run = (bot, msg, args) => {
         .setDescription(prefix + "math [equation]")
         .setFooter("You didn't provide an equation.")
 
+    const inve = new Discord.MessageEmbed()
+        .setColor("#FF665B")
+        .setTitle("Invalid argument")
+        .setDescription(prefix + "math [equation]")
+        .setFooter("You didn't a valid equation.")
+
     const args1 = msg.content.split(' ').slice(1);
     const equation = args1.join(' ');
 
     if (!equation) return msg.channel.send(noe)
 
-    const result = evalExpression(equation)
+    let result
+
+    try {
+
+        result = evalExpression(equation)
+
+    } catch (error) {
+
+        console.log(error)
+        msg.channel.send(inve)
+
+    }
 
     const calc = new Discord.MessageEmbed()
         .setColor("#B399D4")
