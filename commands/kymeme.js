@@ -10,7 +10,7 @@ exports.run = async (bot, msg, args) => {
         .setFooter("You didn't provide a search word.")
 
     const memenores = new Discord.MessageEmbed()
-        .setColor("#0a094f")
+        .setColor("#000080")
         .setTitle("Not found.")
         .setDescription("Couldn't retrieve any result.")
 
@@ -28,7 +28,7 @@ exports.run = async (bot, msg, args) => {
     if(!res) return msg.channel.send(memenores)
 
     const meme = new Discord.MessageEmbed()
-        .setColor("#0a094f")
+        .setColor("#000080")
         .setTitle(res.name)
         .setDescription(res.about)
 
