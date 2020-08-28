@@ -9,20 +9,19 @@ exports.run = async (bot, msg, args) => {
         .setDescription(prefix + "kymeme [search word]")
         .setFooter("You didn't provide a search word.")
 
+    const memenores = new Discord.MessageEmbed()
+        .setColor("#0a094f")
+        .setTitle("Not found.")
+        .setDescription("Couldn't retrieve any result.")
+
     const args1 = msg.content.split(' ').slice(1);
     const search = args1.join(' ');
 
     if (!search) return msg.channel.send(nosearch)
 
-    try {
+    var res = await nodeyourmeme.search(search)
 
-        var res = await nodeyourmeme.search(search)
-
-    } catch (error) {
-
-        msg.channel.send(error)
-
-    }
+    if(!res) return 
 
     const meme = new Discord.MessageEmbed()
         .setColor("#0a094f")
