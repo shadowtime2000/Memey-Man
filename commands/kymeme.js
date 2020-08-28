@@ -19,9 +19,13 @@ exports.run = async (bot, msg, args) => {
 
     if (!search) return msg.channel.send(nosearch)
 
-    var res = await nodeyourmeme.search(search)
+    try {
+        var res = await nodeyourmeme.search(search)
+    } catch (error) {
+        
+    }
 
-    if(!res) return 
+    if(!res) return msg.channel.send(memenores)
 
     const meme = new Discord.MessageEmbed()
         .setColor("#0a094f")
