@@ -2,6 +2,14 @@ const Discord = require('discord.js')
 const { evalExpression } = require('@hkh12/node-calc');
 exports.run = (bot, msg, args) => {
 
+    var images = [
+        "https://thumbs.gfycat.com/QualifiedGreedyBeardedcollie-size_restricted.gif",
+        "https://media1.giphy.com/media/J39gurpvL7SHpnTTJB/giphy.gif",
+        "https://media1.tenor.com/images/60aa63d75ffbb3abfe4e7ca87b42d39d/tenor.gif?itemid=9363046"
+        ];
+
+    var image = Math.floor(Math.random() * images.length);
+
     const noe = new Discord.MessageEmbed()
         .setColor("#FF665B")
         .setTitle("Invalid argument")
@@ -35,7 +43,7 @@ exports.run = (bot, msg, args) => {
         const infinity = new Discord.MessageEmbed()
             .setColor("#B399D4")
             .setTitle("YOU BROKE THE UNIVERSE!!!")
-            .setImage("https://thumbs.gfycat.com/QualifiedGreedyBeardedcollie-size_restricted.gif")
+            .setImage(image)
             .setDescription('AAAAA LOOK AT WHAT YOU\'VE DONE!!!')
 
         return msg.channel.send(infinity)
