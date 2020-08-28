@@ -77,14 +77,7 @@ const guildprefix = mongoose.model('guildprefix', new mongoose.Schema({
     prefix: String
 }));
 
-const guildwelcome = mongoose.model('guildprefix', new mongoose.Schema({
-    on: Boolean,
-    serverid: String,
-    channelid: String
-}));
-
 global.guildprefix = guildprefix
-global.guildwelcome = guildwelcome
 
 bot.on("message", async msg => {
 
