@@ -55,7 +55,7 @@ bot.on('guildMemberAdd', async member => {
         .setFooter(member.user.tag, member.user.displayAvatarURL({ format: 'png' }))
         .setTimestamp()
 
-    channel.send(member + welcomeembed)
+    channel.send(`${member}\n${welcomeembed}`)
 
 });
 
