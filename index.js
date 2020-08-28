@@ -45,12 +45,16 @@ bot.on('guildMemberAdd', async member => {
 
     if (member.guild.id != `717895996155101244`) return
 
+    const channel = member.guild.channels.cache.find(ch => ch.name == 'welcome');
+
     const welcomeembed = new Discord.MessageEmbed()
         .setColor("#800080")
         .setTitle("***Welcome to " + member.guild.name + "!***")
         .setDescription(`<@!${member.user.id}>, Welcome to this server! You're the ${member.guild.memberCount} member. Enjoy this server!`)
         .setFooter(member.user.tag, member.user.displayAvatarURL({ format: 'png' }))
         .setTimestamp()
+
+    channel.send(welcomeembed)
 
 });
 
