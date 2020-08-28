@@ -30,6 +30,8 @@ exports.run = (bot, msg, args) => {
         console.log(error)
         msg.channel.send(inve)
 
+        return
+
     }
 
     const calc = new Discord.MessageEmbed()
