@@ -60,7 +60,7 @@ exports.run = async (bot, msg, args) => {
                 embed: {
                     color: "#1167b1",
                     title: "Moderator commands",
-                    description: '``ban`` Bans a user.\n``unban`` Unbans a user.\n```kick`` Kicks a user.\n``mute`` Mutes a user.\n``unmute`` Unmutes a user.\n``purge`` Deletes messages.\n``slowmode`` Sets slowmode.',
+                    description: '``ban`` Bans a user.\n``unban`` Unbans a user.\n`kick`` Kicks a user.\n``mute`` Mutes a user.\n``unmute`` Unmutes a user.\n``purge`` Deletes messages.\n``slowmode`` Sets slowmode.',
                     footer: {
                         iconURL: "https://i.imgur.com/XiiqQWn.png",
                         text: "This server's prefix is " + prefix
