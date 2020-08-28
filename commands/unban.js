@@ -36,7 +36,7 @@ exports.run = async (bot, msg, args) => {
     }
 
     msg.guild.fetchBans().then(bans=> {
-        if(bans.size == 0) msg.channel.send(noban)
+        if(bans.size == 0) return msg.channel.send(noban)
         let bUser = bans.find(b => b.user.id == userID)
         if(!bUser) return msg.channel.send(noban)
         try {
