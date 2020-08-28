@@ -44,7 +44,7 @@ exports.run = (bot, msg, args) => {
         const infinity = new Discord.MessageEmbed()
             .setColor("#B399D4")
             .setTitle("YOU BROKE THE UNIVERSE!!!")
-            .setImage(image)
+            .setImage("https://thumbs.gfycat.com/PerkyGloriousFlatfish-size_restricted.gif")
             .setDescription('AAAAA LOOK AT WHAT YOU\'VE DONE!!!')
 
         return msg.channel.send(infinity)
