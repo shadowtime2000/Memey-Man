@@ -5,7 +5,9 @@ exports.run = (bot, msg, args) => {
     var images = [
         "https://thumbs.gfycat.com/QualifiedGreedyBeardedcollie-size_restricted.gif",
         "https://media1.giphy.com/media/J39gurpvL7SHpnTTJB/giphy.gif",
-        "https://media1.tenor.com/images/60aa63d75ffbb3abfe4e7ca87b42d39d/tenor.gif?itemid=9363046"
+        "https://thumbs.gfycat.com/AccurateSpecificKingfisher-size_restricted.gif",
+        "https://media1.giphy.com/media/ghIeczlW5Ba8JzXtgO/source.gif",
+        "https://thumbs.gfycat.com/PowerfulParchedEider-size_restricted.gif"
         ];
 
     var image = Math.floor(Math.random() * images.length);
@@ -32,7 +34,6 @@ exports.run = (bot, msg, args) => {
     try {
         result = evalExpression(equation)
     } catch (error) {
-        console.log(error)
         msg.channel.send(inve)
 
         return
