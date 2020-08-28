@@ -1,9 +1,4 @@
 const Discord = require("discord.js")
-
-const guildprefix = mongoose.model('guildprefix', new mongoose.Schema({
-    serverid: String,
-    prefix: String
-}));
 exports.run = async (bot, msg, args) => {
 
     const args1 = msg.content.split(' ').slice(1);

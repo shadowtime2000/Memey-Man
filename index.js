@@ -68,6 +68,13 @@ bot.on("ready", () =>{
     bot.user.setActivity("e | &help", {type: "STREAMING", url: `https://www.twitch.tv/memeymandiscordbot`});
 });
 
+const guildprefix = mongoose.model('guildprefix', new mongoose.Schema({
+    serverid: String,
+    prefix: String
+}));
+
+global.guildprefix = guildprefix
+
 bot.on("message", async msg => {
 
     const prefixmap = await guildprefix.findOne({ serverid: msg.guild.id }) || { prefix: "&" }
