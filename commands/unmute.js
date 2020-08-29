@@ -19,7 +19,7 @@ exports.run = (bot, msg, args) => {
 
     if(!mutemember) return msg.channel.send(nomem);
 
-    if (user.roles.cache.find(r => r.name === 'Muted by Memey Man')){
+    if (mutemember.roles.cache.find(r => r.name === 'Muted by Memey Man')){
 
         const notmuted = new Discord.MessageEmbed()
             .setColor('#FF665B')
