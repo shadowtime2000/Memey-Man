@@ -27,6 +27,7 @@
     "node-fetch": "latest",
     "nodeyourmeme": "^2.0.0",
     "querystring": "^0.2.0",
+    "random-puppy": "^1.1.0",
     "reverse-image-search-google": "^1.0.1",
     "search-image": "^1.0.3",
     "urban": "^0.3.2",
