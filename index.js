@@ -29,23 +29,11 @@ fs.readdir("./commands/", (err, files) => {
     });
 });
 
-const applyText = (canvas, text) => {
-    const ctx = canvas.getContext('2d');
-
-    let fontSize = 70;
-
-    do {
-        ctx.font = `${fontSize -= 10}px sans-serif`;
-    } while (ctx.measureText(text).width > canvas.width - 300);
-
-    return ctx.font;
-};
-
 bot.on('guildMemberAdd', async member => {
 
     if (member.guild.id != `717895996155101244`) return
 
-    const channel = member.guild.channels.cache.find(ch => ch.name == 'welcome');
+    const channel = member.guild.channels.cache.find(ch => ch.name == 'welcome-goodbye');
 
     const welcomeembed = new Discord.MessageEmbed()
         .setColor("#53dc98")
@@ -56,6 +44,24 @@ bot.on('guildMemberAdd', async member => {
         .setTimestamp()
 
     channel.send(welcomeembed)
+
+});
+
+bot.on('guildMemberRemove', async member => {
+
+    if (member.guild.id != `717895996155101244`) return
+
+    const channel = member.guild.channels.cache.find(ch => ch.name == 'welcome-goodbye');
+
+    const byeembed = new Discord.MessageEmbed()
+        .setColor("#FF665B")
+        .setTitle(member.guild.name + "left " + member.guild.name + ".")
+        .setThumbnail(member.guild.iconURL({ format: 'png' }))
+        .setDescription(`<@!${member.user.id}> has left! Now we have ${member.guild.memberCount} members.`)
+        .setFooter(member.user.tag, member.user.displayAvatarURL({ format: 'png' }))
+        .setTimestamp()
+
+    channel.send(byembed)
 
 });
 
