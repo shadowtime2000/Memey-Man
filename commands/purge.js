@@ -27,7 +27,7 @@ exports.run = async (bot, msg, args) => {
     const invnumbersmall = new Discord.MessageEmbed()
         .setColor('#FF665B')
         .setTitle('Invalid argument')
-        .setDescription("It's unable to purge less than 1 message..")
+        .setDescription("It's unable to purge less than 1 message.")
 
     if(!msg.member.hasPermission("MANAGE_MESSAGES")) return msg.channel.send(nopurge);
 
