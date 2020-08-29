@@ -19,6 +19,18 @@ exports.run = (bot, msg, args) => {
 
     if(!mutemember) return msg.channel.send(nomem);
 
+    if (user.roles.cache.find(r => r.name === 'Muted by Memey Man')){
+
+        const notmuted = new Discord.MessageEmbed()
+            .setColor('#FF665B')
+            .setTitle('Member not muted!')
+            .setDescription(`I can't unmute someone who is not muted.`)
+            .setTimestamp()
+
+        return msg.channel.send(notmuted);
+
+    }
+
     mutemember.roles.remove(role);
 
     const muted = new Discord.MessageEmbed()

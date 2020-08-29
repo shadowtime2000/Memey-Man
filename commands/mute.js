@@ -38,6 +38,18 @@ exports.run = (bot, msg, args) => {
 
     if(!mutemember) return msg.channel.send(nomem);
 
+    if (user.roles.cache.find(r => r.name === 'Muted by Memey Man')){
+
+        const alreadymuted = new Discord.MessageEmbed()
+            .setColor('#FF665B')
+            .setTitle('Member already muted!')
+            .setDescription(`I can't mute someone who is already muted.`)
+            .setTimestamp()
+
+        return msg.channel.send(alreadymuted);
+
+    }
+
     if(!mutereason) return msg.channel.send(nor)
 
     msg.guild.channels.cache.forEach((channel) => {
