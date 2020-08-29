@@ -26,7 +26,7 @@ exports.run = async (bot, msg, args) => {
             return msg.channel.send(noamountpog)
         }
 
-        if(isNaN(amount)) {
+        if(isNaN(arguments[1])) {
             const nonumpog = new Discord.MessageEmbed()
                 .setColor("#FF665B")
                 .setTitle("Invalid argument")
@@ -68,6 +68,55 @@ exports.run = async (bot, msg, args) => {
 
 
     } else if (menu == "kekw") {
+
+        if(!amount) {
+            const noamountk = new Discord.MessageEmbed()
+                .setColor("#FF665B")
+                .setTitle("Invalid argument")
+                .setDescription(prefix + "draw pog [amount]")
+                .setFooter("You did't provide the number of pog.")
+            return msg.channel.send(noamountk)
+        }
+
+        if(isNaN(arguments[1])) {
+            const nonumk = new Discord.MessageEmbed()
+                .setColor("#FF665B")
+                .setTitle("Invalid argument")
+                .setDescription("Amount of pog should be a number.")
+            return msg.channel.send(nonumk)
+        }
+
+        if(amount<0) {
+            const smallnumk = new Discord.MessageEmbed()
+                .setColor("#FF665B")
+                .setTitle("Invalid argument")
+                .setDescription("Amount of pog should be bigger than or equal to 1.")
+            return msg.channel.send(smallnumk)
+        }
+
+        if(amount>100) {
+            const bignumk = new Discord.MessageEmbed()
+                .setColor("#FF665B")
+                .setTitle("Invalid argument")
+                .setDescription("Amount of pog should be smaller than or equal to 100.")
+            return msg.channel.send(bignumk)
+        }
+
+        const pog = await loadImage("./images/kekw.png")
+        const rows = Math.ceil(amount / 10)
+        const canvas = createCanvas(pog.width * (rows > 1 ? 10 : amount), pog.height*rows)
+        const ctx = canvas.getContext("2d")
+        let width = 0
+        for (var i = 0; i < amount; i++) {
+            const row = Math.ceil((i+1)/10)
+            ctx.drawImage(pog, width, pog.height * (row - 1))
+            if((width + pog.width) === (pog.width * (rows > 1 ? 10 : amount))) width = 0
+            else width += pog.width
+        }
+
+        const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'pog.png');
+
+        await msg.channel.send(attachment)
 
     } else {}
 
