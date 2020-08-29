@@ -55,7 +55,7 @@ bot.on('guildMemberRemove', async member => {
 
     const byeembed = new Discord.MessageEmbed()
         .setColor("#FF665B")
-        .setTitle(member.guild.name + "left " + member.guild.name + ".")
+        .setTitle(member + " left " + member.guild.name + ".")
         .setThumbnail(member.guild.iconURL({ format: 'png' }))
         .setDescription(`<@!${member.user.id}> has left! Now we have ${member.guild.memberCount} members.`)
         .setFooter(member.user.tag, member.user.displayAvatarURL({ format: 'png' }))
