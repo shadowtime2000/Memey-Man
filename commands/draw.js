@@ -17,7 +17,7 @@ exports.run = async (bot, msg, args) => {
 
     if(menu == "pog") {
 
-        if(!amount) {
+        if(!arguments[1]) {
             const noamountpog = new Discord.MessageEmbed()
                 .setColor("#FF665B")
                 .setTitle("Invalid argument")
@@ -69,12 +69,12 @@ exports.run = async (bot, msg, args) => {
 
     } else if (menu == "kekw") {
 
-        if(!amount) {
+        if(!arguments[1]) {
             const noamountk = new Discord.MessageEmbed()
                 .setColor("#FF665B")
                 .setTitle("Invalid argument")
                 .setDescription(prefix + "draw pog [amount]")
-                .setFooter("You did't provide the number of pog.")
+                .setFooter("You did't provide the number of kekw.")
             return msg.channel.send(noamountk)
         }
 
@@ -82,7 +82,7 @@ exports.run = async (bot, msg, args) => {
             const nonumk = new Discord.MessageEmbed()
                 .setColor("#FF665B")
                 .setTitle("Invalid argument")
-                .setDescription("Amount of pog should be a number.")
+                .setDescription("Amount of kekw should be a number.")
             return msg.channel.send(nonumk)
         }
 
@@ -90,7 +90,7 @@ exports.run = async (bot, msg, args) => {
             const smallnumk = new Discord.MessageEmbed()
                 .setColor("#FF665B")
                 .setTitle("Invalid argument")
-                .setDescription("Amount of pog should be bigger than or equal to 1.")
+                .setDescription("Amount of kekw should be bigger than or equal to 1.")
             return msg.channel.send(smallnumk)
         }
 
@@ -98,7 +98,7 @@ exports.run = async (bot, msg, args) => {
             const bignumk = new Discord.MessageEmbed()
                 .setColor("#FF665B")
                 .setTitle("Invalid argument")
-                .setDescription("Amount of pog should be smaller than or equal to 100.")
+                .setDescription("Amount of kekw should be smaller than or equal to 100.")
             return msg.channel.send(bignumk)
         }
 
