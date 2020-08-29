@@ -37,24 +37,24 @@ bot.on('guildMemberAdd', async member => {
 
         const welcomeembed = new Discord.MessageEmbed()
             .setColor("#53dc98")
+            .setAuthor(member.user.tag, member.user.displayAvatarURL({format: 'png'}))
             .setTitle("***Welcome to " + member.guild.name + "!***")
             .setThumbnail(member.guild.iconURL({ format: 'png' }))
             .setDescription(`<@!${member.user.id}>, Welcome to this server! You're the ${member.guild.memberCount} member. Please check the <#717897434105118780> channel. Enjoy this server!`)
-            .setFooter(member.user.tag, member.user.displayAvatarURL({ format: 'png' }))
             .setTimestamp()
 
         channel.send(welcomeembed)
 
-    } else if(member.guild.id == '737151735910629437') {
+    } else if (member.guild.id == '737151735910629437') {
 
         const channel = member.guild.channels.cache.find(ch => ch.name == 'general-chat');
 
         const welcomeembed = new Discord.MessageEmbed()
             .setColor("#53dc98")
+            .setAuthor(member.user.tag, member.user.displayAvatarURL({format: 'png'}))
             .setTitle("***Welcome to " + member.guild.name + "!***")
             .setThumbnail(member.guild.iconURL({ format: 'png' }))
-            .setDescription(`<@!${member.user.id}>, Welcome to this server! You're the ${member.guild.memberCount} member. Please check <#737152675161833552> and <#737152698016596058> channel. Enjoy this server!`)
-            .setFooter(member.user.tag, member.user.displayAvatarURL({ format: 'png' }))
+            .setDescription(`<@!${member.user.id}>, Welcome to ${member.guild.name}! You're the ${member.guild.memberCount} member. Please check <#737152675161833552> and <#737152698016596058> channel. Enjoy this server!`)
             .setTimestamp()
 
         channel.send(welcomeembed)
@@ -71,10 +71,10 @@ bot.on('guildMemberRemove', async member => {
 
         let byeembed = new Discord.MessageEmbed()
             .setColor("#FF665B")
+            .setAuthor(member.user.tag, member.user.displayAvatarURL({format: 'png'}))
             .setTitle(member.user.username + " left " + member.guild.name + ".")
             .setThumbnail(member.guild.iconURL({format: 'png'}))
             .setDescription(`<@!${member.user.id}> has left! Now we have ${member.guild.memberCount} members.`)
-            .setFooter(member.user.tag, member.user.displayAvatarURL({format: 'png'}))
             .setTimestamp()
 
         channel.send(byeembed)
@@ -85,10 +85,10 @@ bot.on('guildMemberRemove', async member => {
 
         let byeembed = new Discord.MessageEmbed()
             .setColor("#FF665B")
+            .setAuthor(member.user.tag, member.user.displayAvatarURL({format: 'png'}))
             .setTitle(member.user.username + " left " + member.guild.name + ".")
             .setThumbnail(member.guild.iconURL({format: 'png'}))
             .setDescription(`<@!${member.user.id}> has left! Now we have ${member.guild.memberCount} members.`)
-            .setFooter(member.user.tag, member.user.displayAvatarURL({format: 'png'}))
             .setTimestamp()
 
         channel.send(byeembed)
