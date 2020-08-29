@@ -31,37 +31,69 @@ fs.readdir("./commands/", (err, files) => {
 
 bot.on('guildMemberAdd', async member => {
 
-    if (member.guild.id != `717895996155101244`) return
+    if (member.guild.id == `717895996155101244`) {
 
-    const channel = member.guild.channels.cache.find(ch => ch.name == 'welcome-goodbye');
+        const channel = member.guild.channels.cache.find(ch => ch.name == 'welcome-goodbye');
 
-    const welcomeembed = new Discord.MessageEmbed()
-        .setColor("#53dc98")
-        .setTitle("***Welcome to " + member.guild.name + "!***")
-        .setThumbnail(member.guild.iconURL({ format: 'png' }))
-        .setDescription(`<@!${member.user.id}>, Welcome to this server! You're the ${member.guild.memberCount} member. Please check the <#717897434105118780> channel. Enjoy this server!`)
-        .setFooter(member.user.tag, member.user.displayAvatarURL({ format: 'png' }))
-        .setTimestamp()
+        const welcomeembed = new Discord.MessageEmbed()
+            .setColor("#53dc98")
+            .setTitle("***Welcome to " + member.guild.name + "!***")
+            .setThumbnail(member.guild.iconURL({ format: 'png' }))
+            .setDescription(`<@!${member.user.id}>, Welcome to this server! You're the ${member.guild.memberCount} member. Please check the <#717897434105118780> channel. Enjoy this server!`)
+            .setFooter(member.user.tag, member.user.displayAvatarURL({ format: 'png' }))
+            .setTimestamp()
 
-    channel.send(welcomeembed)
+        channel.send(welcomeembed)
+
+    } else if(member.guild.id == '737151735910629437') {
+
+        const channel = member.guild.channels.cache.find(ch => ch.name == 'welcome-goodbye');
+
+        const welcomeembed = new Discord.MessageEmbed()
+            .setColor("#53dc98")
+            .setTitle("***Welcome to " + member.guild.name + "!***")
+            .setThumbnail(member.guild.iconURL({ format: 'png' }))
+            .setDescription(`<@!${member.user.id}>, Welcome to this server! You're the ${member.guild.memberCount} member. Please check <#717897434105118780> and <#737152698016596058> channel. Enjoy this server!`)
+            .setFooter(member.user.tag, member.user.displayAvatarURL({ format: 'png' }))
+            .setTimestamp()
+
+        channel.send(welcomeembed)
+
+    } else {}
 
 });
 
 bot.on('guildMemberRemove', async member => {
 
-    if (member.guild.id != `717895996155101244`) return
+    if (member.guild.id == `717895996155101244`) {
 
-    const channel = member.guild.channels.cache.find(ch => ch.name == 'welcome-goodbye');
+        let channel = member.guild.channels.cache.find(ch => ch.name == 'welcome-goodbye');
 
-    const byeembed = new Discord.MessageEmbed()
-        .setColor("#FF665B")
-        .setTitle(member.user.username + " left " + member.guild.name + ".")
-        .setThumbnail(member.guild.iconURL({ format: 'png' }))
-        .setDescription(`<@!${member.user.id}> has left! Now we have ${member.guild.memberCount} members.`)
-        .setFooter(member.user.tag, member.user.displayAvatarURL({ format: 'png' }))
-        .setTimestamp()
+        let byeembed = new Discord.MessageEmbed()
+            .setColor("#FF665B")
+            .setTitle(member.user.username + " left " + member.guild.name + ".")
+            .setThumbnail(member.guild.iconURL({format: 'png'}))
+            .setDescription(`<@!${member.user.id}> has left! Now we have ${member.guild.memberCount} members.`)
+            .setFooter(member.user.tag, member.user.displayAvatarURL({format: 'png'}))
+            .setTimestamp()
 
-    channel.send(byeembed)
+        channel.send(byeembed)
+
+    } else if (member.guild.id == '737151735910629437') {
+
+        let channel = member.guild.channels.cache.find(ch => ch.name == 'welcome-goodbye');
+
+        let byeembed = new Discord.MessageEmbed()
+            .setColor("#FF665B")
+            .setTitle(member.user.username + " left " + member.guild.name + ".")
+            .setThumbnail(member.guild.iconURL({format: 'png'}))
+            .setDescription(`<@!${member.user.id}> has left! Now we have ${member.guild.memberCount} members.`)
+            .setFooter(member.user.tag, member.user.displayAvatarURL({format: 'png'}))
+            .setTimestamp()
+
+        channel.send(byeembed)
+
+    } else {}
 
 });
 
