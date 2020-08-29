@@ -61,7 +61,7 @@ bot.on('guildMemberRemove', async member => {
         .setFooter(member.user.tag, member.user.displayAvatarURL({ format: 'png' }))
         .setTimestamp()
 
-    channel.send(byembed)
+    channel.send(byeembed)
 
 });
 
