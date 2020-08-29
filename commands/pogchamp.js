@@ -13,6 +13,6 @@ exports.run = async (bot, msg, args) => {
 
     const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'pogchamp.jpg');
 
-    msg.channel.send(attachment)
+    await msg.channel.send(attachment)
     
 };
