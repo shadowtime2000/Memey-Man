@@ -114,7 +114,7 @@ exports.run = async (bot, msg, args) => {
             else width += pog.width
         }
 
-        const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'pog.png');
+        const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'kekw.png');
 
         await msg.channel.send(attachment)
 
@@ -165,7 +165,7 @@ exports.run = async (bot, msg, args) => {
             else width += pog.width
         }
 
-        const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'pog.png');
+        const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'yikes.png');
 
         await msg.channel.send(attachment)
     }
