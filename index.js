@@ -100,9 +100,9 @@ bot.on('guildMemberRemove', async member => {
         let byeembed = new Discord.MessageEmbed()
             .setColor("#FF665B")
             .setAuthor(member.user.tag, member.user.displayAvatarURL({format: 'png'}))
-            .setTitle(member.user.username + "가 " + member.guild.name + "를 떠났습니다")
+            .setTitle(member.user.username + " left " + member.guild.name + ".")
             .setThumbnail(member.guild.iconURL({format: 'png'}))
-            .setDescription(`<@!${member.user.id}>가 떠났습니다. 남은 멤버는 ${member.guild.memberCount}명 입니다.`)
+            .setDescription(`<@!${member.user.id}> has left! Now we have ${member.guild.memberCount} members.`)
             .setTimestamp()
 
         channel.send(byeembed)
@@ -114,9 +114,9 @@ bot.on('guildMemberRemove', async member => {
         let byeembed = new Discord.MessageEmbed()
             .setColor("#FF665B")
             .setAuthor(member.user.tag, member.user.displayAvatarURL({format: 'png'}))
-            .setTitle(member.user.username + " left " + member.guild.name + ".")
+            .setTitle(member.user.username + "가 " + member.guild.name + "를 떠났습니다")
             .setThumbnail(member.guild.iconURL({format: 'png'}))
-            .setDescription(`<@!${member.user.id}> has left! Now we have ${member.guild.memberCount} members.`)
+            .setDescription(`<@!${member.user.id}>가 떠났습니다. 남은 멤버는 ${member.guild.memberCount}명 입니다.`)
             .setTimestamp()
 
         channel.send(byeembed)
