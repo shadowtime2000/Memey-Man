@@ -4,19 +4,25 @@ const request = require('request');
 const cheerio = require('cheerio');
 exports.run = (bot, msg, args) => {
 
-    randomPuppy("aviationmemes")
-    .then(url => {
-        request(url, (error, resp, body) => {
-            if(error) {
-                console.log(error)
-            }
-            let $ = cheerio.load(body);
-            let $title = $('.post-title').text();
-    
-            console.log($title)
-        });
-    })
+    var res = await randomPuppy("aviationmemes")
+    var url = res.split(".")[0] + "." + res.split(".")[1]
 
-    
+    let title
+
+    request(url, (error, resp, body) => {
+        if(error) {
+            console.log(error)
+        }
+        let $ = cheerio.load(body);
+        let $title = $('.post-title').text();
+        title = $title
+    });
+
+    const aviationmeme = new Discord.MessageEmbed()
+        .setColor("#7cfc00")
+        .setTitle(title)
+        .setImage(url)
+
+    msg.channel.send(aviationmeme)
 
 };
