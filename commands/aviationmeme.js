@@ -16,12 +16,13 @@ exports.run = async (bot, msg, args) => {
         let $ = cheerio.load(body);
         let $title = $('.post-title').text();
         title = $title
+        console.log(title)
     });
 
     const aviationmeme = new Discord.MessageEmbed()
         .setColor("#7cfc00")
         .setTitle(title)
-        .setImage(url)
+        .setImage(res)
 
     msg.channel.send(aviationmeme)
 
