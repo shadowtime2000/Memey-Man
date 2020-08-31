@@ -68,7 +68,7 @@ bot.on('guildMemberAdd', async member => {
             .setAuthor(member.user.tag, member.user.displayAvatarURL({format: 'png'}))
             .setTitle(member.guild.name + "에 온 것을 환영합니다")
             .setThumbnail(member.guild.iconURL({ format: 'png' }))
-            .setDescription(`<@!${member.user.id}>, ${member.guild.name}에 오신 것을 환영합니다! 당신은 ${member.guild.memberCount}번째 멤버입니다. <#749615913413640202> 채널을 확인해 주세요.`)
+            .setDescription(`<@!${member.user.id}>가 ${member.guild.name}에 떨어졌습니다. 당신은 ${member.guild.memberCount}번째로 떨어지셨습니다. <#749615913413640202> 채널을 확인해 주세요.`)
             .setTimestamp()
 
         channel.send(welcomeembed)
