@@ -4,22 +4,19 @@ const request = require('request');
 const cheerio = require('cheerio');
 exports.run = (bot, msg, args) => {
 
-    let meme
-    
     randomPuppy("aviationmemes")
     .then(url => {
-        meme = url
+        request(url, (error, resp, body) => {
+            if(error) {
+                console.log(error)
+            }
+            let $ = cheerio.load(body);
+            let $title = $('.post-title').text();
+    
+            console.log($title)
+        });
     })
 
-    request(meme, (error, resp, body) => {
-        if(error) {
-            console.log(error)
-        }
-        let $ = cheerio.load(body);
-        let $title = $('.post-title').text();
-
-        console.log($title)
-
-    });
+    
 
 };
