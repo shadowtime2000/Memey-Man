@@ -5,11 +5,12 @@ const randomPuppy = require('random-puppy')
 exports.run = (bot, msg, args) => {
 
     let title
+    let meme
     
     randomPuppy("aviationmemes")
     .then(url => {
 
-        let meme = url
+        meme = url
 
         request(meme, (error, resp, body) => {
             if(error) {
