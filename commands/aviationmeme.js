@@ -14,13 +14,13 @@ exports.run = async (bot, msg, args) => {
         }
         let $ = cheerio.load(body);
         let $title = $('.post-title').text();
-    });
 
-    const aviationmeme = new Discord.MessageEmbed()
+        const aviationmeme = new Discord.MessageEmbed()
         .setColor("#7cfc00")
         .setTitle($title)
         .setImage(res)
 
-    msg.channel.send(aviationmeme)
+        msg.channel.send(aviationmeme)
+    });
 
 };
