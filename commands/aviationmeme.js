@@ -7,7 +7,6 @@ exports.run = async (bot, msg, args) => {
     var res = await randomPuppy("aviationmemes")
     var url = res.split(".")[0] + "." + res.split(".")[1]
 
-    let title
 
     request(url, (error, resp, body) => {
         if(error) {
@@ -15,13 +14,11 @@ exports.run = async (bot, msg, args) => {
         }
         let $ = cheerio.load(body);
         let $title = $('.post-title').text();
-        title = $title
-        console.log(title)
     });
 
     const aviationmeme = new Discord.MessageEmbed()
         .setColor("#7cfc00")
-        .setTitle(title)
+        .setTitle($title)
         .setImage(res)
 
     msg.channel.send(aviationmeme)
