@@ -27,7 +27,7 @@ exports.run = (bot, msg, args) => {
     const aviationmeme = new Discord.MessageEmbed()
         .setColor("#7cfc00")
         .setTitle(title)
-        .setImage(url)
+        .setImage(meme)
         
     msg.channel.send(aviationmeme)
     
