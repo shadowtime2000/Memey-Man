@@ -9,6 +9,8 @@ exports.run = (bot, msg, args) => {
     randomPuppy("aviationmemes")
     .then(url => {
 
+        let url = url
+
         request(url, (error, resp, body) => {
             if(error) {
                 console.log(error)
