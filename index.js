@@ -59,6 +59,20 @@ bot.on('guildMemberAdd', async member => {
 
         channel.send(welcomeembed)
 
+    } else if (member.guild.id == '749595288280498188') {
+
+        const channel = member.guild.channels.cache.find(ch => ch.name == 'traffic');
+
+        const welcomeembed = new Discord.MessageEmbed()
+            .setColor("#53dc98")
+            .setAuthor(member.user.tag, member.user.displayAvatarURL({format: 'png'}))
+            .setTitle(member.guild.name + "에 온 것을 환영합니다")
+            .setThumbnail(member.guild.iconURL({ format: 'png' }))
+            .setDescription(`<@!${member.user.id}>, ${member.guild.name}에 오신 것을 환영합니다! 당신은 ${member.guild.memberCount}번째 멤버입니다. <#749615913413640202> 채널을 확인해 주세요.`)
+            .setTimestamp()
+
+        channel.send(welcomeembed)
+
     } else {}
 
 });
@@ -82,6 +96,20 @@ bot.on('guildMemberRemove', async member => {
     } else if (member.guild.id == '737151735910629437') {
 
         let channel = member.guild.channels.cache.find(ch => ch.name == 'general-chat');
+
+        let byeembed = new Discord.MessageEmbed()
+            .setColor("#FF665B")
+            .setAuthor(member.user.tag, member.user.displayAvatarURL({format: 'png'}))
+            .setTitle(member.user.username + "가 " + member.guild.name + "를 떠났습니다")
+            .setThumbnail(member.guild.iconURL({format: 'png'}))
+            .setDescription(`<@!${member.user.id}>가 떠났습니다. 남은 멤버는 ${member.guild.memberCount}명 입니다.`)
+            .setTimestamp()
+
+        channel.send(byeembed)
+
+    } else if (member.guild.id == '749595288280498188') {
+
+        let channel = member.guild.channels.cache.find(ch => ch.name == 'traffic');
 
         let byeembed = new Discord.MessageEmbed()
             .setColor("#FF665B")
