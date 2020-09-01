@@ -51,10 +51,13 @@ exports.run = async (bot, msg, args) => {
 
     try {
         banmember.send(dmbanembed)
+    } catch (error) {}
+
+    try {
         await banmember.ban(banreason)
         await msg.channel.send(banembed)
     } catch (error) {
-        msg.channel.send(cantban);
+        msg.channel.send(cantban)
     }
     
 }

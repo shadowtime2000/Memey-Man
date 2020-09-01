@@ -51,10 +51,13 @@ exports.run = async (bot, msg, args) => {
 
     try {
         kickmember.send(dmkickembed)
+    } catch (error) {}
+
+    try {
         await kickmember.kick(kickreason)
         await msg.channel.send(kickembed)
     } catch (error) {
-        msg.channel.send(cantkick);
+        msg.channel.send(cantkick)
     }
 
 }
