@@ -6,8 +6,8 @@ exports.run = (bot, msg, args) => {
         .setTitle("User/role ping detected")
         .setDescription("Don't try to ping users and roles!")
 
-    if(msg.mentions.users.first) return msg.channel.send(noping)
-    if(msg.mentions.roles.first) return msg.channel.send(noping)
+    if(msg.mentions.users.first()) return msg.channel.send(noping)
+    if(msg.mentions.roles.first()) return msg.channel.send(noping)
 
     const args1 = msg.content.split(' ').slice(1); 
     const text = args1.join(' ');  
