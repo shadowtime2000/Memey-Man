@@ -24,6 +24,11 @@ exports.run = (bot, msg, args) => {
         .setDescription(prefix + "mute [member mention] [reason]")
         .setFooter("You didn't provide a mute reason.")
 
+    const cantmute = new Discord.MessageEmbed()
+        .setColor('#FF665B')
+        .setTitle('Couldn\'t mute member')
+        .setDescription("Failed to mute member.")
+
     if(!role) {
         msg.guild.roles.create({
             data:{
@@ -66,7 +71,8 @@ exports.run = (bot, msg, args) => {
         });
 
     } catch (error) {
-        
+        console.log(error)
+        msg.channel.send(cantmute)
     }
 
     const muted = new Discord.MessageEmbed()
