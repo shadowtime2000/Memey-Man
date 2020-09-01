@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-exports.run = (bot, msg, args) => {
+exports.run = async (bot, msg, args) => {
     
     const args1 = msg.content.split(' ').slice(2); 
     const kickreason = args1.join(' '); 
@@ -51,11 +51,8 @@ exports.run = (bot, msg, args) => {
 
     try {
         kickmember.send(dmkickembed)
-        .then(() => {
-            kickmember.kick(kickreason).then(member => {
-                msg.channel.send(kickembed)
-            })
-        })
+        await kickmember.kick(kickreason)
+        await msg.channel.send(kickembed)
     } catch (error) {
         msg.channel.send(cantkick);
     }
