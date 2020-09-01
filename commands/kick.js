@@ -37,7 +37,8 @@ exports.run = (bot, msg, args) => {
         .addFields(
             { name: 'Moderator', value: msg.member.displayName, inline: true },
             { name: 'Reason', value: kickreason, inline: true },
-        ).setTimestamp()
+        )
+        .setTimestamp()
 
     const dmkickembed = new Discord.MessageEmbed()
         .setColor('#FFB347')
@@ -48,13 +49,15 @@ exports.run = (bot, msg, args) => {
         )
         .setTimestamp()
 
-    kickmember.send(dmkickembed)
-    .then(() => {
-        kickmember.kick(kickreason).then(member => {
-        msg.channel.send(kickembed)
+    try {
+        kickmember.send(dmkickembed)
+        .then(() => {
+            kickmember.kick(kickreason).then(member => {
+                msg.channel.send(kickembed)
+            })
         })
-    }).catch(() => {
+    } catch (error) {
         msg.channel.send(cantkick);
-    })
+    }
 
 }

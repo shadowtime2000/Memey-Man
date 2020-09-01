@@ -52,16 +52,22 @@ exports.run = (bot, msg, args) => {
 
     if(!mutereason) return msg.channel.send(nor)
 
-    msg.guild.channels.cache.forEach((channel) => {
-        channel.overwritePermissions([
-            {
-               id: role.id,
-               deny: ['SEND_MESSAGES'],
-            },
-        ], 'mute');
+    try {
 
-        mutemember.roles.add(role);
-    });
+        msg.guild.channels.cache.forEach((channel) => {
+            channel.overwritePermissions([
+                {
+                id: role.id,
+                deny: ['SEND_MESSAGES'],
+                },
+            ], 'mute');
+
+            mutemember.roles.add(role);
+        });
+
+    } catch (error) {
+        
+    }
 
     const muted = new Discord.MessageEmbed()
         .setColor("73DB6A")
