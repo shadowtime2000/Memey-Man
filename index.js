@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
 const Enmap = require("enmap");
 const fs = require('fs');
-const Canvas = require('canvas')
 const mongoose = require('mongoose')
 
 global.mongoose = mongoose
@@ -127,7 +126,7 @@ bot.on('guildMemberRemove', async member => {
 
 bot.on("ready", () =>{
     console.log("Logged in / Online in " + bot.guilds.cache.size + " servers.");
-    bot.user.setActivity(`&help | Watching ${bot.member.cache.size} users 👀`, { type: "PLAYING" });
+    bot.user.setActivity(`&help | Watching ${bot.users.cache.size} users 👀`, { type: "PLAYING" });
 });
 
 const guildprefix = mongoose.model('guildprefix', new mongoose.Schema({
