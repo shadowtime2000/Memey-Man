@@ -29,7 +29,7 @@ exports.run = (bot, msg, args) => {
         return
     }
 
-    if (result == "Infinity" || result == NaN ) {
+    if (result == "Infinity" || result == "NaN" ) {
 
         const infinity = new Discord.MessageEmbed()
             .setColor("#B399D4")
