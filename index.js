@@ -127,12 +127,8 @@ bot.on('guildMemberRemove', async member => {
 bot.on("ready", () =>{
     console.log("Logged in / Online in " + bot.guilds.cache.size + " servers.");
     setInterval(async () => {
-        let users = 0;
-        for (let g of bot.guilds.array()) users += (g.members.size - 1);
-    
-        await bot.user.setActivity(`${users} user${users !== 1 ? 's' : ''}`, {type: 'PLAYING'})
-        .catch(err => console.error());
-      }, 15000);
+        bot.user.setActivity(`&help | Watching ${bot.users.cache.size} users 👀`, { type: "PLAYING" });
+    }, 600000);
 });
 
 const guildprefix = mongoose.model('guildprefix', new mongoose.Schema({
