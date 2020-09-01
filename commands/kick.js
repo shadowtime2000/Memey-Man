@@ -33,7 +33,7 @@ exports.run = async (bot, msg, args) => {
 
     const kickembed = new Discord.MessageEmbed()
         .setColor('#73DB6A')
-        .setTitle('Successfully kicked ' + kickmember.displayName)
+        .setTitle('Successfully kicked ' + kickmember.user.tag)
         .addFields(
             { name: 'Moderator', value: msg.member.displayName, inline: true },
             { name: 'Reason', value: kickreason, inline: true },

@@ -33,7 +33,7 @@ exports.run = async (bot, msg, args) => {
 
     const banembed = new Discord.MessageEmbed()
         .setColor('#73DB6A')
-        .setTitle('Successfully banned ' + banmember.displayName)
+        .setTitle('Successfully banned ' + banmember.user.tag)
         .addFields(
             { name: 'Moderator', value: msg.member.displayName, inline: true },
             { name: 'Reason', value: banreason, inline: true },
