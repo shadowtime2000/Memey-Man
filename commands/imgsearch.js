@@ -26,7 +26,7 @@ exports.run = (bot, msg, args) => {
         }
         else {
 
-            if(!results) {
+            if(!results[0]) {
                 const resultembedn = new Discord.MessageEmbed()
                     .setColor("#F9A602")
                     .setTitle("Not found.")
