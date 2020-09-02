@@ -39,6 +39,7 @@ exports.run = (bot, msg, args) => {
 
             for(var i = 0; i < results.length; i++) {
                 if (checkURL(results[i]) == true) {
+                    console.log(results[i])
                     img = results[i]
                     break
                 } else {}
