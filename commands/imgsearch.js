@@ -44,6 +44,8 @@ exports.run = (bot, msg, args) => {
                 } else {}
             }
 
+            console.log(img)
+
             const resultembed = new Discord.MessageEmbed()
                 .setColor("#F9A602")
                 .setTitle("Search result")
