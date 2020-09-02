@@ -59,20 +59,6 @@ bot.on('guildMemberAdd', async member => {
 
         channel.send(welcomeembed)
 
-    } else if (member.guild.id == '737151735910629437') {
-
-        const channel = member.guild.channels.cache.find(ch => ch.name == 'general-chat');
-
-        const welcomeembed = new Discord.MessageEmbed()
-            .setColor("#53dc98")
-            .setAuthor(member.user.tag, member.user.displayAvatarURL({format: 'png'}))
-            .setTitle("***Welcome to " + member.guild.name + "!***")
-            .setThumbnail(member.guild.iconURL({ format: 'png' }))
-            .setDescription(`<@!${member.user.id}>, Welcome to ${member.guild.name}! You're the ${suffix(member.guild.memberCount)} member. Please check <#737152675161833552> and <#737152698016596058> channel. Enjoy this server!`)
-            .setTimestamp()
-
-        channel.send(welcomeembed)
-
     } else if (member.guild.id == '749595288280498188') {
 
         const channel = member.guild.channels.cache.find(ch => ch.name == 'traffic');
@@ -96,20 +82,6 @@ bot.on('guildMemberRemove', async member => {
     if (member.guild.id == `717895996155101244`) {
 
         let channel = member.guild.channels.cache.find(ch => ch.name == 'welcome-goodbye');
-
-        let byeembed = new Discord.MessageEmbed()
-            .setColor("#FF665B")
-            .setAuthor(member.user.tag, member.user.displayAvatarURL({format: 'png'}))
-            .setTitle(member.user.username + " left " + member.guild.name + ".")
-            .setThumbnail(member.guild.iconURL({format: 'png'}))
-            .setDescription(`<@!${member.user.id}> has left! Now we have ${member.guild.memberCount} members.`)
-            .setTimestamp()
-
-        channel.send(byeembed)
-
-    } else if (member.guild.id == '737151735910629437') {
-
-        let channel = member.guild.channels.cache.find(ch => ch.name == 'general-chat');
 
         let byeembed = new Discord.MessageEmbed()
             .setColor("#FF665B")
