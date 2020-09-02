@@ -19,7 +19,7 @@ exports.run = (bot, msg, args) => {
 
     var opts = {
         searchTerm: search,
-        queryStringAddition: 'safe=strict'
+        queryStringAddition: 'safe=active'
     };
 
     gis(opts, logResults);
