@@ -38,9 +38,9 @@ exports.run = (bot, msg, args) => {
             let img
 
             for(var i = 0; i < results.length; i++) {
-                if (checkURL(results[i].url) == true) {
-                    img = results[i].url
-                    console.log(results[i].url + ": " + checkURL(results[i].url))
+                var num = Math.floor(Math.random() * results.length);
+                if (checkURL(results[num].url) == true) {
+                    img = results[num].url
                     break
                 } else {}
             }
