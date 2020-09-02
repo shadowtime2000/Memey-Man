@@ -38,14 +38,11 @@ exports.run = (bot, msg, args) => {
             let img
 
             for(var i = 0; i < results.length; i++) {
-                if (checkURL(results[i]) == true) {
-                    console.log(results[i])
-                    img = results[i]
+                if (checkURL(results[i].url) == true) {
+                    img = results[i].url
                     break
                 } else {}
             }
-
-            console.log(img)
 
             const resultembed = new Discord.MessageEmbed()
                 .setColor("#F9A602")
