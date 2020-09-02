@@ -21,6 +21,7 @@ exports.run = (bot, msg, args) => {
             msg.channel.send("An error occurred.")
         }
         else {
+            console.log(results)
             var res = JSON.stringify(results, null, '  ');
             console.log(res)
             var img = res[1].url
