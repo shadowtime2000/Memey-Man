@@ -23,7 +23,8 @@ exports.run = (bot, msg, args) => {
         else {
             var res = JSON.stringify(results, null, '  ');
             console.log(res)
-            var img = res[0].url
+            var img = res[1].url
+            console.log(res[1])
             console.log(img)
             const resultembed = new Discord.MessageEmbed()
                 .setColor("#F9A602")
