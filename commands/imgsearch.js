@@ -3,7 +3,7 @@ const gis = require("g-i-s")
 exports.run = (bot, msg, args) => {
 
     function checkURL(url) {
-        return(url.match(/\.(jpeg|jpg|gif|png)$/) != null);
+        return(String(url).match(/\.(jpeg|jpg|gif|png)$/) != null);
     }
 
     const inv = new Discord.MessageEmbed()
@@ -35,7 +35,7 @@ exports.run = (bot, msg, args) => {
                 return msg.channel.send(resultembedn)
             }
 
-            let img 
+            let img
 
             for(var i = 0; i < results.length; i++) {
                 if (checkURL(results[i]) == true) {
