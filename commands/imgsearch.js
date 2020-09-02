@@ -2,6 +2,10 @@ const Discord = require("discord.js")
 const gis = require("g-i-s")
 exports.run = (bot, msg, args) => {
 
+    function checkURL(url) {
+        return(url.match(/\.(jpeg|jpg|gif|png)$/) != null);
+    }
+
     const inv = new Discord.MessageEmbed()
         .setColor("#FF665B")
         .setTitle("Invalid argument")
@@ -22,9 +26,24 @@ exports.run = (bot, msg, args) => {
         }
         else {
 
-            var img = results[1].url
-            console.log(results[1])
-            console.log(img)
+            if(!results) {
+                const resultembedn = new Discord.MessageEmbed()
+                    .setColor("#F9A602")
+                    .setTitle("Not found.")
+                    .setDescription("Couldn't retrieve any result.")
+
+                return msg.channel.send(resultembedn)
+            }
+
+            let img
+
+            for(var i = 0; i < results.length; i++) {
+                if (checkURL(results[i]) == true) {
+                    img = results[i]
+                    break
+                } else {}
+            }
+
             const resultembed = new Discord.MessageEmbed()
                 .setColor("#F9A602")
                 .setTitle("Search result")
