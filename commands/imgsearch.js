@@ -40,6 +40,7 @@ exports.run = (bot, msg, args) => {
             for(var i = 0; i < results.length; i++) {
                 if (checkURL(results[i].url) == true) {
                     img = results[i].url
+                    console.log(results[i].url + ": " + checkURL(results[i].url))
                     break
                 } else {}
             }
