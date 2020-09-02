@@ -28,6 +28,21 @@ fs.readdir("./commands/", (err, files) => {
     });
 });
 
+function suffix(i) {
+    var j = i % 10,
+        k = i % 100;
+    if (j == 1 && k != 11) {
+        return i + "st";
+    }
+    if (j == 2 && k != 12) {
+        return i + "nd";
+    }
+    if (j == 3 && k != 13) {
+        return i + "rd";
+    }
+    return i + "th";
+}
+
 bot.on('guildMemberAdd', async member => {
 
     if (member.guild.id == `717895996155101244`) {
@@ -39,7 +54,7 @@ bot.on('guildMemberAdd', async member => {
             .setAuthor(member.user.tag, member.user.displayAvatarURL({format: 'png'}))
             .setTitle("***Welcome to " + member.guild.name + "!***")
             .setThumbnail(member.guild.iconURL({ format: 'png' }))
-            .setDescription(`<@!${member.user.id}>, Welcome to this server! You're the ${member.guild.memberCount} member. Please check the <#717897434105118780> channel. Enjoy this server!`)
+            .setDescription(`<@!${member.user.id}>, Welcome to this server! You're the ${suffix(member.guild.memberCount)} member. Please check the <#717897434105118780> channel. Enjoy this server!`)
             .setTimestamp()
 
         channel.send(welcomeembed)
@@ -53,7 +68,7 @@ bot.on('guildMemberAdd', async member => {
             .setAuthor(member.user.tag, member.user.displayAvatarURL({format: 'png'}))
             .setTitle("***Welcome to " + member.guild.name + "!***")
             .setThumbnail(member.guild.iconURL({ format: 'png' }))
-            .setDescription(`<@!${member.user.id}>, Welcome to ${member.guild.name}! You're the ${member.guild.memberCount} member. Please check <#737152675161833552> and <#737152698016596058> channel. Enjoy this server!`)
+            .setDescription(`<@!${member.user.id}>, Welcome to ${member.guild.name}! You're the ${suffix(member.guild.memberCount)} member. Please check <#737152675161833552> and <#737152698016596058> channel. Enjoy this server!`)
             .setTimestamp()
 
         channel.send(welcomeembed)
