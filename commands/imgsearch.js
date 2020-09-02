@@ -17,7 +17,12 @@ exports.run = (bot, msg, args) => {
 
     if (!search) return msg.channel.send(inv)
 
-    gis(search, logResults);
+    var opts = {
+        searchTerm: search,
+        queryStringAddition: 'safe=strict'
+    };
+
+    gis(opts, logResults);
 
     function logResults(error, results) {
         if (error) {
