@@ -28,7 +28,7 @@ exports.run = async (bot, msg, args) => {
     if(!res) return msg.channel.send(memenores)
 
     const meme = new Discord.MessageEmbed()
-        .setColor("#228B22")
+        .setColor("#009900")
         .setTitle(res.name)
         .setDescription(res.about)
 

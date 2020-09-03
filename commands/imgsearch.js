@@ -51,7 +51,7 @@ exports.run = (bot, msg, args) => {
             }
 
             const resultembed = new Discord.MessageEmbed()
-                .setColor("#228B22")
+                .setColor("#009900")
                 .setTitle("Search result")
                 .setImage(img)
                 .setFooter("Powered by Google", "https://i.ibb.co/N6m5VMb/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png")

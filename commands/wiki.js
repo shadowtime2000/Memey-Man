@@ -38,7 +38,7 @@ exports.run = async (bot, msg, args) => {
     }
 
     const jokeembed = new Discord.MessageEmbed()
-        .setColor(`#228B22`)
+        .setColor(`#009900`)
         .setTitle(title)
         .setURL(url)
         .setThumbnail(thumbnail)
