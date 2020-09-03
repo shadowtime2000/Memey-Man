@@ -14,7 +14,7 @@ exports.run = (bot, msg, args) => {
 
     const embedembed = new Discord.MessageEmbed()
         .setColor('#003152')
-        .setTitle('Message from ' + msg.member.displayName)
+        .setAuthor(msg.author.tag, msg.author.displayAvatarURL({ format: 'png' }))
         .setDescription(repeatword)
         .setTimestamp()
 
