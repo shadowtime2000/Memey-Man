@@ -12,6 +12,10 @@ exports.run = (bot, msg, args) => {
 
     if(!text) return msg.channel.send(inv)
 
-    msg.channel.send({file: `https://api.alexflipnote.dev/supreme?text=${text}`})
+    message.channel.send({embed = {
+        "image": {
+          "url": "http://link/to/image.png"
+        }
+    }})
     
 };
