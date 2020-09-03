@@ -12,7 +12,7 @@ exports.run = async (bot, msg, args) => {
                 embed: {
                     color: "#1167b1",
                     title: "Fun commands",
-                    description: '``meme`` Gets a random meme.\n``dadjoke`` Gets a random dad joke.\n``aviationmeme`` Gets a random aviation meme.\n``gayrate`` See how gay is someone\n``uwu`` UwUfies given text.\n``hug`` Hug a user!\n``punch`` Punch a user!\n``topic`` Gives a chat topic\n``urban`` Searches something on urban dictionary.\n``kymeme`` Searches something on Know Your Meme.',
+                    description: '``meme`` Gets a random meme.\n``dadjoke`` Gets a random dad joke.\n``aviationmeme`` Gets a random aviation meme.\n``gayrate`` See how gay is someone\n``hug`` Hug a user!\n``punch`` Punch a user!\n``topic`` Gives a chat topic\n``urban`` Searches something on urban dictionary.\n``kymeme`` Searches something on Know Your Meme.',
                     footer: {
                         iconURL: "https://i.imgur.com/XiiqQWn.png",
                         text: "This server's prefix is " + prefix
@@ -48,7 +48,7 @@ exports.run = async (bot, msg, args) => {
                 embed: {
                     color: "#1167b1",
                     title: "Text commands",
-                    description: '``xue`` Xue hua piao piao bei feng piao piao',
+                    description: '``uwu`` UwUfies given text.\n``xue`` Xue hua piao piao bei feng piao piao',
                     footer: {
                         iconURL: "https://i.imgur.com/XiiqQWn.png",
                         text: "This server's prefix is " + prefix
