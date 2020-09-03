@@ -1,26 +1,35 @@
 const Discord = require("discord.js")
-const randomPuppy = require('random-puppy')
-const request = require('request');
-const cheerio = require('cheerio');
 exports.run = async (bot, msg, args) => {
 
-    var res = await randomPuppy("aviationmemes")
-    var url = res.split(".")[0] + "." + res.split(".")[1]
+    function checkURL(url) {
+        return(String(url).match(/\.(jpeg|jpg|gif|png)$/) != null);
+    }
 
+    async function fetchRedditData() {
 
-    request(url, (error, resp, body) => {
-        if(error) {
-            console.log(error)
+        const res = await fetch("https://www.reddit.com/r/aviationmemes/random.json");
+        const data = await res.json();
+    
+        const url = data[0].data.children[0].data.url
+        const title = data[0].data.children[0].data.title
+
+        if(checkURL(url) == false) {
+
+            fetchRedditData()
+
+        } else {
+
+            const avmeme = new Discord.MessageEmbed()
+                .setColor("#7cfc00")
+                .setTitle(title)
+                .setImage(url)
+
+            return msg.channel.send(avmeme)
+
         }
-        let $ = cheerio.load(body);
-        let $title = $('.post-title').text();
 
-        const aviationmeme = new Discord.MessageEmbed()
-        .setColor("#7cfc00")
-        .setTitle($title)
-        .setImage(res)
-
-        msg.channel.send(aviationmeme)
-    });
+    }
+    
+    fetchRedditData()
 
 };
