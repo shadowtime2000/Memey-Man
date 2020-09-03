@@ -36,7 +36,7 @@ exports.run = async (bot, msg, args) => {
                 embed: {
                     color: "#1167b1",
                     title: "Search commands",
-                    description: '``wiki`` Searches something on Wikipedia.``imgsearch`` Searches image on Google.\n``urban`` Searches something on urban dictionary.\n``kymeme`` Searches something on Know Your Meme.',
+                    description: '``wiki`` Searches something on Wikipedia.\n``imgsearch`` Searches image on Google.\n``urban`` Searches something on urban dictionary.\n``kymeme`` Searches something on Know Your Meme.',
                     footer: {
                         iconURL: "https://i.imgur.com/XiiqQWn.png",
                         text: "This server's prefix is " + prefix
