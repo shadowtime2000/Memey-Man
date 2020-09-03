@@ -15,6 +15,11 @@ exports.run = (bot, msg, args) => {
 
     var decoded = ascii85.decode(text)
 
-    msg.channel.send("```Result: " + decoded.toString() + "```")
+    const result = new Discord.MessageEmbed()
+        .setColor("#23395d")
+        .setTitle("Result")
+        .setDescription(decoded.toString())
+
+    msg.channel.send(result)
 
 };
