@@ -12,7 +12,7 @@ exports.run = async (bot, msg, args) => {
                 embed: {
                     color: "#1167b1",
                     title: "Fun commands",
-                    description: '``meme`` Gets a random meme.\n``dadjoke`` Gets a random dad joke.\n``aviationmeme`` Gets a random aviation meme.\n``gayrate`` See how gay is someone\n``hug`` Hug a user!\n``punch`` Punch a user!\n``topic`` Gives a chat topic',
+                    description: '``meme`` Gets a random meme.\n``dadjoke`` Gets a random dad joke.\n``avmeme`` Gets a random aviation meme.\n``gayrate`` See how gay is someone\n``hug`` Hug a user!\n``punch`` Punch a user!\n``topic`` Gives a chat topic',
                     footer: {
                         iconURL: "https://i.imgur.com/XiiqQWn.png",
                         text: "This server's prefix is " + prefix
@@ -36,7 +36,7 @@ exports.run = async (bot, msg, args) => {
                 embed: {
                     color: "#1167b1",
                     title: "Search commands",
-                    description: '``wiki`` Searches something on Wikipedia.\n``imgsearch`` Searches image on Google.\n``urban`` Searches something on urban dictionary.\n``kymeme`` Searches something on Know Your Meme.',
+                    description: '``wiki`` Searches something on Wikipedia.\n``urban`` Searches something on urban dictionary.\n``kymeme`` Searches something on Know Your Meme.\n``imgsearch`` Searches image on Google.',
                     footer: {
                         iconURL: "https://i.imgur.com/XiiqQWn.png",
                         text: "This server's prefix is " + prefix
