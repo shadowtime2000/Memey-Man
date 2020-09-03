@@ -15,6 +15,6 @@ exports.run = (bot, msg, args) => {
 
     var decoded = ascii85.decode(text)
 
-    msg.channel.send("```" + decoded.toString() + "```")
+    msg.channel.send("```Result: " + decoded.toString() + "```")
 
 };

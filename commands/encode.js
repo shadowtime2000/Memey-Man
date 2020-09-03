@@ -15,6 +15,6 @@ exports.run = (bot, msg, args) => {
 
     var encoded = ascii85.encode(text);
 
-    msg.channel.send("```" + encoded.toString() + "```")
+    msg.channel.send("```Result: " + encoded.toString() + "```")
 
 };
