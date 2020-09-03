@@ -54,6 +54,7 @@ exports.run = (bot, msg, args) => {
                 .setColor("#F9A602")
                 .setTitle("Search result")
                 .setImage(img)
+                .setFooter("Powered by Google", "https://i.ibb.co/N6m5VMb/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png")
 
             msg.channel.send(resultembed)
         }
