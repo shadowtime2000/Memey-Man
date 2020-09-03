@@ -60,7 +60,7 @@ exports.run = async (bot, msg, args) => {
                 embed: {
                     color: "#1167b1",
                     title: "Text commands",
-                    description: '``uwu`` UwUfies given text.\n``xue`` Xue hua piao piao bei feng piao piao',
+                    description: '``uwu`` UwUfies given text.\n``encode`` Encodes given text.\n``decode`` Decodes given text.\n``xue`` Xue hua piao piao bei feng piao piao',
                     footer: {
                         iconURL: "https://i.imgur.com/XiiqQWn.png",
                         text: "This server's prefix is " + prefix
