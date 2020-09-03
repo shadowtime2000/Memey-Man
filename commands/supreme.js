@@ -12,10 +12,9 @@ exports.run = (bot, msg, args) => {
 
     if(!text) return msg.channel.send(inv)
 
-    message.channel.send({embed = {
-        "image": {
-          "url": "http://link/to/image.png"
-        }
-    }})
+    const supreme = new Discord.MessageEmbed()
+        .setImage("https://api.alexflipnote.dev/supreme?text=" + text)
+
+    message.channel.send()
     
 };
