@@ -12,6 +12,6 @@ exports.run = (bot, msg, args) => {
 
     if(!text) return msg.channel.send(inv)
 
-    msg.channel.send({files: [{attachment: "https://api.alexflipnote.dev/supreme?text=" + text, name: text + "-supreme.png"}]})
+    msg.channel.send({files: [{attachment: "https://api.alexflipnote.dev/supreme?text=" + text, name: "supreme.png"}]})
     
 };
