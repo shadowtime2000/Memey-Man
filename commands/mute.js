@@ -54,7 +54,7 @@ exports.run = async (bot, msg, args) => {
                 }
             })
 
-            const muterolea = msg.guild.roles.cache.find(r => r.name === 'Muted by Memey Man');
+            //const muterolea = msg.guild.roles.cache.find(r => r.name === 'Muted by Memey Man');
 
             msg.guild.channels.cache.forEach((channel) => {
 
