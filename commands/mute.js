@@ -3,7 +3,6 @@ exports.run = (bot, msg, args) => {
 
     const mutemember = msg.mentions.members.first();
     const role = msg.guild.roles.cache.find(r => r.name === 'Muted by Memey Man');
-
     const args1 = msg.content.split(' ').slice(2); 
     const mutereason = args1.join(' ');
 
@@ -17,7 +16,7 @@ exports.run = (bot, msg, args) => {
         .setTitle('Invalid argument')
         .setDescription(prefix + "mute [member mention] [reason]")
         .setFooter("You didn't provide a member to mute.")
-
+        
     const nor = new Discord.MessageEmbed()
         .setColor("#FF665B") 
         .setTitle('Invalid argument')
@@ -29,37 +28,18 @@ exports.run = (bot, msg, args) => {
         .setTitle('Couldn\'t mute member')
         .setDescription("Failed to mute member.")
 
-    if (!msg.member.hasPermission("KICK_MEMBERS")) return msg.channel.send(noperm)
-
-    if(!mutemember) return msg.channel.send(nomem);
-
-    if(!mutereason) return msg.channel.send(nor)
-
     if(!role) {
-        try {
-            msg.guild.roles.create({
-                data:{
-                    name: "Muted by Memey Man",
-                    color: "#000000",
-                    permissions: []
-                }
-            })
-
-            const muterole = msg.guild.roles.cache.find(r => r.name === 'Muted by Memey Man');
-
-            msg.guild.channels.cache.forEach((channel) => {
-                channel.overwritePermissions([
-                    {
-                    id: muterole.id,
-                    deny: ['SEND_MESSAGES'],
-                    },
-                ], 'mute');
-            });
-        } catch (error) {
-            msg.channel.send(cantmute)
-            console.log(error)
-        }
+        msg.guild.roles.create({
+            data:{
+                name: "Muted by Memey Man",
+                color: "#000000",
+                permissions: []
+            }
+        })
     }
+
+    if (!msg.member.hasPermission("KICK_MEMBERS")) return msg.channel.send(noperm)
+    if(!mutemember) return msg.channel.send(nomem);
 
     if (mutemember.roles.cache.find(r => r.name === 'Muted by Memey Man')){
 
@@ -73,13 +53,25 @@ exports.run = (bot, msg, args) => {
 
     }
 
-    
+    if(!mutereason) return msg.channel.send(nor)
 
     try {
-        mutemember.roles.add(role);
+
+        msg.guild.channels.cache.forEach((channel) => {
+            channel.overwritePermissions([
+                {
+                id: role.id,
+                deny: ['SEND_MESSAGES'],
+                },
+            ], 'mute');
+            mutemember.roles.add(role);
+        });
+
     } catch (error) {
+
         console.log(error)
         msg.channel.send(cantmute)
+
     }
 
     const muted = new Discord.MessageEmbed()
