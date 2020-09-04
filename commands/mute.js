@@ -16,7 +16,7 @@ exports.run = (bot, msg, args) => {
         .setTitle('Invalid argument')
         .setDescription(prefix + "mute [member mention] [reason]")
         .setFooter("You didn't provide a member to mute.")
-        
+
     const nor = new Discord.MessageEmbed()
         .setColor("#FF665B") 
         .setTitle('Invalid argument')
@@ -64,6 +64,7 @@ exports.run = (bot, msg, args) => {
                 deny: ['SEND_MESSAGES'],
                 },
             ], 'mute');
+            
             mutemember.roles.add(role);
         });
 
