@@ -58,7 +58,7 @@ exports.run = async (bot, msg, args) => {
 
             msg.guild.channels.cache.forEach((channel) => {
 
-                channel.overwritePermission(muterolea, {
+                channel.overwritePermissions(muterolea, {
                     SEND_MESSAGES: false,
                     ADD_REACTIONS: false
                 });
