@@ -59,7 +59,7 @@ exports.run = async (bot, msg, args) => {
             msg.guild.channels.cache.forEach((channel) => {
 
                 channel.updateOverwrite(muterolea, {
-                    SEND_MESSAGES: false
+                    "SEND_MESSAGES": false
                 })
 
             });
