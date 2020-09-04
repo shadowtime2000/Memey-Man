@@ -58,9 +58,12 @@ exports.run = async (bot, msg, args) => {
 
             msg.guild.channels.cache.forEach((channel) => {
 
-                channel.createOverwrite(muterolea, {
-                    SEND_MESSAGES: false})
-                }
+                channel.createOverwrite(muterolea,
+                    {
+                        SEND_MESSAGES: false
+                    }
+                )
+                
 
             });
 
