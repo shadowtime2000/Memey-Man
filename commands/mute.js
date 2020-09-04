@@ -58,10 +58,9 @@ exports.run = async (bot, msg, args) => {
 
             msg.guild.channels.cache.forEach((channel) => {
 
-                channel.overwritePermissions(muterolea.id, {
-                    'SEND_MESSAGES': false,
-                    'ADD_REACTIONS': false
-                });
+                channel.createOverwrite(muterolea, {
+                    SEND_MESSAGES: false})
+                }
 
             });
 
