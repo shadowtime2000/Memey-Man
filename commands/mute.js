@@ -46,7 +46,7 @@ exports.run = async (bot, msg, args) => {
 
         try {
 
-            muterole = await msg.guild.roles.create({
+            msg.guild.roles.create({
                 data:{
                     name: "Muted by Memey Man",
                     color: "#000000",
@@ -54,12 +54,14 @@ exports.run = async (bot, msg, args) => {
                 }
             })
 
+            const muterolea = msg.guild.roles.cache.find(r => r.name === 'Muted by Memey Man');
+
             msg.guild.channels.cache.forEach((channel) => {
 
-                channel.updateOverwrite(role, {
+                channel.updateOverwrite(muterolea, {
                     SEND_MESSAGES: false
                 })
-                
+
             });
 
         } catch(error) {
