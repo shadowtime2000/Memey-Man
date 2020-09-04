@@ -70,9 +70,11 @@ exports.run = async (bot, msg, args) => {
 
     }
 
+    const muterole = msg.guild.roles.cache.find(r => r.name === 'Muted by Memey Man');
+
     try {
 
-        mutemember.roles.add(role);
+        mutemember.roles.add(muterole);
         
 
     } catch (error) {
