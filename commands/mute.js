@@ -55,12 +55,11 @@ exports.run = async (bot, msg, args) => {
             })
 
             msg.guild.channels.cache.forEach((channel) => {
-                channel.overwritePermissions([
-                    {
-                        id: muterole.id,
-                        deny: ['SEND_MESSAGES'],
-                    },
-                ], 'mute');
+
+                channel.updateOverwrite(role, {
+                    SEND_MESSAGES: false
+                })
+                
             });
 
         } catch(error) {
