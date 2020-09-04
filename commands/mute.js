@@ -30,13 +30,27 @@ exports.run = (bot, msg, args) => {
         .setDescription("Failed to mute member.")
 
     if(!role) {
-        msg.guild.roles.create({
-            data:{
-                name: "Muted by Memey Man",
-                color: "#000000",
-                permissions: []
-            }
-        })
+        try {
+            msg.guild.roles.create({
+                data:{
+                    name: "Muted by Memey Man",
+                    color: "#000000",
+                    permissions: []
+                }
+            })
+
+            msg.guild.channels.cache.forEach((channel) => {
+                channel.overwritePermissions([
+                    {
+                    id: role.id,
+                    deny: ['SEND_MESSAGES'],
+                    },
+                ], 'mute');
+            });
+        } catch (error) {
+            msg.channel.send(cantmute)
+            console.log(error)
+        }
     }
 
     if (!msg.member.hasPermission("KICK_MEMBERS")) return msg.channel.send(noperm)
@@ -58,18 +72,7 @@ exports.run = (bot, msg, args) => {
     if(!mutereason) return msg.channel.send(nor)
 
     try {
-
-        msg.guild.channels.cache.forEach((channel) => {
-            channel.overwritePermissions([
-                {
-                id: role.id,
-                deny: ['SEND_MESSAGES'],
-                },
-            ], 'mute');
-
-            mutemember.roles.add(role);
-        });
-
+        mutemember.roles.add(role);
     } catch (error) {
         console.log(error)
         msg.channel.send(cantmute)
