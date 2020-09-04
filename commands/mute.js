@@ -46,7 +46,7 @@ exports.run = async (bot, msg, args) => {
 
         try {
 
-            msg.guild.roles.create({
+            const muterolea = await msg.guild.roles.create({
                 data:{
                     name: "Muted by Memey Man",
                     color: "#000000",
