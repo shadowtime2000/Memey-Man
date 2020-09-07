@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 exports.run = (bot, msg, args) => {
 
-    var a = msg.guild.createdAt
+    var a = msg.guild.createdAt.toString()
     a = a.split("+")[0]
 
     const serverembed = new Discord.MessageEmbed()
