@@ -1,6 +1,9 @@
 const Discord = require('discord.js');
 exports.run = (bot, msg, args) => {
 
+    var a = msg.guild.createdAt
+    a = a.split("+")[0]
+
     const serverembed = new Discord.MessageEmbed()
         .setColor("#999900")
         .setTitle("Server info")
@@ -8,7 +11,7 @@ exports.run = (bot, msg, args) => {
         .addFields(
             { name: 'Server name', value: msg.guild.name, inline: true },
             { name: 'Server owner', value: msg.guild.owner, inline: true },
-            { name: 'Created at', value: msg.guild.createdAt, inline: true },
+            { name: 'Created at', value: a, inline: true },
         )
         .addFields(
             { name: 'Member count', value: msg.guild.memberCount, inline: true},
