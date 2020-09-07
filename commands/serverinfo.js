@@ -5,7 +5,7 @@ exports.run = (bot, msg, args) => {
     a = a.split("+")[0]
 
     const serverembed = new Discord.MessageEmbed()
-        .setColor("#999900")
+        .setColor("#DA70D6")
         .setTitle("Server info")
         .setThumbnail(msg.guild.iconURL({ format: 'png' }))
         .addFields(
@@ -21,7 +21,7 @@ exports.run = (bot, msg, args) => {
         .addFields(
             { name: 'Server ID', value: msg.guild.id, inline: true },
             { name: 'Server region', value: msg.guild.region, inline: true },
-            { name: 'Verification level', value: msg.guild.verificationLevel, inline: true }
+            { name: 'Verification level', value: msg.guild.verificationLevel.toLowerCase(), inline: true }
         )
         .setTimestamp()
 
