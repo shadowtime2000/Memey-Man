@@ -8,10 +8,10 @@ exports.run = (bot, msg, args) => {
         .setThumbnail('https://i.imgur.com/XiiqQWn.png')
         .addFields(
                 { name: 'Bot name', value: 'Memey Man'  },
-                { name: 'Developer', value: 'RedTea#8520', inline = true },
-                { name: 'Bot prefix', value: prefix, inline = true},
+                { name: 'Developer', value: 'RedTea#8520', inline: true },
+                { name: 'Bot prefix', value: prefix, inline: true},
                 { name: 'Server count', value: bot.guilds.cache.size },
-                { name: 'USer count', value: bot.users.cache.size, inline = true},
+                { name: 'USer count', value: bot.users.cache.size, inline: true},
         )
         .setFooter('Type ' + prefix + 'help to get help!')
 
