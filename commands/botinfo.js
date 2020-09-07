@@ -14,8 +14,8 @@ exports.run = (bot, msg, args) => {
             { name: 'Bot prefix', value: prefix, inline: true}
         )
         .addFields(
-            { name: 'Server count', value: bot.guilds.cache.size, inline: true },
-            { name: 'User count', value: bot.users.cache.size, inline: true},
+            { name: 'Server count', value: bot.guilds.cache.size + " servers", inline: true },
+            { name: 'User count', value: bot.users.cache.size + " users", inline: true},
             { name: "RAM", value: `${Math.round(ram * 100) / 100}MB`, inline: true}
         )
         .setFooter('Type ' + prefix + 'help to get help!')
