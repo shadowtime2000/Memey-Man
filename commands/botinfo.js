@@ -7,11 +7,13 @@ exports.run = (bot, msg, args) => {
         .setTitle('**Bot info**')
 	.setThumbnail('https://i.imgur.com/XiiqQWn.png')
 	.addFields(
-            { name: 'Bot name', value: 'Memey Man' },
-            { name: 'Developer', value: 'RedTea#8520' },
-            { name: 'Bot prefix', value: prefix },
+            { name: 'Bot name', value: 'Memey Man'  },
+            { name: 'Developer', value: 'RedTea#8520', inline = true },
+            { name: 'Bot prefix', value: prefix, inline = true},
+            { name: 'Server count', value: bot.guilds.cache.size },
+            { name: 'USer count', value: bot.users.cache.size, inline = true},
         )
-        .setFooter('Type &help to get help!')
+        .setFooter('Type ' + prefix + 'help to get help!')
 
     msg.channel.send(infoEmbed);
 
