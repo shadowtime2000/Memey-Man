@@ -2,9 +2,11 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 exports.run = (bot, msg, args) => {
 
+    const ram = process.memoryUsage().heapUsed / 1024 / 1024
+
     const infoEmbed = new Discord.MessageEmbed()
         .setColor('#0099ff')
-        .setTitle('**Bot info**')
+        .setTitle('Bot information')
         .setThumbnail('https://i.imgur.com/XiiqQWn.png')
         .addFields(
             { name: 'Bot name', value: 'Memey Man', inline: true },
@@ -14,6 +16,7 @@ exports.run = (bot, msg, args) => {
         .addFields(
             { name: 'Server count', value: bot.guilds.cache.size, inline: true },
             { name: 'User count', value: bot.users.cache.size, inline: true},
+            { name: "RAM", value: `${Math.round(ram * 100) / 100}MB`, inline: true}
         )
         .setFooter('Type ' + prefix + 'help to get help!')
 
