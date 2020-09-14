@@ -1,6 +1,6 @@
 <div align="center">
   
-# Memey Man
+# Memey Man\
 </div>
 A multi-function Discord bot.
 
