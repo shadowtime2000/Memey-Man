@@ -1,3 +1,3 @@
 # Memey Man bot
-Memey Man bot project 
+A multi-function Discord bot.
 
