@@ -14,7 +14,7 @@ exports.run = (bot, msg, args) => {
             .addFields(
                 { name: "Username", value: msg.author.username, inline: true },
                 { name: "Nickname", value: msg.member.displayName, inine: true },
-                { name: "Avatar URL", value: `[Click here](${msg.author.displayAvatarURL({format: 'png', dynamic: true})})`, inline: true }
+                { name: "Avatar URL", value: `[Click here](${msg.author.displayAvatarURL({format: 'png', dynamic: true})})`, inline: true },
             )
             .addFields(
                 { name: "ID", value: msg.author.id, inline: true},
@@ -31,7 +31,7 @@ exports.run = (bot, msg, args) => {
             .addFields(
                 { name: "Username", value: user.username, inline: true },
                 { name: "Nickname", value: member.displayName, inine: true },
-                { name: "Avatar URL", value: `[Click here](${msg.author.displayAvatarURL({format: 'png', dynamic: true})})`, inline: true }
+                { name: "Avatar URL", value: `[Click here](${msg.author.displayAvatarURL({format: 'png', dynamic: true})})`, inline: true },
             )
             .addFields(
                 { name: "ID", value: user.id, inline: true},
@@ -48,7 +48,7 @@ exports.run = (bot, msg, args) => {
             .addFields(
                 { name: "Username", value: bot.users.cache.get(memberid).username, inline: true },
                 { name: "Nickname", value: msg.guild.members.cache.get(memberid).displayName, inine: true },
-                { name: "Avatar URL", value: `[Click here](${bot.users.cache.get(memberid).displayAvatarURL({format: 'png', dynamic: true})})`, inline: true }
+                { name: "Avatar URL", value: `[Click here](${bot.users.cache.get(memberid).displayAvatarURL({format: 'png', dynamic: true})})`, inline: true },
             )
             .addFields(
                 { name: "ID", value: bot.users.cache.get(memberid).id, inline: true},
