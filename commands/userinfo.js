@@ -7,6 +7,9 @@ exports.run = (bot, msg, args) => {
     const memberid = arguments.join(' '); 
 
     if (!memberid && !user && !member) {
+        var a = msg.author.createdAt.toString()
+        a = a.split("+")[0]
+
         const avatarEmbed = new Discord.MessageEmbed()
             .setColor(`#006a4e`)
             .setAuthor(msg.author.tag, msg.author.displayAvatarURL({ format: 'png', dynamic: true }))
@@ -15,8 +18,7 @@ exports.run = (bot, msg, args) => {
                 { name: "Username", value: msg.author.username, inline: true },
                 { name: "Nickname", value: msg.member.displayName, inine: true },
                 { name: "Avatar URL", value: `[Click here](${msg.author.displayAvatarURL({format: 'png', dynamic: true})})`, inline: true },
-            )
-            .addFields(
+                { name: "Created on", value: a},
                 { name: "ID", value: msg.author.id, inline: true},
                 { name: "Status", value: msg.author.presence.status , inline: true}
             )
@@ -24,6 +26,9 @@ exports.run = (bot, msg, args) => {
     }
 
     if (user && member) {
+        var a = user.createdAt.toString()
+        a = a.split("+")[0]
+
         const useravatarEmbed = new Discord.MessageEmbed()            
             .setColor(`#006a4e`)
             .setAuthor(user.tag, user.displayAvatarURL({ format: 'png', dynamic:true }))
@@ -32,8 +37,7 @@ exports.run = (bot, msg, args) => {
                 { name: "Username", value: user.username, inline: true },
                 { name: "Nickname", value: member.displayName, inine: true },
                 { name: "Avatar URL", value: `[Click here](${msg.author.displayAvatarURL({format: 'png', dynamic: true})})`, inline: true },
-            )
-            .addFields(
+                { name: "Created on", value: a},
                 { name: "ID", value: user.id, inline: true},
                 { name: "Status", value: user.presence.status , inline: true}
             )
@@ -41,6 +45,9 @@ exports.run = (bot, msg, args) => {
     }
 
     if (memberid && !user && !member && msg.guild.member(memberid)) {
+        var a = bot.users.cache.get(memberid).createdAt.toString()
+        a = a.split("+")[0]
+
         const idavatarEmbed = new Discord.MessageEmbed() 
             .setColor(`#006a4e`)
             .setAuthor(bot.users.cache.get(memberid).tag, bot.users.cache.get(memberid).displayAvatarURL({ format: 'png' }))
@@ -49,8 +56,7 @@ exports.run = (bot, msg, args) => {
                 { name: "Username", value: bot.users.cache.get(memberid).username, inline: true },
                 { name: "Nickname", value: msg.guild.members.cache.get(memberid).displayName, inine: true },
                 { name: "Avatar URL", value: `[Click here](${bot.users.cache.get(memberid).displayAvatarURL({format: 'png', dynamic: true})})`, inline: true },
-            // )
-            // .addFields(
+                { name: "Created on", value: a},
                 { name: "ID", value: bot.users.cache.get(memberid).id, inline: true},
                 { name: "Status", value: bot.users.cache.get(memberid).presence.status , inline: true}
             )
