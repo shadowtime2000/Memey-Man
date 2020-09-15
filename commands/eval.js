@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const os = require('os')
 const { inspect } = require('util');
 exports.run = async (bot, msg, args) => {
 
