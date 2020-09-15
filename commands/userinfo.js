@@ -19,7 +19,7 @@ exports.run = (bot, msg, args) => {
                 { name: "Nickname", value: msg.member.displayName, inline: true },
                 { name: "Avatar URL", value: `[Click here](${msg.author.displayAvatarURL({format: 'png', dynamic: true})})`, inline: true },
                 { name: "Created on", value: a},
-                { name: "ID", value: msg.author.id, inline: true},
+                { name: "Account ID", value: msg.author.id, inline: true},
                 { name: "Status", value: msg.author.presence.status , inline: true}
             )
         msg.channel.send(avatarEmbed);
@@ -38,7 +38,7 @@ exports.run = (bot, msg, args) => {
                 { name: "Nickname", value: member.displayName, inline: true },
                 { name: "Avatar URL", value: `[Click here](${msg.author.displayAvatarURL({format: 'png', dynamic: true})})`, inline: true },
                 { name: "Created on", value: a},
-                { name: "ID", value: user.id, inline: true},
+                { name: "Account ID", value: user.id, inline: true},
                 { name: "Status", value: user.presence.status , inline: true}
             )
         msg.channel.send(useravatarEmbed);
@@ -57,7 +57,7 @@ exports.run = (bot, msg, args) => {
                 { name: "Nickname", value: msg.guild.members.cache.get(memberid).displayName, inline: true },
                 { name: "Avatar URL", value: `[Click here](${bot.users.cache.get(memberid).displayAvatarURL({format: 'png', dynamic: true})})`, inline: true },
                 { name: "Created on", value: a},
-                { name: "ID", value: bot.users.cache.get(memberid).id, inline: true},
+                { name: "Account ID", value: bot.users.cache.get(memberid).id, inline: true},
                 { name: "Status", value: bot.users.cache.get(memberid).presence.status , inline: true}
             )
         msg.channel.send(idavatarEmbed);
