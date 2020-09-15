@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const os = require('os')
 exports.run = (bot, msg, args) => {
 
     const args1 = msg.content.split(' ').slice(1);

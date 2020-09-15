@@ -4,7 +4,6 @@ const bot = new Discord.Client();
 exports.run = (bot, msg, args) => {
 
     const ram = os.totalmem() - os.freemem()
-    console.log(ram)
 
     const infoEmbed = new Discord.MessageEmbed()
         .setColor('#0099ff')
@@ -18,7 +17,7 @@ exports.run = (bot, msg, args) => {
         .addFields(
             { name: 'Server count', value: bot.guilds.cache.size + " servers", inline: true },
             { name: 'User count', value: bot.users.cache.size + " users", inline: true},
-            { name: "RAM", value: `${Math.round(ram / 104857.6) / 100}MB`, inline: true}
+            { name: "RAM", value: `${Math.round(ram / 10485760) / 100}MB`, inline: true}
         )
         .setFooter('Type ' + prefix + 'help to get help!')
         .setTimestamp()
