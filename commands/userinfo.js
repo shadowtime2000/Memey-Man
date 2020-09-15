@@ -16,7 +16,7 @@ exports.run = (bot, msg, args) => {
             .setThumbnail(msg.author.displayAvatarURL({ format: 'png', dynamic: true }))
             .addFields(
                 { name: "Username", value: msg.author.username, inline: true },
-                { name: "Nickname", value: msg.member.displayName, inine: true },
+                { name: "Nickname", value: msg.member.displayName, inline: true },
                 { name: "Avatar URL", value: `[Click here](${msg.author.displayAvatarURL({format: 'png', dynamic: true})})`, inline: true },
                 { name: "Created on", value: a},
                 { name: "ID", value: msg.author.id, inline: true},
@@ -35,7 +35,7 @@ exports.run = (bot, msg, args) => {
             .setThumbnail(user.displayAvatarURL({ size: 1024, format: 'png', dynamic: true }))
             .addFields(
                 { name: "Username", value: user.username, inline: true },
-                { name: "Nickname", value: member.displayName, inine: true },
+                { name: "Nickname", value: member.displayName, inline: true },
                 { name: "Avatar URL", value: `[Click here](${msg.author.displayAvatarURL({format: 'png', dynamic: true})})`, inline: true },
                 { name: "Created on", value: a},
                 { name: "ID", value: user.id, inline: true},
@@ -54,7 +54,7 @@ exports.run = (bot, msg, args) => {
             .setThumbnail(bot.users.cache.get(memberid).displayAvatarURL({ size: 1024, format: 'png', dynamic: true }))
             .addFields(
                 { name: "Username", value: bot.users.cache.get(memberid).username, inline: true },
-                { name: "Nickname", value: msg.guild.members.cache.get(memberid).displayName, inine: true },
+                { name: "Nickname", value: msg.guild.members.cache.get(memberid).displayName, inline: true },
                 { name: "Avatar URL", value: `[Click here](${bot.users.cache.get(memberid).displayAvatarURL({format: 'png', dynamic: true})})`, inline: true },
                 { name: "Created on", value: a},
                 { name: "ID", value: bot.users.cache.get(memberid).id, inline: true},
