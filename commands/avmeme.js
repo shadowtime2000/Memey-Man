@@ -16,7 +16,7 @@ exports.run = async (bot, msg, args) => {
 
         if(checkURL(url) == false) {
 
-            fetchRedditData()
+            await fetchRedditData()
 
         } else {
 

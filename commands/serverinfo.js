@@ -6,8 +6,8 @@ exports.run = (bot, msg, args) => {
 
     const serverembed = new Discord.MessageEmbed()
         .setColor("#DA70D6")
-        .setTitle("Server info")
-        .setThumbnail(msg.guild.iconURL({ format: 'png' }))
+        .setTitle("Server information")
+        .setThumbnail(msg.guild.iconURL({ format: 'png', dynamic: true }))
         .addFields(
             { name: 'Server name', value: msg.guild.name, inline: true },
             { name: 'Server owner', value: msg.guild.owner, inline: true },

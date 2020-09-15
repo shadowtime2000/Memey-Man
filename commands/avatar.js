@@ -1,14 +1,14 @@
 const Discord = require('discord.js');
 exports.run = (bot, msg, args) => {
 
-    const user = msg.mentions.members.first()
+    const user = msg.mentions.users.first()
     const arguments = msg.content.split(' ').slice(1); 
     const memberid = arguments.join(' '); 
 
     if (!memberid && !user) {
         const avatarEmbed = new Discord.MessageEmbed()
             .setColor(`#006a4e`)
-            .setAuthor(msg.author.tag, msg.author.displayAvatarURL({ format: 'png' }))
+            .setAuthor(msg.author.tag, msg.author.displayAvatarURL({ format: 'png', dynamic: true }))
             .setImage(msg.author.displayAvatarURL({ size: 1024, format: 'png', dynamic: true }));
         msg.channel.send(avatarEmbed);
     }
@@ -16,8 +16,8 @@ exports.run = (bot, msg, args) => {
     if (user) {
         const useravatarEmbed = new Discord.MessageEmbed()            
             .setColor(`#006a4e`)
-            .setAuthor(bot.users.cache.get(user.id).tag, bot.users.cache.get(user.id).displayAvatarURL({ format: 'png' }))
-            .setImage(bot.users.cache.get(user.id).displayAvatarURL({ size: 1024, format: 'png', dynamic: true }));
+            .setAuthor(user.tag, user.displayAvatarURL({ format: 'png', dynamic:true }))
+            .setImage(user.displayAvatarURL({ size: 1024, format: 'png', dynamic: true }));
         msg.channel.send(useravatarEmbed);
     }
 

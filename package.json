@@ -26,7 +26,7 @@
     "mongoose": "^5.10.0",
     "ms": "^2.1.2",
     "needle": "^2.3.0",
-    "node-fetch": "latest",
+    "node-fetch": "^2.6.1",
     "nodeyourmeme": "^2.0.0",
     "querystring": "^0.2.0",
     "random-puppy": "^1.1.0",

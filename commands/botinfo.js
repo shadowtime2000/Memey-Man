@@ -19,6 +19,7 @@ exports.run = (bot, msg, args) => {
             { name: "RAM", value: `${Math.round(ram * 100) / 100}MB`, inline: true}
         )
         .setFooter('Type ' + prefix + 'help to get help!')
+        .setTimestamp()
 
     msg.channel.send(infoEmbed);
 
