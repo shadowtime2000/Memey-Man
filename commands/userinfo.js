@@ -49,8 +49,8 @@ exports.run = (bot, msg, args) => {
                 { name: "Username", value: bot.users.cache.get(memberid).username, inline: true },
                 { name: "Nickname", value: msg.guild.members.cache.get(memberid).displayName, inine: true },
                 { name: "Avatar URL", value: `[Click here](${bot.users.cache.get(memberid).displayAvatarURL({format: 'png', dynamic: true})})`, inline: true },
-            )
-            .addFields(
+            // )
+            // .addFields(
                 { name: "ID", value: bot.users.cache.get(memberid).id, inline: true},
                 { name: "Status", value: bot.users.cache.get(memberid).presence.status , inline: true}
             )
