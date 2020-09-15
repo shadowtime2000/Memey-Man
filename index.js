@@ -115,7 +115,7 @@ bot.on("ready", () =>{
     console.log("Logged in / Online in " + bot.guilds.cache.size + " servers.");
     setInterval(async ()=>{
         await bot.user.setActivity(`&help | Watching ${bot.users.cache.size} users 👀`, { type: "PLAYING" }); 
-    },600000)
+    },10000)
 });
 
 const guildprefix = mongoose.model('guildprefix', new mongoose.Schema({
