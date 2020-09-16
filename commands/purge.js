@@ -8,6 +8,7 @@ exports.run = async (bot, msg, args) => {
                 .setDescription(error.message)
     
         msg.channel.send(errorembed)
+        return;
     });
     
     if (msg.channel.type == "dm") return;
