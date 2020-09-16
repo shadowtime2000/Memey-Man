@@ -1,16 +1,6 @@
 const Discord = require('discord.js');
 exports.run = async (bot, msg, args) => {
 
-    process.on('unhandledRejection', error => {
-        const errorembed = new Discord.MessageEmbed()
-                .setColor("#FF665B")
-                .setTitle("Error")
-                .setDescription(error.message)
-    
-        msg.channel.send(errorembed)
-        return;
-    });
-    
     if (msg.channel.type == "dm") return;
 
     const nopurge = new Discord.MessageEmbed()
@@ -52,12 +42,18 @@ exports.run = async (bot, msg, args) => {
     if (amount > 99) return msg.channel.send(invnumberbig)
     if (amount < 1) return msg.channel.send(invnumbersmall)
     
-    try {
-        msg.channel.messages.fetch({ limit: final }).then(messages => {
-            msg.channel.bulkDelete(messages)
-        })
-    } catch (error) {
-        
-    }
+    msg.channel.messages.fetch({ limit: final }).then(messages => {
+        msg.channel.bulkDelete(messages)
+    }).catch(error => {
+        if (error.code == 50034) {
+            const errorembed = new Discord.MessageEmbed()
+                .setColor("#FF665B")
+                .setTitle("Error")
+                .setDescription(error.message)
+    
+            msg.channel.send(errorembed)
+            return;
+        }
+    });
             
 };
