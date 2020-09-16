@@ -45,7 +45,7 @@ exports.run = async (bot, msg, args) => {
     msg.channel.messages.fetch({ limit: final }).then(messages => {
         msg.channel.bulkDelete(messages)
     }).catch(error => {
-        if (error.code == 50034) {
+        //if (error.code == 50034) {
             const errorembed = new Discord.MessageEmbed()
                 .setColor("#FF665B")
                 .setTitle("Error")
@@ -53,7 +53,7 @@ exports.run = async (bot, msg, args) => {
     
             msg.channel.send(errorembed)
             return;
-        }
+        //}
     });
             
 };
