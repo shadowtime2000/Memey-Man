@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 exports.run = async (bot, msg, args) => {
-
+    
     if (msg.channel.type == "dm") return;
 
     const nopurge = new Discord.MessageEmbed()
@@ -43,17 +43,9 @@ exports.run = async (bot, msg, args) => {
     if (amount < 1) return msg.channel.send(invnumbersmall)
     
     msg.channel.messages.fetch({ limit: final }).then(messages => {
-        msg.channel.bulkDelete(messages)
-    }).catch(error => {
-        //if (error.code == 50034) {
-            const errorembed = new Discord.MessageEmbed()
-                .setColor("#FF665B")
-                .setTitle("Error")
-                .setDescription(error.message)
-    
-            msg.channel.send(errorembed)
-            return;
-        //}
-    });
+        msg.channel.bulkDelete(messages, true)
+    }).catch(error => 
+        msg.reply("There was an error during purge.")
+    )
             
 };
