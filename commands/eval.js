@@ -14,13 +14,14 @@ exports.run = async (bot, msg, args) => {
         msg.channel.send("```yaml\n" + 
         inspect(evaled)
         + "\n```").catch(error => {
-            msg.channel.send("```yaml\n-- ERROR WHILE SENDING RESULTS -- \n\n" + error + "```")
+            msg.channel.send("Result too long, check logs.")
         });
         console.log("-- Inspection result --\n" + inspect(evaled) + "\n------------------------");
     }
     catch (error) {
         console.error(error);
         msg.reply('there was an error during evaluation.');
+        msg.channel.send("```" + error + "```").catch(error => {msg.channel.send("Error too long, chack logs.")})
     }
 
 };

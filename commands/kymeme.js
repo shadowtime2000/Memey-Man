@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-const nodeyourmeme =require('nodeyourmeme')
+const nodeyourmeme = require('nodeyourmeme')
 
 exports.run = async (bot, msg, args) => {
     

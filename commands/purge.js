@@ -42,9 +42,17 @@ exports.run = async (bot, msg, args) => {
     if (amount > 99) return msg.channel.send(invnumberbig)
     if (amount < 1) return msg.channel.send(invnumbersmall)
     
-    msg.channel.messages.fetch({ limit: final }).then(messages => {
-        msg.channel.bulkDelete(messages)
-    }).catch(error => 
-        msg.reply("There was an error during purge."))
+    try {
+        msg.channel.messages.fetch({ limit: final }).then(messages => {
+            msg.channel.bulkDelete(messages)
+        })
+    } catch (error) {
+        const errorembed = new Discord.MessageEmbed()
+            .setColor("#FF665B")
+            .setTitle("Error")
+            .setDescription(error)
+
+        msg.channel.send(errorembed)
+    }
             
 };
