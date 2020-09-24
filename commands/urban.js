@@ -13,7 +13,7 @@ exports.run = (bot, msg, args) => {
 
     if(!searchword) return msg.channel.send(noword);
     
-    let image = "https://i.imgur.com/RFm5zMt.png";
+    let image = "https://i.ibb.co/KFXzHKW/urban.png";
     let search = urban(searchword)
 
     try {
