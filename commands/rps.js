@@ -13,9 +13,9 @@ exports.run = async (bot, msg, args) => {
         botMessage,
         user: msg.author,
         reactions: {
-            '✌️': async () => getres(1),
-            '✊': async () => getres(2),
-            '🖐️': async () => getres(3),
+            ':v:': async () => getres(1),
+            ':fist:': async () => getres(2),
+            ':hand_splayed:': async () => getres(3),
         },
         deleteAllOnEnd: true
     });
