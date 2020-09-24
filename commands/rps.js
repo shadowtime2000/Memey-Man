@@ -13,7 +13,7 @@ exports.run = async (bot, msg, args) => {
         botMessage,
         user: msg.author,
         reactions: {
-            '✌️': async () => awaitgetres(1),
+            '✌️': async () => getres(1),
             '✊': async () => getres(2),
             '🖐️': async () => getres(3),
         },
