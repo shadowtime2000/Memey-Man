@@ -156,7 +156,25 @@ bot.on("message", async msg => {
             cmd.run(bot, msg, args);
         } catch (error) {
             console.log(error)
-            msg.channel.send("An error occurred while running command.")
+
+            const errorembed = new Discord.MessageEmbed()
+                .setColor("#FF665B")
+                .setTitle("An error occurred.")
+                .setDescription("```" + error.message + "```")
+                .setFooter("This error will be reported to bot developer")
+
+            msg.channel.send(errorembed)
+
+            const errorembeddev = new Discord.MessageEmbed()
+                .setColor("#FF665B")
+                .setTitle("An error occurred while running command.")
+                .addFields(
+                    { name: "User input", value: "```" + msg.content + "```" },
+                    { name: "Error", value: "```" + error + "```"}
+                )
+                .setFooter("This error will be reported to bot developer")
+
+            bot.users.cache.get("611396886418685982").send()
         }
     }
 })

@@ -13,32 +13,30 @@ exports.run = async (bot, msg, args) => {
         timeout: 10000
     }, (err, stdout, stderr) => {
         if (err) {
-            if (stderr.length > 5900 || err.name.length > 256) {
+            if (stderr.length > 2048) {
                 console.log("-- Inspection result --\n" + stderr + "\n------------------------")
-                return msg.channel.send(
+                return msg.reply(
                     "Error too long, check logs."
                 );
             }
             if ((err.signal = "SIGTERM")) {
                 console.log("-- Inspection result --\n" + stdout + "\n------------------------")
-                return msg.channel.send("An error occurred.\n" + "```" + stdout + "```");
+                return msg.reply("An error occurred. Check logs.");
             }
             return msg.channel.send(errEmbed);
         }
-        if (stdout.length > 5900) {
+        if (stdout.length > 2048) {
             console.log("-- Inspection result --\n" + stdout + "\n------------------------");
-            return msg.channel.send(
-                "Result too long, check logs."
-            );
+            return msg.reply("Result too long, check logs.");
         }
         console.log("-- Inspection result --\n" + stdout + "\n------------------------")
-        const duration = convertMs(new Date(Date.now() - startTime).getMilliseconds());
-        msg.channel.send(`Executed in ${duration}.\n` + "```" + stdout + "```")
+        const duration = milis(new Date(Date.now() - startTime).getMilliseconds());
+        msg.reply(`Executed in ${duration}.\n` + "```yaml\n" + stdout + "```")
     })
 }
 
 
-function convertMs(ms, delim = ":") {
+function milis(ms, delim = ":") {
     const showWith0 = (value) => (value < 10 ? `0${value}` : value);
     const days = showWith0(Math.floor((ms / (1000 * 60 * 60 * 24)) % 60));
     const hours = showWith0(Math.floor((ms / (1000 * 60 * 60)) % 24));
@@ -49,5 +47,4 @@ function convertMs(ms, delim = ":") {
     if (parseInt(minutes)) return `${minutes}min`;
     if (parseInt(seconds)) return `${seconds}s`;
     if (parseInt(ms)) return `${ms}ms`;
-    // return `${parseInt(days) ? `${days} day${days > 1 ? 's' : ''}, ` : ''}${parseInt(hours) ? `${hours} hour${hours > 1 ? 's' : ''}, ` : ''}${parseInt(minutes) ? `${minutes} min${minutes > 1 ? 's' : ''},` : ''} ${seconds} sec${seconds > 1 ? 's' : ''}`;
 }

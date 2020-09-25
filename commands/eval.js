@@ -20,7 +20,7 @@ exports.run = async (bot, msg, args) => {
     }
     catch (error) {
         console.error(error);
-        msg.reply('there was an error during evaluation.');
+        msg.reply('An error occurred during evaluation.');
         msg.channel.send("```" + error + "```").catch(error => {msg.channel.send("Error too long, chack logs.")})
     }
 
