@@ -5,33 +5,32 @@ exports.run = async (bot, msg, args) => {
     if (msg.author.id !== '611396886418685982') return;
 
     const args1 = msg.content.split(' ').slice(1); 
-    const command = args1.join(' ');
+    const cmd = args1.join(' ');
 
-    if (!command) return msg.channel.send("Nothing to execute");
-    const startTime = Date.now();
-    cp.exec(command, {
+    if (!cmd) return
+    const start = Date.now();
+    cp.exec(cmd, {
         timeout: 10000
     }, (err, stdout, stderr) => {
         if (err) {
             if (stderr.length > 2048) {
-                console.log("-- Inspection result --\n" + stderr + "\n------------------------")
-                return msg.reply(
+                console.log("------- Result -------\n" + stderr + "\n-----------------------")
+                return msg.channel.send(
                     "Error too long, check logs."
                 );
             }
             if ((err.signal = "SIGTERM")) {
-                console.log("-- Inspection result --\n" + stdout + "\n------------------------")
-                return msg.reply("An error occurred. Check logs.");
+                console.log("------- Result -------\n" + stdout + "\n-----------------------")
+                return msg.channel.send("An error occurred. Check logs.");
             }
-            return msg.channel.send(errEmbed);
         }
         if (stdout.length > 2048) {
-            console.log("-- Inspection result --\n" + stdout + "\n------------------------");
-            return msg.reply("Result too long, check logs.");
+            console.log("------- Result -------\n" + stdout + "\n-----------------------");
+            return msg.channel.send("Result too long, check logs.");
         }
-        console.log("-- Inspection result --\n" + stdout + "\n------------------------")
-        const duration = milis(new Date(Date.now() - startTime).getMilliseconds());
-        msg.reply(`Executed in ${duration}.\n` + "```yaml\n" + stdout + "```")
+        console.log("------- Result -------\n" + stdout + "\n-----------------------")
+        const duration = milis(new Date(Date.now() - start).getMilliseconds());
+        msg.channel.send(`Executed in ${duration}.\n` + "```yaml\n" + stdout + "```")
     })
 }
 
