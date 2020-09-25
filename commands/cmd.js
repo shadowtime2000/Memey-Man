@@ -14,21 +14,21 @@ exports.run = async (bot, msg, args) => {
     }, (err, stdout, stderr) => {
         if (err) {
             if (stderr.length > 2048) {
-                console.log("------- Result -------\n" + stderr + "\n-----------------------")
+                console.log("------- Result -------\n" + stderr + "\n----------------------")
                 return msg.channel.send(
                     "Error too long, check logs."
                 );
             }
             if ((err.signal = "SIGTERM")) {
-                console.log("------- Result -------\n" + stdout + "\n-----------------------")
+                console.log("------- Result -------\n" + stdout + "\n----------------------")
                 return msg.channel.send("An error occurred. Check logs.");
             }
         }
         if (stdout.length > 2048) {
-            console.log("------- Result -------\n" + stdout + "\n-----------------------");
+            console.log("------- Result -------\n" + stdout + "\n----------------------");
             return msg.channel.send("Result too long, check logs.");
         }
-        console.log("------- Result -------\n" + stdout + "\n-----------------------")
+        console.log("------- Result -------\n" + stdout + "\n----------------------")
         const duration = milis(new Date(Date.now() - start).getMilliseconds());
         msg.channel.send(`Executed in ${duration}.\n` + "```yaml\n" + stdout + "```")
     })
