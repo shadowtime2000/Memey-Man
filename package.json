@@ -23,7 +23,7 @@
     "g-i-s": "^2.1.6",
     "mongoose": "^5.10.0",
     "ms": "^2.1.2",
-    "needle": "^2.3.0",
+    "needle": "^2.5.2",
     "node-fetch": "^2.6.1",
     "nodeyourmeme": "^2.0.0",
     "querystring": "^0.2.0",
