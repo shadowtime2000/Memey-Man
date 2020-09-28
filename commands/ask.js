@@ -10,7 +10,7 @@ exports.run = (bot, msg, args) => {
 
     let answer
 
-    msg.channel.sendTyping()
+    msg.channel.startTyping()
 
     (async() => {
         try {
