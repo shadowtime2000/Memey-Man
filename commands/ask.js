@@ -8,8 +8,19 @@ exports.run = (bot, msg, args) => {
     const args1 = msg.content.split(' ').slice(1);
     const question = args1.join(' ');
 
+    let answer
+
     (async() => {
-        const answer = await waApi.getSpoken(question)
+        try {
+            answer = await waApi.getSpoken(question)
+        } catch (e) {
+            const resultembedn = new Discord.MessageEmbed()
+                    .setColor("#F9A602")
+                    .setTitle("Error!")
+                    .setDescription("Wolfram Alpha didn't understand your question.")
+
+                return msg.channel.send(resultembedn)
+        }
         const answerembed = new Discord.MessageEmbed()
             .setColor("#009900")
             .setTitle("Answer")
