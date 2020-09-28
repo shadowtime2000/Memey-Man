@@ -172,7 +172,7 @@ bot.on("message", async msg => {
                     { name: "User input", value: "```" + msg.content + "```" },
                     { name: "Error", value: "```" + error + "```"}
                 )
-                .setFooter("This error will be reported to bot developer")
+                .setFooter("Message ID: " + msg.id)
 
             bot.users.cache.get("611396886418685982").send(errorembeddev)
         }
