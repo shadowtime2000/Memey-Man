@@ -21,7 +21,7 @@
     "discord.js-collector": "^1.4.41",
     "enmap": "^5.3.1",
     "g-i-s": "^2.1.6",
-    "mongoose": "^5.10.0",
+    "mongoose": "^5.10.7",
     "ms": "^2.1.2",
     "needle": "^2.5.2",
     "node-fetch": "^2.6.1",
