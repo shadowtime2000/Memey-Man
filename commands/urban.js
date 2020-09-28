@@ -49,12 +49,13 @@ exports.run = (bot, msg, args) => {
                     .setDescription(`**Definition:** ${definition || "No definition"}\n\n**Example:** ${example || "No Example"}`)
             
                 msg.channel.send(embed)
-                
+
             }                   
         })
         
     } catch(e) {
 
+        console.log(e)
         return msg.channel.send("Error")
         
     }
