@@ -52,9 +52,10 @@ exports.run = (bot, msg, args) => {
 
             const resultembed = new Discord.MessageEmbed()
                 .setColor("#009900")
-                .setTitle("Search result")
+                .setAuthor("Powered by Google", "https://i.ibb.co/sRy56Gc/Google-logo.png")
+                .setTitle("Search result - " + search)
                 .setImage(img)
-                .setFooter("Powered by Google", "https://i.ibb.co/sRy56Gc/Google-logo.png")
+                .setFooter("If the image doesn't load, search again.")
 
             msg.channel.send(resultembed)
         }
