@@ -1,6 +1,8 @@
 const Discord = require('discord.js')
 exports.run = async (bot, msg, args) => {
 
+    if (msg.channel.type == "dm") return;
+
     var args1 = msg.content.split(" ").slice(1)
     var userID = args1.join(" ")
 

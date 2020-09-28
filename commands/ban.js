@@ -1,5 +1,7 @@
 const Discord = require('discord.js');
 exports.run = async (bot, msg, args) => {
+
+    if (msg.channel.type == "dm") return;
     
     const args1 = msg.content.split(' ').slice(2); 
     const banreason = args1.join(' '); 
