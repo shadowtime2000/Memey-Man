@@ -5,7 +5,8 @@ const waApi = WolframAlphaAPI(process.env.WOLFRAM);
 
 exports.run = (bot, msg, args) => {
 
-	var arguments = msg.content.split(" ").slice(1)
+    var arguments = msg.content.split(" ").slice(1)
+    arguments = Array.prototype.slice.call(arguments);
     var question = arguments.join(" ")
 
     (async() => {
