@@ -9,20 +9,14 @@ exports.run = (bot, msg, args) => {
     const question = args1.join(' ');
 
     (async() => {
-        try{
+        const answer = await waApi.getSpoken(question)
+        const answerembed = new Discord.MessageEmbed()
+            .setColor("#009900")
+            .setTitle("Answer")
+            .setDescription(answer)
+            .setFooter("Powered by Wolfram Alpha", "https://i.ibb.co/TrFWq8d/wolframalpha.png")
 
-            const answer = await waApi.getSpoken(question)
-            const answerembed = new Discord.MessageEmbed()
-                .setColor("#009900")
-                .setTitle("Answer")
-                .setDescription(answer)
-                .setFooter("Powered by Wolfram Alpha", "https://i.ibb.co/74Y9b4f/wolfram-logo.png")
-
-            msg.channel.send(answerembed)
-        } catch(e) {
-            console.log(e)
-            return msg.channel.send("An error occurred.")
-        }
+        msg.channel.send(answerembed)
     })()
 
 };
