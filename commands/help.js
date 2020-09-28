@@ -24,7 +24,7 @@ exports.run = async (bot, msg, args) => {
                 embed: {
                     color: "#1167b1",
                     title: "Tool commands",
-                    description: '``ping`` Gets bot ping.\n``prefix`` Sets bot prefix.\n``avatar`` Gives user\'s avatar.\n``math`` Calculates an equation.\n``translate`` Translates text to English.\n``poll`` Creates a poll.\n``serverinfo`` Gives server info.',
+                    description: '``ping`` Gets bot ping.\n``prefix`` Sets bot prefix.\n``avatar`` Gives user\'s avatar.\m``ask`` Ask anything to the bot.\n``math`` Calculates an equation.\n``translate`` Translates text to English.\n``poll`` Creates a poll.\n``serverinfo`` Gives server info.',
                     footer: {
                         iconURL: "https://i.imgur.com/XiiqQWn.png",
                         text: "This server's prefix is " + prefix
