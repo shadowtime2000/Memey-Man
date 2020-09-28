@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "redtea",
+  "author": "redteadeveloper",
   "license": "ISC",
   "dependencies": {
     "@danke77/google-translate-api": "^1.0.0",
