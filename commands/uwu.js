@@ -7,7 +7,7 @@ exports.run = (bot, msg, args) => {
         .setDescription("Don't try to ping users and roles!")
 
     if(msg.mentions.users.first() || msg.mentions.roles.first()) return msg.channel.send(noping)
-    if(msg.content == `${prefix}uwu @here` || msg.content == `${prefix}uwu @everyone`) return msg.channel.send(noping)
+    if(msg.content.includes("@here") || msg.content.includes("@everyone")) return msg.channel.send(noping)
 
     const args1 = msg.content.split(' ').slice(1); 
     const text = args1.join(' ');  

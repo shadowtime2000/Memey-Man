@@ -1,7 +1,7 @@
 {
-  "name": "discordbot",
+  "name": "memeyman",
   "version": "1.9.6",
-  "description": "memey man bot",
+  "description": "memey man discord bot",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -35,11 +35,11 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/calvinjung/Memey-Man.git"
+    "url": "git+https://github.com/redteadeveloper/Memey-Man.git"
   },
   "keywords": [],
   "bugs": {
-    "url": "https://github.com/calvinjung/Memey-Man/issues"
+    "url": "https://github.com/redteadeveloper/Memey-Man/issues"
   },
-  "homepage": "https://github.com/calvinjung/Memey-Man#readme"
+  "homepage": "https://github.com/redteadeveloper/Memey-Man#readme"
 }
