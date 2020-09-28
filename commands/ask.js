@@ -22,6 +22,7 @@ exports.run = (bot, msg, args) => {
 
             msg.channel.send(resultembedn)
             msg.channel.stopTyping()    
+            return
         }
         const answerembed = new Discord.MessageEmbed()
             .setColor("#009900")
