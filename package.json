@@ -19,7 +19,7 @@
     "discord-youtube-api": "^0.1.0",
     "discord.js": "^12.3.1",
     "discord.js-collector": "^1.4.41",
-    "enmap": "^5.3.1",
+    "enmap": "^5.8.0",
     "g-i-s": "^2.1.6",
     "mongoose": "^5.10.7",
     "ms": "^2.1.2",
