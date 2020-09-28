@@ -10,6 +10,8 @@ exports.run = (bot, msg, args) => {
 
     let answer
 
+    msg.channel.sendTyping()
+
     (async() => {
         try {
             answer = await waApi.getSpoken(question)
@@ -19,7 +21,8 @@ exports.run = (bot, msg, args) => {
                     .setTitle("Error!")
                     .setDescription("Wolfram Alpha didn't understand your question.")
 
-                return msg.channel.send(resultembedn)
+            msg.channel.send(resultembedn)
+            msg.channel.stopTyping()    
         }
         const answerembed = new Discord.MessageEmbed()
             .setColor("#009900")
@@ -28,6 +31,7 @@ exports.run = (bot, msg, args) => {
             .setFooter("Powered by Wolfram Alpha", "https://i.ibb.co/TrFWq8d/wolframalpha.png")
 
         msg.channel.send(answerembed)
+        msg.channel.stopTyping()
     })()
 
 };
