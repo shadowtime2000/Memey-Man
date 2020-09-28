@@ -10,10 +10,9 @@ exports.run = (bot, msg, args) => {
 
     let answer
 
-    msg.channel.startTyping()
-
     (async() => {
         try {
+            msg.channel.startTyping()
             answer = await waApi.getSpoken(question)
         } catch (e) {
             const resultembedn = new Discord.MessageEmbed()
