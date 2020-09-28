@@ -21,7 +21,7 @@ exports.run = (bot, msg, args) => {
             
             if (!res) return msg.channel.send(":x: No results found.");
             let { word, definition, example } = res;                        
-            if ( definition.length + word.length + example.length + 22 > 2048 ) {
+            if ( definition.length + word.length + example.length > 1900 ) {
                 
                 let longdefinition
                 let longexample
@@ -49,6 +49,7 @@ exports.run = (bot, msg, args) => {
                     .setDescription(`**Definition:** ${definition || "No definition"}\n\n**Example:** ${example || "No Example"}`)
             
                 msg.channel.send(embed)
+                
             }                   
         })
         
