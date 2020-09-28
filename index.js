@@ -161,7 +161,7 @@ bot.on("message", async msg => {
                 .setColor("#FF665B")
                 .setTitle("An error occurred.")
                 .setDescription("```" + error.message + "```")
-                .setFooter("This error will be reported to bot developer")
+                .setFooter("This error will be reported to bot developer.")
 
             msg.channel.send(errorembed)
 
@@ -172,7 +172,8 @@ bot.on("message", async msg => {
                     { name: "User input", value: "```" + msg.content + "```" },
                     { name: "Error", value: "```" + error + "```"}
                 )
-                .setFooter("Message ID: " + msg.id)
+                .setFooter("This error will be reported to bot developer.")
+                //.setFooter("Message ID: " + msg.id)
 
             bot.users.cache.get("611396886418685982").send(errorembeddev)
         }
