@@ -43,6 +43,7 @@ exports.run = async (bot, msg, args) => {
         .setURL(url)
         .setThumbnail(thumbnail)
         .setDescription(text)
+        .setFooter("Powered by Wikipedia", "https://i.ibb.co/VWvCzg1/wikipedia.png")
 
     await msg.channel.send(jokeembed)
 
