@@ -31,6 +31,7 @@ exports.run = async (bot, msg, args) => {
         .setColor("#009900")
         .setTitle(res.name)
         .setDescription(res.about)
+        .setFooter("Powered by Know Your Meme", "https://i.ibb.co/yPBq1x5/kymeme.png")
 
     msg.channel.send(meme)
 
