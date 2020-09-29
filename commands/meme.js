@@ -47,7 +47,7 @@ exports.run = (bot, msg, args) => {
                 .setColor('#7cfc00')
                 .setTitle(json.title)
                 .setImage(json.url)
-                .setFooter(`NSFW channel detected | Subreddit: r/${json.subreddit}`)   
+                .setFooter(`Subreddit: r/${json.subreddit}`)   
 
             msg.channel.send(memeembed)   
 
