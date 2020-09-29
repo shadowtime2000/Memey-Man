@@ -2,6 +2,12 @@ const Discord = require('discord.js');
 const urban = require('urban')
 exports.run = (bot, msg, args) => {
 
+    if(msg.channel.id != "760340486769737749" && msg.guild.id == "737151735910629437") {
+        return msg.channel.send(
+            "Sorry. You cannot run the URBAN command here. As the urban dictionary contains 18+ definitions (90% of the time), we've decided to limit the command usage to a NSFW channel, #urban-dictionary. Thank you, and hope you understand."
+        )
+    }
+
     const args1 = msg.content.split(' ').slice(1); 
     const searchword = args1.join(' '); 
 
