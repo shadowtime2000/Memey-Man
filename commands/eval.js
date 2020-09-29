@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const os = require('os')
+const mongoose = require('mongoose')
 const { inspect } = require('util');
 exports.run = async (bot, msg, args) => {
 
