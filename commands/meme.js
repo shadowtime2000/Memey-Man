@@ -10,7 +10,7 @@ exports.run = (bot, msg, args) => {
 
         async function fetchRedditData() {
 
-            const res = await fetch("https://www.reddit.com/r/aviationmemes/random.json");
+            const res = await fetch("https://www.reddit.com/r/cleanmemes/random.json");
             const data = await res.json();
         
             const url = data[0].data.children[0].data.url
