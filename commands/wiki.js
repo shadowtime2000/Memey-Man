@@ -9,7 +9,7 @@ exports.run = async (bot, msg, args) => {
         .setFooter("You didn't provide a search word.")
 
     const args1 = msg.content.split(' ').slice(1);
-    const search = args1.join(' ');
+    const search = args1.join('_');
 
     if (!search) return msg.channel.send(nosearch)
 
@@ -19,7 +19,7 @@ exports.run = async (bot, msg, args) => {
     const data = await res.json();
 
     const title = data.title;
-    const text = data.extract || "Couldn't retrieve any result.";
+    const text = data.extract || "Couldn't retrieve any result. Try searching case sensitively.";
 
     let thumbnail
 
